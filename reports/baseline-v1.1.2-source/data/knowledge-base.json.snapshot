@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "company": "Nexo Gestão — empresa fictícia para demonstração",
+  "data_classification": "Base sintética; substituir e aprovar as políticas antes de um piloto real.",
+  "articles": [
+    {
+      "id": "KB-001", "version": "1.0.0", "category": "acesso",
+      "title": "Recuperação de acesso",
+      "keywords": ["senha", "login", "entrar", "acesso", "autenticação"],
+      "content": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha. O cliente recebe instruções no e-mail cadastrado e deve verificar também a pasta de spam. Se não tiver acesso ao e-mail cadastrado, a equipe de suporte deve verificar a titularidade por um canal aprovado. O suporte nunca solicita senha ou código de autenticação.",
+      "steps": ["Na tela de login, selecione Esqueci minha senha.", "Verifique as instruções no e-mail cadastrado e na pasta de spam.", "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."]
+    },
+    {
+      "id": "KB-002", "version": "1.0.0", "category": "cobranca",
+      "title": "Divergências de cobrança",
+      "keywords": ["cobrança", "fatura", "boleto", "pagamento", "duplicada", "reembolso", "estorno"],
+      "content": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas. A equipe financeira precisa analisar a competência e a descrição da divergência. Não há aprovação automática de reembolso, estorno ou desconto. Não solicitar cartão completo nem comprovante com dados pessoais expostos.",
+      "steps": ["Consulte a área Financeiro > Faturas e identifique a competência afetada.", "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis.", "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."]
+    },
+    {
+      "id": "KB-003", "version": "1.0.0", "category": "erro_tecnico",
+      "title": "Falha técnica individual",
+      "keywords": ["erro", "falha", "travando", "lentidão", "indisponível", "fora do ar"],
+      "content": "Para uma falha técnica individual, registrar funcionalidade afetada, horário aproximado e mensagem de erro sem dados pessoais. Uma tentativa de recarregar a página é permitida apenas após preservar qualquer trabalho não salvo. Persistindo a falha, a equipe técnica deve analisar o caso. Não há prazo de solução confirmado. Se toda a empresa estiver sem acesso, classificar como incidente crítico e encaminhar para atendimento humano.",
+      "steps": ["Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais.", "Após preservar qualquer trabalho não salvo, tente recarregar a página uma vez.", "Se o erro persistir, solicite a análise da equipe técnica."]
+    },
+    {
+      "id": "KB-004", "version": "1.0.0", "category": "duvida",
+      "title": "Exportação de relatório CSV",
+      "keywords": ["exportar", "exportação", "relatório", "csv"],
+      "content": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação. É necessária permissão de leitura do relatório. Se a opção não estiver visível, um administrador da própria empresa pode conferir as permissões. Este artigo não descreve integrações externas ou outros formatos de exportação.",
+      "steps": ["Abra Relatórios, selecione o período e escolha Exportar CSV.", "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."]
+    },
+    {
+      "id": "KB-005", "version": "1.0.0", "category": "cancelamento",
+      "title": "Solicitação de cancelamento",
+      "keywords": ["cancelar", "cancelamento", "encerrar", "plano", "assinatura"],
+      "content": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento. A solicitação precisa ser confirmada pela equipe responsável. O assistente não realiza o cancelamento. Efeitos financeiros, data de encerramento e eventual devolução dependem da análise do contrato, que não está disponível nesta base.",
+      "steps": ["O titular pode abrir Conta > Assinatura > Solicitar cancelamento.", "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.", "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."]
+    }
+  ]
+}

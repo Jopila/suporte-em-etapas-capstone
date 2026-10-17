@@ -1,0 +1,41 @@
+# Roteiro de apresentação — 5 minutos
+
+## 0:00–0:45 · Problema
+
+“Equipes de suporte precisam classificar chamados e responder com base em políticas consistentes. Este projeto ajuda o atendente a preparar a resposta, preservando a aprovação humana. Uso uma empresa e uma base fictícias para demonstrar um problema operacional real sem expor dados de clientes.”
+
+Mostre o chamado de cobrança duplicada em `examples/chamado.json`.
+
+## 0:45–1:45 · Sistema de prompts
+
+Mostre o diagrama em `docs/ARQUITETURA.md` e a pasta ativa `prompts/v1.1.1/`. A versão 1.0.0 foi preservada para comparação.
+
+Explique as quatro etapas de modelo: triagem, fundamentação, resposta e revisão. Mostre um exemplo few-shot da triagem e a regra de citação literal da fundamentação. Destaque que os contratos são verificados pelo código.
+
+## 1:45–2:45 · Demonstração
+
+Execute:
+
+```powershell
+npm run demo
+```
+
+Mostre categoria, prioridade, artigo KB-002, resposta, aprovação técnica e `requires_human_approval:true`. Diga explicitamente: “Esta execução usa um simulador determinístico. A avaliação real no Groq evoluiu de 17 para 19 e depois 20 aprovações automáticas em 20 casos. A versão final reúne 15 casos com API e cinco encaminhamentos locais, concluídos em retomadas com o mesmo código. As evidências estão em docs/COMPARACAO_GROQ_CORRECOES.md.”
+
+Use as saídas reais já preservadas para mostrar o Groq durante a apresentação. A matriz está concluída e pode ser apresentada sem novas chamadas. Não coloque a chave na tela.
+
+## 2:45–3:45 · Testes
+
+Execute `npm test` e abra `docs/COMPARACAO_GROQ_CORRECOES.md`. Mostre os 56 testes aprovados, incluindo 16 regressões novas. Explique a correção de C09/C14, o bloqueio de SMS inventado e os limites do filtro financeiro de C15. Compare 73.625 tokens na matriz original com 87.230 nos 20 resultados concluídos da versão final (+18,48%). Incluindo as tentativas interrompidas, a versão final consumiu 121.392; o ciclo inteiro de correções e retomadas soma 240.354. A última solicitação concluiu C18, C19 e C20 com 20.456 tokens, preservando os outros 17 casos. Mesmo aprovados automaticamente, alguns rascunhos ampliam procedimentos: C15 promete contato futuro e C19 sugere conceder permissão, ações não explícitas na base. Essas ressalvas e o falso positivo anterior com “Aguardar” permanecem documentados.
+
+“A simulação passou em 60 execuções. A versão final concluiu os 20 casos e passou nas nove verificações automáticas. Isso não mede consistência entre repetições nem elimina as limitações de conteúdo encontradas na inspeção. A pontuação automática precisa ser acompanhada da revisão por atendentes.”
+
+## 3:45–4:30 · Decisões de engenharia
+
+Explique a separação entre biblioteca de prompts, base de conhecimento, contratos, cliente Groq e pipeline. Compare um prompt único com o fluxo modular: o fluxo escolhido faz mais chamadas, mas permite verificar etapas e localizar falhas.
+
+## 4:30–5:00 · Limitações e próximo passo
+
+“A base é pequena, a busca é lexical e a revisão usa o mesmo modelo. Precisamos tratar as observações de conteúdo, aprovar uma base real, avaliar um conjunto reservado e medir o trabalho economizado pelo atendente.”
+
+Encerre mostrando a matriz de critérios de aceitação em `docs/CAPSTONE.md` e os quatro entregáveis: biblioteca, documentação, testes e exemplos.

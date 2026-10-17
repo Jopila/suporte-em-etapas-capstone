@@ -1,0 +1,484 @@
+TAP version 13
+# Subtest: contratos recusam campos ausentes, adicionais, tipos incorretos, enums e confiança inválida
+ok 1 - contratos recusam campos ausentes, adicionais, tipos incorretos, enums e confiança inválida
+  ---
+  duration_ms: 3.5304
+  type: 'test'
+  ...
+# Subtest: revisor não pode aprovar com critério reprovado ou problemas pendentes
+ok 2 - revisor não pode aprovar com critério reprovado ou problemas pendentes
+  ---
+  duration_ms: 0.4593
+  type: 'test'
+  ...
+# Subtest: entrada limita tamanho, ID e campos enviados ao modelo
+ok 3 - entrada limita tamanho, ID e campos enviados ao modelo
+  ---
+  duration_ms: 0.6829
+  type: 'test'
+  ...
+# Subtest: remoção local cobre e-mail, CPF, telefone, cartão e credencial explícita
+ok 4 - remoção local cobre e-mail, CPF, telefone, cartão e credencial explícita
+  ---
+  duration_ms: 1.6008
+  type: 'test'
+  ...
+# Subtest: urgência retórica não é indisponibilidade, e instruções suspeitas são sinalizadas
+ok 5 - urgência retórica não é indisponibilidade, e instruções suspeitas são sinalizadas
+  ---
+  duration_ms: 1.0531
+  type: 'test'
+  ...
+# Subtest: dados adversariais ficam exclusivamente na mensagem de usuário serializada
+ok 6 - dados adversariais ficam exclusivamente na mensagem de usuário serializada
+  ---
+  duration_ms: 21.2075
+  type: 'test'
+  ...
+# Subtest: recuperação exige sobreposição textual, mesmo com categoria conhecida
+ok 7 - recuperação exige sobreposição textual, mesmo com categoria conhecida
+  ---
+  duration_ms: 2.4893
+  type: 'test'
+  ...
+# Subtest: fundamentação recusa fonte inventada, citação fabricada e ação não autorizada
+ok 8 - fundamentação recusa fonte inventada, citação fabricada e ação não autorizada
+  ---
+  duration_ms: 2.1879
+  type: 'test'
+  ...
+# Subtest: controles detectam promessa, segredo e fonte inválida sem bloquear a instrução aprovada
+ok 9 - controles detectam promessa, segredo e fonte inválida sem bloquear a instrução aprovada
+  ---
+  duration_ms: 9.3551
+  type: 'test'
+  ...
+# Subtest: C10: detecta o problema editorial observado na versão anterior
+ok 10 - C10: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 8.5704
+  type: 'test'
+  ...
+# Subtest: C19: detecta o problema editorial observado na versão anterior
+ok 11 - C19: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 1.6717
+  type: 'test'
+  ...
+# Subtest: consulta de faturas não depende de resposta prévia nem de dados enviados
+ok 12 - consulta de faturas não depende de resposta prévia nem de dados enviados
+  ---
+  duration_ms: 3.3395
+  type: 'test'
+  ...
+# Subtest: autoatendimento direto permite análise posterior e proibições de envio
+ok 13 - autoatendimento direto permite análise posterior e proibições de envio
+  ---
+  duration_ms: 2.4091
+  type: 'test'
+  ...
+# Subtest: condições autorizadas de outros procedimentos continuam permitidas
+ok 14 - condições autorizadas de outros procedimentos continuam permitidas
+  ---
+  duration_ms: 2.1301
+  type: 'test'
+  ...
+# Subtest: IDs internos no texto são rejeitados, preservando códigos de erro e menus
+ok 15 - IDs internos no texto são rejeitados, preservando códigos de erro e menus
+  ---
+  duration_ms: 2.3444
+  type: 'test'
+  ...
+# Subtest: editoriais persistentes são bloqueados mesmo com revisor permissivo
+ok 16 - editoriais persistentes são bloqueados mesmo com revisor permissivo
+  ---
+  duration_ms: 26.488
+  type: 'test'
+  ...
+# Subtest: correção editorial mantém fontes estruturadas, evidência e aprovação humana
+ok 17 - correção editorial mantém fontes estruturadas, evidência e aprovação humana
+  ---
+  duration_ms: 17.3154
+  type: 'test'
+  ...
+# Subtest: relatório identifica a versão ativa do avaliador de conteúdo
+ok 18 - relatório identifica a versão ativa do avaliador de conteúdo
+  ---
+  duration_ms: 10.07
+  type: 'test'
+  ...
+# Subtest: 20 cenários sintéticos passam e repetição mede concordância de decisões
+ok 19 - 20 cenários sintéticos passam e repetição mede concordância de decisões
+  ---
+  duration_ms: 100.9606
+  type: 'test'
+  ...
+# Subtest: avaliador detecta regressão de categoria, prioridade, fontes e aprovação humana
+ok 20 - avaliador detecta regressão de categoria, prioridade, fontes e aprovação humana
+  ---
+  duration_ms: 12.0047
+  type: 'test'
+  ...
+# Subtest: avaliador não confunde erro operacional com abstinência correta
+ok 21 - avaliador não confunde erro operacional com abstinência correta
+  ---
+  duration_ms: 3.9881
+  type: 'test'
+  ...
+# Subtest: uma execução não inventa métrica de consistência
+ok 22 - uma execução não inventa métrica de consistência
+  ---
+  duration_ms: 5.8135
+  type: 'test'
+  ...
+# Subtest: avaliação aguarda os hooks e preserva a saída de cada caso sem repetir chamadas
+ok 23 - avaliação aguarda os hooks e preserva a saída de cada caso sem repetir chamadas
+  ---
+  duration_ms: 15.4034
+  type: 'test'
+  ...
+# Subtest: CLI recusa provedor desconhecido e chave ausente sem fallback silencioso
+ok 24 - CLI recusa provedor desconhecido e chave ausente sem fallback silencioso
+  ---
+  duration_ms: 233.077
+  type: 'test'
+  ...
+# Subtest: fluxo completo passa pelas quatro etapas e exige revisão humana
+ok 25 - fluxo completo passa pelas quatro etapas e exige revisão humana
+  ---
+  duration_ms: 15.3804
+  type: 'test'
+  ...
+# Subtest: risco crítico e injeção interrompem antes de chamar o modelo
+ok 26 - risco crítico e injeção interrompem antes de chamar o modelo
+  ---
+  duration_ms: 8.3863
+  type: 'test'
+  ...
+# Subtest: risco percebido pelo modelo sobe para P1 e equipe de segurança
+ok 27 - risco percebido pelo modelo sobe para P1 e equipe de segurança
+  ---
+  duration_ms: 5.8828
+  type: 'test'
+  ...
+# Subtest: baixa confiança encaminha sem inventar orientação
+ok 28 - baixa confiança encaminha sem inventar orientação
+  ---
+  duration_ms: 1.1585
+  type: 'test'
+  ...
+# Subtest: sem recuperação textual ou sem sustentação interrompe a geração
+ok 29 - sem recuperação textual ou sem sustentação interrompe a geração
+  ---
+  duration_ms: 1.7785
+  type: 'test'
+  ...
+# Subtest: saída fora do contrato é refeita uma vez, usando feedback limitado
+ok 30 - saída fora do contrato é refeita uma vez, usando feedback limitado
+  ---
+  duration_ms: 5.1144
+  type: 'test'
+  ...
+# Subtest: contrato persistentemente inválido falha fechado sem ciclo infinito
+ok 31 - contrato persistentemente inválido falha fechado sem ciclo infinito
+  ---
+  duration_ms: 1.5378
+  type: 'test'
+  ...
+# Subtest: citação fabricada e ação não autorizada são bloqueadas mesmo com JSON válido
+ok 32 - citação fabricada e ação não autorizada são bloqueadas mesmo com JSON válido
+  ---
+  duration_ms: 4.8886
+  type: 'test'
+  ...
+# Subtest: crítica do revisor aciona uma revisão e valida novamente
+ok 33 - crítica do revisor aciona uma revisão e valida novamente
+  ---
+  duration_ms: 2.7959
+  type: 'test'
+  ...
+# Subtest: duas rejeições impedem liberação e descartam o rascunho
+ok 34 - duas rejeições impedem liberação e descartam o rascunho
+  ---
+  duration_ms: 2.5439
+  type: 'test'
+  ...
+# Subtest: fonte inventada na resposta é barrada antes de consultar o revisor
+ok 35 - fonte inventada na resposta é barrada antes de consultar o revisor
+  ---
+  duration_ms: 1.7356
+  type: 'test'
+  ...
+# Subtest: dados reconhecidos são removidos antes de qualquer chamada e da saída
+ok 36 - dados reconhecidos são removidos antes de qualquer chamada e da saída
+  ---
+  duration_ms: 1.8706
+  type: 'test'
+  ...
+# Subtest: falha do provedor não revela mensagem bruta e não simula sucesso
+ok 37 - falha do provedor não revela mensagem bruta e não simula sucesso
+  ---
+  duration_ms: 1.0272
+  type: 'test'
+  ...
+# Subtest: orçamento global encerra execução demorada
+ok 38 - orçamento global encerra execução demorada
+  ---
+  duration_ms: 27.2723
+  type: 'test'
+  ...
+# Subtest: cliente exige credencial e valida limites de configuração
+ok 39 - cliente exige credencial e valida limites de configuração
+  ---
+  duration_ms: 3.4017
+  type: 'test'
+  ...
+# Subtest: requisição usa apenas Groq, schema estrito e não serializa a chave no cliente
+ok 40 - requisição usa apenas Groq, schema estrito e não serializa a chave no cliente
+  ---
+  duration_ms: 52.3491
+  type: 'test'
+  ...
+# Subtest: modo JSON object é uma opção explícita
+ok 41 - modo JSON object é uma opção explícita
+  ---
+  duration_ms: 1.2827
+  type: 'test'
+  ...
+# Subtest: 429 respeita Retry-After e recupera com número limitado de tentativas
+ok 42 - 429 respeita Retry-After e recupera com número limitado de tentativas
+  ---
+  duration_ms: 1.9728
+  type: 'test'
+  ...
+# Subtest: Retry-After longo retorna à fila sem repetir antes do prazo
+ok 43 - Retry-After longo retorna à fila sem repetir antes do prazo
+  ---
+  duration_ms: 1.1248
+  type: 'test'
+  ...
+# Subtest: 401 não repete e não expõe corpo de erro
+ok 44 - 401 não repete e não expõe corpo de erro
+  ---
+  duration_ms: 0.7411
+  type: 'test'
+  ...
+# Subtest: 503 esgota exatamente três tentativas
+ok 45 - 503 esgota exatamente três tentativas
+  ---
+  duration_ms: 2.6354
+  type: 'test'
+  ...
+# Subtest: erros de rede são resumidos e têm repetição limitada
+ok 46 - erros de rede são resumidos e têm repetição limitada
+  ---
+  duration_ms: 1.7167
+  type: 'test'
+  ...
+# Subtest: timeout cancela o fetch
+ok 47 - timeout cancela o fetch
+  ---
+  duration_ms: 115.9714
+  type: 'test'
+  ...
+# Subtest: JSON inválido, truncamento e recusa não viram uma resposta aprovada
+ok 48 - JSON inválido, truncamento e recusa não viram uma resposta aprovada
+  ---
+  duration_ms: 2.5212
+  type: 'test'
+  ...
+# Subtest: uso é contabilizado mesmo quando o conteúdo JSON é inválido
+ok 49 - uso é contabilizado mesmo quando o conteúdo JSON é inválido
+  ---
+  duration_ms: 0.7199
+  type: 'test'
+  ...
+# Subtest: redação preserva negação, conjunções e descrições sem credenciais
+ok 50 - redação preserva negação, conjunções e descrições sem credenciais
+  ---
+  duration_ms: 3.4017
+  type: 'test'
+  ...
+# Subtest: credenciais explícitas continuam removidas e a redação é idempotente
+ok 51 - credenciais explícitas continuam removidas e a redação é idempotente
+  ---
+  duration_ms: 0.5011
+  type: 'test'
+  ...
+# Subtest: canal de recuperação sem evidência não passa com uma fonte válida
+ok 52 - canal de recuperação sem evidência não passa com uma fonte válida
+  ---
+  duration_ms: 8.6821
+  type: 'test'
+  ...
+# Subtest: canal documentado em uma base autorizada pode ser usado
+ok 53 - canal documentado em uma base autorizada pode ser usado
+  ---
+  duration_ms: 0.6087
+  type: 'test'
+  ...
+# Subtest: relato não pode ser apresentado como inspeção realizada pelo assistente
+ok 54 - relato não pode ser apresentado como inspeção realizada pelo assistente
+  ---
+  duration_ms: 4
+  type: 'test'
+  ...
+# Subtest: bloqueia coleta de identificadores e documentos ausente dos passos aprovados
+ok 55 - bloqueia coleta de identificadores e documentos ausente dos passos aprovados
+  ---
+  duration_ms: 2.5672
+  type: 'test'
+  ...
+# Subtest: canal de titularidade é um meio a usar, não uma informação a coletar
+ok 56 - canal de titularidade é um meio a usar, não uma informação a coletar
+  ---
+  duration_ms: 0.5565
+  type: 'test'
+  ...
+# Subtest: pedidos em listas preservam o contexto de solicitação ou proibição
+ok 57 - pedidos em listas preservam o contexto de solicitação ou proibição
+  ---
+  duration_ms: 1.6544
+  type: 'test'
+  ...
+# Subtest: identificadores com hífen Unicode também são reconhecidos
+ok 58 - identificadores com hífen Unicode também são reconhecidos
+  ---
+  duration_ms: 0.5807
+  type: 'test'
+  ...
+# Subtest: recusa da garantia de reembolso pode acompanhar orientação parcial
+ok 59 - recusa da garantia de reembolso pode acompanhar orientação parcial
+  ---
+  duration_ms: 1.1221
+  type: 'test'
+  ...
+# Subtest: controles locais impedem liberação mesmo quando o revisor aprovaria
+ok 60 - controles locais impedem liberação mesmo quando o revisor aprovaria
+  ---
+  duration_ms: 38.5925
+  type: 'test'
+  ...
+# Subtest: condição de análise financeira aceita paráfrase sem esconder promessa posterior
+ok 61 - condição de análise financeira aceita paráfrase sem esconder promessa posterior
+  ---
+  duration_ms: 7.8108
+  type: 'test'
+  ...
+# Subtest: feedback local permite corrigir o rascunho e só liberar a segunda versão
+ok 62 - feedback local permite corrigir o rascunho e só liberar a segunda versão
+  ---
+  duration_ms: 4.4914
+  type: 'test'
+  ...
+# Subtest: política de outros usa P3 e preserva incidentes P1
+ok 63 - política de outros usa P3 e preserva incidentes P1
+  ---
+  duration_ms: 7.9898
+  type: 'test'
+  ...
+# Subtest: avaliador detecta procedimento inventado mesmo com contrato e fonte corretos
+ok 64 - avaliador detecta procedimento inventado mesmo com contrato e fonte corretos
+  ---
+  duration_ms: 4.798
+  type: 'test'
+  ...
+# Subtest: lacunas especulativas não viram requisitos de etapas posteriores
+ok 65 - lacunas especulativas não viram requisitos de etapas posteriores
+  ---
+  duration_ms: 6.4808
+  type: 'test'
+  ...
+# Subtest: C05: detecta a ressalva observada mesmo com fonte correta
+ok 66 - C05: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 7.4673
+  type: 'test'
+  ...
+# Subtest: C10: detecta a ressalva observada mesmo com fonte correta
+ok 67 - C10: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 1.3129
+  type: 'test'
+  ...
+# Subtest: C13: detecta a ressalva observada mesmo com fonte correta
+ok 68 - C13: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.4304
+  type: 'test'
+  ...
+# Subtest: C15: detecta a ressalva observada mesmo com fonte correta
+ok 69 - C15: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.8627
+  type: 'test'
+  ...
+# Subtest: C18: detecta a ressalva observada mesmo com fonte correta
+ok 70 - C18: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 1.0355
+  type: 'test'
+  ...
+# Subtest: C19: detecta a ressalva observada mesmo com fonte correta
+ok 71 - C19: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.4871
+  type: 'test'
+  ...
+# Subtest: procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+ok 72 - procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+  ---
+  duration_ms: 4.437
+  type: 'test'
+  ...
+# Subtest: variações de concessão e troca de ordem da permissão são bloqueadas
+ok 73 - variações de concessão e troca de ordem da permissão são bloqueadas
+  ---
+  duration_ms: 1.216
+  type: 'test'
+  ...
+# Subtest: orientar o cliente não equivale a prometer uma consulta operacional
+ok 74 - orientar o cliente não equivale a prometer uma consulta operacional
+  ---
+  duration_ms: 2.3649
+  type: 'test'
+  ...
+# Subtest: análise prevista não autoriza promessa de retorno ou notificação
+ok 75 - análise prevista não autoriza promessa de retorno ou notificação
+  ---
+  duration_ms: 2.2372
+  type: 'test'
+  ...
+# Subtest: titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+ok 76 - titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+  ---
+  duration_ms: 0.8284
+  type: 'test'
+  ...
+# Subtest: Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+ok 77 - Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+  ---
+  duration_ms: 2.0309
+  type: 'test'
+  ...
+# Subtest: controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+ok 78 - controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+  ---
+  duration_ms: 47.15
+  type: 'test'
+  ...
+# Subtest: feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+ok 79 - feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+  ---
+  duration_ms: 34.3129
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 79
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 813.4712

@@ -1,0 +1,41 @@
+# Roteiro de apresentação — 5 minutos
+
+## 0:00–0:45 · Problema
+
+“Equipes de suporte precisam classificar chamados e responder com base em políticas consistentes. Este projeto ajuda o atendente a preparar a resposta, preservando a aprovação humana. Uso uma empresa e uma base fictícias para demonstrar um problema operacional real sem expor dados de clientes.”
+
+Mostre o chamado de cobrança duplicada em `examples/chamado.json`.
+
+## 0:45–1:45 · Sistema de prompts
+
+Mostre o diagrama em `docs/ARQUITETURA.md` e a pasta ativa `prompts/v1.2.1/`. As versões anteriores foram preservadas para comparação.
+
+Explique as quatro etapas de modelo: triagem, fundamentação, resposta e revisão. Mostre um exemplo few-shot da triagem e a regra de citação literal da fundamentação. Destaque que os contratos são verificados pelo código.
+
+## 1:45–2:45 · Demonstração
+
+Execute:
+
+```powershell
+npm run demo
+```
+
+Mostre categoria, prioridade, fonte estruturada KB-002, resposta, aprovação técnica e `requires_human_approval:true`. Diga: “Esta execução usa um simulador determinístico. As matrizes históricas no Groq evoluíram de 17 para 19 e depois 20 aprovações em 20 casos. A seleção 1.2.0 passou nos seis casos. Na versão 1.2.1, C01 foi concluído no Groq e os cinco controles locais estão preservados; 14 casos ainda dependem de cota.”
+
+Use as saídas reais preservadas para mostrar o Groq durante a apresentação, identificando a versão de cada exemplo. A matriz atual ainda está incompleta; apresente o checkpoint e as pendências sem novas chamadas. Não coloque a chave na tela.
+
+## 2:45–3:45 · Testes
+
+Execute `npm test` e abra `docs/RETOMADA_GROQ_V1_2_1.md`. Mostre a evidência dos 79 testes, incluindo nove regressões editoriais. Explique C10: consultar a fatura não depende de responder às perguntas para análise. Explique C19: o código do artigo permanece na fonte estruturada, sem aparecer na mensagem. A confirmação online desses dois casos está pendente. As duas retomadas acrescentaram 9.379 tokens; a versão acumula 12.899, o ciclo de correções soma 300.059 e o histórico completo, 379.926. Não compare essa execução parcial com o custo de uma matriz concluída.
+
+“A avaliação histórica com simulador passou em 60 execuções. Na retomada real, C01 passou pelas quatro etapas; C02 foi limitado duas vezes, inclusive depois da espera. O resultado aprovado de C01 e os cinco controles locais estão preservados. Os 14 restantes continuam pendentes. Os testes não medem generalização; a pontuação automática precisa da revisão por atendentes.”
+
+## 3:45–4:30 · Decisões de engenharia
+
+Explique a separação entre biblioteca de prompts, base de conhecimento, contratos, cliente Groq e pipeline. Compare um prompt único com o fluxo modular: o fluxo escolhido faz mais chamadas, mas permite verificar etapas e localizar falhas.
+
+## 4:30–5:00 · Limitações e próximo passo
+
+“A base é pequena, a busca é lexical e a revisão usa o mesmo modelo. O próximo passo é retomar somente os 14 casos pendentes quando houver cota, concluir a matriz, aprovar uma base real e avaliar um conjunto reservado. A retomada está preparada, sem agendamento automático.”
+
+Encerre mostrando a matriz de critérios de aceitação em `docs/CAPSTONE.md` e os quatro entregáveis: biblioteca, documentação, testes e exemplos.

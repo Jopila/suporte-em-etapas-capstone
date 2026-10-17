@@ -1,0 +1,1050 @@
+{
+  "generated_at": "2026-10-16T20:03:05.485Z",
+  "scope": "Consolidação de segmentos da mesma versão, sem substituir tentativas falhas.",
+  "pipeline_version": "1.1.2",
+  "prompt_version": "1.1.1",
+  "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "model": "openai/gpt-oss-120b",
+  "manifest": "reports/groq-v1.1.2-run-manifest.json",
+  "manifest_verified": true,
+  "complete": false,
+  "planned_cases": 20,
+  "completed_cases": 16,
+  "passed_completed_cases": 16,
+  "completed_locally": [
+    "C03",
+    "C06",
+    "C07",
+    "C16",
+    "C17"
+  ],
+  "pending_case_ids": [
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "full_matrix_rates": null,
+  "usage_all_current_version_attempts": {
+    "requests": 65,
+    "prompt_tokens": 79872,
+    "completion_tokens": 8999,
+    "responses_without_usage": 0,
+    "total_tokens": 88871
+  },
+  "http_status_counts": {
+    "200": 52,
+    "429": 13
+  },
+  "rate_limit_events": [
+    {
+      "case_id": "C13",
+      "stage": "triagem",
+      "observed_at": "2026-10-16T15:59:56.637Z",
+      "retry_after_ms": 403000,
+      "earliest_retry_indicated_at": "2026-10-16T16:06:39.637Z"
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "observed_at": "2026-10-16T16:07:04.039Z",
+      "retry_after_ms": 96000,
+      "earliest_retry_indicated_at": "2026-10-16T16:08:40.039Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "observed_at": "2026-10-16T16:08:54.035Z",
+      "retry_after_ms": 324000,
+      "earliest_retry_indicated_at": "2026-10-16T16:14:18.035Z"
+    },
+    {
+      "case_id": "C13",
+      "stage": "revisao",
+      "observed_at": "2026-10-16T16:33:05.467Z",
+      "retry_after_ms": 1001000,
+      "earliest_retry_indicated_at": "2026-10-16T16:49:46.467Z"
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "observed_at": "2026-10-16T16:50:09.787Z",
+      "retry_after_ms": 426000,
+      "earliest_retry_indicated_at": "2026-10-16T16:57:15.787Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "revisao",
+      "observed_at": "2026-10-16T18:14:55.969Z",
+      "retry_after_ms": 496000,
+      "earliest_retry_indicated_at": "2026-10-16T18:23:11.969Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "observed_at": "2026-10-16T18:23:32.459Z",
+      "retry_after_ms": 107000,
+      "earliest_retry_indicated_at": "2026-10-16T18:25:19.459Z"
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "observed_at": "2026-10-16T18:25:20.496Z",
+      "retry_after_ms": 467000,
+      "earliest_retry_indicated_at": "2026-10-16T18:33:07.496Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "revisao",
+      "observed_at": "2026-10-16T19:19:37.190Z",
+      "retry_after_ms": 400000,
+      "earliest_retry_indicated_at": "2026-10-16T19:26:17.190Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "fundamentacao",
+      "observed_at": "2026-10-16T19:26:31.996Z",
+      "retry_after_ms": 683000,
+      "earliest_retry_indicated_at": "2026-10-16T19:37:54.996Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "resposta",
+      "observed_at": "2026-10-16T19:59:19.036Z",
+      "retry_after_ms": 156000,
+      "earliest_retry_indicated_at": "2026-10-16T20:01:55.036Z"
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "observed_at": "2026-10-16T20:02:08.258Z",
+      "retry_after_ms": 45000,
+      "earliest_retry_indicated_at": "2026-10-16T20:02:53.258Z"
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "observed_at": "2026-10-16T20:02:54.035Z",
+      "retry_after_ms": 652000,
+      "earliest_retry_indicated_at": "2026-10-16T20:13:46.035Z"
+    }
+  ],
+  "comparison_of_complete_matrices": {
+    "baseline_version": "1.0.0",
+    "intermediate_version": "1.1.1",
+    "cases": 20,
+    "baseline_passed": 17,
+    "intermediate_passed": 19,
+    "baseline_tokens": 73625,
+    "intermediate_tokens": 87680,
+    "token_delta": 14055,
+    "token_delta_percent": 19.09
+  },
+  "rows": [
+    {
+      "id": "C01",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C01.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C01.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6083,
+            "completion_tokens": 631,
+            "responses_without_usage": 0,
+            "total_tokens": 6714
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6083,
+        "completion_tokens": 631,
+        "responses_without_usage": 0,
+        "total_tokens": 6714
+      }
+    },
+    {
+      "id": "C02",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C02.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C02.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6287,
+            "completion_tokens": 784,
+            "responses_without_usage": 0,
+            "total_tokens": 7071
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6287,
+        "completion_tokens": 784,
+        "responses_without_usage": 0,
+        "total_tokens": 7071
+      }
+    },
+    {
+      "id": "C03",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C03.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C03.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "input_outage"
+          ],
+          "usage": {
+            "requests": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C04",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C04.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C04.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6124,
+            "completion_tokens": 605,
+            "responses_without_usage": 0,
+            "total_tokens": 6729
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6124,
+        "completion_tokens": 605,
+        "responses_without_usage": 0,
+        "total_tokens": 6729
+      }
+    },
+    {
+      "id": "C05",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C05.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C05.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6015,
+            "completion_tokens": 520,
+            "responses_without_usage": 0,
+            "total_tokens": 6535
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6015,
+        "completion_tokens": 520,
+        "responses_without_usage": 0,
+        "total_tokens": 6535
+      }
+    },
+    {
+      "id": "C06",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C06.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C06.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "input_security"
+          ],
+          "usage": {
+            "requests": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C07",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C07.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C07.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "input_injection"
+          ],
+          "usage": {
+            "requests": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C08",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C08.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C08.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "low_confidence"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 1552,
+            "completion_tokens": 135,
+            "responses_without_usage": 0,
+            "total_tokens": 1687
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1552,
+        "completion_tokens": 135,
+        "responses_without_usage": 0,
+        "total_tokens": 1687
+      }
+    },
+    {
+      "id": "C09",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C09.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C09.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "no_knowledge"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 1562,
+            "completion_tokens": 227,
+            "responses_without_usage": 0,
+            "total_tokens": 1789
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1562,
+        "completion_tokens": 227,
+        "responses_without_usage": 0,
+        "total_tokens": 1789
+      }
+    },
+    {
+      "id": "C10",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C10.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C10.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6251,
+            "completion_tokens": 660,
+            "responses_without_usage": 0,
+            "total_tokens": 6911
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6251,
+        "completion_tokens": 660,
+        "responses_without_usage": 0,
+        "total_tokens": 6911
+      }
+    },
+    {
+      "id": "C11",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C11.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C11.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6248,
+            "completion_tokens": 766,
+            "responses_without_usage": 0,
+            "total_tokens": 7014
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6248,
+        "completion_tokens": 766,
+        "responses_without_usage": 0,
+        "total_tokens": 7014
+      }
+    },
+    {
+      "id": "C12",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C12.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C12.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6265,
+            "completion_tokens": 656,
+            "responses_without_usage": 0,
+            "total_tokens": 6921
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6265,
+        "completion_tokens": 656,
+        "responses_without_usage": 0,
+        "total_tokens": 6921
+      }
+    },
+    {
+      "id": "C13",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-pendentes-v1.1.2-retomada-3-cases/C13.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C13.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        },
+        {
+          "artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C13.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 2,
+            "prompt_tokens": 1559,
+            "completion_tokens": 126,
+            "responses_without_usage": 0,
+            "total_tokens": 1685
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-proxima-rodada-cases/C13.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 4400,
+            "completion_tokens": 498,
+            "responses_without_usage": 0,
+            "total_tokens": 4898
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-2-cases/C13.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 2,
+            "prompt_tokens": 1559,
+            "completion_tokens": 136,
+            "responses_without_usage": 0,
+            "total_tokens": 1695
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-3-cases/C13.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 6075,
+            "completion_tokens": 591,
+            "responses_without_usage": 0,
+            "total_tokens": 6666
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 13,
+        "prompt_tokens": 13593,
+        "completion_tokens": 1351,
+        "responses_without_usage": 0,
+        "total_tokens": 14944
+      }
+    },
+    {
+      "id": "C14",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C14.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C14.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "low_confidence"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 1554,
+            "completion_tokens": 150,
+            "responses_without_usage": 0,
+            "total_tokens": 1704
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1554,
+        "completion_tokens": 150,
+        "responses_without_usage": 0,
+        "total_tokens": 1704
+      }
+    },
+    {
+      "id": "C15",
+      "validation_status": "pendente_apos_erro_operacional",
+      "passed": null,
+      "checks": null,
+      "canonical_artifact": null,
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-3-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 4,
+            "prompt_tokens": 4493,
+            "completion_tokens": 726,
+            "responses_without_usage": 0,
+            "total_tokens": 5219
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-4-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-5-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 5,
+            "prompt_tokens": 6153,
+            "completion_tokens": 961,
+            "responses_without_usage": 0,
+            "total_tokens": 7114
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-6-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 2,
+            "prompt_tokens": 1562,
+            "completion_tokens": 166,
+            "responses_without_usage": 0,
+            "total_tokens": 1728
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-7-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 3,
+            "prompt_tokens": 2996,
+            "completion_tokens": 389,
+            "responses_without_usage": 0,
+            "total_tokens": 3385
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-8-cases/C15.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 1,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 17,
+        "prompt_tokens": 15204,
+        "completion_tokens": 2242,
+        "responses_without_usage": 0,
+        "total_tokens": 17446
+      }
+    },
+    {
+      "id": "C16",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C16.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C16.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "input_injection"
+          ],
+          "usage": {
+            "requests": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C17",
+      "validation_status": "concluido",
+      "passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "canonical_artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C17.json",
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-remainder-v1.1.2-2026-10-16-cases/C17.json",
+          "operational_error": false,
+          "passed": true,
+          "reasons": [
+            "input_security"
+          ],
+          "usage": {
+            "requests": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "responses_without_usage": 0,
+            "total_tokens": 0
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C18",
+      "validation_status": "pendente_apos_erro_operacional",
+      "passed": null,
+      "checks": null,
+      "canonical_artifact": null,
+      "recorded_attempts": [
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-4-cases/C18.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 2,
+            "prompt_tokens": 1567,
+            "completion_tokens": 144,
+            "responses_without_usage": 0,
+            "total_tokens": 1711
+          }
+        },
+        {
+          "artifact": "reports/groq-pendentes-v1.1.2-retomada-8-cases/C18.json",
+          "operational_error": true,
+          "passed": false,
+          "reasons": [
+            "groq_retry_later"
+          ],
+          "usage": {
+            "requests": 2,
+            "prompt_tokens": 1567,
+            "completion_tokens": 128,
+            "responses_without_usage": 0,
+            "total_tokens": 1695
+          }
+        }
+      ],
+      "usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 3134,
+        "completion_tokens": 272,
+        "responses_without_usage": 0,
+        "total_tokens": 3406
+      }
+    },
+    {
+      "id": "C19",
+      "validation_status": "nao_executado",
+      "passed": null,
+      "checks": null,
+      "canonical_artifact": null,
+      "recorded_attempts": [],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C20",
+      "validation_status": "nao_executado",
+      "passed": null,
+      "checks": null,
+      "canonical_artifact": null,
+      "recorded_attempts": [],
+      "usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    }
+  ],
+  "limitations": [
+    "Não há pontuação da matriz de 20 casos enquanto houver pendências.",
+    "Caso local não representa chamada ao LLM.",
+    "Aprovação automática não substitui inspeção semântica; C05 e C10 têm observações no relatório.",
+    "Não foi realizada nova execução pelo script de consolidação."
+  ]
+}

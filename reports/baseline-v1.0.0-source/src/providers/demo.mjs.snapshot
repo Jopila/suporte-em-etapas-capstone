@@ -1,0 +1,45 @@
+import { normalize, checkDraft } from '../safety.mjs';
+
+// Simulador por regras. Não chama um LLM e não mede a qualidade dos prompts.
+// Não lê os rótulos da avaliação. Serve para exercitar contratos e orquestração.
+export class DemoProvider {
+  constructor() { this.name = 'demo'; this.model = 'simulador-deterministico-v1'; }
+  async complete({ stage, context, signal, onEvent = () => {} }) {
+    signal?.throwIfAborted();
+    onEvent({ type: 'attempt' });
+    onEvent({ type: 'usage', prompt_tokens: 0, completion_tokens: 0 });
+    if (stage === 'triagem') {
+      const n = normalize(`${context.ticket.subject} ${context.ticket.message}`);
+      let category = 'outros', priority = 'P3';
+      if (/cancel|encerrar.*(?:plano|assinatura)/.test(n)) category = 'cancelamento';
+      else if (/fatura|cobranca|boleto|pagamento|reembolso|estorno/.test(n)) category = 'cobranca';
+      else if (/senha|login|entrar|autenticacao/.test(n)) { category = 'acesso'; priority = 'P2'; }
+      else if (/erro|falha|travando|lentidao|indisponivel|fora do ar/.test(n)) { category = 'erro_tecnico'; priority = 'P2'; }
+      else if (/export|relatorio|csv/.test(n)) { category = 'duvida'; priority = 'P4'; }
+      return {
+        summary: `Cliente relata: ${context.ticket.subject}`,
+        category, priority, confidence: category === 'outros' ? 0.3 : 0.9,
+        facts: [context.ticket.subject],
+        missing_information: category === 'outros' ? ['Funcionalidade afetada', 'Descrição detalhada do problema'] : [],
+        security_risk: false,
+      };
+    }
+    if (stage === 'fundamentacao') {
+      const article = context.articles.find(item => item.category === context.triage.category);
+      if (!article) return { supported: false, evidence: [], actions: [], missing_information: ['Procedimento aplicável ausente da base.'] };
+      return {
+        supported: true, evidence: [{ article_id: article.id, quote: article.content }],
+        actions: article.steps.map(instruction => ({ article_id: article.id, instruction })), missing_information: [],
+      };
+    }
+    if (stage === 'resposta') return {
+      message: `Olá! Entendo sua solicitação e vou orientar os próximos passos.\n\n${context.grounding.actions.map((action, index) => `${index + 1}. ${action.instruction}`).join('\n')}\n\nSe a dificuldade continuar, descreva o que ocorreu, sem compartilhar senhas ou dados sensíveis.`,
+      source_ids: [...new Set(context.grounding.evidence.map(item => item.article_id))],
+    };
+    if (stage === 'revisao') {
+      const issues = checkDraft(context.draft, context.grounding);
+      return { approved: issues.length === 0, grounded: true, safe: issues.length === 0, complete: true, issues };
+    }
+    throw new Error('unknown_demo_stage');
+  }
+}

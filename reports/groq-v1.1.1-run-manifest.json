@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-10-16T15:40:53.889Z",
+  "prompt_version": "1.1.1",
+  "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "model": "openai/gpt-oss-120b",
+  "tests": {
+    "passed": 55,
+    "failed": 0,
+    "new_regression_tests": 15,
+    "evidence": "test-results-v1.1.1.tap"
+  },
+  "files": {
+    "src/cli.mjs": "b495a2c41285b1a53eceeb7fdaa2016916ea4a107ec6d8f7daad92be6ad70c8d",
+    "src/contracts.mjs": "5a25d36c6fe86f514fed5f70fe76830ad8d1eb4b22625586207cee8360d0a3dd",
+    "src/evaluation.mjs": "2112ddcea8489df7b0928651ecbd7080615a417bb3255dc1eaa45547ab7dfea1",
+    "src/knowledge.mjs": "f1e41000809aeeb464ea61df4cccd7fe45e6eef4536596272638e5362c54a4b4",
+    "src/pipeline.mjs": "cda9f66387056b58f1183048681a17d741ed7113b1bee54925c86a0921d89557",
+    "src/prompts.mjs": "43092d66512bf90bd6ba607b27e8257a3c2c70e2a1781d40ae4c2d00f3aa5219",
+    "src/safety.mjs": "301d5359bd3b39b75ea6072718b9049b06f0d20d8625baa2421a849ac113799c",
+    "src/providers/demo.mjs": "32802d85e083375dddc0d53064ca27434c5a07c36e2ca471ef821f9277a9eeea",
+    "src/providers/groq.mjs": "3e989fd6801009affe735063e633f425076a43fb443a893e5a817953a50aaaa2",
+    "prompts/v1.1.1/fundamentacao.md": "09a93dd16cc94b453fea6fa570ee3a816f58ea0098afa5b189943d22524f7aef",
+    "prompts/v1.1.1/resposta.md": "950552e47662d0055bdfc4636f35fc41aa749a9ac6f5cb4dc6789c35dcca35f1",
+    "prompts/v1.1.1/revisao.md": "6729feb62c10c0483e9d03aad00b16070717cb8c51b3acf57442d196a252534b",
+    "prompts/v1.1.1/system.md": "ea71f44d3ade8a17290ee013eccf76310f7b0289314c51499cfd1db8849714c2",
+    "prompts/v1.1.1/triagem.md": "4125972a960ba61fad19dae20b435e650ba244025d2ce8ece8fd56d300cca7b9",
+    "tests/contracts.test.mjs": "f845a3201954029e9307f81a5c7bbfdec50e34ca576165d778294244093c4325",
+    "tests/evaluation.test.mjs": "72d3d5fea07f3805f507c5c4ce07fe9e2c44326971387cc48f38d1ba4fce9cde",
+    "tests/pipeline.test.mjs": "228584055f6eada1d174cc2b735e7a15533bbbf1a73607203d4f0e400b07a942",
+    "tests/provider.test.mjs": "f5bfd0fea290b9b0c9d779316aeaea6cb02d30331a5adf6290c456790dba5a1a",
+    "tests/regression.test.mjs": "03cd0830bb7a071670270ed6eca706252fa4e8f7bde59325dee95c772cb72a1c",
+    "scripts/evaluate-groq-matrix.mjs": "f4a24136c97c67f07826c3161d15cdf8a7875f2a5984005c566c92307585686d"
+  }
+}

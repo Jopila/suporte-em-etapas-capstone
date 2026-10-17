@@ -1,0 +1,970 @@
+{
+  "generated_at": "2026-10-16T15:53:04.275Z",
+  "model": "openai/gpt-oss-120b",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "same_cases_and_labels": true,
+  "source_hashes_verified": true,
+  "baseline": {
+    "version": "1.0.0",
+    "original_passed": 17,
+    "rescored_passed": 8,
+    "content_passed": 11,
+    "usage": {
+      "requests": 49,
+      "prompt_tokens": 65127,
+      "completion_tokens": 8498,
+      "responses_without_usage": 0,
+      "total_tokens": 73625
+    },
+    "rows": [
+      {
+        "id": "C01",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unsupported_channel",
+          "unverified_confirmation",
+          "unnecessary_personal_data"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6034,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C02",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6198,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C03",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C04",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation",
+          "unnecessary_personal_data"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6093,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C05",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 5674,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C06",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C07",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C08",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 1482,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C09",
+        "checks": {
+          "category": false,
+          "priority": false,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": false,
+        "core_passed": false,
+        "tokens": 1491,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C10",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unauthorized_attachment_request"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6191,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C11",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6087,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C12",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6215,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C13",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 5748,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C14",
+        "checks": {
+          "category": true,
+          "priority": false,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": false,
+        "core_passed": false,
+        "tokens": 1461,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C15",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": false,
+          "citations": false,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": false,
+        "core_passed": false,
+        "tokens": 2881,
+        "requests": 2,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C16",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C17",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C18",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation",
+          "unnecessary_personal_data",
+          "ambiguous_verification_channel"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6021,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C19",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 6052,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C20",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "content_issues": [
+          "unverified_confirmation",
+          "unnecessary_personal_data"
+        ],
+        "passed": false,
+        "core_passed": true,
+        "tokens": 5997,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      }
+    ]
+  },
+  "candidate": {
+    "version": "1.1.1",
+    "passed": 19,
+    "core_passed": 19,
+    "content_passed": 20,
+    "usage": {
+      "requests": 51,
+      "prompt_tokens": 78794,
+      "completion_tokens": 8886,
+      "responses_without_usage": 0,
+      "total_tokens": 87680
+    },
+    "thresholds_passed": false,
+    "failed": [
+      {
+        "id": "C15",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": false,
+          "citations": false,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": false,
+        "core_passed": false,
+        "tokens": 7294,
+        "requests": 4,
+        "revisions": 1,
+        "status": "encaminhamento_humano"
+      }
+    ],
+    "rows": [
+      {
+        "id": "C01",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6681,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C02",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 7078,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C03",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C04",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6861,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C05",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6535,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C06",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C07",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C08",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 1691,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C09",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 1788,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C10",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6940,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C11",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 7007,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C12",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 7063,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C13",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6660,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C14",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 1678,
+        "requests": 1,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C15",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": false,
+          "citations": false,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": false,
+        "core_passed": false,
+        "tokens": 7294,
+        "requests": 4,
+        "revisions": 1,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C16",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C17",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 0,
+        "requests": 0,
+        "revisions": 0,
+        "status": "encaminhamento_humano"
+      },
+      {
+        "id": "C18",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6797,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C19",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6804,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      },
+      {
+        "id": "C20",
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "content_issues": [],
+        "passed": true,
+        "core_passed": true,
+        "tokens": 6803,
+        "requests": 4,
+        "revisions": 0,
+        "status": "rascunho_validado"
+      }
+    ]
+  },
+  "token_delta": 14055,
+  "token_delta_percent": 19.09,
+  "partial_iteration": {
+    "status": "interrompida_intencionalmente_entre_casos",
+    "reason": "Ampliação da regressão para listas e isolamento de lacunas especulativas após revisão de C04.",
+    "cases": 7,
+    "passed": 6,
+    "usage": {
+      "requests": 18,
+      "prompt_tokens": 27992,
+      "completion_tokens": 3290,
+      "total_tokens": 31282
+    },
+    "http_status_counts": {
+      "200": 18
+    },
+    "case_ids": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07"
+    ],
+    "failed_case_ids": [
+      "C04"
+    ],
+    "checkpoint": "groq-matrix-v1.1.0-2026-10-16-checkpoint.json"
+  },
+  "total_this_request": {
+    "requests": 69,
+    "prompt_tokens": 106786,
+    "completion_tokens": 12176,
+    "total_tokens": 118962
+  },
+  "timings_ms": {
+    "baseline_batch": 508984,
+    "candidate_batch": 626812,
+    "baseline_pacing": 449330,
+    "candidate_pacing": 576569,
+    "candidate_stage_pacing": 289046,
+    "candidate_pipeline_sum": 339194
+  }
+}

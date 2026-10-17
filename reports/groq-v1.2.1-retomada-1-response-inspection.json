@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-10-17T06:53:52.730Z",
+  "kind": "assisted_inspection_not_independent_human_review",
+  "pipeline_version": "1.2.1",
+  "checkpoint": "reports/groq-matrix-v1.2.1-2026-10-17-retomada-1-checkpoint.json",
+  "inspections": [
+    {
+      "id": "C01",
+      "passed_checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "source_ids": [
+        "KB-001"
+      ],
+      "observation": "Resposta orienta Esqueci minha senha, verificação do e-mail e spam e, condicionalmente, verificação de titularidade pelo canal aprovado. Não expõe KB-001 no texto. Nenhuma nova ressalva observada nesse rascunho.",
+      "limitations": "Uma resposta sintética, inspecionada com assistência; exige revisão humana e não mede generalização."
+    },
+    {
+      "id": "C02",
+      "observation": "Somente a triagem foi concluída. Fundamentação interrompida por HTTP 429; mensagem final é o encaminhamento local conservador. Não há novo rascunho do modelo para avaliar."
+    }
+  ],
+  "c10_c19_status": "not_reached_in_this_segment",
+  "all_require_human_approval": true
+}

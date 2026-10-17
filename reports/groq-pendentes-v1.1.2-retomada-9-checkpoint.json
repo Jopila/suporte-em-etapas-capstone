@@ -1,0 +1,489 @@
+{
+  "started_at": "2026-10-16T21:30:16.957Z",
+  "completed_cases": 2,
+  "cases": [
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C15",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança errada e solicita garantia de reembolso para amanhã.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente indica cobrança errada",
+            "Cliente solicita reembolso"
+          ],
+          "missing_information": [
+            "Número da fatura ou referência da cobrança",
+            "Data da cobrança",
+            "Método de pagamento utilizado"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou uma cobrança que considera errada e solicitou a garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a sua solicitação, por favor:\n1. Acesse a área **Financeiro > Faturas** e identifique a competência (mês/ano) da cobrança em questão.\n2. Descreva detalhadamente a divergência observada (por exemplo, valor cobrado a mais, cobrança duplicada, etc.) sem incluir dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira, que entrará em contato com a decisão sobre eventual reembolso ou estorno.\n\nPara avançarmos, preciso das seguintes informações:\n- Qual a competência da fatura que apresenta a cobrança incorreta?\n- Como você descreve a divergência encontrada?\n\nAgradeço pela colaboração e fico à disposição para quaisquer dúvidas.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 799
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 801
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1041
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 38045
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6291,
+          "completion_tokens": 742,
+          "responses_without_usage": 0,
+          "duration_ms": 40688
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança errada e solicita garantia de reembolso para amanhã.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente indica cobrança errada",
+              "Cliente solicita reembolso"
+            ],
+            "missing_information": [
+              "Número da fatura ou referência da cobrança",
+              "Data da cobrança",
+              "Método de pagamento utilizado"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou uma cobrança que considera errada e solicitou a garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a sua solicitação, por favor:\n1. Acesse a área **Financeiro > Faturas** e identifique a competência (mês/ano) da cobrança em questão.\n2. Descreva detalhadamente a divergência observada (por exemplo, valor cobrado a mais, cobrança duplicada, etc.) sem incluir dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira, que entrará em contato com a decisão sobre eventual reembolso ou estorno.\n\nPara avançarmos, preciso das seguintes informações:\n- Qual a competência da fatura que apresenta a cobrança incorreta?\n- Como você descreve a divergência encontrada?\n\nAgradeço pela colaboração e fico à disposição para quaisquer dúvidas.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C18",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_retry_later"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata dificuldade de login, não consegue entrar e solicita orientação para recuperação de senha.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente não consegue entrar",
+            "Cliente solicita orientação para recuperação de senha"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 666
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 730
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 913
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_retry_later",
+            "duration_ms": 34416
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 4494,
+          "completion_tokens": 538,
+          "responses_without_usage": 0,
+          "duration_ms": 36725
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata dificuldade de login, não consegue entrar e solicita orientação para recuperação de senha.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente não consegue entrar",
+              "Cliente solicita orientação para recuperação de senha"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou dificuldade para entrar na sua conta e pediu orientação para recuperação de senha.\n\nPara iniciar o processo, siga os passos abaixo conforme a base de conhecimento KB-001:\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n3. Caso não tenha acesso ao e‑mail cadastrado, informe ao suporte que você precisa da verificação de titularidade pelo canal aprovado.\n\nEssas etapas permitem que você recupere o acesso à sua conta sem a necessidade de compartilhar senhas ou códigos.\n\nQualquer dúvida adicional sobre algum desses passos, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "error_code": "groq_retry_later"
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186217758,
+      "token_limit": 8000,
+      "tokens_remaining": 6214,
+      "token_reset_ms": 13395,
+      "requests_remaining": 999
+    },
+    {
+      "case_id": "C15",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186218561,
+      "token_limit": 8000,
+      "tokens_remaining": 4693,
+      "token_reset_ms": 24802,
+      "requests_remaining": 998
+    },
+    {
+      "case_id": "C15",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186219602,
+      "token_limit": 8000,
+      "tokens_remaining": 3068,
+      "token_reset_ms": 36990,
+      "requests_remaining": 997
+    },
+    {
+      "case_id": "C15",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186257649,
+      "token_limit": 8000,
+      "tokens_remaining": 5976,
+      "token_reset_ms": 15180,
+      "requests_remaining": 996
+    },
+    {
+      "case_id": "C18",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186274009,
+      "token_limit": 8000,
+      "tokens_remaining": 6276,
+      "token_reset_ms": 12930,
+      "requests_remaining": 995
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186274739,
+      "token_limit": 8000,
+      "tokens_remaining": 5054,
+      "token_reset_ms": 22095,
+      "requests_remaining": 994
+    },
+    {
+      "case_id": "C18",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792186275652,
+      "token_limit": 8000,
+      "tokens_remaining": 3486,
+      "token_reset_ms": 33855,
+      "requests_remaining": 993
+    },
+    {
+      "case_id": "C18",
+      "stage": "revisao",
+      "status": 429,
+      "retry_after_ms": 566000,
+      "observed_at_ms": 1792186310067,
+      "token_limit": 8000,
+      "tokens_remaining": 8000,
+      "token_reset_ms": 1,
+      "requests_remaining": 993
+    }
+  ]
+}

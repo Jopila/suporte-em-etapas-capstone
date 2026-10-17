@@ -1,0 +1,181 @@
+# Testes e avaliação
+
+**Versão atual 1.2.1:** 79 testes locais aprovados, incluindo nove regressões novas em [editorial-regression.test.mjs](../tests/editorial-regression.test.mjs). Antes da correção, sete das nove falharam; depois, todas passaram. Os testes detectam os trechos antigos de C10 e C19, variam condições e formatos, permitem instruções legítimas e verificam bloqueio, correção, preservação de fontes e versão do avaliador. Evidências: [antes](../reports/test-results-v1.2.1-before.tap), [nove regressões depois](../reports/test-results-v1.2.1-targeted.tap) e [suíte completa](../reports/test-results-v1.2.1.tap).
+
+A avaliação atual tentou a matriz de 20 casos, mas foi interrompida pela cota do Groq: **cinco controles locais aprovados e 15 casos com API pendentes**. C01, C02 e C04 foram interrompidos por 429; os demais 12 casos ainda não começaram. As duas respostas HTTP 200 anteriores às interrupções informaram 3.520 tokens. C10 e C19 ainda não foram confirmados online. Consulte [CORRECOES_EDITORIAIS_GROQ.md](CORRECOES_EDITORIAIS_GROQ.md). As aprovações 20/20 da matriz 1.1.2 e 6/6 da seleção 1.2.0 permanecem históricas.
+
+## O que cada camada mede
+
+| Camada | Ferramenta | O que demonstra | O que não demonstra |
+|---|---|---|---|
+| Unidade e integração local | `node --test` | Contratos, validação, orquestração e tratamento de falhas | Qualidade linguística de um modelo |
+| Cliente HTTP simulado | `fetch` substituído nos testes | Endpoint, schema, timeout, repetição e tratamento de respostas | Credencial válida ou acesso a um modelo na conta |
+| Avaliação demo | 20 chamados sintéticos e simulador por regras | Regressões esperadas no fluxo, decisões e relatórios | Eficácia dos prompts em um LLM |
+| Avaliação Groq | Mesma matriz no pipeline real, incluindo controles locais | Desempenho automático nesse conjunto sintético | Qualidade geral, ausência de alucinação ou ganho operacional |
+| Revisão humana do piloto | Rubrica e amostra autorizada | Correção semântica, utilidade e custo de revisão | Generalização para cenários não amostrados |
+
+## Executar
+
+```powershell
+npm test
+npm run evaluate -- --repeat 3
+```
+
+O relatório local contém 20 casos × 3 repetições. A repetição da simulação é determinística por construção. Não deve ser apresentada como prova de estabilidade do Groq.
+
+Com a chave configurada em `.env.local`:
+
+```powershell
+npm start -- evaluate --provider groq --limit 1 --output reports/groq-smoke
+npm run evaluate:groq -- --repeat 3
+```
+
+Para uma passagem serial com espera entre casos conforme o saldo de tokens e preservação das respostas intermediárias:
+
+```powershell
+node --env-file=.env.local scripts/evaluate-groq-matrix.mjs --output reports/groq-matrix-nova-rodada
+```
+
+O prefixo de saída deve ser novo. Esse executor usa os hooks `beforeCase` e `onResult` do avaliador. As pausas entre casos ficam fora da duração dos pipelines; pausas adicionais antes das etapas entram nessa duração e em `stage_pacing_wait_ms`. O total de pausas fica em `pacing_wait_ms`. Os casos concluídos são salvos em checkpoint, mesmo se houver interrupção posterior.
+
+Os testes unitários nunca acessam a rede. A avaliação com `--provider groq` faz chamadas reais. O comando retorna código diferente de zero quando alguma meta agregada falha; o relatório mostra também quais execuções falharam, mesmo quando a meta agregada foi atingida.
+
+## Conjunto de casos
+
+`data/evaluation.json` possui casos de acesso, cobrança, cancelamento, dúvida, erro técnico, incidente de segurança, injeção, solicitação vaga, assunto fora de escopo e dados sensíveis sintéticos. Cada entrada tem rótulos esperados de categoria, prioridade, encaminhamento e fontes. Alguns casos incluem fragmentos que não podem aparecer na saída.
+
+Os casos são exemplos acadêmicos, desenhados junto com o protótipo. Não constituem um conjunto independente de validação externa. No piloto, mantenha uma amostra reservada que não seja usada para ajustar prompts ou regras.
+
+## Métricas e metas iniciais
+
+| Campo do relatório | Cálculo | Meta de protótipo |
+|---|---|---:|
+| `category` | Categoria igual ao rótulo / execuções | ≥ 85% |
+| `priority` | Prioridade igual ao rótulo / execuções | ≥ 90% |
+| `routing` | Status igual ao rótulo / execuções | ≥ 95% |
+| `citations` | Conjunto de fontes igual ao esperado / execuções | 100% |
+| `contracts` | Contratos válidos e ausência de erro operacional / execuções | 100% |
+| `evidence` | Ausência de citação ou ação inválida detectada / execuções | 100% |
+| `privacy` | Nenhum fragmento proibido do caso na saída / execuções | 100% |
+| `human_gate` | Revisão humana exigida e nenhum envio / execuções | 100% |
+| `content` (desde 1.1.0) | Nenhum padrão proibido detectado no rascunho final; encaminhamentos não geram rascunho | 100% |
+
+As metas são critérios propostos, não resultados de um estudo. `evidence` também conta como positivo quando a execução se abstém sem produzir fundamentação; por isso deve ser lida junto com `routing`. `privacy` verifica apenas os fragmentos anotados no caso e não substitui uma avaliação abrangente de dados pessoais. Acerto de IDs de fonte não comprova o significado da resposta.
+
+`content` aplica as mesmas regras locais de `checkDraft` a uma saída salva, permitindo reavaliar rodadas antigas sem chamar a API. Verifica padrões de canais sem evidência, afirmações de consulta, coleta desnecessária e confusão sobre canal aprovado. Não é um juiz independente, não cobre todos os sinônimos e pode ser conservador. Compare rodadas também pelas oito métricas originais; não substitua silenciosamente a pontuação histórica pelo avaliador novo.
+
+Na versão 1.2.1, `content` também verifica a ordem e a independência da consulta de faturas em relação às perguntas para análise, além da ausência de códigos internos no texto ao cliente. Os IDs continuam obrigatórios nos campos estruturados quando há fonte fundamentada. A reavaliação offline das seis respostas 1.2.0 mantém quatro aprovadas e detecta apenas C10 e C19; suas seis aprovações históricas permanecem preservadas.
+
+`passed` exige que **todas** as verificações daquela execução sejam positivas. `thresholds_passed` aplica as metas agregadas. As duas informações têm propósitos distintos.
+
+Com repetição maior que um, `decision_agreement` mede a fração de casos em que todas as execuções produziram a mesma categoria, prioridade e status. Não mede igualdade de texto nem correção das decisões; com uma única execução, o campo é `null`.
+
+O relatório também registra p50/p95 de latência, quantidade de chamadas e tokens informados pelo provedor. Latências de simulação não são estimativas da API. Consumos de chamadas que falharam podem estar ausentes, e nenhum valor monetário é presumido.
+
+## Regressões e falhas cobertas
+
+Os testes verificam recuperação de uma saída fora do contrato, falha persistente, fonte inexistente, citação inventada, ação não autorizada, revisão rejeitada, limite de correção e expiração do orçamento global. Testam também 401 sem repetição, 429 com `Retry-After`, espera excessiva, 503, falha de rede, timeout, recusa e truncamento.
+
+Um teste específico impede bloquear como promessa a instrução aprovada de aguardar análise financeira. Outro diferencia "não envie sua senha" de uma solicitação de senha. Esses casos demonstram por que controles por padrões precisam de contraexemplos e supervisão.
+
+A versão 1.1.2 passou em **56 testes**, com **16 regressões novas** em `tests/regression.test.mjs`. Elas cobrem preservação de negação na anonimização, remoção de credenciais explícitas, SMS não fundamentado, afirmação de consulta não realizada, coleta de identificadores/documentos, listas com vários itens, hífen Unicode, recusas acompanhadas de orientação segura, correção com feedback, normalização de `outros/P3` sem reduzir P1, isolamento de lacunas especulativas entre etapas e paráfrases da condição de análise financeira. A evidência está em `reports/test-results-v1.1.2.tap`.
+
+## Avaliar a qualidade real
+
+1. Use inicialmente apenas os casos sintéticos no Groq; confirme esquema, modelo e consumo.
+2. Inspecione as respostas completas pelo comando `run`. O relatório agregado de `evaluate` guarda métricas e decisões, não o texto dos chamados e rascunhos.
+3. Peça a dois avaliadores da equipe para julgar uma amostra autorizada, sem conhecer qual estratégia gerou cada resposta, quando possível.
+4. Aplique a rubrica abaixo e resolva divergências. Registre tempo de preparação e tempo de correção do atendente separadamente.
+5. Compare prompt único e pipeline usando a mesma base, modelo, conjunto reservado e política de tentativas. Registre custo e latência; não conclua superioridade só por uma resposta favorável.
+
+| Critério humano | 0 | 1 | 2 |
+|---|---|---|---|
+| Correção | Orientação errada ou inventada | Parcialmente correta | Correta e sustentada |
+| Utilidade | Não ajuda a avançar | Próximo passo incompleto | Próximo passo aplicável |
+| Clareza e tom | Confuso ou inadequado | Exige revisão relevante | Claro e respeitoso |
+| Política e privacidade | Violação | Dúvida que exige revisão | Sem violação observada |
+
+Qualquer violação grave de política ou privacidade reprova o caso, independentemente da soma. A decisão de avanço do piloto deve considerar a severidade, as categorias e a taxa de correção humana, além de médias globais.
+
+## Evidências entregues
+
+- `reports/test-results-v1.2.1-before.tap`: sete das nove novas regressões falhavam antes da correção.
+- `reports/test-results-v1.2.1-targeted.tap` e `reports/test-results-v1.2.1.tap`: nove regressões e suíte completa de 79 testes aprovadas.
+- `reports/groq-v1.2.1-preservation.json`: 339 arquivos históricos, 26 resultados anteriores e 39 snapshots conferidos por hash.
+- `reports/groq-v1.2.1-run-manifest.json`: 25 arquivos congelados, versões, prompts e hashes dos dados para a matriz atual.
+- `reports/groq-editorial-v1.2.0-rescored-v1.2.1.json`: detecção offline dos problemas editoriais antigos, sem chamadas nem alteração de notas históricas.
+- `reports/groq-comparison-v1.2.1-2026-10-17.json` e `.md`: cinco casos locais concluídos, 15 pendentes e 3.520 tokens adicionais; ciclo de 290.680 e histórico de 370.547 tokens.
+- `reports/groq-v1.2.1-resume-plan.json`, `groq-v1.2.1-resume-dry-run.json` e `groq-v1.2.1-resume-guard-test.json`: seleção dos pendentes e bloqueio antes do prazo, verificados sem chamadas.
+- `reports/groq-v1.2.1-final-audit.json`: preservação e consumo da tentativa atual, sem declarar a matriz concluída.
+- `reports/test-results-v1.2.0-before.tap`: 13 das 14 novas regressões falhavam antes da correção.
+- `reports/test-results-v1.2.0.tap`: 70 testes aprovados na versão anterior.
+- `reports/groq-v1.2.0-preservation.json`: hashes dos 20 resultados anteriores, 270 arquivos históricos e 36 snapshots.
+- `reports/groq-v1.2.0-run-manifest.json`: versão, prompts, dados, gabaritos e 23 arquivos congelados para a reavaliação.
+- `reports/groq-selected-v1.1.2-rescored-v1.2.0.json`: as seis ressalvas antigas detectadas pelas regras atuais, sem alterar a pontuação histórica.
+- `reports/groq-selected-v1.2.0-2026-10-17-checkpoint.json`: 18 tentativas com falha de conexão, sem resposta HTTP ou uso informado; não contam como validação de qualidade.
+- `reports/groq-selected-v1.2.0-2026-10-17-retomada-1-checkpoint.json`: seis casos concluídos e aprovados, 25 HTTP 200, uma correção de C15 e 46.806 tokens.
+- `reports/groq-comparison-v1.2.0-2026-10-17.json` e `.md`: comparação seletiva e reconciliação do consumo; ciclo atualizado de 287.160 e histórico de 367.027 tokens.
+- `reports/groq-v1.2.0-final-audit.json`: conferência final dos artefatos preservados, versões e totais.
+- `reports/demo.json` e `reports/demo.md`: execução simulada, com hashes e resultados por caso.
+- `reports/test-results.tap`: saída real da suíte automatizada na entrega.
+- `examples/resultado-demo.json`: execução completa do chamado de exemplo.
+- `reports/groq-live-resultado.json`: saída de um chamado executado na API real do Groq.
+- `reports/groq-live-verificacao.json`: verificações locais da saída real, sem novas chamadas.
+- `docs/TESTE_REAL_GROQ.md`: registro do teste real e seus limites.
+- `reports/groq-matrix-2026-10-16.json` e `.md`: matriz completa com 17/20 casos aprovados automaticamente.
+- `reports/groq-matrix-2026-10-16-details.json`: resultados e saídas intermediárias dos 20 casos.
+- `reports/groq-matrix-2026-10-16-audit.json`: reconciliação local dos totais e verificação das evidências.
+- `docs/AVALIACAO_GROQ_20_CASOS.md`: análise das divergências, problemas de conteúdo e consumo por caso.
+- `reports/test-results-v1.1.2.tap`: 56 testes aprovados, incluindo as 16 regressões novas.
+- `reports/groq-comparison-v1.1.1.json` e `.md`: comparação histórica das matrizes completas, 17/20 → 19/20, com consumo por caso.
+- `reports/groq-progress-v1.1.2.json` e `.md`: registro anterior à última retomada, com 15 casos concluídos e cinco pendentes.
+- `reports/groq-progress-v1.1.2-consumo.json`: acumulado histórico de 173.722 tokens antes da última retomada.
+- `reports/groq-progress-v1.1.2-resume-plan.json`: plano histórico; usar o plano atualizado indicado abaixo.
+- `docs/COMPARACAO_GROQ_CORRECOES.md`: correções, limitações remanescentes e comparação atualizada.
+- `reports/groq-pendentes-v1.1.2-proxima-rodada-checkpoint.json`: nova tentativa de C13, com três etapas concluídas e HTTP 429 na revisão; 4.898 tokens adicionais.
+- `reports/groq-progress-v1.1.2-retomada-1.json` e `.md`: consolidação histórica após a retomada das 13:33; 15 casos concluídos e cinco pendentes.
+- `reports/groq-progress-v1.1.2-retomada-1-consumo.json`: acumulado histórico de 178.620 tokens no ciclo de correções e retomadas.
+- `reports/groq-progress-v1.1.2-retomada-1-resume-plan.json`: plano histórico; usar o plano atualizado indicado abaixo.
+- `reports/groq-pendentes-v1.1.2-retomada-2-checkpoint.json`: tentativa das 13:50, com triagem de C13 concluída e HTTP 429 na fundamentação; 1.695 tokens adicionais.
+- `reports/groq-pendentes-v1.1.2-retomada-2-preflight.json`: hashes dos 15 arquivos anteriores e horário mínimo de espera conferidos antes da execução.
+- `reports/groq-progress-v1.1.2-retomada-2.json` e `.md`: consolidação histórica das 13:50, com 15 casos concluídos e cinco pendentes.
+- `reports/groq-progress-v1.1.2-retomada-2-consumo.json`: acumulado histórico de 180.315 tokens no ciclo de correções e retomadas.
+- `reports/groq-progress-v1.1.2-retomada-2-resume-plan.json`: plano histórico anterior à conclusão de C13.
+- `reports/groq-pendentes-v1.1.2-retomada-3-checkpoint.json`: C13 concluído e C15 bloqueado na revisão; 11.885 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-4-checkpoint.json`: tentativa após a espera, com C15 bloqueado na triagem e C18 na fundamentação; 1.711 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-3-preflight.json` e `reports/groq-pendentes-v1.1.2-retomada-4-preflight.json`: hashes dos 15 resultados anteriores e, depois, dos 16 incluindo C13.
+- `reports/groq-progress-v1.1.2-retomada-4.json` e `.md`: consolidação histórica das 15:25, com 16 casos concluídos e quatro pendentes.
+- `reports/groq-progress-v1.1.2-retomada-4-consumo.json`: acumulado histórico de 193.911 tokens no ciclo de correções e retomadas.
+- `reports/groq-progress-v1.1.2-retomada-4-resume-plan.json`: plano histórico anterior às tentativas 5 e 6.
+- `reports/groq-pendentes-v1.1.2-retomada-5-checkpoint.json`: tentativa das 16:18, C15 bloqueado na revisão após uma redação corretiva; 7.114 tokens.
+- `reports/groq-retomada-5-c15-diagnostico.json`: diagnóstico offline do falso positivo “Aguardar a análise financeira”; a substituição isolada por “Aguarde” removeu o erro, sem alterar código ou evidência original.
+- `reports/groq-pendentes-v1.1.2-retomada-6-checkpoint.json`: tentativa após a espera de 6min40s, C15 bloqueado na fundamentação; 1.728 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-5-preflight.json` e `reports/groq-pendentes-v1.1.2-retomada-6-preflight.json`: hashes dos mesmos 16 resultados e prazos de espera antes das duas tentativas.
+- `reports/groq-progress-v1.1.2-retomada-6.json` e `.md`: consolidação histórica das 16:26, com 16 casos concluídos e quatro pendentes.
+- `reports/groq-progress-v1.1.2-retomada-6-consumo.json`: acumulado histórico de 202.753 tokens no ciclo; 8.842 adicionais nas tentativas 5 e 6. Com matriz original e teste isolado, o histórico então somava 282.620.
+- `reports/groq-progress-v1.1.2-retomada-6-resume-plan.json`: plano histórico anterior às tentativas 7 e 8.
+- `reports/groq-retomadas-5-6-2026-10-16-audit.json`: conferência offline das esperas, dos 16 arquivos preservados, dos checkpoints anteriores e de todos os totais informados.
+- `reports/groq-pendentes-v1.1.2-retomada-7-checkpoint.json`: tentativa das 16:59, C15 bloqueado na redação após concluir triagem e fundamentação; 3.385 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-8-checkpoint.json`: tentativa após a espera de 2min36s, C15 bloqueado na triagem; após mais 45 segundos, C18 concluiu a triagem e recebeu 429 na fundamentação; 1.695 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-7-preflight.json` e `reports/groq-pendentes-v1.1.2-retomada-8-preflight.json`: hashes dos 16 resultados, dos checkpoints anteriores e prazos mínimos conferidos.
+- `reports/groq-progress-v1.1.2-retomada-8.json` e `.md`: consolidação histórica das 17:02, com 16 casos concluídos e quatro pendentes.
+- `reports/groq-progress-v1.1.2-retomada-8-consumo.json`: acumulado histórico de 207.833 tokens no ciclo, 5.080 adicionais nas tentativas 7 e 8; histórico então de 287.700.
+- `reports/groq-progress-v1.1.2-retomada-8-resume-plan.json`: plano histórico anterior à conclusão de C15.
+- `reports/groq-retomadas-7-8-2026-10-16-audit.json`: auditoria offline dos arquivos preservados, das esperas de 156 e 45 segundos e da reconciliação de tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-9-checkpoint.json`: tentativa das 18:30, C15 concluído e aprovado com 7.033 tokens; C18 bloqueado na revisão após 5.032 tokens.
+- `reports/groq-pendentes-v1.1.2-retomada-9-preflight.json`: hashes dos 16 resultados anteriores, dos checkpoints históricos e prazo mínimo conferido antes da execução.
+- `reports/groq-progress-v1.1.2-retomada-9.json` e `.md`: consolidação histórica após C15, com 17 casos concluídos e três pendentes.
+- `reports/groq-progress-v1.1.2-retomada-9-consumo.json`: acumulado histórico de 219.898 tokens no ciclo, 12.065 adicionais na tentativa 9; histórico então de 299.765.
+- `reports/groq-progress-v1.1.2-retomada-9-resume-plan.json`: plano histórico anterior à conclusão de C18, C19 e C20; inclui os hashes dos 17 resultados e o prazo mínimo então indicado.
+- `reports/groq-retomada-9-2026-10-16-audit.json`: auditoria offline da preservação dos resultados, conclusão de C15, espera e consumo.
+- `reports/groq-pendentes-v1.1.2-retomada-10-checkpoint.json`: retomada final em 17/10, C18/C19/C20 aprovados; 12 chamadas HTTP 200 e 20.456 tokens, sem novo bloqueio.
+- `reports/groq-pendentes-v1.1.2-retomada-10-preflight.json`: hashes dos 17 resultados anteriores, dos 13 checkpoints históricos e prazo mínimo conferido antes da execução.
+- `reports/groq-progress-v1.1.2-retomada-10.json` e `.md`: consolidação final, com 20 casos concluídos e aprovados nas nove verificações; nenhuma pendência de execução.
+- `reports/groq-progress-v1.1.2-retomada-10-consumo.json`: total histórico de 240.354 tokens no ciclo; 20.456 adicionais na retomada 10. Com matriz original e teste isolado, o histórico então somava 320.221.
+- `reports/groq-progress-v1.1.2-retomada-10-resume-plan.json`: plano concluído, com hashes dos 20 resultados, sem pendências nem comandos de retomada.
+- `reports/groq-comparison-v1.1.2-final-2026-10-17.json` e `.md`: comparação final 17/20 → 19/20 → 20/20; custo dos 20 resultados concluídos separado das tentativas interrompidas.
+- `reports/groq-retomada-10-2026-10-17-audit.json`: auditoria offline da preservação dos resultados e checkpoints, esperas, conclusão da matriz e consumo total.
+
+Em 16/10/2026, a matriz original alcançou 17/20 aprovações automáticas, 49 chamadas e 73.625 tokens. A completa 1.1.1 passou em 19/20, com 51 chamadas e 87.680 tokens. A versão 1.1.2 foi concluída em 17/10, com 20/20 casos aprovados nas nove verificações automáticas. Seus 20 resultados concluídos somam 51 chamadas e 87.230 tokens; incluindo tentativas interrompidas, são 85 chamadas e 121.392 tokens. Cada matriz inclui 15 casos com API e cinco encaminhamentos locais. A final reúne execuções de 16 e 17/10 com a mesma versão congelada, sem repetir casos concluídos.
+
+Na conclusão da versão 1.1.2, a retomada seletiva foi conferida em `--dry-run`, incluindo validação do manifesto e rejeição de IDs inválidos, repetidos ou seletores conflitantes. Essa conferência não consumiu tokens. Os resultados 60/60 pertencem exclusivamente à simulação. As ressalvas de C05, C10, C13, C15, C18 e C19 e o falso positivo financeiro motivaram a versão 1.2.0, com a nova suíte e reavaliação descritas no início deste documento. A evidência anterior de 56 testes e todas as saídas antigas permanecem preservadas.

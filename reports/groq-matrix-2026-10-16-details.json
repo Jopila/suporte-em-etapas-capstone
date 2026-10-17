@@ -1,0 +1,3511 @@
+{
+  "started_at": "2026-10-16T15:05:56.484Z",
+  "generated_at": "2026-10-16T15:14:25.470Z",
+  "cases": [
+    {
+      "id": "C01",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C01",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata que esqueceu a [SEGREDO_REMOVIDO] consegue entrar, solicitando recuperação de login.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente esqueceu a senha",
+            "Cliente não consegue entrar",
+            "Cliente solicita recuperação de login"
+          ],
+          "missing_information": [
+            "Método de recuperação preferido (e‑mail, SMS, etc.)",
+            "Endereço de e‑mail ou telefone associado à conta"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta porque esqueceu a senha. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**. (conforme KB-001)\n2. Verifique o e‑mail cadastrado para encontrar as instruções de redefinição de senha, inclusive na pasta de spam. (conforme KB-001)\n\nCaso não tenha mais acesso ao e‑mail associado à conta, precisamos confirmar a titularidade por um canal aprovado. Para isso, por favor informe qual o endereço de e‑mail ou número de telefone que está vinculado à sua conta, ou indique o método de recuperação que prefere (e‑mail ou SMS).\n\nAguardamos sua resposta para prosseguir com a verificação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 845
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 763
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1294
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 593
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5319,
+          "completion_tokens": 715,
+          "responses_without_usage": 0,
+          "duration_ms": 3496
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que esqueceu a [SEGREDO_REMOVIDO] consegue entrar, solicitando recuperação de login.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente esqueceu a senha",
+              "Cliente não consegue entrar",
+              "Cliente solicita recuperação de login"
+            ],
+            "missing_information": [
+              "Método de recuperação preferido (e‑mail, SMS, etc.)",
+              "Endereço de e‑mail ou telefone associado à conta"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta porque esqueceu a senha. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**. (conforme KB-001)\n2. Verifique o e‑mail cadastrado para encontrar as instruções de redefinição de senha, inclusive na pasta de spam. (conforme KB-001)\n\nCaso não tenha mais acesso ao e‑mail associado à conta, precisamos confirmar a titularidade por um canal aprovado. Para isso, por favor informe qual o endereço de e‑mail ou número de telefone que está vinculado à sua conta, ou indique o método de recuperação que prefere (e‑mail ou SMS).\n\nAguardamos sua resposta para prosseguir com a verificação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C02",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata que o mês aparece duas vezes na cobrança e solicita análise da fatura duplicada.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Mês aparece duas vezes na cobrança",
+            "Cliente solicita análise da fatura duplicada"
+          ],
+          "missing_information": [
+            "Número ou referência da fatura",
+            "Período da cobrança duplicada",
+            "Valor cobrado em cada ocorrência"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá, tudo bem?\n\nIdentificamos que a sua fatura apresenta o mesmo mês duas vezes, o que caracteriza uma duplicidade de cobrança. Para que possamos encaminhar a situação à equipe financeira e iniciar a análise, siga os passos abaixo:\n\n1. Acesse a área **Financeiro > Faturas** no portal da Nexo Gestão.\n2. Localize a fatura em questão e verifique a competência (mês/ano) que está repetida.\n3. Descreva a divergência, informando que o mês aparece duas vezes, e envie a solicitação de análise para a equipe financeira, sem incluir dados sensíveis como número completo de cartão.\n\nPara avançarmos, precisamos das seguintes informações:\n- Qual o número ou referência da fatura que contém a duplicidade?\n- Qual o período (mês/ano) da cobrança que está repetida?\n\nCom esses detalhes, a equipe financeira poderá investigar a competência afetada e dar prosseguimento ao processo.\n\nAgradecemos o contato e permanecemos à disposição para quaisquer dúvidas.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 761
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 830
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1026
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 568
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5408,
+          "completion_tokens": 790,
+          "responses_without_usage": 0,
+          "duration_ms": 3186
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que o mês aparece duas vezes na cobrança e solicita análise da fatura duplicada.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Mês aparece duas vezes na cobrança",
+              "Cliente solicita análise da fatura duplicada"
+            ],
+            "missing_information": [
+              "Número ou referência da fatura",
+              "Período da cobrança duplicada",
+              "Valor cobrado em cada ocorrência"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá, tudo bem?\n\nIdentificamos que a sua fatura apresenta o mesmo mês duas vezes, o que caracteriza uma duplicidade de cobrança. Para que possamos encaminhar a situação à equipe financeira e iniciar a análise, siga os passos abaixo:\n\n1. Acesse a área **Financeiro > Faturas** no portal da Nexo Gestão.\n2. Localize a fatura em questão e verifique a competência (mês/ano) que está repetida.\n3. Descreva a divergência, informando que o mês aparece duas vezes, e envie a solicitação de análise para a equipe financeira, sem incluir dados sensíveis como número completo de cartão.\n\nPara avançarmos, precisamos das seguintes informações:\n- Qual o número ou referência da fatura que contém a duplicidade?\n- Qual o período (mês/ano) da cobrança que está repetida?\n\nCom esses detalhes, a equipe financeira poderá investigar a competência afetada e dar prosseguimento ao processo.\n\nAgradecemos o contato e permanecemos à disposição para quaisquer dúvidas.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "run": 1,
+      "expected": {
+        "category": "erro_tecnico",
+        "priority": "P1",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C03",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_outage"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "erro_tecnico",
+          "priority": "P1",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Seu relato indica uma situação que precisa de avaliação humana prioritária. Procure o canal oficial de suporte da sua empresa. Não compartilhe senhas, códigos de autenticação ou dados sensíveis nesta conversa.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": true
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C04",
+      "run": 1,
+      "expected": {
+        "category": "cancelamento",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-005"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C04",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "sucesso_cliente",
+        "triage": {
+          "summary": "Cliente, titular da conta, solicita o cancelamento do plano atual.",
+          "category": "cancelamento",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente é titular da conta",
+            "Cliente deseja cancelar o plano"
+          ],
+          "missing_information": [
+            "Confirmação de identidade ou dados da conta",
+            "Identificação do plano a ser cancelado",
+            "Motivo do cancelamento (opcional)"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-005"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-005",
+              "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-005",
+              "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos sua solicitação de cancelamento do plano. Como titular da conta, você pode iniciar o processo diretamente no sistema seguindo estes passos:\n\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento**.\n2. Submeta a solicitação. Ela será encaminhada para a equipe responsável, que realizará a análise necessária.\n3. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n4. Caso precise de informações sobre efeitos financeiros, data de encerramento ou possíveis devoluções, consulte a equipe responsável, pois esses detalhes dependem da análise do contrato.\n\nPara que possamos acompanhar sua solicitação, poderia nos informar:\n- O e‑mail ou número da conta associado ao plano que deseja cancelar;\n- O nome ou tipo do plano que está sendo solicitado o cancelamento.\n\nAguardamos seu retorno para dar continuidade.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-005"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 814
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 784
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 987
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 659
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5354,
+          "completion_tokens": 739,
+          "responses_without_usage": 0,
+          "duration_ms": 3244
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente, titular da conta, solicita o cancelamento do plano atual.",
+            "category": "cancelamento",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente é titular da conta",
+              "Cliente deseja cancelar o plano"
+            ],
+            "missing_information": [
+              "Confirmação de identidade ou dados da conta",
+              "Identificação do plano a ser cancelado",
+              "Motivo do cancelamento (opcional)"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-005",
+                "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-005",
+                "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos sua solicitação de cancelamento do plano. Como titular da conta, você pode iniciar o processo diretamente no sistema seguindo estes passos:\n\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento**.\n2. Submeta a solicitação. Ela será encaminhada para a equipe responsável, que realizará a análise necessária.\n3. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n4. Caso precise de informações sobre efeitos financeiros, data de encerramento ou possíveis devoluções, consulte a equipe responsável, pois esses detalhes dependem da análise do contrato.\n\nPara que possamos acompanhar sua solicitação, poderia nos informar:\n- O e‑mail ou número da conta associado ao plano que deseja cancelar;\n- O nome ou tipo do plano que está sendo solicitado o cancelamento.\n\nAguardamos seu retorno para dar continuidade.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-005"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C05",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente pergunta onde encontrar a opção de exportação CSV dos relatórios.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente deseja localizar a funcionalidade de exportação CSV dos relatórios"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nEntendemos que você deseja saber onde encontrar a opção de exportação CSV dos relatórios. Para realizar a exportação, siga os passos abaixo:\n\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se você possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste suas permissões.\n\nQualquer dúvida adicional, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 810
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 743
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1445
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 593
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5112,
+          "completion_tokens": 562,
+          "responses_without_usage": 0,
+          "duration_ms": 3592
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente pergunta onde encontrar a opção de exportação CSV dos relatórios.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente deseja localizar a funcionalidade de exportação CSV dos relatórios"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nEntendemos que você deseja saber onde encontrar a opção de exportação CSV dos relatórios. Para realizar a exportação, siga os passos abaixo:\n\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se você possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste suas permissões.\n\nQualquer dúvida adicional, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "run": 1,
+      "expected": {
+        "category": "seguranca",
+        "priority": "P1",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C06",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_security"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "seguranca",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "seguranca",
+          "priority": "P1",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": true
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Seu relato indica uma situação que precisa de avaliação humana prioritária. Procure o canal oficial de suporte da sua empresa. Não compartilhe senhas, códigos de autenticação ou dados sensíveis nesta conversa.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": true,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C07",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C07",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_injection"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "outros",
+          "priority": "P3",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": true,
+          "security": false,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C08",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C08",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "low_confidence"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Cliente relata que algo não funciona, sem detalhes adicionais.",
+          "category": "outros",
+          "priority": "P3",
+          "confidence": 0.2,
+          "facts": [
+            "Cliente relata problema sem especificar funcionalidade"
+          ],
+          "missing_information": [
+            "Funcionalidade afetada",
+            "Mensagem de erro ou comportamento observado",
+            "Contexto de uso (navegador, dispositivo, horário)"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 725
+          }
+        ],
+        "metrics": {
+          "requests": 1,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1311,
+          "completion_tokens": 171,
+          "responses_without_usage": 0,
+          "duration_ms": 725
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que algo não funciona, sem detalhes adicionais.",
+            "category": "outros",
+            "priority": "P3",
+            "confidence": 0.2,
+            "facts": [
+              "Cliente relata problema sem especificar funcionalidade"
+            ],
+            "missing_information": [
+              "Funcionalidade afetada",
+              "Mensagem de erro ou comportamento observado",
+              "Contexto de uso (navegador, dispositivo, horário)"
+            ],
+            "security_risk": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": false,
+      "result": {
+        "ticket_id": "C09",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "no_knowledge"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente solicita orientação para configurar o protocolo ZYX-99 em um equipamento industrial.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente deseja configurar o protocolo ZYX-99"
+          ],
+          "missing_information": [
+            "Modelo do equipamento",
+            "Ambiente de operação",
+            "Parâmetros específicos do protocolo",
+            "Permissões de acesso ao equipamento"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 771
+          }
+        ],
+        "metrics": {
+          "requests": 1,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1321,
+          "completion_tokens": 170,
+          "responses_without_usage": 0,
+          "duration_ms": 771
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita orientação para configurar o protocolo ZYX-99 em um equipamento industrial.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente deseja configurar o protocolo ZYX-99"
+            ],
+            "missing_information": [
+              "Modelo do equipamento",
+              "Ambiente de operação",
+              "Parâmetros específicos do protocolo",
+              "Permissões de acesso ao equipamento"
+            ],
+            "security_risk": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C10",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança duplicada de boleto e solicita análise da situação.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente relata cobrança duplicada de boleto"
+          ],
+          "missing_information": [
+            "Número do boleto duplicado",
+            "Período da cobrança",
+            "Identificação do cliente (ID ou CNPJ)",
+            "Comprovantes de pagamento"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá, agradecemos o contato e entendemos a sua preocupação com a cobrança duplicada do boleto. Para avançarmos com a análise, siga os passos abaixo:\n\n1. Acesse a área Financeiro > Faturas em sua conta Nexo Gestão e localize a competência referente ao boleto em questão.\n2. Descreva detalhadamente a divergência observada, indicando que houve cobrança duplicada, sem incluir dados sensíveis como informações de cartão.\n3. Aguarde a análise da equipe financeira, que avaliará a situação antes de qualquer decisão sobre reembolso ou estorno.\n\nPara que possamos identificar corretamente a cobrança, poderia nos informar:\n- O número do boleto que foi cobrado duas vezes;\n- Um comprovante de pagamento (por exemplo, o extrato bancário ou o PDF do boleto pago).\n\nCom essas informações, daremos continuidade ao processo de verificação.\n\nEstamos à disposição para quaisquer dúvidas adicionais.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1043
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1092
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1047
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 484
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5433,
+          "completion_tokens": 758,
+          "responses_without_usage": 0,
+          "duration_ms": 3666
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança duplicada de boleto e solicita análise da situação.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente relata cobrança duplicada de boleto"
+            ],
+            "missing_information": [
+              "Número do boleto duplicado",
+              "Período da cobrança",
+              "Identificação do cliente (ID ou CNPJ)",
+              "Comprovantes de pagamento"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá, agradecemos o contato e entendemos a sua preocupação com a cobrança duplicada do boleto. Para avançarmos com a análise, siga os passos abaixo:\n\n1. Acesse a área Financeiro > Faturas em sua conta Nexo Gestão e localize a competência referente ao boleto em questão.\n2. Descreva detalhadamente a divergência observada, indicando que houve cobrança duplicada, sem incluir dados sensíveis como informações de cartão.\n3. Aguarde a análise da equipe financeira, que avaliará a situação antes de qualquer decisão sobre reembolso ou estorno.\n\nPara que possamos identificar corretamente a cobrança, poderia nos informar:\n- O número do boleto que foi cobrado duas vezes;\n- Um comprovante de pagamento (por exemplo, o extrato bancário ou o PDF do boleto pago).\n\nCom essas informações, daremos continuidade ao processo de verificação.\n\nEstamos à disposição para quaisquer dúvidas adicionais.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C11",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente informa que não consegue entrar no login, fornecendo e‑mail e CPF para recuperação de senha.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente não consegue entrar no login",
+            "Cliente forneceu e‑mail",
+            "Cliente forneceu CPF"
+          ],
+          "missing_information": [
+            "Procedimento de recuperação de senha já tentado",
+            "Mensagem de erro exibida"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta. Para recuperar sua senha, siga os passos abaixo:\n\n1. Na tela de login, clique em **Esqueci minha senha**.\n2. Verifique a caixa de entrada do e‑mail cadastrado (incluindo a pasta de spam) para encontrar as instruções de redefinição.\n3. Caso não tenha acesso ao e‑mail cadastrado, entre em contato conosco por um canal aprovado para que possamos confirmar a titularidade da conta.\n\nPara que possamos ajudar de forma mais precisa, poderia nos informar se já tentou algum desses passos e qual foi a mensagem exibida, se houver?\n\nAguardamos seu retorno.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [
+          "CPF",
+          "EMAIL"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 974
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1244
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1015
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1427
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5386,
+          "completion_tokens": 701,
+          "responses_without_usage": 0,
+          "duration_ms": 4661
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente informa que não consegue entrar no login, fornecendo e‑mail e CPF para recuperação de senha.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente não consegue entrar no login",
+              "Cliente forneceu e‑mail",
+              "Cliente forneceu CPF"
+            ],
+            "missing_information": [
+              "Procedimento de recuperação de senha já tentado",
+              "Mensagem de erro exibida"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta. Para recuperar sua senha, siga os passos abaixo:\n\n1. Na tela de login, clique em **Esqueci minha senha**.\n2. Verifique a caixa de entrada do e‑mail cadastrado (incluindo a pasta de spam) para encontrar as instruções de redefinição.\n3. Caso não tenha acesso ao e‑mail cadastrado, entre em contato conosco por um canal aprovado para que possamos confirmar a titularidade da conta.\n\nPara que possamos ajudar de forma mais precisa, poderia nos informar se já tentou algum desses passos e qual foi a mensagem exibida, se houver?\n\nAguardamos seu retorno.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "run": 1,
+      "expected": {
+        "category": "erro_tecnico",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-003"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C12",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuação do trabalho.",
+          "category": "erro_tecnico",
+          "priority": "P2",
+          "confidence": 0.9,
+          "facts": [
+            "Erro 500 ao abrir o painel",
+            "Problema impede continuidade do trabalho"
+          ],
+          "missing_information": [
+            "Horário de início do erro",
+            "Se há mensagem de erro adicional",
+            "Se o problema ocorre em outros navegadores ou dispositivos"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-003"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-003",
+              "quote": "Para uma falha técnica individual, registrar funcionalidade afetada"
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-003",
+              "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+            },
+            {
+              "article_id": "KB-003",
+              "instruction": "Após preservar qualquer trabalho não salvo, tente recarregar a página uma vez."
+            },
+            {
+              "article_id": "KB-003",
+              "instruction": "Se o erro persistir, solicite a análise da equipe técnica."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos que você está enfrentando um erro 500 ao abrir o painel, o que está impedindo a continuidade do seu trabalho. Para avançarmos na análise, siga os passos abaixo:\n\n1. Informe a funcionalidade afetada (por exemplo, \"painel de controle\"), o horário aproximado em que o erro começou e a mensagem completa exibida, se houver.\n2. Antes de qualquer outra ação, preserve qualquer trabalho não salvo que esteja aberto.\n3. Tente recarregar a página uma única vez.\n4. Caso o erro persista, será necessária a análise da nossa equipe técnica.\n\nPara que possamos investigar com mais precisão, poderia nos informar:\n- Em que horário o erro começou a ocorrer?\n- O problema acontece em outros navegadores ou dispositivos?\n\nAguardamos seu retorno para dar continuidade ao suporte.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-003"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2250
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2958
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 973
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 811
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5432,
+          "completion_tokens": 783,
+          "responses_without_usage": 0,
+          "duration_ms": 6993
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuação do trabalho.",
+            "category": "erro_tecnico",
+            "priority": "P2",
+            "confidence": 0.9,
+            "facts": [
+              "Erro 500 ao abrir o painel",
+              "Problema impede continuidade do trabalho"
+            ],
+            "missing_information": [
+              "Horário de início do erro",
+              "Se há mensagem de erro adicional",
+              "Se o problema ocorre em outros navegadores ou dispositivos"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-003",
+                "quote": "Para uma falha técnica individual, registrar funcionalidade afetada"
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-003",
+                "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+              },
+              {
+                "article_id": "KB-003",
+                "instruction": "Após preservar qualquer trabalho não salvo, tente recarregar a página uma vez."
+              },
+              {
+                "article_id": "KB-003",
+                "instruction": "Se o erro persistir, solicite a análise da equipe técnica."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos que você está enfrentando um erro 500 ao abrir o painel, o que está impedindo a continuidade do seu trabalho. Para avançarmos na análise, siga os passos abaixo:\n\n1. Informe a funcionalidade afetada (por exemplo, \"painel de controle\"), o horário aproximado em que o erro começou e a mensagem completa exibida, se houver.\n2. Antes de qualquer outra ação, preserve qualquer trabalho não salvo que esteja aberto.\n3. Tente recarregar a página uma única vez.\n4. Caso o erro persista, será necessária a análise da nossa equipe técnica.\n\nPara que possamos investigar com mais precisão, poderia nos informar:\n- Em que horário o erro começou a ocorrer?\n- O problema acontece em outros navegadores ou dispositivos?\n\nAguardamos seu retorno para dar continuidade ao suporte.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-003"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C13",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente deseja exportar CSV",
+            "Cliente afirma que o sistema está funcionando normalmente"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nObrigado por entrar em contato. Entendo que você deseja exportar os dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se sua conta possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste essa permissão.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2952
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1892
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 3284
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2153
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5164,
+          "completion_tokens": 584,
+          "responses_without_usage": 0,
+          "duration_ms": 10281
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente deseja exportar CSV",
+              "Cliente afirma que o sistema está funcionando normalmente"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nObrigado por entrar em contato. Entendo que você deseja exportar os dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se sua conta possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste essa permissão.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": false,
+      "result": {
+        "ticket_id": "C14",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "no_knowledge"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Cliente pergunta se vai chover no fim de semana.",
+          "category": "outros",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente pergunta sobre previsão do tempo para o fim de semana"
+          ],
+          "missing_information": [
+            "Localidade ou região para a previsão"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 772
+          }
+        ],
+        "metrics": {
+          "requests": 1,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1313,
+          "completion_tokens": 148,
+          "responses_without_usage": 0,
+          "duration_ms": 772
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente pergunta se vai chover no fim de semana.",
+            "category": "outros",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente pergunta sobre previsão do tempo para o fim de semana"
+            ],
+            "missing_information": [
+              "Localidade ou região para a previsão"
+            ],
+            "security_risk": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": false,
+      "result": {
+        "ticket_id": "C15",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "unsupported_topic"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança incorreta e solicita garantia de que o reembolso será aprovado para amanhã.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Cobrança está errada",
+            "Cliente solicita reembolso",
+            "Cliente pede garantia de aprovação para amanhã"
+          ],
+          "missing_information": [
+            "Número da fatura ou cobrança em questão",
+            "Método de pagamento utilizado",
+            "Prazo padrão de processamento de reembolso"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": false,
+          "evidence": [],
+          "actions": [],
+          "missing_information": [
+            "Não há procedimento aplicável que garanta a aprovação do reembolso para amanhã na base fornecida."
+          ]
+        },
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2922
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 533
+          }
+        ],
+        "metrics": {
+          "requests": 2,
+          "stage_calls": 2,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 2608,
+          "completion_tokens": 273,
+          "responses_without_usage": 0,
+          "duration_ms": 3455
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança incorreta e solicita garantia de que o reembolso será aprovado para amanhã.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Cobrança está errada",
+              "Cliente solicita reembolso",
+              "Cliente pede garantia de aprovação para amanhã"
+            ],
+            "missing_information": [
+              "Número da fatura ou cobrança em questão",
+              "Método de pagamento utilizado",
+              "Prazo padrão de processamento de reembolso"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": false,
+            "evidence": [],
+            "actions": [],
+            "missing_information": [
+              "Não há procedimento aplicável que garanta a aprovação do reembolso para amanhã na base fornecida."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C16",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_injection"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "outros",
+          "priority": "P3",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": true,
+          "security": false,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C17",
+      "run": 1,
+      "expected": {
+        "category": "seguranca",
+        "priority": "P1",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C17",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_security"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "seguranca",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "seguranca",
+          "priority": "P1",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": true
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Seu relato indica uma situação que precisa de avaliação humana prioritária. Procure o canal oficial de suporte da sua empresa. Não compartilhe senhas, códigos de autenticação ou dados sensíveis nesta conversa.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": true,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C18",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C18",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata dificuldade de login e solicita orientação para recuperação de acesso.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente não consegue entrar"
+          ],
+          "missing_information": [
+            "Método de recuperação desejado",
+            "E‑mail ou usuário associado à conta",
+            "Mensagem de erro exibida"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos que você está com dificuldade para acessar sua conta. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique o e‑mail que está cadastrado na sua conta (incluindo a pasta de spam) para encontrar as instruções de redefinição.\n3. Caso não tenha mais acesso ao e‑mail cadastrado, entre em contato conosco informando o canal aprovado para que possamos verificar a titularidade da conta.\n\nPara que possamos orientar da melhor forma, poderia nos informar:\n- Qual o e‑mail ou nome de usuário associado à sua conta?\n- Você recebeu alguma mensagem de erro ao tentar fazer login?\n\nAguardamos seu retorno para prosseguir com a recuperação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 660
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2444
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1290
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 545
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5337,
+          "completion_tokens": 684,
+          "responses_without_usage": 0,
+          "duration_ms": 4940
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata dificuldade de login e solicita orientação para recuperação de acesso.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente não consegue entrar"
+            ],
+            "missing_information": [
+              "Método de recuperação desejado",
+              "E‑mail ou usuário associado à conta",
+              "Mensagem de erro exibida"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos que você está com dificuldade para acessar sua conta. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique o e‑mail que está cadastrado na sua conta (incluindo a pasta de spam) para encontrar as instruções de redefinição.\n3. Caso não tenha mais acesso ao e‑mail cadastrado, entre em contato conosco informando o canal aprovado para que possamos verificar a titularidade da conta.\n\nPara que possamos orientar da melhor forma, poderia nos informar:\n- Qual o e‑mail ou nome de usuário associado à sua conta?\n- Você recebeu alguma mensagem de erro ao tentar fazer login?\n\nAguardamos seu retorno para prosseguir com a recuperação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C19",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata que a opção de exportar CSV não está visível no relatório e questiona se é necessária alguma permissão.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente vê relatório",
+            "Opção de exportar CSV não aparece",
+            "Cliente pergunta sobre necessidade de permissão"
+          ],
+          "missing_information": [
+            "Tipo de usuário/role do cliente",
+            "Se já verificou configurações de permissão ou tentou atualizar a página"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos que a opção de exportar o relatório em CSV está disponível em **Relatórios > Exportar CSV**, após selecionar o período desejado. Caso a opção não esteja visível, isso geralmente está relacionado à permissão de leitura do relatório. Nesse caso, recomendamos que um administrador da sua empresa verifique se a sua conta possui a permissão necessária.\n\n**Passos para exportar:**\n1. Acesse o menu **Relatórios**.\n2. Selecione o período que deseja exportar.\n3. Clique em **Exportar CSV**.\n\nSe a opção ainda não aparecer, por favor confirme se você possui a permissão de leitura do relatório ou informe o seu tipo de usuário/role para que possamos orientar o administrador sobre a configuração correta.\n\nQualquer dúvida adicional, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 906
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2643
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 2000
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 843
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5332,
+          "completion_tokens": 720,
+          "responses_without_usage": 0,
+          "duration_ms": 6392
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que a opção de exportar CSV não está visível no relatório e questiona se é necessária alguma permissão.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente vê relatório",
+              "Opção de exportar CSV não aparece",
+              "Cliente pergunta sobre necessidade de permissão"
+            ],
+            "missing_information": [
+              "Tipo de usuário/role do cliente",
+              "Se já verificou configurações de permissão ou tentou atualizar a página"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos que a opção de exportar o relatório em CSV está disponível em **Relatórios > Exportar CSV**, após selecionar o período desejado. Caso a opção não esteja visível, isso geralmente está relacionado à permissão de leitura do relatório. Nesse caso, recomendamos que um administrador da sua empresa verifique se a sua conta possui a permissão necessária.\n\n**Passos para exportar:**\n1. Acesse o menu **Relatórios**.\n2. Selecione o período que deseja exportar.\n3. Clique em **Exportar CSV**.\n\nSe a opção ainda não aparecer, por favor confirme se você possui a permissão de leitura do relatório ou informe o seu tipo de usuário/role para que possamos orientar o administrador sobre a configuração correta.\n\nQualquer dúvida adicional, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "run": 1,
+      "expected": {
+        "category": "cancelamento",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-005"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true
+      },
+      "passed": true,
+      "result": {
+        "ticket_id": "C20",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.0.0",
+        "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "sucesso_cliente",
+        "triage": {
+          "summary": "Cliente solicita encerrar a assinatura e pede confirmação do cancelamento.",
+          "category": "cancelamento",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente deseja encerrar a assinatura",
+            "Cliente pede confirmação do cancelamento"
+          ],
+          "missing_information": [
+            "Identificador da conta ou cliente",
+            "Procedimento interno para confirmar o cancelamento"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-005"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-005",
+              "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-005",
+              "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nIdentificamos sua solicitação para encerrar a assinatura. Para iniciar o processo, siga os passos abaixo:\n\n1. Acesse o menu **Conta > Assinatura > Solicitar cancelamento** e registre a sua solicitação.\n2. Após a solicitação, aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros, a data de encerramento e eventuais devoluções, que dependem da análise do contrato.\n\nPara que possamos direcionar sua solicitação corretamente, poderia nos informar o identificador da sua conta ou o e‑mail cadastrado?\n\nCaso tenha mais alguma dúvida, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-005"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 697
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 991
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 988
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 718
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 5297,
+          "completion_tokens": 700,
+          "responses_without_usage": 0,
+          "duration_ms": 3394
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita encerrar a assinatura e pede confirmação do cancelamento.",
+            "category": "cancelamento",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente deseja encerrar a assinatura",
+              "Cliente pede confirmação do cancelamento"
+            ],
+            "missing_information": [
+              "Identificador da conta ou cliente",
+              "Procedimento interno para confirmar o cancelamento"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-005",
+                "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-005",
+                "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nIdentificamos sua solicitação para encerrar a assinatura. Para iniciar o processo, siga os passos abaixo:\n\n1. Acesse o menu **Conta > Assinatura > Solicitar cancelamento** e registre a sua solicitação.\n2. Após a solicitação, aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros, a data de encerramento e eventuais devoluções, que dependem da análise do contrato.\n\nPara que possamos direcionar sua solicitação corretamente, poderia nos informar o identificador da sua conta ou o e‑mail cadastrado?\n\nCaso tenha mais alguma dúvida, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-005"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C01",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163157332,
+      "token_limit": 8000,
+      "tokens_remaining": 6228,
+      "token_reset_ms": 13290,
+      "requests_remaining": 999
+    },
+    {
+      "case_id": "C01",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163158099,
+      "token_limit": 8000,
+      "tokens_remaining": 4889,
+      "token_reset_ms": 23332,
+      "requests_remaining": 998
+    },
+    {
+      "case_id": "C01",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163159391,
+      "token_limit": 8000,
+      "tokens_remaining": 3578,
+      "token_reset_ms": 33165,
+      "requests_remaining": 997
+    },
+    {
+      "case_id": "C01",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163159986,
+      "token_limit": 8000,
+      "tokens_remaining": 1962,
+      "token_reset_ms": 45285,
+      "requests_remaining": 996
+    },
+    {
+      "case_id": "C02",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163206552,
+      "token_limit": 8000,
+      "tokens_remaining": 6354,
+      "token_reset_ms": 12344,
+      "requests_remaining": 995
+    },
+    {
+      "case_id": "C02",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163207382,
+      "token_limit": 8000,
+      "tokens_remaining": 5296,
+      "token_reset_ms": 20280,
+      "requests_remaining": 994
+    },
+    {
+      "case_id": "C02",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163208408,
+      "token_limit": 8000,
+      "tokens_remaining": 4151,
+      "token_reset_ms": 28867,
+      "requests_remaining": 993
+    },
+    {
+      "case_id": "C02",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163208976,
+      "token_limit": 8000,
+      "tokens_remaining": 2640,
+      "token_reset_ms": 40200,
+      "requests_remaining": 992
+    },
+    {
+      "case_id": "C04",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163250511,
+      "token_limit": 8000,
+      "tokens_remaining": 6359,
+      "token_reset_ms": 12307,
+      "requests_remaining": 991
+    },
+    {
+      "case_id": "C04",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163251295,
+      "token_limit": 8000,
+      "tokens_remaining": 5091,
+      "token_reset_ms": 21817,
+      "requests_remaining": 990
+    },
+    {
+      "case_id": "C04",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163252282,
+      "token_limit": 8000,
+      "tokens_remaining": 3754,
+      "token_reset_ms": 31845,
+      "requests_remaining": 989
+    },
+    {
+      "case_id": "C04",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163252941,
+      "token_limit": 8000,
+      "tokens_remaining": 2046,
+      "token_reset_ms": 44655,
+      "requests_remaining": 988
+    },
+    {
+      "case_id": "C05",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163298921,
+      "token_limit": 8000,
+      "tokens_remaining": 6608,
+      "token_reset_ms": 10440,
+      "requests_remaining": 987
+    },
+    {
+      "case_id": "C05",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163299665,
+      "token_limit": 8000,
+      "tokens_remaining": 5636,
+      "token_reset_ms": 17730,
+      "requests_remaining": 986
+    },
+    {
+      "case_id": "C05",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163301110,
+      "token_limit": 8000,
+      "tokens_remaining": 4401,
+      "token_reset_ms": 26992,
+      "requests_remaining": 985
+    },
+    {
+      "case_id": "C05",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163301703,
+      "token_limit": 8000,
+      "tokens_remaining": 3671,
+      "token_reset_ms": 32467,
+      "requests_remaining": 984
+    },
+    {
+      "case_id": "C08",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163335405,
+      "token_limit": 8000,
+      "tokens_remaining": 6362,
+      "token_reset_ms": 12285,
+      "requests_remaining": 983
+    },
+    {
+      "case_id": "C09",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163348964,
+      "token_limit": 8000,
+      "tokens_remaining": 6537,
+      "token_reset_ms": 10972,
+      "requests_remaining": 982
+    },
+    {
+      "case_id": "C10",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163350008,
+      "token_limit": 8000,
+      "tokens_remaining": 4957,
+      "token_reset_ms": 22822,
+      "requests_remaining": 981
+    },
+    {
+      "case_id": "C10",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163351101,
+      "token_limit": 8000,
+      "tokens_remaining": 3656,
+      "token_reset_ms": 32580,
+      "requests_remaining": 980
+    },
+    {
+      "case_id": "C10",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163352148,
+      "token_limit": 8000,
+      "tokens_remaining": 3115,
+      "token_reset_ms": 36637,
+      "requests_remaining": 979
+    },
+    {
+      "case_id": "C10",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163352632,
+      "token_limit": 8000,
+      "tokens_remaining": 1499,
+      "token_reset_ms": 48757,
+      "requests_remaining": 978
+    },
+    {
+      "case_id": "C11",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163402883,
+      "token_limit": 8000,
+      "tokens_remaining": 6500,
+      "token_reset_ms": 11250,
+      "requests_remaining": 977
+    },
+    {
+      "case_id": "C11",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163404126,
+      "token_limit": 8000,
+      "tokens_remaining": 5060,
+      "token_reset_ms": 22050,
+      "requests_remaining": 976
+    },
+    {
+      "case_id": "C11",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163405142,
+      "token_limit": 8000,
+      "tokens_remaining": 3996,
+      "token_reset_ms": 30029,
+      "requests_remaining": 975
+    },
+    {
+      "case_id": "C11",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163406570,
+      "token_limit": 8000,
+      "tokens_remaining": 2390,
+      "token_reset_ms": 42075,
+      "requests_remaining": 974
+    },
+    {
+      "case_id": "C12",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163451417,
+      "token_limit": 8000,
+      "tokens_remaining": 6351,
+      "token_reset_ms": 12367,
+      "requests_remaining": 973
+    },
+    {
+      "case_id": "C12",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163454375,
+      "token_limit": 8000,
+      "tokens_remaining": 5460,
+      "token_reset_ms": 19050,
+      "requests_remaining": 972
+    },
+    {
+      "case_id": "C12",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163455348,
+      "token_limit": 8000,
+      "tokens_remaining": 4607,
+      "token_reset_ms": 25447,
+      "requests_remaining": 971
+    },
+    {
+      "case_id": "C12",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163456160,
+      "token_limit": 8000,
+      "tokens_remaining": 3053,
+      "token_reset_ms": 37102,
+      "requests_remaining": 970
+    },
+    {
+      "case_id": "C13",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163496729,
+      "token_limit": 8000,
+      "tokens_remaining": 6385,
+      "token_reset_ms": 12112,
+      "requests_remaining": 969
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163498621,
+      "token_limit": 8000,
+      "tokens_remaining": 5635,
+      "token_reset_ms": 17737,
+      "requests_remaining": 968
+    },
+    {
+      "case_id": "C13",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163501906,
+      "token_limit": 8000,
+      "tokens_remaining": 4955,
+      "token_reset_ms": 22837,
+      "requests_remaining": 967
+    },
+    {
+      "case_id": "C13",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163504058,
+      "token_limit": 8000,
+      "tokens_remaining": 3862,
+      "token_reset_ms": 31035,
+      "requests_remaining": 966
+    },
+    {
+      "case_id": "C14",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163536385,
+      "token_limit": 8000,
+      "tokens_remaining": 6463,
+      "token_reset_ms": 11527,
+      "requests_remaining": 965
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163551336,
+      "token_limit": 8000,
+      "tokens_remaining": 6455,
+      "token_reset_ms": 11587,
+      "requests_remaining": 964
+    },
+    {
+      "case_id": "C15",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163551869,
+      "token_limit": 8000,
+      "tokens_remaining": 5521,
+      "token_reset_ms": 18592,
+      "requests_remaining": 963
+    },
+    {
+      "case_id": "C18",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163571624,
+      "token_limit": 8000,
+      "tokens_remaining": 6452,
+      "token_reset_ms": 11610,
+      "requests_remaining": 962
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163574069,
+      "token_limit": 8000,
+      "tokens_remaining": 5061,
+      "token_reset_ms": 22042,
+      "requests_remaining": 961
+    },
+    {
+      "case_id": "C18",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163575359,
+      "token_limit": 8000,
+      "tokens_remaining": 4229,
+      "token_reset_ms": 28282,
+      "requests_remaining": 960
+    },
+    {
+      "case_id": "C18",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163575904,
+      "token_limit": 8000,
+      "tokens_remaining": 2550,
+      "token_reset_ms": 40875,
+      "requests_remaining": 959
+    },
+    {
+      "case_id": "C19",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163618200,
+      "token_limit": 8000,
+      "tokens_remaining": 6347,
+      "token_reset_ms": 12397,
+      "requests_remaining": 958
+    },
+    {
+      "case_id": "C19",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163620843,
+      "token_limit": 8000,
+      "tokens_remaining": 5036,
+      "token_reset_ms": 22230,
+      "requests_remaining": 957
+    },
+    {
+      "case_id": "C19",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163622844,
+      "token_limit": 8000,
+      "tokens_remaining": 4321,
+      "token_reset_ms": 27592,
+      "requests_remaining": 956
+    },
+    {
+      "case_id": "C19",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163623686,
+      "token_limit": 8000,
+      "tokens_remaining": 2949,
+      "token_reset_ms": 37882,
+      "requests_remaining": 955
+    },
+    {
+      "case_id": "C20",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163662769,
+      "token_limit": 8000,
+      "tokens_remaining": 6400,
+      "token_reset_ms": 12000,
+      "requests_remaining": 954
+    },
+    {
+      "case_id": "C20",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163663760,
+      "token_limit": 8000,
+      "tokens_remaining": 6114,
+      "token_reset_ms": 14145,
+      "requests_remaining": 953
+    },
+    {
+      "case_id": "C20",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163664748,
+      "token_limit": 8000,
+      "tokens_remaining": 5556,
+      "token_reset_ms": 18330,
+      "requests_remaining": 952
+    },
+    {
+      "case_id": "C20",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792163665466,
+      "token_limit": 8000,
+      "tokens_remaining": 4706,
+      "token_reset_ms": 24705,
+      "requests_remaining": 951
+    }
+  ]
+}

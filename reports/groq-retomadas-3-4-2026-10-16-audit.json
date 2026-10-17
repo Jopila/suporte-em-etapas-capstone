@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-10-16T18:31:44.851Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 15,
+  "completed_artifacts_preserved_after_c13": 16,
+  "complete": false,
+  "completed_cases": 16,
+  "pending_case_ids": [
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "newly_completed_case_ids": [
+    "C13"
+  ],
+  "current_request": {
+    "selected_case_ids": [
+      "C13",
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "second_attempt_case_ids": [
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "usage": {
+      "requests": 11,
+      "prompt_tokens": 12135,
+      "completion_tokens": 1461,
+      "total_tokens": 13596
+    },
+    "http_status_counts": {
+      "200": 8,
+      "429": 3
+    },
+    "waits": [
+      {
+        "started_at": "2026-10-16T18:13:23.232Z",
+        "earliest_retry_indicated_at": "2026-10-16T16:57:15.787Z",
+        "margin_ms": 4567445
+      },
+      {
+        "started_at": "2026-10-16T18:23:32.344Z",
+        "earliest_retry_indicated_at": "2026-10-16T18:23:11.969Z",
+        "margin_ms": 20375
+      }
+    ],
+    "additional_107s_wait_enforced_by_runner": true,
+    "next_case_first_response_after_retry_after": true
+  },
+  "correction_cycle_usage": {
+    "requests": 121,
+    "prompt_tokens": 174380,
+    "completion_tokens": 19531,
+    "responses_without_usage": 0,
+    "total_tokens": 193911
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 113,
+    "429": 8
+  },
+  "current_version_tokens": 74949,
+  "total_documented_historical_tokens": 273778,
+  "last_retry_after_ms": 467000,
+  "earliest_retry_indicated_at": "2026-10-16T18:33:07.496Z",
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "local_document_links_checked": 63,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 191,
+  "exact_key_leaks": 0,
+  "manual_content_observation": "C13 repete a sugestão de ajustar permissões além do procedimento explícito de KB-004; observação preservada no relatório.",
+  "status": "Retomada de quatro casos preparada, sem agendamento."
+}

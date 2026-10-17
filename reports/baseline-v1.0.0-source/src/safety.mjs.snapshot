@@ -1,0 +1,49 @@
+export const normalize = text => text.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase();
+
+const patterns = [
+  ['CHAVE', /\b(?:gsk_|sk-(?:proj-)?)[A-Za-z0-9_-]{10,}\b/g],
+  ['EMAIL', /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi],
+  ['CPF', /\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b/g],
+  ['CARTAO', /\b(?:\d[ -]?){15}\d\b/g],
+  ['TELEFONE', /(?:\+55\s?)?(?:\(\d{2}\)|\b\d{2})[ -]?9?\d{4}[ -]?\d{4}\b/g],
+  ['SEGREDO', /\b(?:senha|password|token|api[_ -]?key)\s*(?:e\s+|é\s+|[:=]\s*)[^\s,;]+/gi],
+];
+
+export function redact(text) {
+  let cleaned = text;
+  const types = new Set();
+  for (const [type, pattern] of patterns) {
+    cleaned = cleaned.replace(pattern, () => { types.add(type); return `[${type}_REMOVIDO]`; });
+  }
+  return { text: cleaned, types: [...types].sort() };
+}
+
+export function inspectTicket(ticket) {
+  const original = normalize(`${ticket.subject}\n${ticket.message}`);
+  const injection = /ignore\s+(?:todas?\s+)?(?:as\s+)?(?:regras|instrucoes)|ignore\s+(?:all\s+)?previous|system\s*prompt|prompt\s+(?:do\s+)?sistema|finja\s+ser|revele\s+(?:as?\s+)?(?:chaves?|segredos?)|<\|(?:system|im_start)/i.test(original);
+  const security = /vazamento|invasao|invadid[oa]|acesso nao autorizado|conta comprometida|dados expostos|roubo de dados|data breach|hacked/.test(original);
+  const outage = /todos|toda a (?:equipe|empresa)|nenhum usuario|empresa inteira/.test(original) && /indisponivel|fora do ar|nao (?:consegue|conseguimos)|parad[oa]|erro 50[0234]/.test(original);
+  const subject = redact(ticket.subject);
+  const message = redact(ticket.message);
+  return {
+    ticket: { id: ticket.id, subject: subject.text, message: message.text },
+    flags: { injection, security, outage },
+    redactions: [...new Set([...subject.types, ...message.types])].sort(),
+  };
+}
+
+export function checkDraft(draft, grounding) {
+  const errors = [];
+  const allowed = new Set(grounding.evidence.map(item => item.article_id));
+  if (!draft.source_ids.length || draft.source_ids.some(id => !allowed.has(id))) errors.push('invalid_citation');
+  const n = normalize(draft.message);
+  // Instruções copiadas literalmente da base aprovada podem mencionar uma
+  // aprovação em contexto condicional. Exclua só esses trechos deste detector.
+  const claims = grounding.actions.reduce((body, action) => body.replaceAll(normalize(action.instruction), ' '), n);
+  if (/\b(?:garantimos|garanto|(?:reembolso|estorno)(?: foi| esta)? aprovado|problema resolvido|ja (?:realizamos|efetuamos|cancelamos))\b/.test(claims)) errors.push('unsupported_commitment');
+  const requests = n.replace(/\b(?:nao|nunca|jamais)\s+(?:envie|informe|compartilhe|mande|digite)\b/g, 'AVISO');
+  if (/\b(?:envie|informe|compartilhe|mande|digite).{0,45}(?:sua senha|a senha|codigo de verificacao|numero completo do cartao|seu token|chave de api)/.test(requests)) errors.push('secret_request');
+  if (redact(draft.message).types.length) errors.push('sensitive_output');
+  // A revisão humana continua obrigatória: estes padrões não cobrem toda linguagem natural.
+  return errors;
+}

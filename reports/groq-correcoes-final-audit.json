@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-16T16:20:15.272Z",
+  "network_calls": 0,
+  "manifest_files_verified": 22,
+  "progress_complete": false,
+  "completed_cases": 15,
+  "pending_case_ids": [
+    "C13",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "request_usage": {
+    "requests": 104,
+    "prompt_tokens": 156286,
+    "completion_tokens": 17436,
+    "responses_without_usage": 0,
+    "total_tokens": 173722
+  },
+  "http_status_counts": {
+    "200": 101,
+    "429": 3
+  },
+  "local_document_links_checked": 60,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 155,
+  "exact_key_leaks": 0,
+  "regression_evidence": "reports/test-results-v1.1.2.tap",
+  "regression_passed": 56,
+  "regression_failed": 0
+}

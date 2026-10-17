@@ -1,0 +1,188 @@
+TAP version 13
+# Subtest: C10: detecta o problema editorial observado na versão anterior
+not ok 1 - C10: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 13.9873
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:20:27'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(e.message, e.source).includes(e.code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:21:10)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.start (node:internal/test_runner/test:1191:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+  ...
+# Subtest: C19: detecta o problema editorial observado na versão anterior
+not ok 2 - C19: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 1.1318
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:20:27'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(e.message, e.source).includes(e.code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:21:10)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)
+  ...
+# Subtest: consulta de faturas não depende de resposta prévia nem de dados enviados
+not ok 3 - consulta de faturas não depende de resposta prévia nem de dados enviados
+  ---
+  duration_ms: 0.5945
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: 'Informe a competência e depois consulte Financeiro > Faturas.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:30:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: autoatendimento direto permite análise posterior e proibições de envio
+ok 4 - autoatendimento direto permite análise posterior e proibições de envio
+  ---
+  duration_ms: 2.2249
+  type: 'test'
+  ...
+# Subtest: condições autorizadas de outros procedimentos continuam permitidas
+ok 5 - condições autorizadas de outros procedimentos continuam permitidas
+  ---
+  duration_ms: 3.4439
+  type: 'test'
+  ...
+# Subtest: IDs internos no texto são rejeitados, preservando códigos de erro e menus
+not ok 6 - IDs internos no texto são rejeitados, preservando códigos de erro e menus
+  ---
+  duration_ms: 2.3503
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:47:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(`Consulte ${reference} para exportar.`, 'KB-004').includes('internal_reference_in_message'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:49:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: editoriais persistentes são bloqueados mesmo com revisor permissivo
+not ok 7 - editoriais persistentes são bloqueados mesmo com revisor permissivo
+  ---
+  duration_ms: 25.4344
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:54:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'rascunho_validado'
+    - 'encaminhamento_humano'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'encaminhamento_humano'
+  actual: 'rascunho_validado'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:64:12)
+    async Test.run (node:internal/test_runner/test:1332:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: correção editorial mantém fontes estruturadas, evidência e aprovação humana
+not ok 8 - correção editorial mantém fontes estruturadas, evidência e aprovação humana
+  ---
+  duration_ms: 6.3839
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:73:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:85:12)
+    async Test.run (node:internal/test_runner/test:1332:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: relatório identifica a versão ativa do avaliador de conteúdo
+not ok 9 - relatório identifica a versão ativa do avaliador de conteúdo
+  ---
+  duration_ms: 10.9923
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\editorial-regression.test.mjs:96:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '1.1.2' !== '1.2.0'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '1.2.0'
+  actual: '1.1.2'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/editorial-regression.test.mjs:98:10)
+    async Test.run (node:internal/test_runner/test:1332:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 2
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 241.8919

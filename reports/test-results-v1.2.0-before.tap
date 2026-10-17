@@ -1,0 +1,335 @@
+TAP version 13
+# Subtest: C05: detecta a ressalva observada mesmo com fonte correta
+not ok 1 - C05: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 7.473
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.start (node:internal/test_runner/test:1191:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+  ...
+# Subtest: C10: detecta a ressalva observada mesmo com fonte correta
+not ok 2 - C10: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 1.9683
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)
+  ...
+# Subtest: C13: detecta a ressalva observada mesmo com fonte correta
+not ok 3 - C13: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.4851
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: C15: detecta a ressalva observada mesmo com fonte correta
+not ok 4 - C15: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.5665
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: C18: detecta a ressalva observada mesmo com fonte correta
+not ok 5 - C18: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 1.1698
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: C19: detecta a ressalva observada mesmo com fonte correta
+not ok 6 - C19: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.4577
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:27:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(issues(message, source).includes(code))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:28:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+ok 7 - procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+  ---
+  duration_ms: 2.0816
+  type: 'test'
+  ...
+# Subtest: variações de concessão e troca de ordem da permissão são bloqueadas
+not ok 8 - variações de concessão e troca de ordem da permissão são bloqueadas
+  ---
+  duration_ms: 0.3138
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:39:1'
+  failureType: 'testCodeFailure'
+  error: 'Peça para liberar a permissão.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:43:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: orientar o cliente não equivale a prometer uma consulta operacional
+not ok 9 - orientar o cliente não equivale a prometer uma consulta operacional
+  ---
+  duration_ms: 0.5039
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:47:1'
+  failureType: 'testCodeFailure'
+  error: 'Vamos consultar sua fatura.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:50:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: análise prevista não autoriza promessa de retorno ou notificação
+not ok 10 - análise prevista não autoriza promessa de retorno ou notificação
+  ---
+  duration_ms: 0.4183
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:58:1'
+  failureType: 'testCodeFailure'
+  error: 'A equipe financeira retornará com a decisão.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:61:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+not ok 11 - titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+  ---
+  duration_ms: 0.5247
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:69:1'
+  failureType: 'testCodeFailure'
+  error: 'Solicite ao suporte a verificação de titularidade pelo canal aprovado.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:75:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+not ok 12 - Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+  ---
+  duration_ms: 1.0941
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:80:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Aguardar a análise da equipe financeira antes de considerar qualquer reembolso ou estorno aprovado.
+    + actual - expected
+    
+    + [
+    +   'unsupported_commitment'
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: 'unsupported_commitment'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:83:12)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1325:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+    Test.postRun (node:internal/test_runner/test:1465:19)
+    Test.run (node:internal/test_runner/test:1390:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+not ok 13 - controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+  ---
+  duration_ms: 25.5855
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    C05
+    + actual - expected
+    
+    + 'rascunho_validado'
+    - 'encaminhamento_humano'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'encaminhamento_humano'
+  actual: 'rascunho_validado'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:100:12)
+    async Test.run (node:internal/test_runner/test:1332:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+# Subtest: feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+not ok 14 - feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+  ---
+  duration_ms: 6.4684
+  type: 'test'
+  location: 'C:\\Users\\Marcelo\\Documents\\CODERS UNIVERSITY - ENGENHARIA DE IA\\Módulo 2\\M2 - CAPSTONE FINAL\\tests\\semantic-regression.test.mjs:111:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Marcelo/Documents/CODERS%20UNIVERSITY%20-%20ENGENHARIA%20DE%20IA/M%C3%B3dulo%202/M2%20-%20CAPSTONE%20FINAL/tests/semantic-regression.test.mjs:125:12)
+    async Test.run (node:internal/test_runner/test:1332:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:911:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 1
+# fail 13
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 205.2724

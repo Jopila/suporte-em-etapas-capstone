@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+reports/groq*
+reports/private/
+*.log
+.DS_Store
+tmp/
+output/
+.codex/
+.agents/
+__pycache__/
+*.pyc
+reports/minha-*
+reports/ci-*

@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-10-17T05:25:26.816Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.2.0",
+  "prompt_version": "1.2.0",
+  "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+  "manifest_files_verified": 23,
+  "previous_completed_results_unchanged": 20,
+  "historical_artifacts_unchanged": 270,
+  "source_snapshots_verified": 36,
+  "selected_case_ids": [
+    "C05",
+    "C10",
+    "C13",
+    "C15",
+    "C18",
+    "C19"
+  ],
+  "completed_cases": 6,
+  "passed_cases": 6,
+  "pending_case_ids": [],
+  "other_cases_not_reexecuted": 14,
+  "local_tests": {
+    "passed": 70,
+    "failed": 0,
+    "new_regressions": 14,
+    "before": {
+      "passed": 1,
+      "failed": 13
+    }
+  },
+  "current_request_usage": {
+    "requests": 43,
+    "prompt_tokens": 42491,
+    "completion_tokens": 4315,
+    "responses_without_usage": 0,
+    "total_tokens": 46806
+  },
+  "completed_executions_usage": {
+    "requests": 25,
+    "prompt_tokens": 42491,
+    "completion_tokens": 4315,
+    "responses_without_usage": 0,
+    "total_tokens": 46806
+  },
+  "http_status_counts": {
+    "200": 25
+  },
+  "attempts_without_http_response": 18,
+  "correction_cycle_usage": {
+    "requests": 197,
+    "prompt_tokens": 258378,
+    "completion_tokens": 28782,
+    "total_tokens": 287160
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 165,
+    "429": 14
+  },
+  "correction_cycle_attempts_without_http_response": 18,
+  "total_documented_historical_tokens": 367027,
+  "token_delta_vs_same_six_previous_results": 6050,
+  "token_delta_percent": 14.84,
+  "c15_repaired_after_local_rejection": true,
+  "batch_wall_ms": 356717,
+  "pacing_wait_ms": 337946,
+  "stage_pacing_wait_ms": 240986,
+  "local_document_links_checked": 114,
+  "broken_links": 0,
+  "files_scanned_for_exact_key": 350,
+  "exact_key_leaks": 0,
+  "inspection": "reports/groq-v1.2.0-response-inspection.json",
+  "document_hashes": {
+    "README.md": "81c0c5e27c8b5b4b5602eaeb51baaaf93d3390c9febb523e71cacb176acc97c8",
+    "docs/APRESENTACAO.md": "4c277b883cbaf6f6d2a7ad2438c5755f643c2c3eaa1b6628cd0091b2f9131003",
+    "docs/ARQUITETURA.md": "fde5c8a4cc8841cfb5efcae8ecb2c22e28302948f813a22de16771f1032b733c",
+    "docs/AVALIACAO_GROQ_20_CASOS.md": "ab62ad507a89509700db1321b7c76ca196c21d7567f878bd135504c176a65cee",
+    "docs/CAPSTONE.md": "d0e9b68b9148b89eac25f4decdbb1701f85e7c77437379b48b86803bd9bc8dd1",
+    "docs/COMPARACAO_GROQ_CORRECOES.md": "882a3cd2399f47224bb53db811dea912a1cd2139a87e0d21ba4cd68cc8689c7e",
+    "docs/CORRECOES_SEMANTICAS_GROQ.md": "80cf98a02349051787c8c5a078468035f0ef64ec7a80617a058ab480afd99dd3",
+    "docs/OPERACAO.md": "e3d3bbc1e6c871ef606435cf348006edbd24a4167f6c5f468d6a7274d6fd590b",
+    "docs/PROMPTS.md": "234a2e64a645bd7a7b75878950909adf98c76c522d45c9af90530158c27af0cb",
+    "docs/TESTES.md": "8c44873b45e7c4f32c0e4f7a6006a1d7d92224240205856c2ae163379fe7db4f",
+    "docs/TESTE_REAL_GROQ.md": "ba458378dd9dd6ed24ce03d442ce75b2301ceeb4ec9e663c5e70bf2a08b4dfbf",
+    "reports/groq-comparison-v1.2.0-2026-10-17.md": "d9a43dc0a324f60acc9efa620e1d1e0e85e513ab47099a5a91f90ac70ee18c87"
+  },
+  "status": "Reavaliação solicitada concluída; seis casos aprovados, sem chamadas pendentes. Não constitui matriz completa de 20 casos da versão 1.2.0.",
+  "usage_caveat": "Somente tokens informados. Tentativas sem resposta HTTP e os 429 históricos sem usage não comprovam consumo ou custo nulo."
+}

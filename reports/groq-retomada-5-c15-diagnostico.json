@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-10-16T19:21:24.456Z",
+  "network_calls": 0,
+  "source": "reports/groq-pendentes-v1.1.2-retomada-5-cases/C15.json",
+  "first_draft_issues": [
+    "unsupported_commitment"
+  ],
+  "single_phrase_replacement": "Aguardar a análise financeira → Aguarde a análise financeira",
+  "control_issues": [],
+  "second_draft_issues": [],
+  "observation": "O infinitivo Aguardar na condição financeira aciona um falso positivo local; a revisão corretiva trocou para Aguarde e passou pelo controle. A revisão pelo modelo foi bloqueada por HTTP 429. O controle é apenas diagnóstico; não substitui nem modifica a resposta salva.",
+  "code_changed": false
+}

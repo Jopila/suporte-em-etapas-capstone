@@ -1,0 +1,346 @@
+TAP version 13
+# Subtest: contratos recusam campos ausentes, adicionais, tipos incorretos, enums e confiança inválida
+ok 1 - contratos recusam campos ausentes, adicionais, tipos incorretos, enums e confiança inválida
+  ---
+  duration_ms: 2.0895
+  type: 'test'
+  ...
+# Subtest: revisor não pode aprovar com critério reprovado ou problemas pendentes
+ok 2 - revisor não pode aprovar com critério reprovado ou problemas pendentes
+  ---
+  duration_ms: 1.3511
+  type: 'test'
+  ...
+# Subtest: entrada limita tamanho, ID e campos enviados ao modelo
+ok 3 - entrada limita tamanho, ID e campos enviados ao modelo
+  ---
+  duration_ms: 0.5734
+  type: 'test'
+  ...
+# Subtest: remoção local cobre e-mail, CPF, telefone, cartão e credencial explícita
+ok 4 - remoção local cobre e-mail, CPF, telefone, cartão e credencial explícita
+  ---
+  duration_ms: 1.2363
+  type: 'test'
+  ...
+# Subtest: urgência retórica não é indisponibilidade, e instruções suspeitas são sinalizadas
+ok 5 - urgência retórica não é indisponibilidade, e instruções suspeitas são sinalizadas
+  ---
+  duration_ms: 1.0554
+  type: 'test'
+  ...
+# Subtest: dados adversariais ficam exclusivamente na mensagem de usuário serializada
+ok 6 - dados adversariais ficam exclusivamente na mensagem de usuário serializada
+  ---
+  duration_ms: 12.6251
+  type: 'test'
+  ...
+# Subtest: recuperação exige sobreposição textual, mesmo com categoria conhecida
+ok 7 - recuperação exige sobreposição textual, mesmo com categoria conhecida
+  ---
+  duration_ms: 1.9093
+  type: 'test'
+  ...
+# Subtest: fundamentação recusa fonte inventada, citação fabricada e ação não autorizada
+ok 8 - fundamentação recusa fonte inventada, citação fabricada e ação não autorizada
+  ---
+  duration_ms: 1.7482
+  type: 'test'
+  ...
+# Subtest: controles detectam promessa, segredo e fonte inválida sem bloquear a instrução aprovada
+ok 9 - controles detectam promessa, segredo e fonte inválida sem bloquear a instrução aprovada
+  ---
+  duration_ms: 3.9411
+  type: 'test'
+  ...
+# Subtest: 20 cenários sintéticos passam e repetição mede concordância de decisões
+ok 10 - 20 cenários sintéticos passam e repetição mede concordância de decisões
+  ---
+  duration_ms: 49.8535
+  type: 'test'
+  ...
+# Subtest: avaliador detecta regressão de categoria, prioridade, fontes e aprovação humana
+ok 11 - avaliador detecta regressão de categoria, prioridade, fontes e aprovação humana
+  ---
+  duration_ms: 5.1385
+  type: 'test'
+  ...
+# Subtest: avaliador não confunde erro operacional com abstinência correta
+ok 12 - avaliador não confunde erro operacional com abstinência correta
+  ---
+  duration_ms: 3.0796
+  type: 'test'
+  ...
+# Subtest: uma execução não inventa métrica de consistência
+ok 13 - uma execução não inventa métrica de consistência
+  ---
+  duration_ms: 3.6019
+  type: 'test'
+  ...
+# Subtest: avaliação aguarda os hooks e preserva a saída de cada caso sem repetir chamadas
+ok 14 - avaliação aguarda os hooks e preserva a saída de cada caso sem repetir chamadas
+  ---
+  duration_ms: 4.7105
+  type: 'test'
+  ...
+# Subtest: CLI recusa provedor desconhecido e chave ausente sem fallback silencioso
+ok 15 - CLI recusa provedor desconhecido e chave ausente sem fallback silencioso
+  ---
+  duration_ms: 171.2928
+  type: 'test'
+  ...
+# Subtest: fluxo completo passa pelas quatro etapas e exige revisão humana
+ok 16 - fluxo completo passa pelas quatro etapas e exige revisão humana
+  ---
+  duration_ms: 7.3975
+  type: 'test'
+  ...
+# Subtest: risco crítico e injeção interrompem antes de chamar o modelo
+ok 17 - risco crítico e injeção interrompem antes de chamar o modelo
+  ---
+  duration_ms: 1.0793
+  type: 'test'
+  ...
+# Subtest: risco percebido pelo modelo sobe para P1 e equipe de segurança
+ok 18 - risco percebido pelo modelo sobe para P1 e equipe de segurança
+  ---
+  duration_ms: 0.6646
+  type: 'test'
+  ...
+# Subtest: baixa confiança encaminha sem inventar orientação
+ok 19 - baixa confiança encaminha sem inventar orientação
+  ---
+  duration_ms: 0.6074
+  type: 'test'
+  ...
+# Subtest: sem recuperação textual ou sem sustentação interrompe a geração
+ok 20 - sem recuperação textual ou sem sustentação interrompe a geração
+  ---
+  duration_ms: 1.0328
+  type: 'test'
+  ...
+# Subtest: saída fora do contrato é refeita uma vez, usando feedback limitado
+ok 21 - saída fora do contrato é refeita uma vez, usando feedback limitado
+  ---
+  duration_ms: 1.7888
+  type: 'test'
+  ...
+# Subtest: contrato persistentemente inválido falha fechado sem ciclo infinito
+ok 22 - contrato persistentemente inválido falha fechado sem ciclo infinito
+  ---
+  duration_ms: 0.7873
+  type: 'test'
+  ...
+# Subtest: citação fabricada e ação não autorizada são bloqueadas mesmo com JSON válido
+ok 23 - citação fabricada e ação não autorizada são bloqueadas mesmo com JSON válido
+  ---
+  duration_ms: 1.5666
+  type: 'test'
+  ...
+# Subtest: crítica do revisor aciona uma revisão e valida novamente
+ok 24 - crítica do revisor aciona uma revisão e valida novamente
+  ---
+  duration_ms: 1.1228
+  type: 'test'
+  ...
+# Subtest: duas rejeições impedem liberação e descartam o rascunho
+ok 25 - duas rejeições impedem liberação e descartam o rascunho
+  ---
+  duration_ms: 0.9168
+  type: 'test'
+  ...
+# Subtest: fonte inventada na resposta é barrada antes de consultar o revisor
+ok 26 - fonte inventada na resposta é barrada antes de consultar o revisor
+  ---
+  duration_ms: 0.7495
+  type: 'test'
+  ...
+# Subtest: dados reconhecidos são removidos antes de qualquer chamada e da saída
+ok 27 - dados reconhecidos são removidos antes de qualquer chamada e da saída
+  ---
+  duration_ms: 0.8069
+  type: 'test'
+  ...
+# Subtest: falha do provedor não revela mensagem bruta e não simula sucesso
+ok 28 - falha do provedor não revela mensagem bruta e não simula sucesso
+  ---
+  duration_ms: 0.6434
+  type: 'test'
+  ...
+# Subtest: orçamento global encerra execução demorada
+ok 29 - orçamento global encerra execução demorada
+  ---
+  duration_ms: 24.7047
+  type: 'test'
+  ...
+# Subtest: cliente exige credencial e valida limites de configuração
+ok 30 - cliente exige credencial e valida limites de configuração
+  ---
+  duration_ms: 1.4349
+  type: 'test'
+  ...
+# Subtest: requisição usa apenas Groq, schema estrito e não serializa a chave no cliente
+ok 31 - requisição usa apenas Groq, schema estrito e não serializa a chave no cliente
+  ---
+  duration_ms: 28.5185
+  type: 'test'
+  ...
+# Subtest: modo JSON object é uma opção explícita
+ok 32 - modo JSON object é uma opção explícita
+  ---
+  duration_ms: 0.5917
+  type: 'test'
+  ...
+# Subtest: 429 respeita Retry-After e recupera com número limitado de tentativas
+ok 33 - 429 respeita Retry-After e recupera com número limitado de tentativas
+  ---
+  duration_ms: 1.0657
+  type: 'test'
+  ...
+# Subtest: Retry-After longo retorna à fila sem repetir antes do prazo
+ok 34 - Retry-After longo retorna à fila sem repetir antes do prazo
+  ---
+  duration_ms: 0.5829
+  type: 'test'
+  ...
+# Subtest: 401 não repete e não expõe corpo de erro
+ok 35 - 401 não repete e não expõe corpo de erro
+  ---
+  duration_ms: 0.4065
+  type: 'test'
+  ...
+# Subtest: 503 esgota exatamente três tentativas
+ok 36 - 503 esgota exatamente três tentativas
+  ---
+  duration_ms: 0.9302
+  type: 'test'
+  ...
+# Subtest: erros de rede são resumidos e têm repetição limitada
+ok 37 - erros de rede são resumidos e têm repetição limitada
+  ---
+  duration_ms: 0.4361
+  type: 'test'
+  ...
+# Subtest: timeout cancela o fetch
+ok 38 - timeout cancela o fetch
+  ---
+  duration_ms: 100.9562
+  type: 'test'
+  ...
+# Subtest: JSON inválido, truncamento e recusa não viram uma resposta aprovada
+ok 39 - JSON inválido, truncamento e recusa não viram uma resposta aprovada
+  ---
+  duration_ms: 1.7999
+  type: 'test'
+  ...
+# Subtest: uso é contabilizado mesmo quando o conteúdo JSON é inválido
+ok 40 - uso é contabilizado mesmo quando o conteúdo JSON é inválido
+  ---
+  duration_ms: 0.454
+  type: 'test'
+  ...
+# Subtest: redação preserva negação, conjunções e descrições sem credenciais
+ok 41 - redação preserva negação, conjunções e descrições sem credenciais
+  ---
+  duration_ms: 2.6978
+  type: 'test'
+  ...
+# Subtest: credenciais explícitas continuam removidas e a redação é idempotente
+ok 42 - credenciais explícitas continuam removidas e a redação é idempotente
+  ---
+  duration_ms: 0.5217
+  type: 'test'
+  ...
+# Subtest: canal de recuperação sem evidência não passa com uma fonte válida
+ok 43 - canal de recuperação sem evidência não passa com uma fonte válida
+  ---
+  duration_ms: 2.9091
+  type: 'test'
+  ...
+# Subtest: canal documentado em uma base autorizada pode ser usado
+ok 44 - canal documentado em uma base autorizada pode ser usado
+  ---
+  duration_ms: 0.2464
+  type: 'test'
+  ...
+# Subtest: relato não pode ser apresentado como inspeção realizada pelo assistente
+ok 45 - relato não pode ser apresentado como inspeção realizada pelo assistente
+  ---
+  duration_ms: 0.4902
+  type: 'test'
+  ...
+# Subtest: bloqueia coleta de identificadores e documentos ausente dos passos aprovados
+ok 46 - bloqueia coleta de identificadores e documentos ausente dos passos aprovados
+  ---
+  duration_ms: 0.9042
+  type: 'test'
+  ...
+# Subtest: canal de titularidade é um meio a usar, não uma informação a coletar
+ok 47 - canal de titularidade é um meio a usar, não uma informação a coletar
+  ---
+  duration_ms: 0.8125
+  type: 'test'
+  ...
+# Subtest: pedidos em listas preservam o contexto de solicitação ou proibição
+ok 48 - pedidos em listas preservam o contexto de solicitação ou proibição
+  ---
+  duration_ms: 1.2793
+  type: 'test'
+  ...
+# Subtest: identificadores com hífen Unicode também são reconhecidos
+ok 49 - identificadores com hífen Unicode também são reconhecidos
+  ---
+  duration_ms: 0.3585
+  type: 'test'
+  ...
+# Subtest: recusa da garantia de reembolso pode acompanhar orientação parcial
+ok 50 - recusa da garantia de reembolso pode acompanhar orientação parcial
+  ---
+  duration_ms: 0.4537
+  type: 'test'
+  ...
+# Subtest: controles locais impedem liberação mesmo quando o revisor aprovaria
+ok 51 - controles locais impedem liberação mesmo quando o revisor aprovaria
+  ---
+  duration_ms: 17.3934
+  type: 'test'
+  ...
+# Subtest: condição de análise financeira aceita paráfrase sem esconder promessa posterior
+ok 52 - condição de análise financeira aceita paráfrase sem esconder promessa posterior
+  ---
+  duration_ms: 4.4015
+  type: 'test'
+  ...
+# Subtest: feedback local permite corrigir o rascunho e só liberar a segunda versão
+ok 53 - feedback local permite corrigir o rascunho e só liberar a segunda versão
+  ---
+  duration_ms: 2.208
+  type: 'test'
+  ...
+# Subtest: política de outros usa P3 e preserva incidentes P1
+ok 54 - política de outros usa P3 e preserva incidentes P1
+  ---
+  duration_ms: 3.1569
+  type: 'test'
+  ...
+# Subtest: avaliador detecta procedimento inventado mesmo com contrato e fonte corretos
+ok 55 - avaliador detecta procedimento inventado mesmo com contrato e fonte corretos
+  ---
+  duration_ms: 2.9417
+  type: 'test'
+  ...
+# Subtest: lacunas especulativas não viram requisitos de etapas posteriores
+ok 56 - lacunas especulativas não viram requisitos de etapas posteriores
+  ---
+  duration_ms: 1.9941
+  type: 'test'
+  ...
+1..56
+# tests 56
+# suites 0
+# pass 56
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 434.6189

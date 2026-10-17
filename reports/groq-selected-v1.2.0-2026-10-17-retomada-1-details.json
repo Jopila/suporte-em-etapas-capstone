@@ -1,0 +1,1482 @@
+{
+  "started_at": "2026-10-17T05:14:51.160Z",
+  "generated_at": "2026-10-17T05:20:47.878Z",
+  "cases": [
+    {
+      "id": "C05",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C05",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente pergunta onde encontrar a funcionalidade de exportação CSV dos relatórios.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente deseja exportar relatório CSV"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que deseja saber onde encontrar a funcionalidade de exportação CSV dos relatórios.\n\nPara acessar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que confira se você possui a permissão de leitura do relatório.\n\nQualquer dúvida adicional, estou à disposição.\n",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 686
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 982
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 737
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 45078
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6617,
+          "completion_tokens": 546,
+          "responses_without_usage": 0,
+          "duration_ms": 47488
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente pergunta onde encontrar a funcionalidade de exportação CSV dos relatórios.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente deseja exportar relatório CSV"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que deseja saber onde encontrar a funcionalidade de exportação CSV dos relatórios.\n\nPara acessar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que confira se você possui a permissão de leitura do relatório.\n\nQualquer dúvida adicional, estou à disposição.\n",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C10",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança duplicada de boleto e está irritado com a situação.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente relata cobrança duplicada do boleto"
+          ],
+          "missing_information": [
+            "Número do boleto duplicado",
+            "Data da cobrança",
+            "Comprovante de pagamento"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou cobrança duplicada de boleto. Para que possamos encaminhar a situação à equipe financeira, por favor informe:\n\n1. Qual a competência (mês/ano) do boleto em questão?\n2. Descreva brevemente a divergência observada.\n\nCom essas informações, você poderá consultar a área Financeiro > Faturas e identificar a competência afetada, além de descrever a divergência para análise da equipe financeira, conforme orientado no procedimento interno.\n\nAguardamos seu retorno para prosseguir.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 653
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 845
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 896
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 40515
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6816,
+          "completion_tokens": 736,
+          "responses_without_usage": 0,
+          "duration_ms": 42910
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança duplicada de boleto e está irritado com a situação.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente relata cobrança duplicada do boleto"
+            ],
+            "missing_information": [
+              "Número do boleto duplicado",
+              "Data da cobrança",
+              "Comprovante de pagamento"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou cobrança duplicada de boleto. Para que possamos encaminhar a situação à equipe financeira, por favor informe:\n\n1. Qual a competência (mês/ano) do boleto em questão?\n2. Descreva brevemente a divergência observada.\n\nCom essas informações, você poderá consultar a área Financeiro > Faturas e identificar a competência afetada, além de descrever a divergência para análise da equipe financeira, conforme orientado no procedimento interno.\n\nAguardamos seu retorno para prosseguir.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C13",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente deseja exportar CSV",
+            "Cliente informa que o sistema está funcionando normalmente"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que precisa saber como exportar dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que confira se você possui a permissão de leitura do relatório.\n\nQualquer dúvida adicional, estou à disposição.\n",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 598
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 817
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 808
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 40308
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6656,
+          "completion_tokens": 598,
+          "responses_without_usage": 0,
+          "duration_ms": 42531
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente deseja exportar CSV",
+              "Cliente informa que o sistema está funcionando normalmente"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que precisa saber como exportar dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que confira se você possui a permissão de leitura do relatório.\n\nQualquer dúvida adicional, estou à disposição.\n",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C15",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.96,
+          "facts": [
+            "Cobrança está errada",
+            "Cliente solicita reembolso",
+            "Cliente pede garantia de aprovação para amanhã"
+          ],
+          "missing_information": [
+            "Número da fatura ou cobrança em questão",
+            "Data da cobrança",
+            "Método de pagamento utilizado"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que a cobrança está errada e solicitou garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a situação, siga os passos abaixo:\n1. Consulte a área **Financeiro > Faturas** e identifique a competência afetada.\n2. Descreva a divergência encontrada, informando a competência e a descrição da cobrança que considera incorreta. Não inclua dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira.\n\nEstou à disposição para orientá‑lo caso tenha dúvidas sobre como acessar a área Financeiro ou sobre o preenchimento das informações.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 841
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 740
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 972
+          },
+          {
+            "stage": "validacao_local",
+            "revision": 1,
+            "valid": false,
+            "issues": [
+              "unsupported_followup"
+            ]
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 41067
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 695
+          }
+        ],
+        "metrics": {
+          "requests": 5,
+          "stage_calls": 5,
+          "contract_retries": 0,
+          "revisions": 1,
+          "prompt_tokens": 8850,
+          "completion_tokens": 1011,
+          "responses_without_usage": 0,
+          "duration_ms": 44315
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.96,
+            "facts": [
+              "Cobrança está errada",
+              "Cliente solicita reembolso",
+              "Cliente pede garantia de aprovação para amanhã"
+            ],
+            "missing_information": [
+              "Número da fatura ou cobrança em questão",
+              "Data da cobrança",
+              "Método de pagamento utilizado"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que a cobrança está errada e solicitou garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a situação, siga os passos abaixo:\n1. Consulte a área **Financeiro > Faturas** e identifique a competência afetada.\n2. Descreva a divergência encontrada, informando a competência e a descrição da cobrança que considera incorreta. Não inclua dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira. Eles entrarão em contato caso precisem de mais detalhes.\n\nCaso tenha dúvidas sobre como acessar a área Financeiro ou sobre o preenchimento das informações, estou à disposição para orientá‑lo.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que a cobrança está errada e solicitou garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a situação, siga os passos abaixo:\n1. Consulte a área **Financeiro > Faturas** e identifique a competência afetada.\n2. Descreva a divergência encontrada, informando a competência e a descrição da cobrança que considera incorreta. Não inclua dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira.\n\nEstou à disposição para orientá‑lo caso tenha dúvidas sobre como acessar a área Financeiro ou sobre o preenchimento das informações.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C18",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata dificuldade de login, informando que não consegue entrar e solicita orientação para recuperação de senha.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente não consegue entrar",
+            "Cliente solicita orientação para recuperação de senha"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login"
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou dificuldade para entrar na sua conta e solicitou orientação para recuperação de senha.\n\nPara recuperar o acesso, siga os passos abaixo:\n1. Na tela de login, selecione **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n3. **Se não tiver acesso ao e‑mail cadastrado**, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nCaso precise de mais alguma informação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 634
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 931
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 952
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 36937
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6797,
+          "completion_tokens": 731,
+          "responses_without_usage": 0,
+          "duration_ms": 39455
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata dificuldade de login, informando que não consegue entrar e solicita orientação para recuperação de senha.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente não consegue entrar",
+              "Cliente solicita orientação para recuperação de senha"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login"
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou dificuldade para entrar na sua conta e solicitou orientação para recuperação de senha.\n\nPara recuperar o acesso, siga os passos abaixo:\n1. Na tela de login, selecione **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n3. **Se não tiver acesso ao e‑mail cadastrado**, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nCaso precise de mais alguma informação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C19",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata que ao visualizar o relatório a opção de exportar CSV não está disponível e questiona se é necessária alguma permissão.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente vê relatório",
+            "Opção de exportar CSV não aparece",
+            "Cliente pergunta sobre necessidade de permissão"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "É necessária permissão de leitura do relatório."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que ao visualizar o relatório a opção de exportar CSV não está disponível e perguntou se é necessária alguma permissão.\n\nConforme o artigo KB-004, a exportação CSV está disponível em Relatórios > Exportar CSV, após selecionar o período desejado. Para realizá‑la, siga os passos abaixo:\n\n1. Abra o módulo **Relatórios**, selecione o período desejado e escolha a opção **Exportar CSV**.\n2. Caso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que **confira sua permissão de leitura do relatório**.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 651
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 676
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1014
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 40689
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6755,
+          "completion_tokens": 693,
+          "responses_without_usage": 0,
+          "duration_ms": 43030
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que ao visualizar o relatório a opção de exportar CSV não está disponível e questiona se é necessária alguma permissão.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente vê relatório",
+              "Opção de exportar CSV não aparece",
+              "Cliente pergunta sobre necessidade de permissão"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "É necessária permissão de leitura do relatório."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que ao visualizar o relatório a opção de exportar CSV não está disponível e perguntou se é necessária alguma permissão.\n\nConforme o artigo KB-004, a exportação CSV está disponível em Relatórios > Exportar CSV, após selecionar o período desejado. Para realizá‑la, siga os passos abaixo:\n\n1. Abra o módulo **Relatórios**, selecione o período desejado e escolha a opção **Exportar CSV**.\n2. Caso a opção **Exportar CSV** não esteja visível, peça ao administrador da sua empresa que **confira sua permissão de leitura do relatório**.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C05",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214091846,
+      "token_limit": 8000,
+      "tokens_remaining": 5569,
+      "token_reset_ms": 18232,
+      "requests_remaining": 998
+    },
+    {
+      "case_id": "C05",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214092832,
+      "token_limit": 8000,
+      "tokens_remaining": 3803,
+      "token_reset_ms": 31477,
+      "requests_remaining": 997
+    },
+    {
+      "case_id": "C05",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214093570,
+      "token_limit": 8000,
+      "tokens_remaining": 2134,
+      "token_reset_ms": 43995,
+      "requests_remaining": 996
+    },
+    {
+      "case_id": "C05",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214138651,
+      "token_limit": 8000,
+      "tokens_remaining": 6066,
+      "token_reset_ms": 14504,
+      "requests_remaining": 995
+    },
+    {
+      "case_id": "C10",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214154311,
+      "token_limit": 8000,
+      "tokens_remaining": 6247,
+      "token_reset_ms": 13147,
+      "requests_remaining": 994
+    },
+    {
+      "case_id": "C10",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214155159,
+      "token_limit": 8000,
+      "tokens_remaining": 4583,
+      "token_reset_ms": 25627,
+      "requests_remaining": 993
+    },
+    {
+      "case_id": "C10",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214156055,
+      "token_limit": 8000,
+      "tokens_remaining": 2735,
+      "token_reset_ms": 39487,
+      "requests_remaining": 992
+    },
+    {
+      "case_id": "C10",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214196571,
+      "token_limit": 8000,
+      "tokens_remaining": 5852,
+      "token_reset_ms": 16110,
+      "requests_remaining": 991
+    },
+    {
+      "case_id": "C13",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214213790,
+      "token_limit": 8000,
+      "tokens_remaining": 6115,
+      "token_reset_ms": 14137,
+      "requests_remaining": 990
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214214607,
+      "token_limit": 8000,
+      "tokens_remaining": 4572,
+      "token_reset_ms": 25710,
+      "requests_remaining": 989
+    },
+    {
+      "case_id": "C13",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214215415,
+      "token_limit": 8000,
+      "tokens_remaining": 2755,
+      "token_reset_ms": 39337,
+      "requests_remaining": 988
+    },
+    {
+      "case_id": "C13",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214255724,
+      "token_limit": 8000,
+      "tokens_remaining": 5936,
+      "token_reset_ms": 15480,
+      "requests_remaining": 987
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214272543,
+      "token_limit": 8000,
+      "tokens_remaining": 6193,
+      "token_reset_ms": 13552,
+      "requests_remaining": 986
+    },
+    {
+      "case_id": "C15",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214273284,
+      "token_limit": 8000,
+      "tokens_remaining": 4568,
+      "token_reset_ms": 25740,
+      "requests_remaining": 985
+    },
+    {
+      "case_id": "C15",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214274255,
+      "token_limit": 8000,
+      "tokens_remaining": 2709,
+      "token_reset_ms": 39682,
+      "requests_remaining": 984
+    },
+    {
+      "case_id": "C15",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214315324,
+      "token_limit": 8000,
+      "tokens_remaining": 5767,
+      "token_reset_ms": 16747,
+      "requests_remaining": 983
+    },
+    {
+      "case_id": "C15",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214316018,
+      "token_limit": 8000,
+      "tokens_remaining": 3690,
+      "token_reset_ms": 32323.999999999996,
+      "requests_remaining": 982
+    },
+    {
+      "case_id": "C18",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214349484,
+      "token_limit": 8000,
+      "tokens_remaining": 6173,
+      "token_reset_ms": 13702,
+      "requests_remaining": 981
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214350415,
+      "token_limit": 8000,
+      "tokens_remaining": 4568,
+      "token_reset_ms": 25740,
+      "requests_remaining": 980
+    },
+    {
+      "case_id": "C18",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214351367,
+      "token_limit": 8000,
+      "tokens_remaining": 3227,
+      "token_reset_ms": 35797,
+      "requests_remaining": 979
+    },
+    {
+      "case_id": "C18",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214388305,
+      "token_limit": 8000,
+      "tokens_remaining": 5863,
+      "token_reset_ms": 16027.000000000002,
+      "requests_remaining": 978
+    },
+    {
+      "case_id": "C19",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214405494,
+      "token_limit": 8000,
+      "tokens_remaining": 6119,
+      "token_reset_ms": 14107,
+      "requests_remaining": 977
+    },
+    {
+      "case_id": "C19",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214406170,
+      "token_limit": 8000,
+      "tokens_remaining": 4517,
+      "token_reset_ms": 26122,
+      "requests_remaining": 976
+    },
+    {
+      "case_id": "C19",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214407185,
+      "token_limit": 8000,
+      "tokens_remaining": 2716,
+      "token_reset_ms": 39629,
+      "requests_remaining": 975
+    },
+    {
+      "case_id": "C19",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792214447874,
+      "token_limit": 8000,
+      "tokens_remaining": 5881,
+      "token_reset_ms": 15892,
+      "requests_remaining": 974
+    }
+  ]
+}

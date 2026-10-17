@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-10-16T19:59:08.245Z",
+  "selected_case_ids": [
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "pipeline_version": "1.1.2",
+  "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "runner_sha256": "04f404a5b8677225aa8897ad0afbaf0b114fb3edfba85a7b85348f29c0784f41",
+  "earliest_retry_indicated_at": "2026-10-16T19:37:54.996Z",
+  "retry_source": "reports/groq-pendentes-v1.1.2-retomada-6-checkpoint.json",
+  "prior_completed_artifacts": {
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C01.json": "8d6fe1557cfe68713178d9fec07dadb1704699d6b6addeeb4602bd0f8a0e269f",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C02.json": "f87340747c70bbbe54802f2017bf9189f61c3bed2c3ccbce1d8ae2ef22176a22",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C03.json": "2983426c0439530b673a5c447b86e7ff1bd7026cdc5621fe6e3ca8cd11ebce77",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C04.json": "3ac69f710c0fff1635dff480c6f6d09bf45a56a9833582639d6dbd0698b8d66c",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C05.json": "db38c0a2d9bf69f1d9ea6297f8471f8e3b389588cb576b746d128b0108a8c1d0",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C06.json": "c7a1ae59602cb2344a6b0a6f8425b8cafe49bd069910cf7a2b8f0cb61cc27b17",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C07.json": "b4379fce9aa31de645f691aa8a6dc5732f65c245c6db4bc62061476e763016fd",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C08.json": "9546e1ac1562bb6982bcfcb306ec680b4569ae712ba9d0ec8aa962da8e010024",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C09.json": "cd792fad8ed7ff41bd2399a91e15b6cfd3e6dab47b360caaddeaf930c535fd57",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C10.json": "8ae5654cc4858ba09433d474767284bce3e614022965f275d39410f19281e97d",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C11.json": "75fcc0f65d0c6e5cc682aa0f1a65d7a637daa1d6193eb81ce51c24e7883ec87f",
+    "reports/groq-matrix-v1.1.2-2026-10-16-cases/C12.json": "6393af40a0678cf418a53e281257e521efd084209657ce291516993b970bbcfb",
+    "reports/groq-pendentes-v1.1.2-retomada-3-cases/C13.json": "26c9adb4bf099fe532add02b1957a59d32eb7c48155c1a95abebf5cedb130292",
+    "reports/groq-remainder-v1.1.2-2026-10-16-cases/C14.json": "513db76db06092b996a1a869c6cafe980e1aaa7260aba908079fd668bcc0e8d0",
+    "reports/groq-remainder-v1.1.2-2026-10-16-cases/C16.json": "b2f4ba6ddfae4ab8988a5b4028dd7605a30c855149134c531106a833c0a8b7c5",
+    "reports/groq-remainder-v1.1.2-2026-10-16-cases/C17.json": "1ec41d6b515b589e8158e82235ea93d1e0a3f889aea44c06d47bec480559b367"
+  },
+  "prior_checkpoint_hashes": {
+    "reports/groq-matrix-v1.1.0-2026-10-16-checkpoint.json": "00747dfa743e0f58c10493fe756554ae086a4fbbdaa1643f1060e1d9f582ad21",
+    "reports/groq-matrix-v1.1.1-2026-10-16-checkpoint.json": "34f5dec28f0a52fbfc054d6925b1dfbf7e1207ee77a25f3b1e461a462a4cea6e",
+    "reports/groq-matrix-v1.1.2-2026-10-16-checkpoint.json": "f1b5f915c8ca9f798d3cbe95405e6a82cce833c4a0776e0d6848752e3f0098f4",
+    "reports/groq-remainder-v1.1.2-2026-10-16-checkpoint.json": "0b17bb64e4772f60619593209985d9cc319aa883ea084cd9456814e95b79f5d2",
+    "reports/groq-pendentes-v1.1.2-proxima-rodada-checkpoint.json": "45e941cee7c85ca2a4c939937d00ecd1f7d0f805f83a8e829ac3bded19ae5f80",
+    "reports/groq-pendentes-v1.1.2-retomada-2-checkpoint.json": "8cdaaaa7cc3f0a4fdb1d9f11eea1841f5f7d5119ba01a9ae8e81b094f841c363",
+    "reports/groq-pendentes-v1.1.2-retomada-3-checkpoint.json": "4bee3b458c3d68c24e71ecafde94a8f242bf29ebb0c00c44e11fd6a85c0d0784",
+    "reports/groq-pendentes-v1.1.2-retomada-4-checkpoint.json": "e61f27a00d32fbfe03b97f1e036ff37c04d1683776237aa412590713a1d50708",
+    "reports/groq-pendentes-v1.1.2-retomada-5-checkpoint.json": "b650a45f3d3cfa710ae6098031dfecb6528558176e590f00f40c19b4d871b07e",
+    "reports/groq-pendentes-v1.1.2-retomada-6-checkpoint.json": "5402b1c9a2b15b815ee487806494f850d4a7e42f2473ab21a250a9bc20818a65"
+  },
+  "previous_cycle_total_tokens": 202753,
+  "output_prefix": "reports/groq-pendentes-v1.1.2-retomada-7"
+}

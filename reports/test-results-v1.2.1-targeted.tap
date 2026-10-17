@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: C10: detecta o problema editorial observado na versão anterior
+ok 1 - C10: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 6.5419
+  type: 'test'
+  ...
+# Subtest: C19: detecta o problema editorial observado na versão anterior
+ok 2 - C19: detecta o problema editorial observado na versão anterior
+  ---
+  duration_ms: 0.8926
+  type: 'test'
+  ...
+# Subtest: consulta de faturas não depende de resposta prévia nem de dados enviados
+ok 3 - consulta de faturas não depende de resposta prévia nem de dados enviados
+  ---
+  duration_ms: 1.7168
+  type: 'test'
+  ...
+# Subtest: autoatendimento direto permite análise posterior e proibições de envio
+ok 4 - autoatendimento direto permite análise posterior e proibições de envio
+  ---
+  duration_ms: 2.2708
+  type: 'test'
+  ...
+# Subtest: condições autorizadas de outros procedimentos continuam permitidas
+ok 5 - condições autorizadas de outros procedimentos continuam permitidas
+  ---
+  duration_ms: 1.6242
+  type: 'test'
+  ...
+# Subtest: IDs internos no texto são rejeitados, preservando códigos de erro e menus
+ok 6 - IDs internos no texto são rejeitados, preservando códigos de erro e menus
+  ---
+  duration_ms: 1.217
+  type: 'test'
+  ...
+# Subtest: editoriais persistentes são bloqueados mesmo com revisor permissivo
+ok 7 - editoriais persistentes são bloqueados mesmo com revisor permissivo
+  ---
+  duration_ms: 19.9512
+  type: 'test'
+  ...
+# Subtest: correção editorial mantém fontes estruturadas, evidência e aprovação humana
+ok 8 - correção editorial mantém fontes estruturadas, evidência e aprovação humana
+  ---
+  duration_ms: 12.1663
+  type: 'test'
+  ...
+# Subtest: relatório identifica a versão ativa do avaliador de conteúdo
+ok 9 - relatório identifica a versão ativa do avaliador de conteúdo
+  ---
+  duration_ms: 9.2014
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 197.4715

@@ -1,0 +1,352 @@
+{
+  "evaluator_version": "1.1.1",
+  "description": "Reavaliação offline dos resultados originais; não altera a pontuação histórica.",
+  "passed": 8,
+  "content_passed": 11,
+  "rows": [
+    {
+      "id": "C01",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unsupported_channel",
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C02",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C03",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C04",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C05",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C06",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C07",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C08",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C09",
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C10",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unauthorized_attachment_request"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C11",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C12",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C13",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C14",
+      "checks": {
+        "category": true,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C15",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C16",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C17",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C18",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "unnecessary_personal_data",
+        "ambiguous_verification_channel"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C19",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C20",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    }
+  ]
+}

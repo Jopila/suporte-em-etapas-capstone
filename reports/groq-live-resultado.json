@@ -1,0 +1,112 @@
+{
+  "ticket_id": "EXEMPLO-001",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "simulation": false,
+  "prompt_version": "1.0.0",
+  "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+  "knowledge_version": "1.0.0",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "status": "rascunho_validado",
+  "reasons": [],
+  "operational_error": false,
+  "requires_human_approval": true,
+  "auto_sent": false,
+  "team": "financeiro",
+  "triage": {
+    "summary": "Cliente relata cobrança duplicada na fatura do mesmo mês e solicita análise da divergência.",
+    "category": "cobranca",
+    "priority": "P3",
+    "confidence": 0.95,
+    "facts": [
+      "Cobrança duplicada na fatura",
+      "Cliente solicita análise da divergência"
+    ],
+    "missing_information": [
+      "Número da fatura",
+      "Mês/Período da cobrança",
+      "Comprovantes ou detalhes das cobranças"
+    ],
+    "security_risk": false
+  },
+  "knowledge_ids": [
+    "KB-002"
+  ],
+  "grounding": {
+    "supported": true,
+    "evidence": [
+      {
+        "article_id": "KB-002",
+        "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+      }
+    ],
+    "actions": [
+      {
+        "article_id": "KB-002",
+        "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+      },
+      {
+        "article_id": "KB-002",
+        "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+      },
+      {
+        "article_id": "KB-002",
+        "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+      }
+    ],
+    "missing_information": []
+  },
+  "technical_review": {
+    "approved": true,
+    "grounded": true,
+    "safe": true,
+    "complete": true,
+    "issues": []
+  },
+  "response": "Olá, obrigado por nos contatar. Identificamos que você observou cobranças duplicadas na mesma fatura e deseja que analisemos essa divergência.\n\nPara avançarmos, siga os passos abaixo:\n1. Acesse a área **Financeiro > Faturas** e localize a competência (mês/período) da fatura em que constam as cobranças duplicadas.\n2. Descreva detalhadamente a divergência, indicando os valores cobrados e a data de cada cobrança, e encaminhe essa descrição para a equipe financeira. Não inclua dados de cartão ou informações sensíveis.\n3. Aguarde a análise da equipe financeira, que retornará com a conclusão sobre a possibilidade de estorno ou ajuste.\n\nPara que possamos iniciar a verificação, poderia nos informar:\n- O número da fatura em que as cobranças aparecem;\n- O mês ou período de competência da fatura.\n\nAguardamos essas informações para dar continuidade ao processo.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+  "source_ids": [
+    "KB-002"
+  ],
+  "redacted_types": [],
+  "flags": {
+    "injection": false,
+    "security": false,
+    "outage": false
+  },
+  "trace": [
+    {
+      "stage": "triagem",
+      "attempt": 1,
+      "valid": true,
+      "duration_ms": 1003
+    },
+    {
+      "stage": "fundamentacao",
+      "attempt": 1,
+      "valid": true,
+      "duration_ms": 812
+    },
+    {
+      "stage": "resposta",
+      "attempt": 1,
+      "valid": true,
+      "duration_ms": 1333
+    },
+    {
+      "stage": "revisao",
+      "attempt": 1,
+      "valid": true,
+      "duration_ms": 2063
+    }
+  ],
+  "metrics": {
+    "requests": 4,
+    "stage_calls": 4,
+    "contract_retries": 0,
+    "revisions": 0,
+    "prompt_tokens": 5493,
+    "completion_tokens": 749,
+    "responses_without_usage": 0,
+    "duration_ms": 5212
+  }
+}

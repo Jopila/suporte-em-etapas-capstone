@@ -1,0 +1,77 @@
+# Biblioteca de prompts
+
+## Catálogo da versão 1.1.1
+
+| Arquivo | Objetivo | Entradas | Saída |
+|---|---|---|---|
+| `system.md` | Política comum e papel do assistente | Não depende do chamado | Instruções de sistema |
+| `triagem.md` | Extrair informações e classificar | `ticket`, `flags` | Resumo, categoria, prioridade, confiança, fatos, lacunas e risco |
+| `fundamentacao.md` | Verificar suporte na base | `ticket`, `triage`, `articles` | Evidências, ações e lacunas |
+| `resposta.md` | Redigir a mensagem | Entradas anteriores e `grounding`; feedback opcional | `message`, `source_ids` |
+| `revisao.md` | Aplicar rubrica de qualidade | Entradas anteriores e `draft` | Critérios booleanos, aprovação e problemas |
+
+Os arquivos ativos ficam em `prompts/v1.1.1/`. As versões 1.0.0 e 1.1.0 foram preservadas para rastrear a avaliação original e a rodada parcial de correção. Os nomes em português aparecem no trace e nos testes. O formato exato de cada saída está em `src/contracts.mjs`, evitando manter dois schemas divergentes.
+
+## Correções da versão 1.1.1
+
+Assuntos externos ao SaaS usam `outros/P3`; P4 é reservado a dúvidas sobre o produto. Uma garantia indisponível não impede oferecer os passos de análise financeira documentados. A redação e a revisão reforçam a distinção entre relato e confirmação, a minimização de dados e a proibição de canais ausentes da base.
+
+As lacunas extraídas pela triagem e pela fundamentação permanecem no registro para inspeção, mas não são repassadas como requisitos às etapas posteriores. A resposta recebe somente o relato, os fatos resumidos, os artigos e o plano validado. A verificação de titularidade de recuperação de acesso não deve ser transferida para cancelamento. O revisor avalia o rascunho atual e não deve conservar uma crítica já corrigida.
+
+O pipeline acrescenta controles locais para os padrões de conteúdo encontrados, com uma tentativa de correção e encaminhamento humano se a falha persistir. Esses controles têm cobertura limitada; não representam uma prova geral de fidelidade semântica.
+
+## Estrutura da chamada
+
+O compositor monta duas mensagens:
+
+1. **System:** política comum + prompt da etapa + contrato JSON.
+2. **User:** JSON serializado com contexto e, se necessário, feedback de validação.
+
+O assunto, a mensagem do cliente e as respostas anteriores nunca são interpolados na mensagem de sistema. Não há substituição textual de delimitadores em templates. Isso mantém uma fronteira clara entre instruções e dados, embora não elimine ataques de injeção por si só.
+
+Exemplo conceitual da entrada da triagem:
+
+```json
+{
+  "data_classification": "DADOS NÃO CONFIÁVEIS",
+  "context": {
+    "ticket": {
+      "id": "T-100",
+      "subject": "Não consigo entrar",
+      "message": "Esqueci minha senha."
+    },
+    "flags": { "injection": false, "security": false, "outage": false }
+  },
+  "validation_feedback": []
+}
+```
+
+O código inclui o texto completo de classificação dos dados. Este exemplo foi abreviado apenas para leitura.
+
+## Técnicas e decisões de desenho
+
+**Few-shot:** os exemplos de triagem cobrem rotina, urgência retórica, incidente de segurança e entrada vaga. Eles tornam explícita a relação entre evidência, categoria e prioridade. Não foram usados exemplos contendo dados reais.
+
+**Decomposição:** triagem decide o que o chamado relata; fundamentação decide o que a base autoriza; redação organiza a comunicação; revisão avalia o rascunho. Essa divisão facilita depurar uma etapa sem reescrever toda a biblioteca.
+
+**Recuperação e grounding:** o modelo recebe somente os artigos recuperados. Precisa citar literalmente um trecho existente e selecionar ações que já constam na base. O código confere essas referências antes de autorizar a redação. Não existe pesquisa externa durante o atendimento.
+
+**Structured Outputs:** o cliente usa schema estrito por padrão e o pipeline valida novamente. A estrutura do JSON não comprova veracidade; por isso há verificações de evidência e revisão semântica separadas. Para um modelo sem suporte ao schema, configurar `GROQ_RESPONSE_FORMAT=json_object` mantém a validação local, mas pode elevar rejeições e novas tentativas. Consulte [Groq — Structured Outputs](https://console.groq.com/docs/structured-outputs).
+
+**Crítica e refinamento:** uma revisão reprovada gera uma única tentativa de correção do rascunho. O resultado é revisado novamente. Não há ciclos ilimitados nem pressuposto de que a autocrítica sempre corrige o erro.
+
+**Abstinência:** confiança abaixo de 0,7, falta de evidência, incidentes críticos e rejeição persistente vão para o atendente. O limiar é uma escolha inicial de protótipo; deve ser calibrado com dados rotulados. A confiança é um julgamento declarado pelo modelo.
+
+## Como reutilizar e mudar
+
+Para outra empresa, comece pela política comum e pela base, depois ajuste categorias e prioridades nos schemas, no prompt de triagem e no mapeamento de equipes. Mudanças de formato exigem testes dos consumidores e atualização dos exemplos.
+
+Ao alterar apenas estilo de resposta, edite `resposta.md`, acrescente um caso que capture a necessidade e execute avaliação real. Testes com o simulador continuam úteis para o software, mas não revelam se a mudança de texto melhorou o modelo.
+
+Para publicar uma nova biblioteca, copie a pasta para outra versão, atualize `PROMPT_VERSION` em `src/prompts.mjs` e documente a diferença. O hash inclui política, prompts e schemas, de modo que mudanças de conteúdo fiquem identificáveis mesmo se alguém esquecer de alterar a versão.
+
+## Uso manual para experimentação
+
+É possível executar cada etapa no ambiente de testes do provedor. Use a política comum e o prompt da etapa como mensagem de sistema; envie os dados em JSON como mensagem de usuário. Inclua o schema correspondente e confira o resultado antes de reutilizá-lo na próxima etapa.
+
+O uso manual não aplica automaticamente as validações do código. Para a avaliação oficial do projeto, prefira a CLI, que registra versões, tentativas, falhas e métricas de forma reproduzível.

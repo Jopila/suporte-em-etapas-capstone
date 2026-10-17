@@ -1,0 +1,16 @@
+{
+  "name": "suporte-em-etapas",
+  "version": "1.2.1",
+  "private": true,
+  "description": "Capstone Módulo 2: sistema modular de prompts para suporte, integrado ao Groq.",
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env.local src/cli.mjs",
+    "demo": "node src/cli.mjs run --provider demo --input examples/chamado.json",
+    "evaluate": "node src/cli.mjs evaluate --provider demo --output reports/demo",
+    "evaluate:groq": "node --env-file-if-exists=.env.local src/cli.mjs evaluate --provider groq --output reports/groq",
+    "test": "node --test",
+    "prompts": "node src/cli.mjs prompts"
+  }
+}

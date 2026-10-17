@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-10-17T05:41:12.683Z",
+  "network_calls": 0,
+  "source_version": "1.2.0",
+  "evaluator_version": "1.2.1",
+  "historical_passed": 6,
+  "rescored_passed": 4,
+  "rows": [
+    {
+      "id": "C05",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C05.json",
+      "historical_passed": true,
+      "rescored_passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "source_ids": [
+        "KB-004"
+      ]
+    },
+    {
+      "id": "C10",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C10.json",
+      "historical_passed": true,
+      "rescored_passed": false,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "self_service_prerequisite"
+      ],
+      "source_ids": [
+        "KB-002"
+      ]
+    },
+    {
+      "id": "C13",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C13.json",
+      "historical_passed": true,
+      "rescored_passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "source_ids": [
+        "KB-004"
+      ]
+    },
+    {
+      "id": "C15",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C15.json",
+      "historical_passed": true,
+      "rescored_passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "source_ids": [
+        "KB-002"
+      ]
+    },
+    {
+      "id": "C18",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C18.json",
+      "historical_passed": true,
+      "rescored_passed": true,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "source_ids": [
+        "KB-001"
+      ]
+    },
+    {
+      "id": "C19",
+      "artifact": "reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C19.json",
+      "historical_passed": true,
+      "rescored_passed": false,
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "internal_reference_in_message"
+      ],
+      "source_ids": [
+        "KB-004"
+      ]
+    }
+  ],
+  "caveat": "Pontuações históricas preservadas. Regras locais compartilhadas com o pipeline; não é um juiz independente."
+}

@@ -1,0 +1,142 @@
+{
+  "generated_at": "2026-10-17T05:08:48.339Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 17,
+  "prior_checkpoints_unchanged": 13,
+  "current_completed_artifacts_hashed": 20,
+  "complete": true,
+  "completed_cases": 20,
+  "passed_completed_cases": 20,
+  "pending_case_ids": [],
+  "newly_completed_case_ids": [
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "cases_with_api": 15,
+  "local_case_ids": [
+    "C03",
+    "C06",
+    "C07",
+    "C16",
+    "C17"
+  ],
+  "current_request": {
+    "selected_case_ids": [
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "actually_attempted_case_ids": [
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "usage": {
+      "requests": 12,
+      "prompt_tokens": 18444,
+      "completion_tokens": 2012,
+      "responses_without_usage": 0,
+      "total_tokens": 20456
+    },
+    "http_status_counts": {
+      "200": 12
+    },
+    "wait": {
+      "started_at": "2026-10-17T04:55:56.696Z",
+      "earliest_retry_indicated_at": "2026-10-16T21:41:16.067Z",
+      "margin_ms": 26080629
+    },
+    "pacing_enforced_by_unchanged_runner": true,
+    "response_spacing_checks": [
+      {
+        "label": "C18 antes da revisão",
+        "response_spacing_ms": 41274,
+        "reset_plus_buffer_ms": 40692
+      },
+      {
+        "label": "Antes de C19",
+        "response_spacing_ms": 20076,
+        "reset_plus_buffer_ms": 19400
+      },
+      {
+        "label": "C19 antes da revisão",
+        "response_spacing_ms": 36287,
+        "reset_plus_buffer_ms": 35757
+      },
+      {
+        "label": "Antes de C20",
+        "response_spacing_ms": 15459,
+        "reset_plus_buffer_ms": 14727
+      },
+      {
+        "label": "C20 antes da revisão",
+        "response_spacing_ms": 35437,
+        "reset_plus_buffer_ms": 34917
+      }
+    ],
+    "batch_wall_ms": 154287,
+    "pacing_wait_ms": 145548
+  },
+  "correction_cycle_usage": {
+    "requests": 154,
+    "prompt_tokens": 215887,
+    "completion_tokens": 24467,
+    "responses_without_usage": 0,
+    "total_tokens": 240354
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 140,
+    "429": 14
+  },
+  "current_version_usage": {
+    "requests": 85,
+    "prompt_tokens": 109101,
+    "completion_tokens": 12291,
+    "responses_without_usage": 0,
+    "total_tokens": 121392
+  },
+  "canonical_completed_usage": {
+    "requests": 51,
+    "prompt_tokens": 78751,
+    "completion_tokens": 8479,
+    "responses_without_usage": 0,
+    "total_tokens": 87230
+  },
+  "operationally_interrupted_usage": {
+    "requests": 34,
+    "prompt_tokens": 30350,
+    "completion_tokens": 3812,
+    "responses_without_usage": 0,
+    "total_tokens": 34162
+  },
+  "total_documented_historical_tokens": 320221,
+  "resume_plan_status": "concluido",
+  "resume_plan_sha256": "9451d240c51e5c367f82ff73071c24b528dd5371fa9bef4501a6482b5be841fd",
+  "local_document_links_checked": 82,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 247,
+  "exact_key_leaks": 0,
+  "code_prompts_data_and_runner_unchanged": true,
+  "local_test_evidence": "reports/test-results-v1.1.2.tap",
+  "local_test_suite_rerun": false,
+  "manual_content_observations": [
+    "C18: referência genérica ao procedimento interno reduz a precisão sobre o canal aprovado de confirmação de titularidade.",
+    "C19: sugestão de conceder permissão amplia KB-004, que prevê conferir permissões.",
+    "Ressalvas anteriores de C05, C10, C13, C15 e falso positivo financeiro preservadas; pontuação automática não substitui revisão humana."
+  ],
+  "scope_note": "Tokens informados em usage; HTTP 429 históricos sem uso informado. Resultado final consolidado sem repetir os 17 casos concluídos, com tentativas interrompidas preservadas e contabilizadas.",
+  "document_hashes": {
+    "README.md": "fe7b68eb952d614d915f93a4640ac5628c9ac34e0d8004f7f3fd196c7a0200eb",
+    "docs/COMPARACAO_GROQ_CORRECOES.md": "a361787d160fafb3584b0434b9c06dea6fef9de546feef88203c1bd309ab180c",
+    "docs/CAPSTONE.md": "b64e412bc9fbc4dbdc714b64694f505dccba4c7b6c30e74e53937ef9c5b77579",
+    "docs/APRESENTACAO.md": "b97385ebb91cede7876db5f60f8f3040f8a4d13bd2550daf4382d74736b687a7",
+    "docs/OPERACAO.md": "4f5bd438b206a221d338deb98cdb8d166a49d083cf49263b5fa3ba3fb572f618",
+    "docs/TESTES.md": "47e14419ebd4e44102a6b992ce7deace363554b95c70abd52259fdfdab9530d5",
+    "reports/groq-progress-v1.1.2-retomada-10.md": "1f97101825deea47b5312b9bc8e2d4d67b38f3a38e5a00b5c5cab6932c27339f",
+    "reports/groq-comparison-v1.1.2-final-2026-10-17.md": "fe9ed9dea22b99e7e097d6b7a4a2df9103ac0317adb36731d028405e3004e05b"
+  },
+  "status": "Matriz concluída: 20/20 aprovações automáticas, sem pendências de execução ou agendamento."
+}

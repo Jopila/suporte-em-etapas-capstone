@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-10-17T05:13:49.948Z",
+  "network_calls": 0,
+  "original_results_unchanged": true,
+  "rows": [
+    {
+      "id": "C05",
+      "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C05.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "unsupported_permission_change"
+      ],
+      "current_passed": false
+    },
+    {
+      "id": "C10",
+      "artifact": "reports/groq-matrix-v1.1.2-2026-10-16-cases/C10.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "unavailable_operation"
+      ],
+      "current_passed": false
+    },
+    {
+      "id": "C13",
+      "artifact": "reports/groq-pendentes-v1.1.2-retomada-3-cases/C13.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "unsupported_permission_change"
+      ],
+      "current_passed": false
+    },
+    {
+      "id": "C15",
+      "artifact": "reports/groq-pendentes-v1.1.2-retomada-9-cases/C15.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "unsupported_followup"
+      ],
+      "current_passed": false
+    },
+    {
+      "id": "C18",
+      "artifact": "reports/groq-pendentes-v1.1.2-retomada-10-cases/C18.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "incomplete_verification_step"
+      ],
+      "current_passed": false
+    },
+    {
+      "id": "C19",
+      "artifact": "reports/groq-pendentes-v1.1.2-retomada-10-cases/C19.json",
+      "historical_passed": true,
+      "current_content_issues": [
+        "unsupported_permission_change"
+      ],
+      "current_passed": false
+    }
+  ]
+}

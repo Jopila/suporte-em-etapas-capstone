@@ -1,0 +1,392 @@
+{
+  "started_at": "2026-10-17T06:50:33.629Z",
+  "completed_cases": 2,
+  "cases": [
+    {
+      "id": "C01",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C01",
+        "pipeline_version": "1.2.1",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.1",
+        "prompt_hash": "20dba62632a0b4b482282e2a0ccf452172bd218a45107123e3c61566d8e66c19",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata que esqueceu a senha e precisa recuperar o login para entrar no sistema.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.95,
+          "facts": [
+            "Cliente esqueceu a senha",
+            "Cliente precisa recuperar o login"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que esqueceu a senha e precisa recuperar o login.\n\nPara iniciar a recuperação de acesso, siga os passos abaixo:\n1. Na tela de login, selecione **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n3. **Se não tiver acesso ao e‑mail cadastrado**, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nCaso precise de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 697
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 700
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 35910
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 563
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6970,
+          "completion_tokens": 604,
+          "responses_without_usage": 0,
+          "duration_ms": 37874
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que esqueceu a senha e precisa recuperar o login para entrar no sistema.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.95,
+            "facts": [
+              "Cliente esqueceu a senha",
+              "Cliente precisa recuperar o login"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que esqueceu a senha e precisa recuperar o login.\n\nPara iniciar a recuperação de acesso, siga os passos abaixo:\n1. Na tela de login, selecione **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n3. **Se não tiver acesso ao e‑mail cadastrado**, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nCaso precise de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C02",
+        "pipeline_version": "1.2.1",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.1",
+        "prompt_hash": "20dba62632a0b4b482282e2a0ccf452172bd218a45107123e3c61566d8e66c19",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_retry_later"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata que o mês aparece duas vezes na fatura, indicando cobrança duplicada, e solicita análise da situação.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.95,
+          "facts": [
+            "Mês aparece duas vezes na cobrança",
+            "Cliente solicita análise da fatura duplicada"
+          ],
+          "missing_information": [
+            "Número(s) da(s) fatura(s) afetada(s)",
+            "Período de referência da cobrança"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 712
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_retry_later",
+            "duration_ms": 35
+          }
+        ],
+        "metrics": {
+          "requests": 2,
+          "stage_calls": 2,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1625,
+          "completion_tokens": 180,
+          "responses_without_usage": 0,
+          "duration_ms": 747
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que o mês aparece duas vezes na fatura, indicando cobrança duplicada, e solicita análise da situação.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.95,
+            "facts": [
+              "Mês aparece duas vezes na cobrança",
+              "Cliente solicita análise da fatura duplicada"
+            ],
+            "missing_information": [
+              "Número(s) da(s) fatura(s) afetada(s)",
+              "Período de referência da cobrança"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "error_code": "groq_retry_later"
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C01",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792219834330,
+      "token_limit": 8000,
+      "tokens_remaining": 5191,
+      "token_reset_ms": 21067,
+      "requests_remaining": 999
+    },
+    {
+      "case_id": "C01",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792219835031,
+      "token_limit": 8000,
+      "tokens_remaining": 3390,
+      "token_reset_ms": 34575,
+      "requests_remaining": 998
+    },
+    {
+      "case_id": "C01",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792219870941,
+      "token_limit": 8000,
+      "tokens_remaining": 5389,
+      "token_reset_ms": 19582,
+      "requests_remaining": 997
+    },
+    {
+      "case_id": "C01",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792219871508,
+      "token_limit": 8000,
+      "tokens_remaining": 3344,
+      "token_reset_ms": 34919,
+      "requests_remaining": 996
+    },
+    {
+      "case_id": "C02",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792219907653,
+      "token_limit": 8000,
+      "tokens_remaining": 6232,
+      "token_reset_ms": 13260,
+      "requests_remaining": 995
+    },
+    {
+      "case_id": "C02",
+      "stage": "fundamentacao",
+      "status": 429,
+      "retry_after_ms": 352000,
+      "observed_at_ms": 1792219907689,
+      "token_limit": 8000,
+      "tokens_remaining": 6287,
+      "token_reset_ms": 12847,
+      "requests_remaining": 995
+    }
+  ]
+}

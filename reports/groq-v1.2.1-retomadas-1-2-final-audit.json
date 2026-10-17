@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-10-17T07:02:02.285Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.2.1",
+  "prompt_hash": "20dba62632a0b4b482282e2a0ccf452172bd218a45107123e3c61566d8e66c19",
+  "comparison": "reports/groq-comparison-v1.2.1-2026-10-17-retomada-2.json",
+  "comparison_sha256": "618e2d01d37bd8b2a0b5635ca6c7485523a95bcfae1f85ce9e9a2294281ab163",
+  "historical_artifacts_unchanged": 365,
+  "previous_document_snapshots_verified": 12,
+  "manifest_files_verified": 25,
+  "local_tests_preserved": {
+    "passed": 79,
+    "failed": 0
+  },
+  "resumed_checkpoints": [
+    "reports/groq-matrix-v1.2.1-2026-10-17-retomada-1-checkpoint.json",
+    "reports/groq-matrix-v1.2.1-2026-10-17-retomada-2-checkpoint.json"
+  ],
+  "complete": false,
+  "completed_cases": 6,
+  "passed_completed_cases": 6,
+  "new_completed_case_ids": [
+    "C01"
+  ],
+  "completed_local_case_ids": [
+    "C03",
+    "C06",
+    "C07",
+    "C16",
+    "C17"
+  ],
+  "pending_case_ids": [
+    "C02",
+    "C04",
+    "C05",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "current_request_usage": {
+    "requests": 7,
+    "prompt_tokens": 8595,
+    "completion_tokens": 784,
+    "total_tokens": 9379
+  },
+  "version_all_attempts_usage": {
+    "requests": 12,
+    "prompt_tokens": 11837,
+    "completion_tokens": 1062,
+    "total_tokens": 12899
+  },
+  "current_request_http_status_counts": {
+    "200": 5,
+    "429": 2
+  },
+  "current_request_attempts_without_http_response": 0,
+  "correction_cycle_usage": {
+    "requests": 209,
+    "prompt_tokens": 270215,
+    "completion_tokens": 29844,
+    "total_tokens": 300059
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 172,
+    "429": 19
+  },
+  "correction_cycle_attempts_without_http_response": 18,
+  "total_documented_historical_tokens": 379926,
+  "retry_after_respected": true,
+  "local_document_links_checked": 149,
+  "broken_links": 0,
+  "files_scanned_for_exact_key": 465,
+  "exact_key_leaks": 0,
+  "document_hashes": {
+    "README.md": "79c461e71e6e0995f1ed4af8cfd48f9b55be7409a63f787168eb0c32752e8256",
+    "docs/APRESENTACAO.md": "1286696cce73338780e5b2b594b47dce653e3f59e2d1ceb7d7ce7e789f978aa4",
+    "docs/ARQUITETURA.md": "7e8dc3ebafedc58263da3b6fc94b0e5799dea625e2ab80428798e2625c5488bd",
+    "docs/AVALIACAO_GROQ_20_CASOS.md": "ab62ad507a89509700db1321b7c76ca196c21d7567f878bd135504c176a65cee",
+    "docs/CAPSTONE.md": "d2f2867800ce6ccf924ae392693ca91be28820aabc6618f1683936a1180a549d",
+    "docs/COMPARACAO_GROQ_CORRECOES.md": "befeb72ed4470a70d40471553aa1d4aeb18af9ceb55895637536d6c67e5925f1",
+    "docs/CORRECOES_EDITORIAIS_GROQ.md": "def198d02668ee5fa52bd68d23055d18016f4382d40e13cdaca9de409b1e26ce",
+    "docs/CORRECOES_SEMANTICAS_GROQ.md": "b44b89aaf495fa15cffe5cf7d5a4d3481b5945f36a6b66fbdef7803756e865a5",
+    "docs/OPERACAO.md": "52eb0c937f6e31f8d98ed621ad813f706e07c531adb251eb529125e534259057",
+    "docs/PROMPTS.md": "44d54fd8a10b3101d8c7c837d6799e6a5b88b90db17f102dd942e6172d9eeec6",
+    "docs/RETOMADA_GROQ_V1_2_1.md": "0d4b3721fa6e38529bfc57281db7fd0999f21ae40db88ed38536064761614c3d",
+    "docs/TESTES.md": "2ed45d4bdd5b9e779f8aa98d1ce8cc438018fa67859034a2c508eb2b09a53885",
+    "docs/TESTE_REAL_GROQ.md": "ba458378dd9dd6ed24ce03d442ce75b2301ceeb4ec9e663c5e70bf2a08b4dfbf",
+    "reports/groq-comparison-v1.2.1-2026-10-17-retomada-2.md": "c09615bd78b36f1a98b1c0f514f09c088bfa9c769c1b446d5bbac6d485cd7674"
+  },
+  "audit_script_sha256": "d3cfdc7ce2d584fb2f84d9080c96e813d7e28a9c189eda5d2d2060486a2b5627"
+}

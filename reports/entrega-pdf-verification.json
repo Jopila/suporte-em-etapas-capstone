@@ -1,0 +1,22 @@
+{
+  "file": "output/pdf/Capstone_Suporte_em_Etapas.pdf",
+  "sha256": "72eac68ad58d0a2727271d98ad6a796481e07665045b83a971152f207a487da9",
+  "pages": 9,
+  "all_pages_rendered_and_visually_reviewed": true,
+  "reviewer": "Codex - inspeção visual assistida",
+  "visual_defects_observed": 0,
+  "text_inside_page_bounds": true,
+  "all_case_ids_present": true,
+  "token_totals_present": true,
+  "page_text_lengths": [
+    805,
+    1623,
+    1700,
+    1682,
+    1683,
+    1309,
+    2040,
+    1782,
+    1946
+  ]
+}

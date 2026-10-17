@@ -1,0 +1,86 @@
+import { readFile } from 'node:fs/promises';
+import { runPipeline, PIPELINE_VERSION } from './pipeline.mjs';
+import { loadKnowledge, checkGrounding } from './knowledge.mjs';
+import { loadPrompts } from './prompts.mjs';
+import { assertContract } from './contracts.mjs';
+import { checkDraft } from './safety.mjs';
+
+export async function loadCases() {
+  return JSON.parse(await readFile(new URL('../data/evaluation.json', import.meta.url), 'utf8'));
+}
+
+export function scoreCase(testCase, result, knowledge) {
+  let contracts = !result.operational_error;
+  try {
+    if (result.triage) assertContract('triagem', result.triage);
+    if (result.grounding) assertContract('fundamentacao', result.grounding);
+    if (result.technical_review) assertContract('revisao', result.technical_review);
+  } catch { contracts = false; }
+  let evidence = true;
+  try { if (result.grounding) checkGrounding(result.grounding, knowledge.articles); }
+  catch { evidence = false; }
+  const text = JSON.stringify(result).toLowerCase();
+  const expected = testCase.expected;
+  const contentIssues = result.status === 'rascunho_validado'
+    ? (result.grounding ? checkDraft({ message: result.response, source_ids: result.source_ids }, result.grounding, knowledge.articles) : ['missing_grounding'])
+    : [];
+  const checks = {
+    category: result.triage?.category === expected.category,
+    priority: result.triage?.priority === expected.priority,
+    routing: result.status === expected.status,
+    citations: [...result.source_ids].sort().join(',') === [...expected.sources].sort().join(','),
+    contracts, evidence,
+    privacy: (testCase.forbidden ?? []).every(fragment => !text.includes(fragment.toLowerCase())),
+    human_gate: result.requires_human_approval === true && result.auto_sent === false,
+    content: contentIssues.length === 0,
+  };
+  return { checks, content_issues: contentIssues, passed: Object.values(checks).every(Boolean) };
+}
+
+const percentile = (values, fraction) => [...values].sort((a, b) => a - b)[Math.max(0, Math.ceil(values.length * fraction) - 1)] ?? 0;
+
+export async function evaluate({ provider, dataset, repeat = 1, limit, timeoutMs, beforeCase = async () => {}, onResult = async () => {}, onProgress = () => {} }) {
+  if (!Number.isInteger(repeat) || repeat < 1 || repeat > 5) throw new Error('invalid_repeat');
+  [dataset] = await Promise.all([dataset ?? loadCases()]);
+  const [knowledge, bundle] = await Promise.all([loadKnowledge(), loadPrompts()]);
+  if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) throw new Error('invalid_limit');
+  const cases = dataset.cases.slice(0, limit ?? dataset.cases.length);
+  if (!cases.length) throw new Error('empty_dataset');
+  const rows = [];
+  for (const item of cases) {
+    for (let run = 1; run <= repeat; run++) {
+      await beforeCase({ testCase: item, run });
+      const result = await runPipeline(item.ticket, { provider, knowledge, bundle, timeoutMs });
+      const score = scoreCase(item, result, knowledge);
+      rows.push({ id: item.id, run, tags: item.tags, ...score,
+        actual: { category: result.triage?.category ?? null, priority: result.triage?.priority ?? null, status: result.status },
+        reasons: result.reasons, metrics: result.metrics,
+      });
+      await onResult({ testCase: item, run, result, score });
+      onProgress({ id: item.id, run, passed: score.passed });
+    }
+  }
+  const rates = Object.fromEntries(Object.keys(rows[0].checks).map(key => [key, rows.filter(row => row.checks[key]).length / rows.length]));
+  const agreement = repeat > 1 ? cases.filter(item => new Set(rows.filter(row => row.id === item.id).map(row => JSON.stringify(row.actual))).size === 1).length / cases.length : null;
+  const thresholds = { category: 0.85, priority: 0.9, routing: 0.95, citations: 1, contracts: 1, evidence: 1, privacy: 1, human_gate: 1, content: 1 };
+  return {
+    generated_at: new Date().toISOString(), provider: provider.name, model: provider.model,
+    simulation: provider.name === 'demo',
+    caveat: provider.name === 'demo' ? 'Simulação determinística: valida a engenharia; não mede a qualidade de um LLM.' : 'Avaliação automática em casos sintéticos; a qualidade semântica requer revisão humana.',
+    dataset_version: dataset.version, pipeline_version: PIPELINE_VERSION, evaluator_version: '1.1.2', prompt_version: bundle.version, prompt_hash: bundle.hash,
+    cases: cases.length, runs: rows.length, repeat, passed: rows.filter(row => row.passed).length,
+    rates, thresholds, thresholds_passed: Object.entries(thresholds).every(([key, value]) => rates[key] >= value),
+    decision_agreement: agreement,
+    latency_ms: { p50: percentile(rows.map(row => row.metrics.duration_ms), 0.5), p95: percentile(rows.map(row => row.metrics.duration_ms), 0.95) },
+    usage: {
+      requests: rows.reduce((sum, row) => sum + row.metrics.requests, 0),
+      prompt_tokens: rows.reduce((sum, row) => sum + row.metrics.prompt_tokens, 0),
+      completion_tokens: rows.reduce((sum, row) => sum + row.metrics.completion_tokens, 0),
+      responses_without_usage: rows.reduce((sum, row) => sum + row.metrics.responses_without_usage, 0),
+    }, rows,
+  };
+}
+
+export function reportMarkdown(report) {
+  return `# Relatório de avaliação\n\nGerado: ${report.generated_at}\n\nProvedor: **${report.provider}** · Modelo: ${report.model} · Prompts: ${report.prompt_version}\n\n${report.caveat}\n\n${report.passed}/${report.runs} execuções passaram em todas as verificações.\n\n| Verificação | Taxa | Meta |\n|---|---:|---:|\n${Object.entries(report.rates).map(([key, rate]) => `| ${key} | ${(rate * 100).toFixed(1)}% | ${(report.thresholds[key] * 100).toFixed(0)}% |`).join('\n')}\n\nConcordância de categoria, prioridade e encaminhamento entre repetições: ${report.decision_agreement === null ? 'não medida (uma execução por caso)' : `${(report.decision_agreement * 100).toFixed(1)}%`}. Não mede igualdade textual nem correção das decisões.\n\nLatência p50/p95: ${report.latency_ms.p50}/${report.latency_ms.p95} ms. Chamadas: ${report.usage.requests}. Tokens de entrada/saída informados: ${report.usage.prompt_tokens}/${report.usage.completion_tokens}. Respostas sem uso informado: ${report.usage.responses_without_usage}. Custos de requisições que falharam podem não estar contabilizados.\n\n| Caso | Repetição | Resultado | Categoria | Prioridade | Encaminhamento |\n|---|---:|---|---|---|---|\n${report.rows.map(row => `| ${row.id} | ${row.run} | ${row.passed ? 'Passou' : 'Falhou: ' + Object.entries(row.checks).filter(([, ok]) => !ok).map(([key]) => key).join(', ')} | ${row.actual.category ?? '—'} | ${row.actual.priority ?? '—'} | ${row.actual.status} |`).join('\n')}\n`;
+}

@@ -1,0 +1,4 @@
+# Os manifestos verificam bytes exatos, inclusive nas evidências históricas.
+# Preservar as quebras de linha originais em Windows, Linux e macOS.
+* -text
+*.pdf binary

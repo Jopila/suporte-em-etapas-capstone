@@ -1,0 +1,495 @@
+{
+  "started_at": "2026-10-17T05:14:18.501Z",
+  "generated_at": "2026-10-17T05:14:28.916Z",
+  "cases": [
+    {
+      "id": "C05",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C05",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1780
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1780
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C10",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1807
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1807
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C13",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1721
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1721
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C15",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1676
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1676
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C18",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1733
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1733
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C19",
+        "pipeline_version": "1.2.0",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.2.0",
+        "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_network_error"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_network_error",
+            "duration_ms": 1672
+          }
+        ],
+        "metrics": {
+          "requests": 3,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 1672
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_network_error"
+        }
+      ]
+    }
+  ],
+  "http_attempts": []
+}

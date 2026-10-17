@@ -1,0 +1,41 @@
+# Roteiro de apresentação — 5 minutos
+
+## 0:00–0:45 · Problema
+
+“Equipes de suporte precisam classificar chamados e responder com base em políticas consistentes. Este projeto ajuda o atendente a preparar a resposta, preservando a aprovação humana. Uso uma empresa e uma base fictícias para demonstrar um problema operacional real sem expor dados de clientes.”
+
+Mostre o chamado de cobrança duplicada em `examples/chamado.json`.
+
+## 0:45–1:45 · Sistema de prompts
+
+Mostre o diagrama em `docs/ARQUITETURA.md` e a pasta ativa `prompts/v1.2.0/`. As versões anteriores foram preservadas para comparação.
+
+Explique as quatro etapas de modelo: triagem, fundamentação, resposta e revisão. Mostre um exemplo few-shot da triagem e a regra de citação literal da fundamentação. Destaque que os contratos são verificados pelo código.
+
+## 1:45–2:45 · Demonstração
+
+Execute:
+
+```powershell
+npm run demo
+```
+
+Mostre categoria, prioridade, artigo KB-002, resposta, aprovação técnica e `requires_human_approval:true`. Diga explicitamente: “Esta execução usa um simulador determinístico. As matrizes históricas no Groq evoluíram de 17 para 19 e depois 20 aprovações em 20 casos. Na versão atual 1.2.0, reavaliamos somente os seis casos com ressalvas de conteúdo: todos passaram. Não repetimos os outros 14 casos nessa versão.”
+
+Use as saídas reais preservadas para mostrar o Groq durante a apresentação. A reavaliação solicitada está concluída e pode ser apresentada sem novas chamadas. Não coloque a chave na tela.
+
+## 2:45–3:45 · Testes
+
+Execute `npm test` e abra `docs/CORRECOES_SEMANTICAS_GROQ.md`. Mostre os 70 testes aprovados, incluindo 14 regressões novas. Explique a diferença entre conferir e conceder permissões, orientar e prometer uma consulta, e analisar uma cobrança e prometer retorno. Mostre C15: o modelo ainda prometeu contato no primeiro rascunho, o controle local bloqueou e a segunda redação retirou a promessa. Compare os mesmos seis casos: 40.756 → 46.806 tokens (+14,84%), incluindo essa correção. O ciclo de correções soma 287.160 tokens; o histórico completo, 367.027.
+
+“A simulação passou em 60 execuções. Na avaliação real da versão atual, os seis casos selecionados passaram. O avaliador novo também detectou as seis ressalvas nas saídas antigas, preservando suas notas históricas. Isso não mede consistência entre repetições ou generalização. A pontuação automática precisa ser acompanhada da revisão por atendentes.”
+
+## 3:45–4:30 · Decisões de engenharia
+
+Explique a separação entre biblioteca de prompts, base de conhecimento, contratos, cliente Groq e pipeline. Compare um prompt único com o fluxo modular: o fluxo escolhido faz mais chamadas, mas permite verificar etapas e localizar falhas.
+
+## 4:30–5:00 · Limitações e próximo passo
+
+“A base é pequena, a busca é lexical e a revisão usa o mesmo modelo. O próximo passo é avaliar a matriz completa na nova versão, aprovar uma base real, usar um conjunto reservado e medir o trabalho economizado pelo atendente.”
+
+Encerre mostrando a matriz de critérios de aceitação em `docs/CAPSTONE.md` e os quatro entregáveis: biblioteca, documentação, testes e exemplos.

@@ -1,0 +1,200 @@
+{
+  "id": "C20",
+  "run": 1,
+  "expected": {
+    "category": "cancelamento",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-005"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true
+  },
+  "passed": true,
+  "result": {
+    "ticket_id": "C20",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.0.0",
+    "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "sucesso_cliente",
+    "triage": {
+      "summary": "Cliente solicita encerrar a assinatura e pede confirmação do cancelamento.",
+      "category": "cancelamento",
+      "priority": "P3",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente deseja encerrar a assinatura",
+        "Cliente pede confirmação do cancelamento"
+      ],
+      "missing_information": [
+        "Identificador da conta ou cliente",
+        "Procedimento interno para confirmar o cancelamento"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-005"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-005",
+          "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-005",
+          "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+        },
+        {
+          "article_id": "KB-005",
+          "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+        },
+        {
+          "article_id": "KB-005",
+          "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá,\n\nIdentificamos sua solicitação para encerrar a assinatura. Para iniciar o processo, siga os passos abaixo:\n\n1. Acesse o menu **Conta > Assinatura > Solicitar cancelamento** e registre a sua solicitação.\n2. Após a solicitação, aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros, a data de encerramento e eventuais devoluções, que dependem da análise do contrato.\n\nPara que possamos direcionar sua solicitação corretamente, poderia nos informar o identificador da sua conta ou o e‑mail cadastrado?\n\nCaso tenha mais alguma dúvida, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-005"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 697
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 991
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 988
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 718
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 5297,
+      "completion_tokens": 700,
+      "responses_without_usage": 0,
+      "duration_ms": 3394
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente solicita encerrar a assinatura e pede confirmação do cancelamento.",
+        "category": "cancelamento",
+        "priority": "P3",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente deseja encerrar a assinatura",
+          "Cliente pede confirmação do cancelamento"
+        ],
+        "missing_information": [
+          "Identificador da conta ou cliente",
+          "Procedimento interno para confirmar o cancelamento"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-005",
+            "quote": "O titular pode solicitar cancelamento em Conta > Assinatura > Solicitar cancelamento."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-005",
+            "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+          },
+          {
+            "article_id": "KB-005",
+            "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+          },
+          {
+            "article_id": "KB-005",
+            "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nIdentificamos sua solicitação para encerrar a assinatura. Para iniciar o processo, siga os passos abaixo:\n\n1. Acesse o menu **Conta > Assinatura > Solicitar cancelamento** e registre a sua solicitação.\n2. Após a solicitação, aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros, a data de encerramento e eventuais devoluções, que dependem da análise do contrato.\n\nPara que possamos direcionar sua solicitação corretamente, poderia nos informar o identificador da sua conta ou o e‑mail cadastrado?\n\nCaso tenha mais alguma dúvida, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-005"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "interrompida_intencionalmente_entre_casos",
+  "reason": "Ampliação da regressão para listas e isolamento de lacunas especulativas após revisão de C04.",
+  "cases": 7,
+  "passed": 6,
+  "usage": {
+    "requests": 18,
+    "prompt_tokens": 27992,
+    "completion_tokens": 3290,
+    "total_tokens": 31282
+  },
+  "http_status_counts": {
+    "200": 18
+  },
+  "case_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+  ],
+  "failed_case_ids": [
+    "C04"
+  ],
+  "checkpoint": "groq-matrix-v1.1.0-2026-10-16-checkpoint.json"
+}

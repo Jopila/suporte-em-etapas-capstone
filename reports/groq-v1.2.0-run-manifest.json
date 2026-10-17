@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-10-17T05:14:17.367Z",
+  "pipeline_version": "1.2.0",
+  "prompt_version": "1.2.0",
+  "prompt_hash": "9876e77fc564aaeb2cb2c8fab8a4258bfeab140ee84e2f60827aa88233da6565",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "model": "openai/gpt-oss-120b",
+  "selected_case_ids": [
+    "C05",
+    "C10",
+    "C13",
+    "C15",
+    "C18",
+    "C19"
+  ],
+  "tests": {
+    "passed": 70,
+    "failed": 0,
+    "new_regression_tests": 14,
+    "evidence": "test-results-v1.2.0.tap",
+    "before_correction": "test-results-v1.2.0-before.tap"
+  },
+  "files": {
+    "package.json": "cbef641228f3ea099d8e343eefe23a74742fa9ce0144b997acc1f408bf22e566",
+    "prompts/v1.2.0/fundamentacao.md": "c6d1f9abaab750597711b1471187eb8efb4914eece253b194c24a1e7d3b92aaa",
+    "prompts/v1.2.0/resposta.md": "f3af8c0671800fc9eb0df01e01d3943ccb0b300a09cf9ad34909aa665ec58a40",
+    "prompts/v1.2.0/revisao.md": "5c793d08677ef5869383d3424e2bb4617b9abb18ce664e0eb2385d9f1a008781",
+    "prompts/v1.2.0/system.md": "61b164c0328b2c4a6db24ba8b765a9395bdf228d727bb56f7204eae03535de9e",
+    "prompts/v1.2.0/triagem.md": "4125972a960ba61fad19dae20b435e650ba244025d2ce8ece8fd56d300cca7b9",
+    "scripts/evaluate-groq-matrix.mjs": "f4a24136c97c67f07826c3161d15cdf8a7875f2a5984005c566c92307585686d",
+    "scripts/evaluate-groq-remainder.mjs": "04f404a5b8677225aa8897ad0afbaf0b114fb3edfba85a7b85348f29c0784f41",
+    "src/cli.mjs": "b495a2c41285b1a53eceeb7fdaa2016916ea4a107ec6d8f7daad92be6ad70c8d",
+    "src/contracts.mjs": "5a25d36c6fe86f514fed5f70fe76830ad8d1eb4b22625586207cee8360d0a3dd",
+    "src/evaluation.mjs": "36aedee330e6de033933a94fa882e581a4fb21db1ccec91ca893cc6ddf301dc3",
+    "src/knowledge.mjs": "f1e41000809aeeb464ea61df4cccd7fe45e6eef4536596272638e5362c54a4b4",
+    "src/pipeline.mjs": "08d2cbdbe48440b61f9d0c7c5a7be828c84aa9360de9857fdd5af5296266f0e3",
+    "src/prompts.mjs": "4d7b9651507f688ca9158feb8449e0b9afbc05f34d45eff59ec1525eca5bd3b9",
+    "src/providers/demo.mjs": "32802d85e083375dddc0d53064ca27434c5a07c36e2ca471ef821f9277a9eeea",
+    "src/providers/groq.mjs": "3e989fd6801009affe735063e633f425076a43fb443a893e5a817953a50aaaa2",
+    "src/safety.mjs": "74ffc8060bfd8acbb4ea71d2a8210cc772797147ffbde8a490c8cdad2f8ca482",
+    "tests/contracts.test.mjs": "f845a3201954029e9307f81a5c7bbfdec50e34ca576165d778294244093c4325",
+    "tests/evaluation.test.mjs": "72d3d5fea07f3805f507c5c4ce07fe9e2c44326971387cc48f38d1ba4fce9cde",
+    "tests/pipeline.test.mjs": "228584055f6eada1d174cc2b735e7a15533bbbf1a73607203d4f0e400b07a942",
+    "tests/provider.test.mjs": "f5bfd0fea290b9b0c9d779316aeaea6cb02d30331a5adf6290c456790dba5a1a",
+    "tests/regression.test.mjs": "47e3cdd429dcaae6c1907b0e240969d02eaefce55ca57f2862415bac5849887b",
+    "tests/semantic-regression.test.mjs": "f752827ff667cf1cdf10798a790f072d7ea6a5d830eae5a43189744b4ca39885"
+  }
+}

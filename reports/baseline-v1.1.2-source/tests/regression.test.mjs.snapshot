@@ -1,0 +1,186 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { redact, checkDraft } from '../src/safety.mjs';
+import { loadKnowledge } from '../src/knowledge.mjs';
+import { runPipeline } from '../src/pipeline.mjs';
+import { DemoProvider } from '../src/providers/demo.mjs';
+import { loadCases, scoreCase } from '../src/evaluation.mjs';
+
+const knowledge = await loadKnowledge();
+const article = id => knowledge.articles.find(item => item.id === id);
+const grounding = id => ({ supported: true, evidence: [{ article_id: id, quote: article(id).content }],
+  actions: article(id).steps.map(instruction => ({ article_id: id, instruction })), missing_information: [] });
+const issues = (message, id = 'KB-001') => checkDraft({ message, source_ids: [id] }, grounding(id), [article(id)]);
+const ticket = { id: 'REG-1', subject: 'Recuperar acesso', message: 'Esqueci a senha e não consigo entrar.' };
+function scripted(handler) {
+  const demo = new DemoProvider();
+  return { name: 'demo', model: 'regression', complete: request => handler(request, () => demo.complete(request)) };
+}
+
+test('redação preserva negação, conjunções e descrições sem credenciais', () => {
+  for (const text of [
+    'Cliente esqueceu a senha e não consegue entrar.',
+    'Esqueci minha senha e preciso recuperar o login.',
+    'A senha e o login não funcionam.',
+    'A senha é incorreta.',
+    'Não sei qual é a senha.',
+    'Minha senha é inválida e não consigo entrar.',
+  ]) assert.deepEqual(redact(text), { text, types: [] });
+});
+
+test('credenciais explícitas continuam removidas e a redação é idempotente', () => {
+  for (const text of ['senha: Segredo-Ficticio-123', 'senha = Segredo-Ficticio-123',
+    'senha é Segredo-Ficticio-123', 'minha senha e Segredo-Ficticio-123', 'password: passphrase-ficticia']) {
+    const result = redact(text);
+    assert.ok(result.types.includes('SEGREDO'));
+    assert.ok(!result.text.includes('Segredo-Ficticio-123'));
+    assert.ok(!result.text.includes('passphrase-ficticia'));
+    assert.equal(redact(result.text).text, result.text);
+  }
+});
+
+test('canal de recuperação sem evidência não passa com uma fonte válida', () => {
+  for (const message of ['Indique o método de recuperação que prefere (e-mail ou SMS).',
+    'Enviaremos um código por mensagem de texto.', 'Recupere a conta pelo WhatsApp.']) {
+    assert.ok(issues(message).includes('unsupported_channel'));
+  }
+  assert.deepEqual(issues(article('KB-001').steps.join('\n')), []);
+});
+
+test('canal documentado em uma base autorizada pode ser usado', () => {
+  const approved = { id: 'KB-X', content: 'A recuperação usa SMS pelo fluxo aprovado.', steps: ['Use SMS pelo fluxo aprovado.'] };
+  const plan = { evidence: [{ article_id: approved.id, quote: approved.content }], actions: [{ article_id: approved.id, instruction: approved.steps[0] }] };
+  assert.deepEqual(checkDraft({ message: approved.steps[0], source_ids: [approved.id] }, plan, [approved]), []);
+});
+
+test('relato não pode ser apresentado como inspeção realizada pelo assistente', () => {
+  for (const message of ['Identificamos que a sua fatura apresenta o mesmo mês duas vezes.',
+    'Verificamos sua conta e confirmamos a cobrança duplicada.', 'Consultamos a fatura e detectamos o erro.']) {
+    assert.ok(issues(message, 'KB-002').includes('unverified_confirmation'));
+  }
+  assert.deepEqual(issues('Você relatou uma possível duplicidade. Descreva a divergência para análise financeira.', 'KB-002'), []);
+});
+
+test('bloqueia coleta de identificadores e documentos ausente dos passos aprovados', () => {
+  for (const message of ['Informe o e-mail cadastrado.', 'Qual é o identificador da sua conta?',
+    'Por favor, forneça o seu telefone.']) assert.ok(issues(message).includes('unnecessary_personal_data'));
+  for (const message of ['Envie o comprovante de pagamento sem dados sensíveis.',
+    'Anexe o extrato bancário ou PDF do boleto.']) assert.ok(issues(message, 'KB-002').includes('unauthorized_attachment_request'));
+  assert.deepEqual(issues('Não envie comprovantes nem dados pessoais. Informe a competência afetada.', 'KB-002'), []);
+  assert.deepEqual(issues('Verifique as instruções no e-mail cadastrado.'), []);
+  assert.deepEqual(issues('Não envie seu e-mail e informe o horário do erro.'), []);
+  assert.ok(issues('Não envie comprovante e informe seu e-mail.').includes('unnecessary_personal_data'));
+});
+
+test('canal de titularidade é um meio a usar, não uma informação a coletar', () => {
+  assert.ok(issues('Entre em contato conosco informando o canal aprovado.').includes('ambiguous_verification_channel'));
+  assert.deepEqual(issues(article('KB-001').steps[2]), []);
+});
+
+test('pedidos em listas preservam o contexto de solicitação ou proibição', () => {
+  assert.ok(issues('Para identificar a cobrança, poderia nos informar:\n- O número do boleto;\n- Um comprovante de pagamento (extrato bancário ou PDF do boleto).', 'KB-002').includes('unauthorized_attachment_request'));
+  assert.ok(issues('Poderia nos informar:\n- O e‑mail ou número da conta;\n- O nome do plano.').includes('unnecessary_personal_data'));
+  assert.deepEqual(issues('Não envie:\n- seu e-mail;\n- comprovante de pagamento.'), []);
+});
+
+test('identificadores com hífen Unicode também são reconhecidos', () => {
+  assert.ok(issues('Informe seu e‑mail.').includes('unnecessary_personal_data'));
+  assert.deepEqual(issues('Verifique seu e‑mail cadastrado.'), []);
+});
+
+test('recusa da garantia de reembolso pode acompanhar orientação parcial', () => {
+  assert.deepEqual(issues('Não podemos confirmar que seu reembolso foi aprovado. Consulte Financeiro > Faturas e aguarde a análise financeira.', 'KB-002'), []);
+  assert.ok(issues('Seu reembolso foi aprovado. Aguarde amanhã.', 'KB-002').includes('unsupported_commitment'));
+  assert.ok(issues('Não prometemos prazo, mas seu reembolso foi aprovado.', 'KB-002').includes('unsupported_commitment'));
+  assert.ok(issues('Não podemos confirmar que seu reembolso foi aprovado e seu estorno foi aprovado.', 'KB-002').includes('unsupported_commitment'));
+});
+
+test('controles locais impedem liberação mesmo quando o revisor aprovaria', async () => {
+  for (const message of ['Escolha e-mail ou SMS para recuperar a conta.', 'Informe seu e-mail cadastrado.',
+    'Identificamos o erro na sua conta.', 'Entre em contato informando o canal aprovado.']) {
+    let reviewerCalls = 0;
+    const result = await runPipeline(ticket, { provider: scripted(async (request, next) => {
+      if (request.stage === 'revisao') reviewerCalls++;
+      const data = await next();
+      return request.stage === 'resposta' ? { ...data, message } : data;
+    }) });
+    assert.equal(result.status, 'encaminhamento_humano');
+    assert.deepEqual(result.reasons, ['review_rejected']);
+    assert.equal(result.metrics.revisions, 1);
+    assert.equal(reviewerCalls, 0);
+    assert.ok(!result.response.includes(message));
+  }
+});
+
+test('condição de análise financeira aceita paráfrase sem esconder promessa posterior', async () => {
+  const safe = 'Aguarde a análise da equipe financeira antes de considerar qualquer reembolso ou estorno aprovado.';
+  assert.deepEqual(issues(safe, 'KB-002'), []);
+  for (const connector of [' Mas ', ' E ', ' ']) {
+    assert.ok(issues(`${safe}${connector}Seu reembolso foi aprovado.`, 'KB-002').includes('unsupported_commitment'));
+  }
+  const item = (await loadCases()).cases.find(x => x.id === 'C15');
+  const result = await runPipeline(item.ticket, { provider: scripted(async (request, next) => {
+    const data = await next();
+    return request.stage === 'resposta'
+      ? { ...data, message: `Não há aprovação automática de reembolso. Consulte Financeiro > Faturas. ${safe}` } : data;
+  }) });
+  assert.equal(result.status, 'rascunho_validado');
+  assert.equal(result.metrics.revisions, 0);
+  assert.deepEqual(result.source_ids, ['KB-002']);
+});
+
+test('feedback local permite corrigir o rascunho e só liberar a segunda versão', async () => {
+  let feedback;
+  const result = await runPipeline(ticket, { provider: scripted(async (request, next) => {
+    const data = await next();
+    if (request.stage !== 'resposta') return data;
+    if (!request.context.previous_draft) return { ...data, message: 'Escolha recuperar por SMS.' };
+    feedback = request.context.review_feedback;
+    return data;
+  }) });
+  assert.equal(result.status, 'rascunho_validado');
+  assert.equal(result.metrics.revisions, 1);
+  assert.ok(feedback.includes('unsupported_channel'));
+  assert.ok(!result.response.includes('SMS'));
+});
+
+test('política de outros usa P3 e preserva incidentes P1', async () => {
+  for (const priority of ['P4', 'P1']) {
+    const result = await runPipeline({ ...ticket, subject: 'Assunto externo', message: 'Orientação sobre jardinagem.' }, {
+      provider: scripted(async (request, next) => {
+        const data = await next();
+        return request.stage === 'triagem' ? { ...data, category: 'outros', priority, confidence: 0.95 } : data;
+      }),
+    });
+    assert.equal(result.triage.priority, priority === 'P1' ? 'P1' : 'P3');
+    assert.equal(result.status, 'encaminhamento_humano');
+  }
+});
+
+test('avaliador detecta procedimento inventado mesmo com contrato e fonte corretos', async () => {
+  const item = (await loadCases()).cases[0];
+  const result = await runPipeline(item.ticket, { provider: new DemoProvider() });
+  const score = scoreCase(item, { ...result, response: 'Recupere a conta por SMS.' }, knowledge);
+  assert.equal(score.checks.citations, true);
+  assert.equal(score.checks.contracts, true);
+  assert.equal(score.checks.content, false);
+  assert.equal(score.passed, false);
+});
+
+test('lacunas especulativas não viram requisitos de etapas posteriores', async () => {
+  const seen = [];
+  const result = await runPipeline(ticket, { provider: scripted(async (request, next) => {
+    if (request.stage !== 'triagem') {
+      assert.ok(!Object.hasOwn(request.context.triage, 'missing_information'));
+      if (request.context.grounding) assert.ok(!Object.hasOwn(request.context.grounding, 'missing_information'));
+      seen.push(request.stage);
+    }
+    const data = await next();
+    return ['triagem', 'fundamentacao'].includes(request.stage)
+      ? { ...data, missing_information: ['Prefere SMS?', 'Confirme e-mail e ID.'] } : data;
+  }) });
+  assert.equal(result.status, 'rascunho_validado');
+  assert.deepEqual(seen, ['fundamentacao', 'resposta', 'revisao']);
+  assert.ok(result.triage.missing_information.includes('Prefere SMS?'));
+  assert.ok(!result.response.includes('SMS'));
+});

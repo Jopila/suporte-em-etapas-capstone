@@ -1,0 +1,85 @@
+# Correção das ressalvas e reavaliação seletiva no Groq
+
+> Registro histórico da versão 1.2.0. Os ajustes editoriais posteriores, a tentativa da matriz completa e o consumo atual estão em [CORRECOES_EDITORIAIS_GROQ.md](CORRECOES_EDITORIAIS_GROQ.md). Os valores abaixo são os originais; a reprodução dos comandos deste documento exige o código 1.2.0 arquivado em `reports/baseline-v1.2.0-source/`, restaurado em uma pasta separada, com as respectivas extensões `.snapshot` removidas.
+
+**Data:** 17/10/2026. **Pipeline e prompts:** 1.2.0. **Modelo:** `openai/gpt-oss-120b`, no Groq.
+
+**C05, C10, C13, C15, C18 e C19 passaram nas nove verificações automáticas.** As seis ressalvas originais não aparecem nas respostas finais inspecionadas. A suíte local passou em **70 testes**, incluindo **14 regressões novas**. Foram preservados os 20 resultados da versão 1.1.2 e os 270 arquivos históricos conferidos por hash, além de um snapshot de 36 arquivos de código, dados e documentação anteriores.
+
+A nova rodada consumiu **46.806 tokens informados**. O ciclo de correções e retomadas passou de **240.354 para 287.160**, e o histórico completo, de **320.221 para 367.027 tokens**. Esta avaliação cobre somente os seis casos solicitados; os outros 14 não foram reavaliados no Groq com a versão 1.2.0. Os 20/20 históricos continuam pertencendo à versão 1.1.2.
+
+## Correções aplicadas
+
+| Casos | Ressalva anterior | Mudança e resultado observado |
+|---|---|---|
+| C05, C13 e C19 | Pedir ajuste ou concessão de permissão quando KB-004 prevê conferência | Política, redação e revisão distinguem conferir de modificar; o controle local rejeita sugestões de mudança. As respostas finais pedem apenas conferência ao administrador |
+| C10 | “Consultaremos” a fatura, sem acesso operacional | Prompt e controle local separam orientação ao cliente de promessa de consulta pelo assistente. A resposta final orienta o cliente a consultar Financeiro > Faturas |
+| C15 | Prometer contato futuro da equipe financeira | O controle rejeita retorno/notificação não autorizados. Na execução real, bloqueou a primeira resposta, pediu correção e liberou apenas a versão sem promessa de contato |
+| C18 | Usar “procedimento interno” em lugar do canal aprovado | Fundamentação inclui o passo condicional e a redação preserva sua formulação. A resposta final mantém “Se não tiver acesso ao e-mail cadastrado” e “pelo canal aprovado” |
+| C15, falso positivo anterior | Rejeitar “Aguardar a análise financeira...” | O detector reconhece o infinitivo da condição segura. As regressões confirmam que uma aprovação positiva acrescentada depois continua bloqueada |
+
+Os novos controles distinguem instruções afirmativas de negações próximas, sem descartar o restante da frase. O passo de titularidade exige a formulação completa da base citada, tolerando destaque em Markdown. Essa restrição é deliberadamente conservadora: paráfrases válidas fora do formato exigido ainda podem ser rejeitadas. Os schemas, a base e os gabaritos não foram alterados. As versões anteriores dos prompts continuam nas respectivas pastas.
+
+## Testes e evidências de regressão
+
+Antes das alterações, **13 das 14 novas regressões falharam**; o teste de procedimentos permitidos já passava. Após as correções, as 14 passaram, e a suíte completa terminou em **70/70**. Os testes usam os trechos realmente observados e variações de linguagem, instruções permitidas, negações, promessa posterior a uma condição segura, bloqueio com revisor permissivo e correção por feedback.
+
+- [Regressões novas](../tests/semantic-regression.test.mjs).
+- [Resultado antes da correção](../reports/test-results-v1.2.0-before.tap).
+- [Suíte completa depois da correção](../reports/test-results-v1.2.0.tap).
+- [Reavaliação offline das seis saídas antigas](../reports/groq-selected-v1.1.2-rescored-v1.2.0.json).
+
+As seis saídas antigas tinham aprovação histórica. O avaliador novo detecta as seis ressalvas e as reprova por conteúdo: **0/6 sob as regras atuais**, contra **6/6 nas novas saídas finais**. As oito métricas anteriores passam em ambas as seleções. Essa reavaliação não altera a pontuação histórica nem representa julgamento semântico independente, pois compartilha os controles do pipeline. A simulação de 60 execuções continua medindo somente a engenharia local.
+
+## Execução real e consumo
+
+| Caso | Tokens antigos concluídos | Entrada nova | Saída nova | Total novo | Chamadas com resposta | Revisões corretivas |
+|---|---:|---:|---:|---:|---:|---:|
+| C05 | 6.535 | 6.617 | 546 | 7.163 | 4 | 0 |
+| C10 | 6.911 | 6.816 | 736 | 7.552 | 4 | 0 |
+| C13 | 6.666 | 6.656 | 598 | 7.254 | 4 | 0 |
+| C15 | 7.033 | 8.850 | 1.011 | 9.861 | 5 | 1 |
+| C18 | 6.839 | 6.797 | 731 | 7.528 | 4 | 0 |
+| C19 | 6.772 | 6.755 | 693 | 7.448 | 4 | 0 |
+| **Total dos seis casos** | **40.756** | **42.491** | **4.315** | **46.806** | **25** | **1** |
+
+O consumo dos resultados concluídos aumentou **6.050 tokens (+14,84%)**, com os mesmos casos, gabaritos, base, modelo e parâmetros. O aumento inclui instruções adicionais e a correção de C15; não pode ser atribuído apenas ao tamanho dos prompts. Não se estimou custo monetário.
+
+Na primeira tentativa, os seis casos registraram `groq_network_error`, totalizando 18 tentativas do cliente sem resposta HTTP e sem `usage`. Após a repetição com acesso à rede, os seis foram concluídos em aproximadamente **5min57s**, incluindo **5min38s de pausas** de recomposição. As 25 respostas foram HTTP 200, sem novo 429. O registro dessa solicitação tem, portanto, **43 tentativas do cliente: 25 com resposta HTTP e 18 sem resposta**. A ausência de `usage` nas falhas de conexão não comprova consumo ou custo nulo.
+
+Em C15, o primeiro rascunho dizia “Eles entrarão em contato caso precisem de mais detalhes”. O controle `unsupported_followup` impediu sua liberação antes da revisão pelo modelo. Uma nova redação retirou a promessa e recebeu aprovação técnica. As duas redações permanecem no [arquivo completo de C15](../reports/groq-selected-v1.2.0-2026-10-17-retomada-1-cases/C15.json); a chamada adicional integra os 9.861 tokens desse caso. Não houve seleção entre várias execuções concluídas para escolher a melhor resposta.
+
+| Escopo do consumo informado | Antes | Acréscimo | Agora |
+|---|---:|---:|---:|
+| Ciclo de correções e retomadas | 240.354 | 46.806 | **287.160** |
+| Histórico, incluindo matriz original e teste isolado | 320.221 | 46.806 | **367.027** |
+
+O ciclo atualizado registra 197 tentativas do cliente: 165 respostas HTTP 200, 14 HTTP 429 históricos e 18 tentativas novas sem resposta HTTP. Os tokens informados desse ciclo são 258.378 de entrada e 28.782 de saída. Os 429 históricos também permanecem sem `usage`. Os relatórios antigos conservam seus totais de geração.
+
+## Inspeção das respostas e limites
+
+A inspeção das seis respostas finais confirmou a remoção das ressalvas que motivaram esta correção. Em C05, C13 e C19, não se recomenda alterar permissões. C10 atribui a consulta ao cliente. C15 orienta análise sem prometer contato ou aprovação. C18 mantém o canal e a condição, sem reproduzir a credencial sintética.
+
+Ainda há espaço para revisão editorial: C10 pode orientar a consulta mais diretamente, sem sugerir que fornecer informações é uma condição para consultar a área; C19 cita o identificador interno KB-004, dispensável no texto ao cliente. Esses pontos não foram classificados como falhas das verificações automáticas nem ocultados por edição dos artefatos.
+
+São casos sintéticos já usados para orientar as correções, com uma execução concluída por caso. Os controles por padrões têm cobertura limitada, e o revisor utiliza o mesmo modelo do gerador. A inspeção assistida das saídas não substitui avaliação por atendentes. Todos os resultados mantêm `requires_human_approval:true` e `auto_sent:false`. A avaliação solicitada está concluída, mas não comprova generalização, consistência entre repetições ou prontidão para produção.
+
+## Preservação e reprodução
+
+O [manifesto 1.2.0](../reports/groq-v1.2.0-run-manifest.json) fixa os hashes de 23 arquivos, além de prompts, base e conjunto de casos. O [registro de preservação](../reports/groq-v1.2.0-preservation.json) contém hashes dos 20 resultados anteriores, dos 270 arquivos históricos e dos 36 snapshots. Nenhuma chave foi incluída nesses arquivos. O código 1.1.2 arquivado usa a extensão `.snapshot`, para não executar testes antigos junto com a versão atual.
+
+Os novos artefatos têm prefixos próprios:
+
+- [Tentativa com falha de conexão](../reports/groq-selected-v1.2.0-2026-10-17-checkpoint.json).
+- [Checkpoint dos seis casos concluídos](../reports/groq-selected-v1.2.0-2026-10-17-retomada-1-checkpoint.json).
+- [Comparação por caso e consumo](../reports/groq-comparison-v1.2.0-2026-10-17.md).
+- [Comparação estruturada e proveniência](../reports/groq-comparison-v1.2.0-2026-10-17.json).
+- [Auditoria final de preservação e consumo](../reports/groq-v1.2.0-final-audit.json).
+
+Para reproduzir a comparação sem rede e sem chave, escolha um prefixo de saída ainda inexistente:
+
+```powershell
+node scripts/compare-groq-selected.mjs --baseline reports/groq-progress-v1.1.2-retomada-10.json --manifest reports/groq-v1.2.0-run-manifest.json --preservation reports/groq-v1.2.0-preservation.json --checkpoint reports/groq-selected-v1.2.0-2026-10-17-checkpoint.json --checkpoint reports/groq-selected-v1.2.0-2026-10-17-retomada-1-checkpoint.json --output reports/groq-comparison-v1.2.0-conferencia
+```
+
+O comparador valida versões, seleção, hashes, gabaritos, pontuações, arquivos por caso e consumo. Falhas de transporte ficam contabilizadas separadamente. Os comandos de consolidação 1.1.2 pertencem ao código arquivado; não se devem misturar versões. Não há retomada pendente ou chamada em segundo plano para os seis casos solicitados.

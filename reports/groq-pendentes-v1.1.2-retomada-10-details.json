@@ -1,0 +1,723 @@
+{
+  "started_at": "2026-10-17T04:55:56.696Z",
+  "generated_at": "2026-10-17T04:58:30.985Z",
+  "cases": [
+    {
+      "id": "C18",
+      "run": 1,
+      "expected": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-001"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C18",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata dificuldade de login e solicita orientação para recuperação de senha.",
+          "category": "acesso",
+          "priority": "P2",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente não consegue entrar",
+            "Cliente solicita orientação para recuperação de senha"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-001"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-001",
+              "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-001",
+              "instruction": "Na tela de login, selecione Esqueci minha senha."
+            },
+            {
+              "article_id": "KB-001",
+              "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou dificuldade para entrar na sua conta e pediu orientação para recuperação de senha.\n\nPara iniciar a recuperação, siga os passos abaixo:\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n\nCaso não tenha acesso ao e‑mail cadastrado, informe ao suporte para que possamos verificar a titularidade conforme o procedimento interno.\n\nQualquer dúvida adicional, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ],
+        "redacted_types": [
+          "SEGREDO"
+        ],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 888
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 714
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 846
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 41271
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6122,
+          "completion_tokens": 717,
+          "responses_without_usage": 0,
+          "duration_ms": 43723
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata dificuldade de login e solicita orientação para recuperação de senha.",
+            "category": "acesso",
+            "priority": "P2",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente não consegue entrar",
+              "Cliente solicita orientação para recuperação de senha"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-001",
+                "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-001",
+                "instruction": "Na tela de login, selecione Esqueci minha senha."
+              },
+              {
+                "article_id": "KB-001",
+                "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou dificuldade para entrar na sua conta e pediu orientação para recuperação de senha.\n\nPara iniciar a recuperação, siga os passos abaixo:\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive a pasta de spam.\n\nCaso não tenha acesso ao e‑mail cadastrado, informe ao suporte para que possamos verificar a titularidade conforme o procedimento interno.\n\nQualquer dúvida adicional, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-001"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C19",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente relata que ao visualizar o relatório a opção de exportar CSV não está disponível e questiona se é necessária alguma permissão.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente consegue ver o relatório",
+            "Opção de exportar CSV não aparece",
+            "Cliente pergunta sobre necessidade de permissão"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "É necessária permissão de leitura do relatório."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que ao visualizar o relatório a opção de exportar CSV não está disponível e perguntou se é necessária alguma permissão.\n\nPara resolver, siga os passos abaixo:\n1. Abra a seção **Relatórios**;\n2. Selecione o período desejado para o relatório;\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, isso indica que sua conta pode não ter a permissão de leitura do relatório. Nesse caso, solicite ao administrador da sua empresa que verifique e, se necessário, conceda a permissão de leitura do relatório.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 676
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 693
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 887
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 36286
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6160,
+          "completion_tokens": 612,
+          "responses_without_usage": 0,
+          "duration_ms": 38542
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata que ao visualizar o relatório a opção de exportar CSV não está disponível e questiona se é necessária alguma permissão.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente consegue ver o relatório",
+              "Opção de exportar CSV não aparece",
+              "Cliente pergunta sobre necessidade de permissão"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "É necessária permissão de leitura do relatório."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que ao visualizar o relatório a opção de exportar CSV não está disponível e perguntou se é necessária alguma permissão.\n\nPara resolver, siga os passos abaixo:\n1. Abra a seção **Relatórios**;\n2. Selecione o período desejado para o relatório;\n3. Escolha a opção **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, isso indica que sua conta pode não ter a permissão de leitura do relatório. Nesse caso, solicite ao administrador da sua empresa que verifique e, se necessário, conceda a permissão de leitura do relatório.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "run": 1,
+      "expected": {
+        "category": "cancelamento",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-005"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C20",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "sucesso_cliente",
+        "triage": {
+          "summary": "Cliente deseja encerrar a assinatura e solicita confirmação do cancelamento.",
+          "category": "cancelamento",
+          "priority": "P3",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente quer encerrar a assinatura",
+            "Cliente pede confirmação do cancelamento"
+          ],
+          "missing_information": [
+            "Identificador da conta ou e‑mail associado"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-005"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-005",
+              "quote": "A solicitação precisa ser confirmada pela equipe responsável."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-005",
+              "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+            },
+            {
+              "article_id": "KB-005",
+              "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que deseja encerrar sua assinatura e solicita a confirmação do cancelamento.\n\nPara prosseguir, siga os passos abaixo conforme a nossa base de conhecimento:\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento** e abra a solicitação de encerramento.\n2. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois esses detalhes dependem da análise do contrato.\n\nCaso precise de mais informações ou tenha alguma dúvida sobre o procedimento, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-005"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 718
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 798
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 916
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 35437
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6162,
+          "completion_tokens": 683,
+          "responses_without_usage": 0,
+          "duration_ms": 37869
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente deseja encerrar a assinatura e solicita confirmação do cancelamento.",
+            "category": "cancelamento",
+            "priority": "P3",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente quer encerrar a assinatura",
+              "Cliente pede confirmação do cancelamento"
+            ],
+            "missing_information": [
+              "Identificador da conta ou e‑mail associado"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-005",
+                "quote": "A solicitação precisa ser confirmada pela equipe responsável."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-005",
+                "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+              },
+              {
+                "article_id": "KB-005",
+                "instruction": "Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois dependem da análise do contrato."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que deseja encerrar sua assinatura e solicita a confirmação do cancelamento.\n\nPara prosseguir, siga os passos abaixo conforme a nossa base de conhecimento:\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento** e abra a solicitação de encerramento.\n2. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros e a data de encerramento, pois esses detalhes dependem da análise do contrato.\n\nCaso precise de mais informações ou tenha alguma dúvida sobre o procedimento, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-005"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C18",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792212957584,
+      "token_limit": 8000,
+      "tokens_remaining": 5688,
+      "token_reset_ms": 17340,
+      "requests_remaining": 999
+    },
+    {
+      "case_id": "C18",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792212958307,
+      "token_limit": 8000,
+      "tokens_remaining": 4164,
+      "token_reset_ms": 28770,
+      "requests_remaining": 998
+    },
+    {
+      "case_id": "C18",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792212959154,
+      "token_limit": 8000,
+      "tokens_remaining": 2641,
+      "token_reset_ms": 40192,
+      "requests_remaining": 997
+    },
+    {
+      "case_id": "C18",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213000428,
+      "token_limit": 8000,
+      "tokens_remaining": 5480,
+      "token_reset_ms": 18900,
+      "requests_remaining": 996
+    },
+    {
+      "case_id": "C19",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213020504,
+      "token_limit": 8000,
+      "tokens_remaining": 6331,
+      "token_reset_ms": 12517,
+      "requests_remaining": 995
+    },
+    {
+      "case_id": "C19",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213021198,
+      "token_limit": 8000,
+      "tokens_remaining": 4731,
+      "token_reset_ms": 24517,
+      "requests_remaining": 994
+    },
+    {
+      "case_id": "C19",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213022084,
+      "token_limit": 8000,
+      "tokens_remaining": 3299,
+      "token_reset_ms": 35257,
+      "requests_remaining": 993
+    },
+    {
+      "case_id": "C19",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213058371,
+      "token_limit": 8000,
+      "tokens_remaining": 6103,
+      "token_reset_ms": 14227,
+      "requests_remaining": 992
+    },
+    {
+      "case_id": "C20",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213073830,
+      "token_limit": 8000,
+      "tokens_remaining": 6248,
+      "token_reset_ms": 13140,
+      "requests_remaining": 991
+    },
+    {
+      "case_id": "C20",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213074628,
+      "token_limit": 8000,
+      "tokens_remaining": 5007,
+      "token_reset_ms": 22447,
+      "requests_remaining": 990
+    },
+    {
+      "case_id": "C20",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213075544,
+      "token_limit": 8000,
+      "tokens_remaining": 3411,
+      "token_reset_ms": 34417,
+      "requests_remaining": 989
+    },
+    {
+      "case_id": "C20",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792213110981,
+      "token_limit": 8000,
+      "tokens_remaining": 6070,
+      "token_reset_ms": 14475,
+      "requests_remaining": 988
+    }
+  ]
+}

@@ -1,0 +1,1488 @@
+{
+  "generated_at": "2026-10-17T05:00:14.648Z",
+  "network_calls": 0,
+  "scope": "Comparação dos 20 resultados concluídos por versão. A versão 1.1.2 foi consolidada de segmentos em 16 e 17/10; todas as tentativas interrompidas continuam no consumo acumulado.",
+  "manifest": "reports/groq-v1.1.2-run-manifest.json",
+  "manifest_verified": true,
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "model": "openai/gpt-oss-120b",
+  "baseline": {
+    "pipeline_version": "1.0.0",
+    "original_passed": 17,
+    "extended_passed_recomputed": 8,
+    "rates": {
+      "category": 0.95,
+      "priority": 0.9,
+      "routing": 0.95,
+      "citations": 0.95,
+      "contracts": 1,
+      "evidence": 1,
+      "privacy": 1,
+      "human_gate": 1
+    },
+    "usage": {
+      "requests": 49,
+      "prompt_tokens": 65127,
+      "completion_tokens": 8498,
+      "responses_without_usage": 0,
+      "total_tokens": 73625
+    }
+  },
+  "intermediate": {
+    "pipeline_version": "1.1.1",
+    "core_passed": 19,
+    "extended_passed_recomputed": 19,
+    "rates": {
+      "category": 1,
+      "priority": 1,
+      "routing": 0.95,
+      "citations": 0.95,
+      "contracts": 1,
+      "evidence": 1,
+      "privacy": 1,
+      "human_gate": 1,
+      "content": 1
+    },
+    "usage": {
+      "requests": 51,
+      "prompt_tokens": 78794,
+      "completion_tokens": 8886,
+      "responses_without_usage": 0,
+      "total_tokens": 87680
+    }
+  },
+  "final": {
+    "pipeline_version": "1.1.2",
+    "prompt_version": "1.1.1",
+    "core_passed": 20,
+    "extended_passed": 20,
+    "rates": {
+      "category": 1,
+      "priority": 1,
+      "routing": 1,
+      "citations": 1,
+      "contracts": 1,
+      "evidence": 1,
+      "privacy": 1,
+      "human_gate": 1,
+      "content": 1
+    },
+    "canonical_completed_usage": {
+      "requests": 51,
+      "prompt_tokens": 78751,
+      "completion_tokens": 8479,
+      "responses_without_usage": 0,
+      "total_tokens": 87230
+    },
+    "cases_with_api": 15,
+    "local_case_ids": [
+      "C03",
+      "C06",
+      "C07",
+      "C16",
+      "C17"
+    ],
+    "all_version_attempts_usage": {
+      "requests": 85,
+      "prompt_tokens": 109101,
+      "completion_tokens": 12291,
+      "responses_without_usage": 0,
+      "total_tokens": 121392
+    },
+    "operationally_interrupted_attempts": 14,
+    "operationally_interrupted_usage": {
+      "requests": 34,
+      "prompt_tokens": 30350,
+      "completion_tokens": 3812,
+      "responses_without_usage": 0,
+      "total_tokens": 34162
+    },
+    "canonical_artifacts_sha256": {
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C01.json": "8d6fe1557cfe68713178d9fec07dadb1704699d6b6addeeb4602bd0f8a0e269f",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C02.json": "f87340747c70bbbe54802f2017bf9189f61c3bed2c3ccbce1d8ae2ef22176a22",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C03.json": "2983426c0439530b673a5c447b86e7ff1bd7026cdc5621fe6e3ca8cd11ebce77",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C04.json": "3ac69f710c0fff1635dff480c6f6d09bf45a56a9833582639d6dbd0698b8d66c",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C05.json": "db38c0a2d9bf69f1d9ea6297f8471f8e3b389588cb576b746d128b0108a8c1d0",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C06.json": "c7a1ae59602cb2344a6b0a6f8425b8cafe49bd069910cf7a2b8f0cb61cc27b17",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C07.json": "b4379fce9aa31de645f691aa8a6dc5732f65c245c6db4bc62061476e763016fd",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C08.json": "9546e1ac1562bb6982bcfcb306ec680b4569ae712ba9d0ec8aa962da8e010024",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C09.json": "cd792fad8ed7ff41bd2399a91e15b6cfd3e6dab47b360caaddeaf930c535fd57",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C10.json": "8ae5654cc4858ba09433d474767284bce3e614022965f275d39410f19281e97d",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C11.json": "75fcc0f65d0c6e5cc682aa0f1a65d7a637daa1d6193eb81ce51c24e7883ec87f",
+      "reports/groq-matrix-v1.1.2-2026-10-16-cases/C12.json": "6393af40a0678cf418a53e281257e521efd084209657ce291516993b970bbcfb",
+      "reports/groq-pendentes-v1.1.2-retomada-3-cases/C13.json": "26c9adb4bf099fe532add02b1957a59d32eb7c48155c1a95abebf5cedb130292",
+      "reports/groq-remainder-v1.1.2-2026-10-16-cases/C14.json": "513db76db06092b996a1a869c6cafe980e1aaa7260aba908079fd668bcc0e8d0",
+      "reports/groq-pendentes-v1.1.2-retomada-9-cases/C15.json": "29380fd0e1f4e3f10812d633ea6a894e4409f15aff20656a18760eba5b171938",
+      "reports/groq-remainder-v1.1.2-2026-10-16-cases/C16.json": "b2f4ba6ddfae4ab8988a5b4028dd7605a30c855149134c531106a833c0a8b7c5",
+      "reports/groq-remainder-v1.1.2-2026-10-16-cases/C17.json": "1ec41d6b515b589e8158e82235ea93d1e0a3f889aea44c06d47bec480559b367",
+      "reports/groq-pendentes-v1.1.2-retomada-10-cases/C18.json": "4a56247a1636e26c49ef3a25da3d8b7377e42b406552e744f11a70227291edca",
+      "reports/groq-pendentes-v1.1.2-retomada-10-cases/C19.json": "0c3d57d84480739a426bcdf149df3426503753192c1a7544312ce8b53e938e55",
+      "reports/groq-pendentes-v1.1.2-retomada-10-cases/C20.json": "6673d61fa8f863b20edb594b42c317641274d876993a4704b0cc5614a754e2f5"
+    }
+  },
+  "comparison": {
+    "core_pass_gain_percentage_points": 15,
+    "canonical_token_delta_vs_baseline": 13605,
+    "canonical_token_delta_percent_vs_baseline": 18.48,
+    "canonical_token_delta_vs_intermediate": -450
+  },
+  "total_correction_cycle_usage": {
+    "requests": 154,
+    "prompt_tokens": 215887,
+    "completion_tokens": 24467,
+    "responses_without_usage": 0,
+    "total_tokens": 240354
+  },
+  "total_documented_historical_tokens": 320221,
+  "rows": [
+    {
+      "id": "C01",
+      "baseline": {
+        "id": "C01",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6034,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C01",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6681,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C01",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6714,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6083,
+        "completion_tokens": 631,
+        "responses_without_usage": 0,
+        "total_tokens": 6714
+      }
+    },
+    {
+      "id": "C02",
+      "baseline": {
+        "id": "C02",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6198,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C02",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7078,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C02",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7071,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6287,
+        "completion_tokens": 784,
+        "responses_without_usage": 0,
+        "total_tokens": 7071
+      }
+    },
+    {
+      "id": "C03",
+      "baseline": {
+        "id": "C03",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C03",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C03",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C04",
+      "baseline": {
+        "id": "C04",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6093,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C04",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6861,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C04",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6729,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6124,
+        "completion_tokens": 605,
+        "responses_without_usage": 0,
+        "total_tokens": 6729
+      }
+    },
+    {
+      "id": "C05",
+      "baseline": {
+        "id": "C05",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 5674,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C05",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6535,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C05",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6535,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6015,
+        "completion_tokens": 520,
+        "responses_without_usage": 0,
+        "total_tokens": 6535
+      }
+    },
+    {
+      "id": "C06",
+      "baseline": {
+        "id": "C06",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C06",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C06",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C07",
+      "baseline": {
+        "id": "C07",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C07",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C07",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C08",
+      "baseline": {
+        "id": "C08",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1482,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C08",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1691,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C08",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1687,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1552,
+        "completion_tokens": 135,
+        "responses_without_usage": 0,
+        "total_tokens": 1687
+      }
+    },
+    {
+      "id": "C09",
+      "baseline": {
+        "id": "C09",
+        "core_passed": false,
+        "extended_passed": false,
+        "checks": {
+          "category": false,
+          "priority": false,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1491,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C09",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1788,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C09",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1789,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1562,
+        "completion_tokens": 227,
+        "responses_without_usage": 0,
+        "total_tokens": 1789
+      }
+    },
+    {
+      "id": "C10",
+      "baseline": {
+        "id": "C10",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6191,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C10",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6940,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C10",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6911,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6251,
+        "completion_tokens": 660,
+        "responses_without_usage": 0,
+        "total_tokens": 6911
+      }
+    },
+    {
+      "id": "C11",
+      "baseline": {
+        "id": "C11",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6087,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C11",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7007,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C11",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7014,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6248,
+        "completion_tokens": 766,
+        "responses_without_usage": 0,
+        "total_tokens": 7014
+      }
+    },
+    {
+      "id": "C12",
+      "baseline": {
+        "id": "C12",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6215,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C12",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7063,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C12",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6921,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6265,
+        "completion_tokens": 656,
+        "responses_without_usage": 0,
+        "total_tokens": 6921
+      }
+    },
+    {
+      "id": "C13",
+      "baseline": {
+        "id": "C13",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 5748,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C13",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6660,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C13",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6666,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 13,
+        "prompt_tokens": 13593,
+        "completion_tokens": 1351,
+        "responses_without_usage": 0,
+        "total_tokens": 14944
+      }
+    },
+    {
+      "id": "C14",
+      "baseline": {
+        "id": "C14",
+        "core_passed": false,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": false,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1461,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C14",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1678,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C14",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 1704,
+        "requests": 1,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 1,
+        "prompt_tokens": 1554,
+        "completion_tokens": 150,
+        "responses_without_usage": 0,
+        "total_tokens": 1704
+      }
+    },
+    {
+      "id": "C15",
+      "baseline": {
+        "id": "C15",
+        "core_passed": false,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": false,
+          "citations": false,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 2881,
+        "requests": 2,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C15",
+        "core_passed": false,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": false,
+          "citations": false,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7294,
+        "requests": 4,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C15",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 7033,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 21,
+        "prompt_tokens": 21495,
+        "completion_tokens": 2984,
+        "responses_without_usage": 0,
+        "total_tokens": 24479
+      }
+    },
+    {
+      "id": "C16",
+      "baseline": {
+        "id": "C16",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C16",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C16",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C17",
+      "baseline": {
+        "id": "C17",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "intermediate": {
+        "id": "C17",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final": {
+        "id": "C17",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 0,
+        "requests": 0,
+        "status": "encaminhamento_humano"
+      },
+      "final_usage_all_attempts": {
+        "requests": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "C18",
+      "baseline": {
+        "id": "C18",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6021,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C18",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6797,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C18",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6839,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 12,
+        "prompt_tokens": 13750,
+        "completion_tokens": 1527,
+        "responses_without_usage": 0,
+        "total_tokens": 15277
+      }
+    },
+    {
+      "id": "C19",
+      "baseline": {
+        "id": "C19",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 6052,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C19",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6804,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C19",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6772,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6160,
+        "completion_tokens": 612,
+        "responses_without_usage": 0,
+        "total_tokens": 6772
+      }
+    },
+    {
+      "id": "C20",
+      "baseline": {
+        "id": "C20",
+        "core_passed": true,
+        "extended_passed": false,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": false
+        },
+        "tokens": 5997,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "intermediate": {
+        "id": "C20",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6803,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final": {
+        "id": "C20",
+        "core_passed": true,
+        "extended_passed": true,
+        "checks": {
+          "category": true,
+          "priority": true,
+          "routing": true,
+          "citations": true,
+          "contracts": true,
+          "evidence": true,
+          "privacy": true,
+          "human_gate": true,
+          "content": true
+        },
+        "tokens": 6845,
+        "requests": 4,
+        "status": "rascunho_validado"
+      },
+      "final_usage_all_attempts": {
+        "requests": 4,
+        "prompt_tokens": 6162,
+        "completion_tokens": 683,
+        "responses_without_usage": 0,
+        "total_tokens": 6845
+      }
+    }
+  ],
+  "limitations": [
+    "20/20 é aprovação automática em casos sintéticos, incluindo cinco encaminhamentos locais.",
+    "Não há seleção da melhor resposta: cada caso tem apenas uma execução concluída; erros operacionais ficam preservados separadamente.",
+    "O avaliador de conteúdo compartilha regras com o pipeline e não substitui inspeção semântica ou aprovação humana.",
+    "O conjunto foi usado para ajustar prompts/regras; não é validação independente de generalização.",
+    "Não há duração contínua da matriz final: não somar as pausas entre sessões como latência de uma execução.",
+    "Observações de conteúdo de C05, C10, C13, C15, C18 e C19 permanecem no relatório."
+  ]
+}

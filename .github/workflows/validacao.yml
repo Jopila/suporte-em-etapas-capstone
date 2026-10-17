@@ -1,0 +1,33 @@
+name: Validação do capstone
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Testes, simulação e evidências
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obter o projeto
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Node.js 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Executar os testes locais
+        run: npm test
+      - name: Executar a demonstração sem API
+        run: npm run demo
+      - name: Avaliar os 20 casos simulados três vezes
+        run: node src/cli.mjs evaluate --provider demo --repeat 3 --output reports/ci-demo
+      - name: Conferir a integridade das evidências entregues
+        run: node scripts/audit-capstone-delivery.mjs

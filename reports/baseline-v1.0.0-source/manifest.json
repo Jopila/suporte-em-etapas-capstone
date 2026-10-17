@@ -1,0 +1,26 @@
+{
+  "description": "Código preservado antes das correções; não inclui .env nem credenciais.",
+  "files": {
+    "src/cli.mjs": "b495a2c41285b1a53eceeb7fdaa2016916ea4a107ec6d8f7daad92be6ad70c8d",
+    "src/contracts.mjs": "5a25d36c6fe86f514fed5f70fe76830ad8d1eb4b22625586207cee8360d0a3dd",
+    "src/evaluation.mjs": "88d40dfeb1bceabe7f45aff739195e9cf884ac1609e27006d432f7106b8defbb",
+    "src/knowledge.mjs": "f1e41000809aeeb464ea61df4cccd7fe45e6eef4536596272638e5362c54a4b4",
+    "src/pipeline.mjs": "1604c53757d377120863ccdc84875306f91e176908af47e8d73726cb617ccf6b",
+    "src/prompts.mjs": "fe59a60edc12dd8b7280a293792d634c2dacb7577a7c1cb3c7dfe6f0c3cce19c",
+    "src/safety.mjs": "394458545fbfcb70cd768e8a1c64e0e22e0f7b412d140f1f9280fe0760a8874f",
+    "src/providers/demo.mjs": "b078899250640a51be023f0f3f892ad23b0aa623377c0a9f539153f0b1a4c54b",
+    "src/providers/groq.mjs": "3e989fd6801009affe735063e633f425076a43fb443a893e5a817953a50aaaa2",
+    "tests/contracts.test.mjs": "f845a3201954029e9307f81a5c7bbfdec50e34ca576165d778294244093c4325",
+    "tests/evaluation.test.mjs": "72d3d5fea07f3805f507c5c4ce07fe9e2c44326971387cc48f38d1ba4fce9cde",
+    "tests/pipeline.test.mjs": "228584055f6eada1d174cc2b735e7a15533bbbf1a73607203d4f0e400b07a942",
+    "tests/provider.test.mjs": "f5bfd0fea290b9b0c9d779316aeaea6cb02d30331a5adf6290c456790dba5a1a",
+    "prompts/v1.0.0/fundamentacao.md": "907df312defc68ac4b4bba82d1f758b0d20fb3b8b2d5be7a4c24eecaf34a8ae4",
+    "prompts/v1.0.0/resposta.md": "493fbda2a7233834ca86408a4500275e009bfa29c4729698487924a8cceb4c62",
+    "prompts/v1.0.0/revisao.md": "43a0d615ebd70f40b7215dca8bb4fd3ea4f75d212faaa2ac31dd756ecf81d603",
+    "prompts/v1.0.0/system.md": "c8cc6c8ad1ea43bcf6cb22a42134fd05b3323a46fb25cb2703070c7e6c8ccc43",
+    "prompts/v1.0.0/triagem.md": "9ddde3b61b7235a1e3bd02b0f8b01390ee1f7a81f6515567bf3110c81d45144d",
+    "data/evaluation.json": "4b4bf91a9e6ec14a543f9248559191862442778a64797edb44ee237fe1c1d1de",
+    "data/knowledge-base.json": "67bcb25b4a0e48ec4d5f126aeabcb8ce773d2e9b60ea020a9ed4d8dd8ecff347"
+  },
+  "storage_suffix": ".snapshot"
+}

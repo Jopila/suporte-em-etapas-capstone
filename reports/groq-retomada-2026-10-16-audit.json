@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-10-16T16:38:26.370Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_cases_preserved": 15,
+  "complete": false,
+  "pending_case_ids": [
+    "C13",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "latest_resume": {
+    "case_ids_attempted": [
+      "C13"
+    ],
+    "requests": 4,
+    "prompt_tokens": 4400,
+    "completion_tokens": 498,
+    "total_tokens": 4898,
+    "http_status_counts": {
+      "200": 3,
+      "429": 1
+    },
+    "blocked_stage": "revisao",
+    "retry_after_ms": 1001000
+  },
+  "correction_cycle_usage": {
+    "requests": 108,
+    "prompt_tokens": 160686,
+    "completion_tokens": 17934,
+    "responses_without_usage": 0,
+    "total_tokens": 178620
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 104,
+    "429": 4
+  },
+  "current_version_tokens": 59658,
+  "total_documented_historical_tokens": 258487,
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "local_document_links_checked": 57,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 166,
+  "exact_key_leaks": 0,
+  "user_choice": "Manter a retomada preparada; sem novas chamadas ou agendamento."
+}

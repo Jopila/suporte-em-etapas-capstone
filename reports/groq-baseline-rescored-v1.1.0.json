@@ -1,0 +1,548 @@
+{
+  "evaluator_version": "1.1.0",
+  "description": "Reavaliação offline das saídas da rodada original; não altera os resultados históricos nem chama a API.",
+  "passed": 9,
+  "content_passed": 12,
+  "failed": [
+    {
+      "id": "C01",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unsupported_channel",
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C02",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C04",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C09",
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C11",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C12",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C14",
+      "checks": {
+        "category": true,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C15",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C18",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "ambiguous_verification_channel"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C19",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C20",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    }
+  ],
+  "rows": [
+    {
+      "id": "C01",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unsupported_channel",
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C02",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C03",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C04",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C05",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C06",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C07",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C08",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C09",
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C10",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C11",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C12",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C13",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C14",
+      "checks": {
+        "category": true,
+        "priority": false,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C15",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false
+    },
+    {
+      "id": "C16",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C17",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true
+    },
+    {
+      "id": "C18",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "ambiguous_verification_channel"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C19",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation"
+      ],
+      "passed": false
+    },
+    {
+      "id": "C20",
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": false
+      },
+      "content_issues": [
+        "unverified_confirmation",
+        "unnecessary_personal_data"
+      ],
+      "passed": false
+    }
+  ],
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729"
+}

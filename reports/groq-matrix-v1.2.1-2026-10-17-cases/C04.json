@@ -1,0 +1,119 @@
+{
+  "id": "C04",
+  "run": 1,
+  "expected": {
+    "category": "cancelamento",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-005"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": false,
+    "citations": false,
+    "contracts": false,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": false,
+  "result": {
+    "ticket_id": "C04",
+    "pipeline_version": "1.2.1",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.2.1",
+    "prompt_hash": "20dba62632a0b4b482282e2a0ccf452172bd218a45107123e3c61566d8e66c19",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "encaminhamento_humano",
+    "reasons": [
+      "groq_retry_later"
+    ],
+    "operational_error": true,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "sucesso_cliente",
+    "triage": {
+      "summary": "Cliente relata ser o titular e solicita o cancelamento do plano contratado.",
+      "category": "cancelamento",
+      "priority": "P3",
+      "confidence": 0.96,
+      "facts": [
+        "Cliente é titular",
+        "Cliente deseja cancelar o plano"
+      ],
+      "missing_information": [
+        "Confirmação de identidade ou número da conta"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-005"
+    ],
+    "grounding": null,
+    "technical_review": null,
+    "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+    "source_ids": [],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 750
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": false,
+        "code": "groq_retry_later",
+        "duration_ms": 43
+      }
+    ],
+    "metrics": {
+      "requests": 2,
+      "stage_calls": 2,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 1621,
+      "completion_tokens": 152,
+      "responses_without_usage": 0,
+      "duration_ms": 793
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata ser o titular e solicita o cancelamento do plano contratado.",
+        "category": "cancelamento",
+        "priority": "P3",
+        "confidence": 0.96,
+        "facts": [
+          "Cliente é titular",
+          "Cliente deseja cancelar o plano"
+        ],
+        "missing_information": [
+          "Confirmação de identidade ou número da conta"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "error_code": "groq_retry_later"
+    }
+  ]
+}

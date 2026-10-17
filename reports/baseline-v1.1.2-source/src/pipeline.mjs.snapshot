@@ -1,0 +1,127 @@
+import { performance } from 'node:perf_hooks';
+import { schemas, assertContract, validateTicket, ContractError } from './contracts.mjs';
+import { inspectTicket, checkDraft, redact } from './safety.mjs';
+import { loadPrompts, buildMessages, digest } from './prompts.mjs';
+import { loadKnowledge, retrieve, checkGrounding } from './knowledge.mjs';
+import { ProviderError } from './providers/groq.mjs';
+import packageInfo from '../package.json' with { type: 'json' };
+
+export const PIPELINE_VERSION = packageInfo.version;
+
+const genericMessage = 'Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.';
+const criticalMessage = 'Olá! Seu relato indica uma situação que precisa de avaliação humana prioritária. Procure o canal oficial de suporte da sua empresa. Não compartilhe senhas, códigos de autenticação ou dados sensíveis nesta conversa.';
+const teams = { acesso: 'suporte_tecnico', cobranca: 'financeiro', erro_tecnico: 'suporte_tecnico', duvida: 'suporte_tecnico', cancelamento: 'sucesso_cliente', seguranca: 'seguranca', outros: 'triagem' };
+
+function scrub(value) {
+  if (typeof value === 'string') return redact(value).text;
+  if (Array.isArray(value)) return value.map(scrub);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, scrub(item)]));
+  return value;
+}
+
+export async function runPipeline(input, { provider, bundle, knowledge, timeoutMs = 120000 } = {}) {
+  const ticket = validateTicket(input);
+  if (!provider) throw new Error('provider_required');
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 1) throw new Error('invalid_pipeline_timeout');
+  [bundle, knowledge] = await Promise.all([bundle ?? loadPrompts(), knowledge ?? loadKnowledge()]);
+  const start = performance.now();
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const inspected = inspectTicket(ticket);
+  const safeTicket = inspected.ticket;
+  const metrics = { requests: 0, stage_calls: 0, contract_retries: 0, revisions: 0, prompt_tokens: 0, completion_tokens: 0, responses_without_usage: 0, duration_ms: 0 };
+  const trace = [];
+  let triage = null, grounding = null, review = null, articles = [];
+  const onEvent = event => {
+    if (event.type === 'attempt') metrics.requests++;
+    if (event.type === 'usage') { metrics.prompt_tokens += event.prompt_tokens; metrics.completion_tokens += event.completion_tokens; }
+    if (event.type === 'usage_unknown') metrics.responses_without_usage++;
+  };
+
+  async function stage(name, context, check = () => {}) {
+    let feedback = [];
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (controller.signal.aborted) throw new ProviderError('pipeline_timeout');
+      const stageStart = performance.now();
+      metrics.stage_calls++;
+      try {
+        const result = await provider.complete({ stage: name, context, messages: buildMessages(bundle, name, context, feedback), schema: schemas[name], signal: controller.signal, onEvent });
+        if (controller.signal.aborted) throw new ProviderError('pipeline_timeout');
+        assertContract(name, result);
+        check(result);
+        trace.push({ stage: name, attempt: attempt + 1, valid: true, duration_ms: Math.round(performance.now() - stageStart) });
+        return result;
+      } catch (error) {
+        const code = error instanceof ContractError || error instanceof ProviderError ? error.code : 'unexpected_failure';
+        trace.push({ stage: name, attempt: attempt + 1, valid: false, code, duration_ms: Math.round(performance.now() - stageStart) });
+        if (!(error instanceof ContractError) || attempt === 1) throw error;
+        metrics.contract_retries++;
+        feedback = [`Saída anterior rejeitada: ${code}. Refaça a etapa respeitando o contrato e as evidências.`];
+      }
+    }
+  }
+
+  function finish(status, reasons, draft = null, operationalError = false) {
+    metrics.duration_ms = Math.round(performance.now() - start);
+    return scrub({
+      ticket_id: ticket.id, pipeline_version: PIPELINE_VERSION, provider: provider.name, model: provider.model,
+      simulation: provider.name === 'demo',
+      prompt_version: bundle.version, prompt_hash: bundle.hash,
+      knowledge_version: knowledge.version, knowledge_hash: digest(knowledge),
+      status, reasons, operational_error: operationalError,
+      requires_human_approval: true, auto_sent: false,
+      team: teams[triage?.category] ?? 'triagem',
+      triage, knowledge_ids: articles.map(item => item.id), grounding, technical_review: review,
+      response: draft?.message ?? (triage?.priority === 'P1' ? criticalMessage : genericMessage),
+      source_ids: draft?.source_ids ?? [],
+      redacted_types: inspected.redactions, flags: inspected.flags, trace, metrics,
+    });
+  }
+
+  try {
+    // Sinais locais críticos impedem inclusive o envio do chamado ao provedor.
+    if (inspected.flags.security || inspected.flags.outage || inspected.flags.injection) {
+      triage = {
+        summary: 'Sinal de risco identificado na entrada; encaminhamento humano necessário.',
+        category: inspected.flags.security ? 'seguranca' : inspected.flags.outage ? 'erro_tecnico' : 'outros',
+        priority: inspected.flags.security || inspected.flags.outage ? 'P1' : 'P3',
+        confidence: 0, facts: [], missing_information: [], security_risk: inspected.flags.security,
+      };
+      return finish('encaminhamento_humano', Object.entries(inspected.flags).filter(([, value]) => value).map(([key]) => `input_${key}`));
+    }
+    triage = await stage('triagem', { ticket: safeTicket, flags: inspected.flags });
+    if (triage.security_risk || triage.category === 'seguranca') {
+      triage.category = 'seguranca'; triage.priority = 'P1';
+    }
+    // P4 é reservado a dúvidas de uso do produto; "outros" vai para triagem P3.
+    if (triage.category === 'outros' && triage.priority !== 'P1') triage.priority = 'P3';
+    if (triage.priority === 'P1') return finish('encaminhamento_humano', ['critical_priority']);
+    if (triage.confidence < 0.7) return finish('encaminhamento_humano', ['low_confidence']);
+    articles = retrieve(safeTicket, triage, knowledge.articles);
+    if (!articles.length) return finish('encaminhamento_humano', ['no_knowledge']);
+    // Lacunas especulativas ficam no registro interno, sem virar requisitos para
+    // a fundamentação, redação ou revisão. Cada etapa usa relato e base aprovada.
+    const context = { ticket: safeTicket, triage: { summary: triage.summary, category: triage.category, priority: triage.priority, facts: triage.facts }, articles };
+    grounding = await stage('fundamentacao', context, result => checkGrounding(result, articles));
+    if (!grounding.supported) return finish('encaminhamento_humano', ['unsupported_topic']);
+    const responseGrounding = { supported: grounding.supported, evidence: grounding.evidence, actions: grounding.actions };
+    let draft = null;
+    for (let revision = 0; revision < 2; revision++) {
+      draft = await stage('resposta', {
+        ...context, grounding: responseGrounding,
+        ...(revision ? { previous_draft: draft, review_feedback: review.issues } : {}),
+      });
+      const localIssues = checkDraft(draft, grounding, articles);
+      if (localIssues.length) trace.push({ stage: 'validacao_local', revision: revision + 1, valid: false, issues: localIssues });
+      review = localIssues.length
+        ? { approved: false, grounded: !localIssues.some(issue => ['invalid_citation', 'unsupported_channel', 'unverified_confirmation', 'unsupported_commitment'].includes(issue)), safe: false, complete: false, issues: localIssues }
+        : await stage('revisao', { ...context, grounding: responseGrounding, draft });
+      if (review.approved) return finish('rascunho_validado', [], draft);
+      if (!revision) metrics.revisions++;
+    }
+    return finish('encaminhamento_humano', ['review_rejected']);
+  } catch (error) {
+    const code = error instanceof ContractError || error instanceof ProviderError ? error.code : 'unexpected_failure';
+    return finish('encaminhamento_humano', [code], null, true);
+  } finally { clearTimeout(timer); }
+}

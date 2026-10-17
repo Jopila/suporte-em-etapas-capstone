@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-10-16T20:07:15.660Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 16,
+  "prior_checkpoints_unchanged": 10,
+  "first_attempt_preserved_before_second": true,
+  "complete": false,
+  "completed_cases": 16,
+  "pending_case_ids": [
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "newly_completed_case_ids": [],
+  "current_request": {
+    "selected_case_ids": [
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "actually_attempted_case_ids": [
+      "C15",
+      "C18"
+    ],
+    "usage": {
+      "requests": 6,
+      "prompt_tokens": 4563,
+      "completion_tokens": 517,
+      "total_tokens": 5080
+    },
+    "http_status_counts": {
+      "200": 3,
+      "429": 3
+    },
+    "waits": [
+      {
+        "started_at": "2026-10-16T19:59:17.328Z",
+        "earliest_retry_indicated_at": "2026-10-16T19:37:54.996Z",
+        "margin_ms": 1282332
+      },
+      {
+        "started_at": "2026-10-16T20:02:08.144Z",
+        "earliest_retry_indicated_at": "2026-10-16T20:01:55.036Z",
+        "margin_ms": 13108
+      }
+    ],
+    "requested_156s_wait_respected": true,
+    "additional_45s_wait_enforced_by_runner": true,
+    "next_case_first_response_after_retry_after": true
+  },
+  "correction_cycle_usage": {
+    "requests": 134,
+    "prompt_tokens": 186658,
+    "completion_tokens": 21175,
+    "responses_without_usage": 0,
+    "total_tokens": 207833
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 121,
+    "429": 13
+  },
+  "current_version_tokens": 88871,
+  "total_documented_historical_tokens": 287700,
+  "last_retry_after_ms": 652000,
+  "earliest_retry_indicated_at": "2026-10-16T20:13:46.035Z",
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "resume_plan_includes_latest_retry_deadline": true,
+  "resume_plan_sha256": "20e87bd4a23396579241aa1569b10851c4175aecaefc6dce31105d510126242d",
+  "local_document_links_checked": 62,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 223,
+  "exact_key_leaks": 0,
+  "code_prompts_data_and_runner_unchanged": true,
+  "local_test_evidence": "reports/test-results-v1.1.2.tap",
+  "local_test_suite_rerun": false,
+  "scope_note": "Tokens informados em usage; HTTP 429 sem uso informado. Não se presume consumo ou custo monetário nulo. Tentativas interrompidas não concluem a validação.",
+  "status": "Quatro casos pendentes; retomada preparada, sem agendamento."
+}

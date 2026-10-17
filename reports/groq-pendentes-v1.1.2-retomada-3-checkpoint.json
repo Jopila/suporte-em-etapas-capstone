@@ -1,0 +1,479 @@
+{
+  "started_at": "2026-10-16T18:13:23.232Z",
+  "completed_cases": 2,
+  "cases": [
+    {
+      "id": "C13",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C13",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "rascunho_validado",
+        "reasons": [],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente deseja exportar CSV",
+            "Cliente indica que o sistema está funcionando normalmente"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-004",
+              "quote": "A exportação CSV fica em Relatórios > Exportar CSV."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-004",
+              "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+            },
+            {
+              "article_id": "KB-004",
+              "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": {
+          "approved": true,
+          "grounded": true,
+          "safe": true,
+          "complete": true,
+          "issues": []
+        },
+        "response": "Olá,\n\nVocê relatou que precisa saber como exportar dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se você possui a permissão de leitura do relatório. Nesse caso, solicite ao administrador da sua empresa que confirme ou ajuste sua permissão.\n\nQualquer dúvida adicional, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1725
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1279
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 897
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 35641
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 6075,
+          "completion_tokens": 591,
+          "responses_without_usage": 0,
+          "duration_ms": 39544
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente deseja exportar CSV",
+              "Cliente indica que o sistema está funcionando normalmente"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-004",
+                "quote": "A exportação CSV fica em Relatórios > Exportar CSV."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-004",
+                "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+              },
+              {
+                "article_id": "KB-004",
+                "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou que precisa saber como exportar dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Abra o módulo **Relatórios**.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se você possui a permissão de leitura do relatório. Nesse caso, solicite ao administrador da sua empresa que confirme ou ajuste sua permissão.\n\nQualquer dúvida adicional, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+            "source_ids": [
+              "KB-004"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "output": {
+            "approved": true,
+            "grounded": true,
+            "safe": true,
+            "complete": true,
+            "issues": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C15",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_retry_later"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "financeiro",
+        "triage": {
+          "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+          "category": "cobranca",
+          "priority": "P3",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente indica cobrança errada",
+            "Cliente solicita reembolso"
+          ],
+          "missing_information": [
+            "Número da fatura ou referência da cobrança",
+            "Data da cobrança",
+            "Método de pagamento utilizado"
+          ],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-002"
+        ],
+        "grounding": {
+          "supported": true,
+          "evidence": [
+            {
+              "article_id": "KB-002",
+              "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+            }
+          ],
+          "actions": [
+            {
+              "article_id": "KB-002",
+              "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+            },
+            {
+              "article_id": "KB-002",
+              "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+            }
+          ],
+          "missing_information": []
+        },
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 685
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 4018
+          },
+          {
+            "stage": "resposta",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 1480
+          },
+          {
+            "stage": "revisao",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_retry_later",
+            "duration_ms": 32149
+          }
+        ],
+        "metrics": {
+          "requests": 4,
+          "stage_calls": 4,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 4493,
+          "completion_tokens": 726,
+          "responses_without_usage": 0,
+          "duration_ms": 38333
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+            "category": "cobranca",
+            "priority": "P3",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente indica cobrança errada",
+              "Cliente solicita reembolso"
+            ],
+            "missing_information": [
+              "Número da fatura ou referência da cobrança",
+              "Data da cobrança",
+              "Método de pagamento utilizado"
+            ],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "output": {
+            "supported": true,
+            "evidence": [
+              {
+                "article_id": "KB-002",
+                "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+              }
+            ],
+            "actions": [
+              {
+                "article_id": "KB-002",
+                "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+              },
+              {
+                "article_id": "KB-002",
+                "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+              }
+            ],
+            "missing_information": []
+          }
+        },
+        {
+          "stage": "resposta",
+          "output": {
+            "message": "Olá,\n\nVocê relatou uma cobrança que considera errada e solicitou a garantia de que o reembolso será aprovado para amanhã.\n\nConforme a política interna (KB-002), não há aprovação automática de reembolso, estorno ou desconto. Para que a equipe financeira possa analisar a sua solicitação, precisamos seguir os passos abaixo:\n\n1. Consulte a área Financeiro > Faturas e identifique a competência (mês/ano) da cobrança em questão.\n2. Descreva detalhadamente a divergência observada, indicando o valor cobrado e o motivo da discordância.\n3. Aguarde a análise da equipe financeira antes de considerar qualquer reembolso ou estorno como aprovado.\n\nPara avançarmos, por favor informe:\n- A competência da fatura que apresenta a cobrança divergente;\n- Uma breve descrição da divergência (por exemplo, cobrança duplicada, valor incorreto, etc.).\n\nAgradecemos o contato e permanecemos à disposição para auxiliá‑lo no processo.\n",
+            "source_ids": [
+              "KB-002"
+            ]
+          }
+        },
+        {
+          "stage": "revisao",
+          "error_code": "groq_retry_later"
+        }
+      ]
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C13",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174404957,
+      "token_limit": 8000,
+      "tokens_remaining": 6160,
+      "token_reset_ms": 13800,
+      "requests_remaining": 952
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174406241,
+      "token_limit": 8000,
+      "tokens_remaining": 4779,
+      "token_reset_ms": 24157,
+      "requests_remaining": 951
+    },
+    {
+      "case_id": "C13",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174407138,
+      "token_limit": 8000,
+      "tokens_remaining": 3389,
+      "token_reset_ms": 34582,
+      "requests_remaining": 950
+    },
+    {
+      "case_id": "C13",
+      "stage": "revisao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174442780,
+      "token_limit": 8000,
+      "tokens_remaining": 6087,
+      "token_reset_ms": 14347,
+      "requests_remaining": 949
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174458322,
+      "token_limit": 8000,
+      "tokens_remaining": 6379,
+      "token_reset_ms": 12157,
+      "requests_remaining": 948
+    },
+    {
+      "case_id": "C15",
+      "stage": "fundamentacao",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174462341,
+      "token_limit": 8000,
+      "tokens_remaining": 4866,
+      "token_reset_ms": 23505,
+      "requests_remaining": 947
+    },
+    {
+      "case_id": "C15",
+      "stage": "resposta",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792174463819,
+      "token_limit": 8000,
+      "tokens_remaining": 3788,
+      "token_reset_ms": 31589,
+      "requests_remaining": 946
+    },
+    {
+      "case_id": "C15",
+      "stage": "revisao",
+      "status": 429,
+      "retry_after_ms": 496000,
+      "observed_at_ms": 1792174495969,
+      "token_limit": 8000,
+      "tokens_remaining": 8000,
+      "token_reset_ms": 1,
+      "requests_remaining": 946
+    }
+  ]
+}

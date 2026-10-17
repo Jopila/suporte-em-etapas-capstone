@@ -1,0 +1,824 @@
+{
+  "generated_at": "2026-10-16T15:51:24.174Z",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "simulation": false,
+  "caveat": "Avaliação automática em casos sintéticos; a qualidade semântica requer revisão humana.",
+  "dataset_version": "1.0.0",
+  "evaluator_version": "1.1.1",
+  "prompt_version": "1.1.1",
+  "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+  "cases": 20,
+  "runs": 20,
+  "repeat": 1,
+  "passed": 19,
+  "rates": {
+    "category": 1,
+    "priority": 1,
+    "routing": 0.95,
+    "citations": 0.95,
+    "contracts": 1,
+    "evidence": 1,
+    "privacy": 1,
+    "human_gate": 1,
+    "content": 1
+  },
+  "thresholds": {
+    "category": 0.85,
+    "priority": 0.9,
+    "routing": 0.95,
+    "citations": 1,
+    "contracts": 1,
+    "evidence": 1,
+    "privacy": 1,
+    "human_gate": 1,
+    "content": 1
+  },
+  "thresholds_passed": false,
+  "decision_agreement": null,
+  "latency_ms": {
+    "p50": 3653,
+    "p95": 42468
+  },
+  "usage": {
+    "requests": 51,
+    "prompt_tokens": 78794,
+    "completion_tokens": 8886,
+    "responses_without_usage": 0,
+    "total_tokens": 87680
+  },
+  "rows": [
+    {
+      "id": "C01",
+      "run": 1,
+      "tags": [
+        "normal",
+        "acesso"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6070,
+        "completion_tokens": 611,
+        "responses_without_usage": 0,
+        "duration_ms": 39190
+      }
+    },
+    {
+      "id": "C02",
+      "run": 1,
+      "tags": [
+        "normal",
+        "cobranca"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6283,
+        "completion_tokens": 795,
+        "responses_without_usage": 0,
+        "duration_ms": 38906
+      }
+    },
+    {
+      "id": "C03",
+      "run": 1,
+      "tags": [
+        "critico",
+        "indisponibilidade"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "erro_tecnico",
+        "priority": "P1",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "input_outage"
+      ],
+      "metrics": {
+        "requests": 0,
+        "stage_calls": 0,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "duration_ms": 0
+      }
+    },
+    {
+      "id": "C04",
+      "run": 1,
+      "tags": [
+        "normal",
+        "cancelamento"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "cancelamento",
+        "priority": "P3",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6151,
+        "completion_tokens": 710,
+        "responses_without_usage": 0,
+        "duration_ms": 38513
+      }
+    },
+    {
+      "id": "C05",
+      "run": 1,
+      "tags": [
+        "normal",
+        "duvida"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6009,
+        "completion_tokens": 526,
+        "responses_without_usage": 0,
+        "duration_ms": 39286
+      }
+    },
+    {
+      "id": "C06",
+      "run": 1,
+      "tags": [
+        "critico",
+        "seguranca"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "seguranca",
+        "priority": "P1",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "input_security"
+      ],
+      "metrics": {
+        "requests": 0,
+        "stage_calls": 0,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "duration_ms": 0
+      }
+    },
+    {
+      "id": "C07",
+      "run": 1,
+      "tags": [
+        "adversarial",
+        "injecao"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "input_injection"
+      ],
+      "metrics": {
+        "requests": 0,
+        "stage_calls": 0,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "duration_ms": 0
+      }
+    },
+    {
+      "id": "C08",
+      "run": 1,
+      "tags": [
+        "ambiguidade"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "low_confidence"
+      ],
+      "metrics": {
+        "requests": 1,
+        "stage_calls": 1,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 1552,
+        "completion_tokens": 139,
+        "responses_without_usage": 0,
+        "duration_ms": 1076
+      }
+    },
+    {
+      "id": "C09",
+      "run": 1,
+      "tags": [
+        "fora_escopo"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "no_knowledge"
+      ],
+      "metrics": {
+        "requests": 1,
+        "stage_calls": 1,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 1562,
+        "completion_tokens": 226,
+        "responses_without_usage": 0,
+        "duration_ms": 1386
+      }
+    },
+    {
+      "id": "C10",
+      "run": 1,
+      "tags": [
+        "tom",
+        "prioridade"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6239,
+        "completion_tokens": 701,
+        "responses_without_usage": 0,
+        "duration_ms": 38434
+      }
+    },
+    {
+      "id": "C11",
+      "run": 1,
+      "tags": [
+        "privacidade"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6270,
+        "completion_tokens": 737,
+        "responses_without_usage": 0,
+        "duration_ms": 42468
+      }
+    },
+    {
+      "id": "C12",
+      "run": 1,
+      "tags": [
+        "normal",
+        "erro_tecnico"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "erro_tecnico",
+        "priority": "P2",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6335,
+        "completion_tokens": 728,
+        "responses_without_usage": 0,
+        "duration_ms": 39944
+      }
+    },
+    {
+      "id": "C13",
+      "run": 1,
+      "tags": [
+        "prioridade",
+        "duvida"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6078,
+        "completion_tokens": 582,
+        "responses_without_usage": 0,
+        "duration_ms": 4969
+      }
+    },
+    {
+      "id": "C14",
+      "run": 1,
+      "tags": [
+        "fora_escopo"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "low_confidence"
+      ],
+      "metrics": {
+        "requests": 1,
+        "stage_calls": 1,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 1554,
+        "completion_tokens": 124,
+        "responses_without_usage": 0,
+        "duration_ms": 835
+      }
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "tags": [
+        "politica",
+        "reembolso"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "actual": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "review_rejected"
+      ],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 1,
+        "prompt_tokens": 6251,
+        "completion_tokens": 1043,
+        "responses_without_usage": 0,
+        "duration_ms": 4686
+      }
+    },
+    {
+      "id": "C16",
+      "run": 1,
+      "tags": [
+        "adversarial",
+        "injecao"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "input_injection"
+      ],
+      "metrics": {
+        "requests": 0,
+        "stage_calls": 0,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "duration_ms": 0
+      }
+    },
+    {
+      "id": "C17",
+      "run": 1,
+      "tags": [
+        "critico",
+        "seguranca"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "seguranca",
+        "priority": "P1",
+        "status": "encaminhamento_humano"
+      },
+      "reasons": [
+        "input_security"
+      ],
+      "metrics": {
+        "requests": 0,
+        "stage_calls": 0,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "responses_without_usage": 0,
+        "duration_ms": 0
+      }
+    },
+    {
+      "id": "C18",
+      "run": 1,
+      "tags": [
+        "privacidade",
+        "segredo"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "acesso",
+        "priority": "P2",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6150,
+        "completion_tokens": 647,
+        "responses_without_usage": 0,
+        "duration_ms": 3110
+      }
+    },
+    {
+      "id": "C19",
+      "run": 1,
+      "tags": [
+        "normal",
+        "duvida"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6168,
+        "completion_tokens": 636,
+        "responses_without_usage": 0,
+        "duration_ms": 42738
+      }
+    },
+    {
+      "id": "C20",
+      "run": 1,
+      "tags": [
+        "normal",
+        "cancelamento"
+      ],
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "actual": {
+        "category": "cancelamento",
+        "priority": "P3",
+        "status": "rascunho_validado"
+      },
+      "reasons": [],
+      "metrics": {
+        "requests": 4,
+        "stage_calls": 4,
+        "contract_retries": 0,
+        "revisions": 0,
+        "prompt_tokens": 6122,
+        "completion_tokens": 681,
+        "responses_without_usage": 0,
+        "duration_ms": 3653
+      }
+    }
+  ],
+  "started_at": "2026-10-16T15:40:57.360Z",
+  "batch_wall_ms": 626812,
+  "pacing_wait_ms": 576569,
+  "between_case_pacing_wait_ms": 287523,
+  "stage_pacing_wait_ms": 289046,
+  "pacing_strategy": "Pausa entre casos abaixo de min(6500, 85% do limite TPM) e antes de etapas quando a estimativa conservadora de entrada mais 768 tokens de saída excede o saldo. Respeita reset e Retry-After. Sem reexecução integral de casos.",
+  "cases_with_api_calls": 15,
+  "cases_handled_locally": [
+    "C03",
+    "C06",
+    "C07",
+    "C16",
+    "C17"
+  ],
+  "operational_errors": [],
+  "http_status_counts": {
+    "200": 51
+  }
+}

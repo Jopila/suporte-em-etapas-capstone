@@ -1,0 +1,187 @@
+{
+  "id": "C12",
+  "run": 1,
+  "expected": {
+    "category": "erro_tecnico",
+    "priority": "P2",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-003"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": true,
+  "result": {
+    "ticket_id": "C12",
+    "pipeline_version": "1.2.1",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "simulation": false,
+    "prompt_version": "1.2.1",
+    "prompt_hash": "20dba62632a0b4b482282e2a0ccf452172bd218a45107123e3c61566d8e66c19",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "suporte_tecnico",
+    "triage": {
+      "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuidade do trabalho.",
+      "category": "erro_tecnico",
+      "priority": "P2",
+      "confidence": 0.92,
+      "facts": [
+        "Cliente recebe erro 500 ao abrir o painel",
+        "Erro afeta apenas o cliente"
+      ],
+      "missing_information": [
+        "Nome ou tipo do painel afetado",
+        "Passos já realizados para tentar resolver"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-003"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-003",
+          "quote": "Para uma falha técnica individual, registrar funcionalidade afetada, horário aproximado e mensagem de erro sem dados pessoais."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-003",
+          "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Você relatou que está recebendo um erro 500 ao abrir o painel e que isso está impedindo a continuidade do seu trabalho. Para que possamos analisar melhor o caso, por favor informe: 1) a funcionalidade específica que está tentando acessar quando o erro ocorre; 2) o horário aproximado em que o erro apareceu. Assim que tivermos essas informações, a equipe técnica poderá investigar a falha individualmente.",
+    "source_ids": [
+      "KB-003"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 570
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 410
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 491
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 37545
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 6940,
+      "completion_tokens": 476,
+      "responses_without_usage": 0,
+      "duration_ms": 39017
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuidade do trabalho.",
+        "category": "erro_tecnico",
+        "priority": "P2",
+        "confidence": 0.92,
+        "facts": [
+          "Cliente recebe erro 500 ao abrir o painel",
+          "Erro afeta apenas o cliente"
+        ],
+        "missing_information": [
+          "Nome ou tipo do painel afetado",
+          "Passos já realizados para tentar resolver"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-003",
+            "quote": "Para uma falha técnica individual, registrar funcionalidade afetada, horário aproximado e mensagem de erro sem dados pessoais."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-003",
+            "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Você relatou que está recebendo um erro 500 ao abrir o painel e que isso está impedindo a continuidade do seu trabalho. Para que possamos analisar melhor o caso, por favor informe: 1) a funcionalidade específica que está tentando acessar quando o erro ocorre; 2) o horário aproximado em que o erro apareceu. Assim que tivermos essas informações, a equipe técnica poderá investigar a falha individualmente.",
+        "source_ids": [
+          "KB-003"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "simulation": false,
+  "case_count": 1,
+  "status": "rascunho_validado",
+  "contracts_valid": true,
+  "citations_verified": true,
+  "expected_category_and_priority": true,
+  "local_draft_checks_passed": true,
+  "prompt_and_knowledge_hashes_match": true,
+  "api_key_absent_from_result": true,
+  "human_approval_required": true,
+  "auto_sent": false,
+  "metrics": {
+    "requests": 4,
+    "stage_calls": 4,
+    "contract_retries": 0,
+    "revisions": 0,
+    "prompt_tokens": 5493,
+    "completion_tokens": 749,
+    "responses_without_usage": 0,
+    "duration_ms": 5212
+  },
+  "total_reported_tokens": 6242
+}

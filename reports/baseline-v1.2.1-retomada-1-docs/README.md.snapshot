@@ -1,0 +1,142 @@
+# Suporte em Etapas
+
+**Capstone do Módulo 2 · biblioteca de prompts para triagem e elaboração de respostas de suporte · integração com Groq.**
+
+O sistema recebe um chamado, identifica categoria e prioridade, consulta uma base de conhecimento, prepara uma resposta e revisa sua qualidade. O resultado é um rascunho para o atendente aprovar. Casos críticos, dúvidas sem evidência e falhas técnicas são encaminhados para análise humana.
+
+O contexto é um SaaS B2B fictício chamado **Nexo Gestão**. O problema de negócio é comum a equipes reais de suporte, mas a empresa, os procedimentos e os chamados deste projeto são sintéticos. Não há integração com uma caixa de atendimento nem envio de mensagens.
+
+## Comece aqui
+
+Requisito: **Node.js 24 ou superior**, com npm. Não há dependências externas nem necessidade de `npm install`. O projeto foi executado com Node.js 24.18.0 no Windows.
+
+No terminal, dentro desta pasta:
+
+```powershell
+npm run demo
+npm test
+npm run evaluate -- --repeat 3
+```
+
+- `demo`: processa o exemplo com um simulador local, sem rede ou chave.
+- `test`: executa testes de contratos, pipeline, privacidade, falhas e cliente HTTP simulado.
+- `evaluate`: avalia 20 cenários sintéticos e salva `reports/demo.json` e `reports/demo.md`.
+
+**O simulador não é um LLM e não executa semanticamente os prompts.** Ele exercita a engenharia. Passar nos testes locais não comprova qualidade do modelo nem prontidão para produção.
+
+## Usar o Groq
+
+1. Obtenha uma chave em [GroqCloud — API Keys](https://console.groq.com/keys).
+2. Copie `.env.example` para `.env.local` e preencha `GROQ_API_KEY` no editor local. Não envie a chave pelo chat nem a inclua no controle de versão. Se `.env.local` já existir, edite-o sem sobrescrever suas configurações.
+3. Execute um chamado sintético:
+
+```powershell
+npm start -- run --provider groq --input examples/chamado.json
+```
+
+O modelo padrão é `openai/gpt-oss-120b`, hospedado **no Groq**, com `json_schema` estrito. O prefixo do modelo não significa uma chamada à API da OpenAI. Todas as requisições vão para `https://api.groq.com/openai/v1/chat/completions` e usam somente a chave Groq. O modelo consta na [lista oficial de modelos](https://console.groq.com/docs/models), e seu suporte ao schema está descrito em [Structured Outputs](https://console.groq.com/docs/structured-outputs), consultados em 16/10/2026.
+
+Para começar uma avaliação real com apenas um caso:
+
+```powershell
+npm start -- evaluate --provider groq --limit 1 --output reports/groq-smoke
+```
+
+Para a matriz completa, após verificar o consumo e os limites da sua conta:
+
+```powershell
+node --env-file=.env.local scripts/evaluate-groq-matrix.mjs --output reports/groq-matrix-nova-rodada
+```
+
+Esse executor faz uma passagem pelos 20 casos, salva as saídas completas e pausa entre casos ou antes de etapas conforme os limites informados. Escolha um prefixo novo para cada rodada. Para experimentos de repetição sem esse executor, `npm run evaluate:groq -- --repeat 3` continua disponível, mas não inclui o espaçamento adaptativo nem os arquivos completos por caso.
+
+Chamadas reais podem consumir créditos e limites do Groq. O caminho normal faz quatro chamadas por chamado processável; uma revisão pode elevar esse total para seis, além de tentativas por erro. Sem chave, o modo Groq encerra com `missing_groq_key`; não troca para simulação.
+
+**Situação em 17/10/2026:** a versão ativa **1.2.1 passou em 79 testes locais**, incluindo **nove regressões editoriais novas**. C10 agora orienta a consulta de faturas antes das perguntas para análise; C19 omite códigos internos da mensagem, mantendo as fontes estruturadas. A confirmação online desses ajustes permanece pendente.
+
+A tentativa da matriz completa foi interrompida por limite do Groq: **cinco casos locais concluídos e 15 casos com API pendentes**. C01, C02 e C04 registraram HTTP 429; os outros 12 ainda não foram iniciados. Foram consumidos **3.520 tokens informados**, com duas respostas HTTP 200 e três 429. O ciclo de correções e retomadas soma **290.680 tokens**, e o histórico completo, **370.547**. Consulte o [relatório atual e a retomada preparada](docs/CORRECOES_EDITORIAIS_GROQ.md).
+
+Os resultados anteriores continuam preservados: **17/20 na versão 1.0.0 → 19/20 na 1.1.1 → 20/20 na 1.1.2**, conforme o [relatório histórico](docs/COMPARACAO_GROQ_CORRECOES.md), e **6/6 na seleção 1.2.0**. Nenhuma dessas aprovações é atribuída à versão 1.2.1. Cada matriz completa inclui cinco encaminhamentos locais. Não há chamada ativa nem agendada; a retomada valida o prazo mínimo e seleciona apenas os 15 pendentes.
+
+## Entrada e saída
+
+Entrada mínima, sempre com um ID técnico sem dados pessoais:
+
+```json
+{
+  "id": "CHAMADO-001",
+  "subject": "Cobrança duplicada na fatura",
+  "message": "Encontrei duas cobranças referentes ao mesmo mês. Como solicito análise?"
+}
+```
+
+Somente esses três campos são aceitos. Assunto: até 200 caracteres. Mensagem: até 8.000. O arquivo JSON deve ter até 64 KB.
+
+Na saída, observe:
+
+| Campo | Significado |
+|---|---|
+| `triage` | Resumo, categoria, prioridade, fatos e lacunas |
+| `grounding` | Citações literais e ações verificadas contra a base |
+| `response` | Rascunho validado ou mensagem conservadora para encaminhamento |
+| `source_ids` | Artigos usados no rascunho liberado |
+| `status` | `rascunho_validado` ou `encaminhamento_humano` |
+| `technical_review` | Avaliação automática; não é aprovação humana |
+| `requires_human_approval` | Sempre `true` |
+| `auto_sent` | Sempre `false` |
+| `operational_error` | Diferencia falha técnica de encaminhamento previsto |
+| `trace`, `metrics` | Etapas, tentativas, duração e tokens informados |
+| `prompt_hash`, `knowledge_hash` | Identificadores do conteúdo usado na execução |
+
+Exemplo completo já executado: [examples/resultado-demo.json](examples/resultado-demo.json).
+
+Para salvar outra saída:
+
+```powershell
+npm start -- run --provider demo --input examples/chamado.json --output reports/private/resultado.json
+```
+
+## Organização da entrega
+
+```text
+prompts/v1.2.1/           Política comum e quatro prompts ativos
+prompts/v1.2.0/           Versão da reavaliação seletiva anterior, preservada
+prompts/v1.1.1/           Prompts da matriz 1.1.2, preservados
+prompts/v1.0.0/           Versão da primeira matriz, preservada
+prompts/v1.1.0/           Versão intermediária, com rodada parcial preservada
+src/contracts.mjs        Contratos de entrada e saídas estruturadas
+src/prompts.mjs          Composição e hash da biblioteca
+src/knowledge.mjs        Recuperação local e validação de evidências
+src/safety.mjs           Remoção de padrões sensíveis e verificações locais
+src/providers/           Cliente Groq e simulador independente
+src/pipeline.mjs         Orquestração, revisão e encaminhamento
+src/evaluation.mjs       Avaliação e relatórios
+src/cli.mjs              Interface de linha de comando
+scripts/                 Matriz, retomada seletiva, comparação e auditoria offline
+data/                    Base de conhecimento e 20 casos sintéticos
+tests/                   Testes automáticos sem chamadas externas
+examples/                Entrada e saída de demonstração
+docs/                    Relatório acadêmico e guias
+reports/                 Evidências reproduzíveis de execução
+```
+
+## Documentos para apresentar o capstone
+
+- [Relatório do projeto e critérios de aceitação](docs/CAPSTONE.md).
+- [Arquitetura e decisões de engenharia](docs/ARQUITETURA.md).
+- [Biblioteca de prompts e técnicas aplicadas](docs/PROMPTS.md).
+- [Estratégia de testes, métricas e limitações](docs/TESTES.md).
+- [Configuração, operação e preparação de um piloto](docs/OPERACAO.md).
+- [Roteiro de apresentação de 5 minutos](docs/APRESENTACAO.md).
+- [Relatório da avaliação local](reports/demo.md).
+- [Teste real do pipeline com Groq](docs/TESTE_REAL_GROQ.md).
+- [Matriz de 20 casos no Groq: resultados, falhas e tokens](docs/AVALIACAO_GROQ_20_CASOS.md).
+- [Correções, regressões e comparação das rodadas](docs/COMPARACAO_GROQ_CORRECOES.md).
+- [Correções semânticas 1.2.0, seis casos reavaliados e consumo atualizado](docs/CORRECOES_SEMANTICAS_GROQ.md).
+- [Ajustes editoriais 1.2.1, tentativa dos 20 casos e consumo atual](docs/CORRECOES_EDITORIAIS_GROQ.md).
+
+## Limites conhecidos
+
+A recuperação usa palavras-chave, não embeddings. A remoção de dados usa padrões e não é anonimização completa. A detecção de injeção é parcial. O revisor usa o mesmo modelo e pode repetir erros do gerador. A confiança autodeclarada não é calibrada. Todos esses limites estão refletidos no encaminhamento conservador e na exigência de revisão humana.
+
+O protótipo tem componentes reutilizáveis para um piloto supervisionado. As ressalvas semânticas foram tratadas na versão 1.2.0; os dois ajustes editoriais receberam correções e regressões na 1.2.1. A avaliação online atual está incompleta por cota. Permanecem limites dos detectores por padrões. A aprovação automática não prova consistência entre repetições nem prontidão para produção. Será necessário concluir a matriz na nova versão, validar políticas com uma empresa real, calibrar decisões com uma amostra reservada e integrar autenticação, fila, observabilidade e gestão de segredos.

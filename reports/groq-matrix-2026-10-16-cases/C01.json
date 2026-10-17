@@ -1,0 +1,196 @@
+{
+  "id": "C01",
+  "run": 1,
+  "expected": {
+    "category": "acesso",
+    "priority": "P2",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-001"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true
+  },
+  "passed": true,
+  "result": {
+    "ticket_id": "C01",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.0.0",
+    "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "suporte_tecnico",
+    "triage": {
+      "summary": "Cliente relata que esqueceu a [SEGREDO_REMOVIDO] consegue entrar, solicitando recuperação de login.",
+      "category": "acesso",
+      "priority": "P2",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente esqueceu a senha",
+        "Cliente não consegue entrar",
+        "Cliente solicita recuperação de login"
+      ],
+      "missing_information": [
+        "Método de recuperação preferido (e‑mail, SMS, etc.)",
+        "Endereço de e‑mail ou telefone associado à conta"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-001"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-001",
+          "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-001",
+          "instruction": "Na tela de login, selecione Esqueci minha senha."
+        },
+        {
+          "article_id": "KB-001",
+          "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta porque esqueceu a senha. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**. (conforme KB-001)\n2. Verifique o e‑mail cadastrado para encontrar as instruções de redefinição de senha, inclusive na pasta de spam. (conforme KB-001)\n\nCaso não tenha mais acesso ao e‑mail associado à conta, precisamos confirmar a titularidade por um canal aprovado. Para isso, por favor informe qual o endereço de e‑mail ou número de telefone que está vinculado à sua conta, ou indique o método de recuperação que prefere (e‑mail ou SMS).\n\nAguardamos sua resposta para prosseguir com a verificação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-001"
+    ],
+    "redacted_types": [
+      "SEGREDO"
+    ],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 845
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 763
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1294
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 593
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 5319,
+      "completion_tokens": 715,
+      "responses_without_usage": 0,
+      "duration_ms": 3496
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata que esqueceu a [SEGREDO_REMOVIDO] consegue entrar, solicitando recuperação de login.",
+        "category": "acesso",
+        "priority": "P2",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente esqueceu a senha",
+          "Cliente não consegue entrar",
+          "Cliente solicita recuperação de login"
+        ],
+        "missing_information": [
+          "Método de recuperação preferido (e‑mail, SMS, etc.)",
+          "Endereço de e‑mail ou telefone associado à conta"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-001",
+            "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-001",
+            "instruction": "Na tela de login, selecione Esqueci minha senha."
+          },
+          {
+            "article_id": "KB-001",
+            "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nIdentificamos que você está com dificuldades para acessar sua conta porque esqueceu a senha. Para recuperar o acesso, siga os passos abaixo:\n\n1. Na tela de login, selecione a opção **Esqueci minha senha**. (conforme KB-001)\n2. Verifique o e‑mail cadastrado para encontrar as instruções de redefinição de senha, inclusive na pasta de spam. (conforme KB-001)\n\nCaso não tenha mais acesso ao e‑mail associado à conta, precisamos confirmar a titularidade por um canal aprovado. Para isso, por favor informe qual o endereço de e‑mail ou número de telefone que está vinculado à sua conta, ou indique o método de recuperação que prefere (e‑mail ou SMS).\n\nAguardamos sua resposta para prosseguir com a verificação.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

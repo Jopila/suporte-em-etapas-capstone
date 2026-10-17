@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-10-16T19:31:36.948Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 16,
+  "prior_checkpoints_unchanged": 8,
+  "complete": false,
+  "completed_cases": 16,
+  "pending_case_ids": [
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "newly_completed_case_ids": [],
+  "current_request": {
+    "selected_case_ids": [
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "actually_attempted_case_ids": [
+      "C15"
+    ],
+    "usage": {
+      "requests": 7,
+      "prompt_tokens": 7715,
+      "completion_tokens": 1127,
+      "total_tokens": 8842
+    },
+    "http_status_counts": {
+      "200": 5,
+      "429": 2
+    },
+    "waits": [
+      {
+        "started_at": "2026-10-16T19:18:54.732Z",
+        "earliest_retry_indicated_at": "2026-10-16T18:33:07.496Z",
+        "margin_ms": 2747236
+      },
+      {
+        "started_at": "2026-10-16T19:26:31.086Z",
+        "earliest_retry_indicated_at": "2026-10-16T19:26:17.190Z",
+        "margin_ms": 13896
+      }
+    ],
+    "requested_400s_wait_respected": true
+  },
+  "correction_cycle_usage": {
+    "requests": 128,
+    "prompt_tokens": 182095,
+    "completion_tokens": 20658,
+    "responses_without_usage": 0,
+    "total_tokens": 202753
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 118,
+    "429": 10
+  },
+  "current_version_tokens": 83791,
+  "total_documented_historical_tokens": 282620,
+  "last_retry_after_ms": 683000,
+  "earliest_retry_indicated_at": "2026-10-16T19:37:54.996Z",
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "local_document_links_checked": 55,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 207,
+  "exact_key_leaks": 0,
+  "code_prompts_data_and_runner_unchanged": true,
+  "local_test_evidence": "reports/test-results-v1.1.2.tap",
+  "local_test_suite_rerun": false,
+  "manual_content_observation": "O infinitivo Aguardar na condição financeira aciona um falso positivo local; a revisão corretiva trocou para Aguarde e passou pelo controle. A revisão pelo modelo foi bloqueada por HTTP 429. O controle é apenas diagnóstico; não substitui nem modifica a resposta salva.",
+  "scope_note": "Os totais incluem somente tokens informados em usage. Os HTTP 429 não informaram uso; nenhum custo monetário ou consumo nulo foi presumido.",
+  "status": "Quatro casos pendentes; retomada preparada, sem agendamento.",
+  "resume_plan_includes_latest_retry_deadline": true
+}

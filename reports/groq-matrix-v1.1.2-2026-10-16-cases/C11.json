@@ -1,0 +1,200 @@
+{
+  "id": "C11",
+  "run": 1,
+  "expected": {
+    "category": "acesso",
+    "priority": "P2",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-001"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": true,
+  "result": {
+    "ticket_id": "C11",
+    "pipeline_version": "1.1.2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.1.1",
+    "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "suporte_tecnico",
+    "triage": {
+      "summary": "Cliente relata que não consegue entrar no login e informa o e‑mail e CPF associados à conta.",
+      "category": "acesso",
+      "priority": "P2",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente não consegue entrar no login",
+        "Cliente forneceu e‑mail e CPF"
+      ],
+      "missing_information": [],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-001"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-001",
+          "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-001",
+          "instruction": "Na tela de login, selecione Esqueci minha senha."
+        },
+        {
+          "article_id": "KB-001",
+          "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+        },
+        {
+          "article_id": "KB-001",
+          "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá,\n\nVocê relatou que não consegue entrar no login e informou o e‑mail e CPF associados à sua conta.\n\nPara recuperar o acesso, siga os passos abaixo:\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive na pasta de spam.\n3. Caso não tenha acesso ao e‑mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nSe precisar de mais alguma informação para avançar, por favor, nos avise.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-001"
+    ],
+    "redacted_types": [
+      "CPF",
+      "EMAIL"
+    ],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 732
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1692
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 909
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1852
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 6248,
+      "completion_tokens": 766,
+      "responses_without_usage": 0,
+      "duration_ms": 5186
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata que não consegue entrar no login e informa o e‑mail e CPF associados à conta.",
+        "category": "acesso",
+        "priority": "P2",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente não consegue entrar no login",
+          "Cliente forneceu e‑mail e CPF"
+        ],
+        "missing_information": [],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-001",
+            "quote": "A recuperação de acesso começa na tela de login pela opção Esqueci minha senha."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-001",
+            "instruction": "Na tela de login, selecione Esqueci minha senha."
+          },
+          {
+            "article_id": "KB-001",
+            "instruction": "Verifique as instruções no e-mail cadastrado e na pasta de spam."
+          },
+          {
+            "article_id": "KB-001",
+            "instruction": "Se não tiver acesso ao e-mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nVocê relatou que não consegue entrar no login e informou o e‑mail e CPF associados à sua conta.\n\nPara recuperar o acesso, siga os passos abaixo:\n1. Na tela de login, selecione a opção **Esqueci minha senha**.\n2. Verifique as instruções enviadas para o e‑mail cadastrado, inclusive na pasta de spam.\n3. Caso não tenha acesso ao e‑mail cadastrado, solicite ao suporte a verificação de titularidade pelo canal aprovado.\n\nSe precisar de mais alguma informação para avançar, por favor, nos avise.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-001"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

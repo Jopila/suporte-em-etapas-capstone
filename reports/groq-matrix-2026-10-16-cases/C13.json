@@ -1,0 +1,186 @@
+{
+  "id": "C13",
+  "run": 1,
+  "expected": {
+    "category": "duvida",
+    "priority": "P4",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-004"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true
+  },
+  "passed": true,
+  "result": {
+    "ticket_id": "C13",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.0.0",
+    "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "suporte_tecnico",
+    "triage": {
+      "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+      "category": "duvida",
+      "priority": "P4",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente deseja exportar CSV",
+        "Cliente afirma que o sistema está funcionando normalmente"
+      ],
+      "missing_information": [],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-004"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-004",
+          "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-004",
+          "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+        },
+        {
+          "article_id": "KB-004",
+          "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá,\n\nObrigado por entrar em contato. Entendo que você deseja exportar os dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se sua conta possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste essa permissão.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-004"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 2952
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1892
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 3284
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 2153
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 5164,
+      "completion_tokens": 584,
+      "responses_without_usage": 0,
+      "duration_ms": 10281
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+        "category": "duvida",
+        "priority": "P4",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente deseja exportar CSV",
+          "Cliente afirma que o sistema está funcionando normalmente"
+        ],
+        "missing_information": [],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-004",
+            "quote": "A exportação CSV fica em Relatórios > Exportar CSV. O usuário seleciona o período antes da exportação."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-004",
+            "instruction": "Abra Relatórios, selecione o período e escolha Exportar CSV."
+          },
+          {
+            "article_id": "KB-004",
+            "instruction": "Se a opção não estiver visível, peça ao administrador da sua empresa que confira sua permissão de leitura do relatório."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nObrigado por entrar em contato. Entendo que você deseja exportar os dados em formato CSV e que o sistema está funcionando normalmente.\n\nPara realizar a exportação, siga os passos abaixo:\n1. Acesse o módulo **Relatórios** no menu principal.\n2. Selecione o período desejado para o relatório.\n3. Clique em **Exportar CSV**.\n\nCaso a opção **Exportar CSV** não esteja visível, verifique se sua conta possui a permissão de leitura do relatório. Se necessário, solicite ao administrador da sua empresa que confirme ou ajuste essa permissão.\n\nSe precisar de mais alguma orientação, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-004"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

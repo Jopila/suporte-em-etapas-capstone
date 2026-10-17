@@ -1,0 +1,104 @@
+# Configuração e operação
+
+## Configuração do Groq
+
+Use Node.js 24+. A CLI carrega `.env.local` pelo recurso nativo do Node quando iniciada por `npm start` ou `npm run evaluate:groq`. Variáveis já definidas no ambiente prevalecem sobre o arquivo. Não são necessárias dependências npm.
+
+| Variável | Padrão | Papel |
+|---|---|---|
+| `GROQ_API_KEY` | Sem padrão | Credencial usada apenas no servidor/CLI local |
+| `GROQ_MODEL` | `openai/gpt-oss-120b` | Modelo solicitado ao Groq |
+| `GROQ_RESPONSE_FORMAT` | `json_schema` | `json_schema` ou `json_object` |
+| `GROQ_TIMEOUT_MS` | `25000` | Timeout por tentativa HTTP |
+| `GROQ_MAX_RETRIES` | `2` | Repetições de transporte; aceita 0 a 3 |
+| `PIPELINE_TIMEOUT_MS` | `120000` | Orçamento global; aceita 1.000 a 600.000 ms na CLI |
+
+Crie a chave no [console do Groq](https://console.groq.com/keys) e preencha `.env.local` no editor local. `.gitignore` exclui esse arquivo. Não coloque chaves em código, capturas, relatórios ou mensagens. O projeto não cria credenciais automaticamente e não procura segredos em outras pastas.
+
+O formato estrito depende do modelo. Consulte [os modelos disponíveis](https://console.groq.com/docs/models) e [a compatibilidade de Structured Outputs](https://console.groq.com/docs/structured-outputs) antes de alterar a configuração. Usar um modelo incompatível com `json_schema` causa erro; o cliente não muda o formato silenciosamente.
+
+## Operação diária do protótipo
+
+1. Prepare o JSON mínimo do chamado com um ID operacional sem dados pessoais.
+2. Execute `run` com o provedor escolhido.
+3. Leia `status`, `reasons`, `team` e `operational_error`.
+4. Se houver rascunho validado, confira evidências e texto antes de usá-lo no atendimento.
+5. Se houver encaminhamento, trate o chamado manualmente. A mensagem conservadora também precisa de revisão.
+
+O sistema sugere uma equipe; não registra um ticket nela. `auto_sent:false` indica que este programa não fez envio. Aprovar uma mensagem dentro do seu helpdesk é uma ação externa ao protótipo.
+
+## Diagnóstico de erros
+
+| Código | Significado e ação |
+|---|---|
+| `missing_groq_key` | Configure `GROQ_API_KEY` localmente; nenhum fallback para demo ocorreu |
+| `groq_http_401` | Verifique validade da chave; não cole o segredo em logs |
+| `groq_http_403` | Verifique permissão de acesso ao projeto/modelo |
+| `groq_http_400` | Confira modelo, formato e parâmetros; não há repetição automática |
+| `groq_http_429` | Limite persistente; consulte limites da conta e reduza o ritmo |
+| `groq_retry_later` | O provedor pediu espera maior que dez segundos; reagende manualmente |
+| `rate_limit_wait_exceeds_batch_budget` | O executor da matriz precisaria esperar mais de 120 segundos; preserve o checkpoint e prepare a retomada dos casos pendentes |
+| `manifest_mismatch` | Código, prompts, modelo, base ou gabarito diferem do manifesto da retomada; não combine versões na mesma avaliação |
+| `groq_http_5xx` | Falha do provedor após tentativas limitadas |
+| `groq_network_error`, `groq_timeout` | Verifique conexão e orçamento de tempo; operação foi encaminhada |
+| `pipeline_timeout` | Orçamento total expirou; nenhuma resposta é liberada como validada |
+| `invalid_schema`, `invalid_json` | Modelo não entregou contrato válido após a tentativa corretiva |
+| `incomplete_completion` | Saída incompleta/truncada; avaliar orçamento de geração e modelo |
+| `unverified_evidence`, `unauthorized_action` | Evidência ou procedimento não corresponde à base |
+| `review_rejected` | A resposta não passou mesmo após uma revisão |
+| `low_confidence`, `no_knowledge`, `unsupported_topic` | Encaminhamento de negócio previsto, sem orientação inventada |
+
+Os códigos HTTP são tratados conforme [Groq — Error Codes](https://console.groq.com/docs/errors). Limites dependem da conta, como explica [Groq — Rate Limits](https://console.groq.com/docs/rate-limits). Não trate um limite observado em outra conta como garantia para a sua.
+
+## Perfil da entrega: matriz independente 20B
+
+**20/20 casos aprovados na matriz independente Groq 20B**, com 15 casos que usaram API e cinco controles locais. A versão 1.2.1 passou novamente em **79 testes locais** e **60/60 execuções simuladas**. O modelo padrão de `.env.example` continua 120B; o executor abaixo configura 20B somente no processo filho, sem modificar `.env.local`.
+
+```powershell
+node scripts/evaluate-groq-20b.mjs --dry-run
+node scripts/evaluate-groq-20b.mjs --output reports/minha-matriz-20b
+```
+
+Configure sua própria chave antes de repetir. Escolha um prefixo novo; o executor recusa a pasta de casos existente. O modo `--dry-run` confere o manifesto sem rede. Código, prompts, base e gabarito devem corresponder à versão congelada. Se forem alterados, inicie um novo experimento com um novo manifesto.
+
+As chamadas são sequenciais e respeitam as pausas informadas. Os casos ficam salvos em checkpoint; uma espera longa encerra o lote em vez de repetir indefinidamente. Se interrompido, retome somente os pendentes com o manifesto do mesmo modelo e depois consolide sem apagar as tentativas.
+
+A matriz 20B consumiu **93.279 tokens informados** (87.467 de entrada e 5.812 de saída). O ciclo de correções mais a avaliação de entrega soma **393.338**; o histórico completo documentado soma **473.205**. Veja [ENTREGA_FINAL.md](ENTREGA_FINAL.md). Não há execução ativa ou agendada ao final da entrega.
+
+### Experimento 120B anterior
+
+Permanece parcial: C01 e cinco controles locais concluídos, 14 casos com API pendentes, 12.899 tokens em todas as tentativas. O plano histórico `scripts/resume-groq-v1.2.1-retomada-3.mjs` não foi executado nesta finalização. A conclusão 20B não preenche suas pendências. A retomada 120B é opcional e não é necessária para examinar a entrega. Veja [registro anterior](RETOMADA_GROQ_V1_2_1.md).
+
+## Limites de proteção de dados
+
+O pré-processamento remove padrões de e-mail, CPF, telefone, cartão, chaves reconhecidas e segredos explicitamente rotulados. Não detecta todos os nomes, endereços, documentos, formatos internacionais ou maneiras de descrever um segredo. Pode também remover sequências legítimas por engano.
+
+O ID do chamado deve ser técnico. Nunca use CPF, e-mail, telefone ou nome como ID. Submeta somente dados autorizados e mínimos ao provedor. O filtro não é uma certificação de anonimização nem de conformidade legal.
+
+Arquivos gerados por `run` podem conter texto derivado de um chamado real. Use `reports/private/` para esses arquivos; a pasta está ignorada no controle de versão. Os relatórios `groq*` também estão ignorados por padrão. Defina retenção, permissões e descarte conforme a política da sua organização antes de usar dados reais.
+
+## Preparação para piloto e produção
+
+| Necessidade | Situação |
+|---|---|
+| Biblioteca versionada e contratos | Implementado |
+| Base de conhecimento aprovada por empresa real | Pendente; a base atual é fictícia |
+| Credencial e chamada real ao Groq | Matriz independente 1.2.1/20B concluída: 20/20; histórico 120B preservado e separado |
+| Testes locais de falha e regressão | 79 aprovados, incluindo nove regressões editoriais sobre os 70 anteriores |
+| Avaliação semântica com atendentes | Pendente |
+| Calibração de confiança, prioridades e recuperação | Pendente |
+| Aprovação humana | Exigida na saída; a interface/fila externa não foi implementada |
+| Autenticação e controle de acesso da aplicação | Não implementados; trata-se de uma CLI local |
+| Fila persistente, concorrência e limites por organização | Não implementados |
+| Gestão central de segredos, retenção e monitoramento | Não implementados |
+| Integração com helpdesk e trilha de aprovações | Não implementada |
+
+Para o piloto, opere com poucos chamados sintéticos e depois com amostra autorizada, sob supervisão. Avalie incidentes por severidade e mantenha um caminho manual. A presença de revisão pelo modelo não justifica envio autônomo.
+
+## Referências consultadas em 16/10/2026
+
+- [Groq — API Reference](https://console.groq.com/docs/api-reference): endpoint, mensagens e parâmetros.
+- [Groq — Structured Outputs](https://console.groq.com/docs/structured-outputs): formatos e modelos compatíveis.
+- [Groq — Supported Models](https://console.groq.com/docs/models): IDs de modelos.
+- [Groq — Rate Limits](https://console.groq.com/docs/rate-limits): cabeçalhos e limites por conta.
+- [Groq — Error Codes](https://console.groq.com/docs/errors): tratamento de status HTTP.

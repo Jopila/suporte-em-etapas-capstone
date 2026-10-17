@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-10-16T21:41:44.961Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 16,
+  "prior_checkpoints_unchanged": 12,
+  "current_completed_artifacts_hashed": 17,
+  "complete": false,
+  "completed_cases": 17,
+  "pending_case_ids": [
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "newly_completed_case_ids": [
+    "C15"
+  ],
+  "current_request": {
+    "selected_case_ids": [
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "actually_attempted_case_ids": [
+      "C15",
+      "C18"
+    ],
+    "usage": {
+      "requests": 8,
+      "prompt_tokens": 10785,
+      "completion_tokens": 1280,
+      "total_tokens": 12065
+    },
+    "http_status_counts": {
+      "200": 7,
+      "429": 1
+    },
+    "wait": {
+      "started_at": "2026-10-16T21:30:16.957Z",
+      "earliest_retry_indicated_at": "2026-10-16T20:13:46.035Z",
+      "margin_ms": 4590922
+    },
+    "pacing_enforced_by_unchanged_runner": true,
+    "response_spacing_checks": [
+      {
+        "label": "C15 antes da revisão",
+        "response_spacing_ms": 38047,
+        "reset_plus_buffer_ms": 37490
+      },
+      {
+        "label": "Antes de C18",
+        "response_spacing_ms": 16360,
+        "reset_plus_buffer_ms": 15680
+      },
+      {
+        "label": "C18 antes da revisão",
+        "response_spacing_ms": 34415,
+        "reset_plus_buffer_ms": 34355
+      }
+    ]
+  },
+  "correction_cycle_usage": {
+    "requests": 142,
+    "prompt_tokens": 197443,
+    "completion_tokens": 22455,
+    "responses_without_usage": 0,
+    "total_tokens": 219898
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 128,
+    "429": 14
+  },
+  "current_version_tokens": 100936,
+  "total_documented_historical_tokens": 299765,
+  "last_retry_after_ms": 566000,
+  "earliest_retry_indicated_at": "2026-10-16T21:41:16.067Z",
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "resume_plan_includes_latest_retry_deadline": true,
+  "resume_plan_sha256": "2320b86e495d890f6a07269ce6d7090d1bb0d7ff313c62e54e8e87f99ddd3726",
+  "local_document_links_checked": 68,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 232,
+  "exact_key_leaks": 0,
+  "code_prompts_data_and_runner_unchanged": true,
+  "local_test_evidence": "reports/test-results-v1.1.2.tap",
+  "local_test_suite_rerun": false,
+  "manual_content_observation": "C15 passou nas nove verificações automáticas, mas promete contato futuro da equipe financeira, procedimento não explícito em KB-002. A ressalva permanece no relatório e exige revisão pelo atendente.",
+  "scope_note": "Tokens informados em usage; HTTP 429 sem uso informado. Não se presume consumo ou custo monetário nulo. Tentativas interrompidas não concluem a validação.",
+  "status": "C15 concluído; somente C18, C19 e C20 pendentes, sem agendamento."
+}

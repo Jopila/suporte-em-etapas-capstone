@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: C05: detecta a ressalva observada mesmo com fonte correta
+ok 1 - C05: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 6.0367
+  type: 'test'
+  ...
+# Subtest: C10: detecta a ressalva observada mesmo com fonte correta
+ok 2 - C10: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 1.0987
+  type: 'test'
+  ...
+# Subtest: C13: detecta a ressalva observada mesmo com fonte correta
+ok 3 - C13: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.4912
+  type: 'test'
+  ...
+# Subtest: C15: detecta a ressalva observada mesmo com fonte correta
+ok 4 - C15: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.5566
+  type: 'test'
+  ...
+# Subtest: C18: detecta a ressalva observada mesmo com fonte correta
+ok 5 - C18: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.9408
+  type: 'test'
+  ...
+# Subtest: C19: detecta a ressalva observada mesmo com fonte correta
+ok 6 - C19: detecta a ressalva observada mesmo com fonte correta
+  ---
+  duration_ms: 0.354
+  type: 'test'
+  ...
+# Subtest: procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+ok 7 - procedimentos aprovados continuam permitidos, sem inventar mudança de permissão
+  ---
+  duration_ms: 2.7618
+  type: 'test'
+  ...
+# Subtest: variações de concessão e troca de ordem da permissão são bloqueadas
+ok 8 - variações de concessão e troca de ordem da permissão são bloqueadas
+  ---
+  duration_ms: 1.0971
+  type: 'test'
+  ...
+# Subtest: orientar o cliente não equivale a prometer uma consulta operacional
+ok 9 - orientar o cliente não equivale a prometer uma consulta operacional
+  ---
+  duration_ms: 1.6354
+  type: 'test'
+  ...
+# Subtest: análise prevista não autoriza promessa de retorno ou notificação
+ok 10 - análise prevista não autoriza promessa de retorno ou notificação
+  ---
+  duration_ms: 1.6943
+  type: 'test'
+  ...
+# Subtest: titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+ok 11 - titularidade preserva canal e condição no mesmo passo, inclusive com formatação
+  ---
+  duration_ms: 0.7733
+  type: 'test'
+  ...
+# Subtest: Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+ok 12 - Aguardar análise não é aprovação; promessas depois da condição continuam bloqueadas
+  ---
+  duration_ms: 1.5247
+  type: 'test'
+  ...
+# Subtest: controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+ok 13 - controle local bloqueia ressalvas persistentes antes de um revisor permissivo
+  ---
+  duration_ms: 33.3284
+  type: 'test'
+  ...
+# Subtest: feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+ok 14 - feedback permite reparar cada ressalva e reavaliar o rascunho corrigido
+  ---
+  duration_ms: 20.6671
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 213.0207

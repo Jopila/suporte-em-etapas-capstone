@@ -1,0 +1,120 @@
+# Relatório do capstone — Suporte em Etapas
+
+**Módulo:** Engenharia de IA — Módulo 2  
+**Atualizado em:** 17/10/2026  
+**Provedor escolhido:** Groq  
+**Escopo:** análise, prototipação, testes e recomendação para piloto supervisionado.
+
+## 1. Problema e contexto
+
+Equipes de suporte recebem solicitações com descrições incompletas, diferentes níveis de urgência e dúvidas recorrentes. A triagem manual pode aplicar critérios inconsistentes; a resposta depende da consulta a procedimentos e da experiência do atendente. Um erro de atendimento pode prometer uma condição inexistente, pedir dados sensíveis ou atrasar um incidente relevante.
+
+O projeto aplica técnicas de engenharia de prompts a esse problema. Como não foram fornecidos dados nem políticas de uma empresa específica, o protótipo usa a empresa fictícia Nexo Gestão, um SaaS de gestão empresarial. Os procedimentos dos cinco artigos foram criados para o exercício. Eles não devem ser apresentados como políticas de um produto existente.
+
+**Usuário do sistema:** atendente de primeiro nível.  
+**Entrada:** assunto e descrição de um chamado.  
+**Entrega de valor:** classificação, prioridade, referências e um rascunho revisável.  
+**Decisão humana preservada:** aprovação do atendimento e execução de qualquer ação sobre a conta.
+
+## 2. Objetivo e hipóteses
+
+Construir um sistema de prompts modular, testável e reutilizável que padronize a análise de chamados e a elaboração de respostas fundamentadas.
+
+Hipóteses a validar no piloto:
+
+1. Separar triagem, fundamentação, redação e revisão facilita identificar onde ocorre um erro.
+2. Exigir evidências da base reduz recomendações sem sustentação.
+3. Uma rubrica de revisão explícita reduz respostas que violam políticas.
+4. A assistência pode reduzir o tempo de preparação do atendimento, mantendo a qualidade.
+
+Não foram medidos ganhos de produtividade, redução de custos ou qualidade geral de um LLM nesta entrega. As matrizes históricas no modo Groq passaram de 17/20 aprovações automáticas na versão 1.0.0 para 19/20 na 1.1.1 e 20/20 na 1.1.2, incluindo 15 casos com API e cinco encaminhamentos locais. A inspeção encontrou ressalvas de conteúdo mesmo em saídas aprovadas. A versão atual 1.2.0 corrigiu essas ressalvas e reavaliou somente C05, C10, C13, C15, C18 e C19: 6/6 aprovados, todos com API. Não há resultado da matriz completa na nova versão. Consulte [CORRECOES_SEMANTICAS_GROQ.md](CORRECOES_SEMANTICAS_GROQ.md). A validação das hipóteses exige amostra autorizada e o experimento mais amplo descrito em [TESTES.md](TESTES.md).
+
+## 3. Escopo funcional
+
+| Incluído | Resultado |
+|---|---|
+| Classificação | Acesso, cobrança, erro técnico, dúvida, cancelamento, segurança e outros |
+| Priorização | P1 a P4, com critérios definidos no prompt |
+| Extração | Resumo, fatos relatados e informações ausentes |
+| Recuperação | Até três artigos de uma base local versionada |
+| Fundamentação | Citação literal e ação presente na base |
+| Redação | Português claro, sem compromissos operacionais inventados |
+| Revisão | Fundamentação, segurança e completude; uma revisão corretiva |
+| Contingência | Encaminhamento humano em risco, falta de base, baixa confiança ou falha |
+| Avaliação | Casos rotulados, métricas, repetição e relatório JSON/Markdown |
+
+Não há envio de e-mail, integração com helpdesk, alteração de conta, busca na internet, execução de ferramentas pelo modelo ou aprovação automática de reembolso.
+
+## 4. Alternativas consideradas
+
+| Alternativa | Vantagens | Limitações | Decisão |
+|---|---|---|---|
+| Atendimento inteiramente manual | Controle direto; dispensa API | Depende de consulta e padronização pela equipe | Referência de processo para o futuro piloto |
+| Um prompt para classificar e responder | Menos chamadas e implementação simples | Dificulta localizar erros e verificar evidências separadamente | Comparação sugerida para experimento posterior |
+| Pipeline modular com base e revisão | Contratos por etapa, rastreabilidade e reaproveitamento | Mais chamadas, latência e complexidade; revisor pode falhar | Implementado |
+| Regras determinísticas completas | Previsibilidade e baixo custo | Cobertura limitada da linguagem natural | Usadas em controles e no simulador, não como substituição declarada do LLM |
+
+O Groq foi escolhido pelo usuário. O projeto utiliza HTTP nativo do Node para reduzir dependências. O modelo padrão aceita [Structured Outputs no Groq](https://console.groq.com/docs/structured-outputs). Seu uso real permanece condicionado à disponibilidade na conta e à avaliação de qualidade; não foi afirmada superioridade em relação a outros modelos.
+
+## 5. Técnicas de engenharia de prompts
+
+| Técnica | Aplicação concreta | Evidência |
+|---|---|---|
+| Papel, tarefa e restrições explícitas | Política comum separada das etapas | `prompts/v1.2.0/system.md`; versões anteriores preservadas |
+| Few-shot | Exemplos rotulados de categorias, urgência e ambiguidade | `triagem.md` |
+| Decomposição e prompt chaining | Saída validada alimenta a etapa seguinte | `src/pipeline.mjs` |
+| Grounding com recuperação | Artigos são recuperados; evidências e ações são verificadas | `fundamentacao.md`, `src/knowledge.mjs` |
+| Saídas estruturadas | Contratos JSON por etapa e validação local | `src/contracts.mjs` |
+| Crítica e refinamento | Revisor aplica rubrica; gerador recebe feedback uma vez | `revisao.md`, `resposta.md` |
+| Abstinência | Não produzir orientação específica sem base suficiente | Encaminhamentos testados no pipeline |
+| Separação entre instruções e dados | Conteúdo do chamado fica em JSON na mensagem de usuário | `src/prompts.mjs` |
+
+O sistema pede decisões e evidências verificáveis, sem solicitar a exposição de raciocínio interno. O processo de revisão é uma segunda etapa de modelo, não um agente independente com garantia de veracidade.
+
+## 6. Critérios de aceitação e evidências
+
+| Critério da atividade | Evidência entregue | Alcance da verificação |
+|---|---|---|
+| Técnica: estrutura clara | Política comum, entradas, regras, exemplos e contratos | Biblioteca inspecionável e composição testada |
+| Técnica: uso correto das técnicas | Mapeamento anterior e guias de reutilização | Implementação presente; benefício empírico do prompting ainda pendente |
+| Engenharia: modularidade | Prompts, provedor, base, validação e orquestração separados | Testes exercitam componentes e falhas isoladas |
+| Engenharia: organização | README, comandos npm, exemplos, documentação e relatório | Execução local reproduzível |
+| Qualidade: outputs consistentes | Schemas, limites, critérios de revisão e testes | Matrizes históricas 17/20 → 19/20 → 20/20; versão 1.2.0: 6/6 na seleção reavaliada. Uma execução concluída por caso não mede consistência entre repetições |
+| Qualidade: testes funcionando | Suíte automatizada e avaliação local de 20 cenários | 70 testes aprovados, incluindo 14 regressões novas sobre os 56 anteriores; integração HTTP também testada com respostas controladas |
+| Aplicação: problema real | Apoio ao trabalho de triagem e redação de suporte | Problema operacional plausível, com validação organizacional ainda pendente |
+
+## 7. Resultado e recomendação
+
+A entrega contém a biblioteca de prompts, documentação, testes e exemplos executáveis. A avaliação local encontra-se em [reports/demo.md](../reports/demo.md), com identificação explícita de simulação e hashes da versão usada. O comportamento em cada caso pode ser inspecionado no relatório JSON correspondente.
+
+Resultados observados na entrega:
+
+| Verificação executada | Resultado |
+|---|---|
+| Suíte automatizada sem rede | 70 testes aprovados na versão 1.2.0, incluindo 14 regressões novas; os 56 testes anteriores foram mantidos |
+| Avaliação sintética com simulador | 20 casos, três repetições, 60/60 execuções aprovadas |
+| Concordância de decisões na simulação | 100%, esperada em um simulador determinístico |
+| Exemplo completo | Rascunho de cobrança fundamentado em KB-002, aguardando revisão humana |
+| Chamada real ao Groq | Um chamado sintético aprovado; quatro etapas, 5.212 ms e 6.242 tokens informados |
+| Matrizes completas no modo Groq | Original 1.0.0: 17/20; intermediária 1.1.1: 19/20; final 1.1.2 consolidada: 20/20. Cada uma inclui 15 casos com API e 5 encaminhamentos locais |
+| Consumo dos 20 resultados concluídos de cada versão | 73.625 → 87.680 → 87.230 tokens; 49 → 51 → 51 chamadas. Final +18,48% em relação à original; tentativas interrompidas contabilizadas separadamente |
+| Versão atual 1.2.0 | Seis casos solicitados concluídos e aprovados nas nove verificações: C05, C10, C13, C15, C18 e C19. Os outros 14 não foram reavaliados no Groq |
+| Consumo do ciclo de correções e retomadas | 287.160 tokens informados: 258.378 de entrada e 28.782 de saída; 197 tentativas do cliente, das quais 18 sem resposta HTTP, 165 HTTP 200 e 14 HTTP 429 históricos |
+| Reavaliação mais recente | 46.806 tokens, contra 40.756 nas seis execuções anteriores (+14,84%); 25 HTTP 200 e uma correção de C15. Preservados também os 18 erros de conexão iniciais sem uso informado |
+| Total histórico documentado | 367.027 tokens, incluindo correções, retomadas, matriz original e teste isolado anterior |
+| Falhas corrigidas e limitações restantes | As seis ressalvas alvo foram removidas das saídas finais; “Aguardar” recebeu correção local. Permanecem limites dos padrões, ajustes editoriais e necessidade de validação independente |
+
+Os resultados acima demonstram a execução do protótipo e dos controles testados. Não são uma medição de acurácia, segurança ou confiabilidade de um modelo em produção.
+
+A reavaliação dos seis casos está concluída, com todos os resultados anteriores preservados. Antes de um piloto, é necessário avaliar a matriz completa na versão atual, ajustar a apresentação dos rascunhos e validar uma amostra independente das correções. O primeiro piloto deve usar base empresarial aprovada, apresentar rascunhos a atendentes, registrar correções e medir qualidade e tempo de trabalho. A operação autônoma não faz parte do escopo recomendado.
+
+## 8. Como adaptar para uma empresa real
+
+1. Entrevistar o responsável pelo suporte e definir categorias, prioridades e exemplos de erro grave.
+2. Substituir a base fictícia por procedimentos aprovados, identificando responsável e versão de cada artigo.
+3. Obter uma amostra autorizada, minimizar dados pessoais e rotular os casos com apoio de atendentes.
+4. Congelar um conjunto de avaliação separado dos exemplos few-shot e dos casos usados para ajustar prompts.
+5. Comparar o processo manual, um prompt único e o pipeline com os mesmos casos e a mesma rubrica.
+6. Revisar resultados, custo, latência e taxa de encaminhamento antes de ampliar o piloto.
+
+Não é necessário colocar o sistema em produção para concluir a análise acadêmica. É necessário distinguir o que foi implementado, o que foi testado por simulação e o que ainda depende de validação real.

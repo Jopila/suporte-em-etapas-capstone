@@ -1,0 +1,217 @@
+{
+  "id": "C15",
+  "run": 1,
+  "expected": {
+    "category": "cobranca",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-002"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": false,
+    "citations": false,
+    "contracts": false,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": false,
+  "result": {
+    "ticket_id": "C15",
+    "pipeline_version": "1.1.2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.1.1",
+    "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "encaminhamento_humano",
+    "reasons": [
+      "groq_retry_later"
+    ],
+    "operational_error": true,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "financeiro",
+    "triage": {
+      "summary": "Cliente relata cobrança incorreta e solicita garantia de reembolso para amanhã.",
+      "category": "cobranca",
+      "priority": "P3",
+      "confidence": 0.96,
+      "facts": [
+        "Cobrança está errada",
+        "Cliente solicita reembolso"
+      ],
+      "missing_information": [
+        "Valor da cobrança incorreta",
+        "Data da cobrança",
+        "Forma de pagamento utilizada"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-002"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-002",
+          "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-002",
+          "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+        },
+        {
+          "article_id": "KB-002",
+          "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": false,
+      "grounded": false,
+      "safe": false,
+      "complete": false,
+      "issues": [
+        "unsupported_commitment"
+      ]
+    },
+    "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+    "source_ids": [],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1305
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 804
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 951
+      },
+      {
+        "stage": "validacao_local",
+        "revision": 1,
+        "valid": false,
+        "issues": [
+          "unsupported_commitment"
+        ]
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 39350
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": false,
+        "code": "groq_retry_later",
+        "duration_ms": 40
+      }
+    ],
+    "metrics": {
+      "requests": 5,
+      "stage_calls": 5,
+      "contract_retries": 0,
+      "revisions": 1,
+      "prompt_tokens": 6153,
+      "completion_tokens": 961,
+      "responses_without_usage": 0,
+      "duration_ms": 42454
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata cobrança incorreta e solicita garantia de reembolso para amanhã.",
+        "category": "cobranca",
+        "priority": "P3",
+        "confidence": 0.96,
+        "facts": [
+          "Cobrança está errada",
+          "Cliente solicita reembolso"
+        ],
+        "missing_information": [
+          "Valor da cobrança incorreta",
+          "Data da cobrança",
+          "Forma de pagamento utilizada"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-002",
+            "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-002",
+            "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+          },
+          {
+            "article_id": "KB-002",
+            "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nVocê relatou que a cobrança está errada e solicitou a garantia de que o reembolso será aprovado para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto. Para que a equipe financeira possa analisar a sua solicitação, precisamos das seguintes informações:\n\n1. Qual a competência (mês/ano) da fatura em que ocorreu a cobrança incorreta?\n2. Descreva brevemente a divergência observada (por exemplo, valor cobrado a mais, cobrança duplicada, etc.).\n\nCom esses dados, você deverá:\n- Descrever a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis.\n- Aguardar a análise financeira antes de considerar qualquer reembolso ou estorno aprovado.\n\nAssim que recebermos as informações, a equipe financeira dará prosseguimento à análise.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ]
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nVocê relatou que a cobrança está errada e solicitou a garantia de reembolso para amanhã. Conforme a política da Nexo Gestão, não há aprovação automática de reembolso, estorno ou desconto.\n\nPara que a equipe financeira possa analisar a sua solicitação, por favor informe:\n1. A competência (mês/ano) da fatura em que ocorreu a cobrança incorreta;\n2. Uma breve descrição da divergência observada (por exemplo, valor cobrado a mais, cobrança duplicada, etc.).\n\nCom essas informações, siga os passos abaixo:\n- Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis;\n- Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado.\n\nAgradecemos o contato.\n\nAtenciosamente,\nEquipe de Atendimento Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "error_code": "groq_retry_later"
+    }
+  ]
+}

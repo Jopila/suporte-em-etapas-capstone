@@ -1,0 +1,92 @@
+# Retomada dos casos pendentes no Groq — versão 1.2.1
+
+> Registro histórico preservado. Para a conclusão acadêmica, matriz independente 20B e consumo total atualizado, consulte [ENTREGA_FINAL.md](ENTREGA_FINAL.md). Os valores abaixo correspondem à data e ao escopo deste registro.
+
+**Atualizado em 17/10/2026. Modelo:** `openai/gpt-oss-120b`, no Groq. **Código e prompts:** 1.2.1, sem alterações nesta retomada.
+
+**Dos 15 casos solicitados, C01 foi concluído e passou nas nove verificações. Os outros 14 continuam pendentes por limite de cota.** C02 foi interrompido duas vezes: na fundamentação e, depois de respeitada a nova espera, na triagem. Os demais casos não foram iniciados nesta solicitação. C10 e C19 ainda precisam de confirmação online dos ajustes editoriais.
+
+A matriz consolidada tem **6/20 casos concluídos e aprovados: C01 com API e os cinco controles locais anteriores, C03, C06, C07, C16 e C17**. Isso não significa seis casos gerados pelo modelo nem aprovação da matriz completa. Todos os resultados exigem revisão humana e nenhum foi enviado.
+
+Esta solicitação acrescentou **9.379 tokens informados**. O acumulado da versão 1.2.1 é **12.899**, o ciclo de correções e retomadas soma **300.059**, e o histórico completo, **379.926 tokens**. Foram preservados e conferidos por hash os **365 arquivos de evidência anteriores**, incluindo os cinco resultados locais. A documentação anterior foi copiada para 12 snapshots antes da atualização. Não há execução ativa nem agendada.
+
+## Execuções desta solicitação
+
+O prazo anterior era 02:54:46 em America/Sao_Paulo. A primeira retomada começou às **03:50:33**, portanto depois da espera exigida. A seleção original continha apenas os 15 pendentes; os cinco controles locais não foram repetidos.
+
+| Segmento e caso | Resultado | Entrada | Saída | Tokens informados | HTTP 200 | HTTP 429 |
+|---|---|---:|---:|---:|---:|---:|
+| Retomada 1 — C01 | Concluído; passou nas nove verificações | 6.970 | 604 | **7.574** | 4 | 0 |
+| Retomada 1 — C02 | Triagem concluída; fundamentação interrompida | 1.625 | 180 | **1.805** | 1 | 1 |
+| Retomada 2 — C02 | Triagem interrompida antes de gerar saída | 0 | 0 | **0** | 0 | 1 |
+| **Total desta solicitação** | **1 caso concluído; 14 pendentes** | **8.595** | **784** | **9.379** | **5** | **2** |
+
+C01 seguiu as quatro etapas sem correção de contrato ou de resposta. As pausas para recomposição indicadas pelo executor foram respeitadas. Às 03:51:47, o Groq limitou C02 e informou uma espera de **352 segundos (5min52s)**. A segunda retomada começou às **03:57:53**, depois do prazo, e selecionou somente os 14 ainda pendentes, excluindo C01. O Groq voltou a responder com 429 e exigiu **288 segundos (4min48s)**. Nenhum outro caso foi chamado depois desse bloqueio.
+
+As duas interrupções de C02 são falhas operacionais, não reprovações de conteúdo. A ausência de `usage` nos 429 não comprova custo ou consumo nulo. Os 1.805 tokens da triagem interrompida foram incluídos no total. Não houve tentativa sem resposta HTTP nesta solicitação.
+
+## Resultado consolidado dos 20 casos
+
+| Casos | Situação atual |
+|---|---|
+| C01 | Aprovado nesta retomada, com quatro respostas HTTP 200 |
+| C03, C06, C07, C16 e C17 | Aprovações locais anteriores preservadas, sem novas chamadas |
+| C02 | Pendente; duas novas interrupções por 429 preservadas |
+| C04 | Pendente; tentativa anterior interrompida, sem nova chamada nesta solicitação |
+| C05, C08, C09, C10, C11, C12, C13, C14, C15, C18, C19 e C20 | Pendentes; ainda não iniciados no Groq na versão 1.2.1 |
+
+Na inspeção assistida, C01 orienta selecionar “Esqueci minha senha”, consultar o e-mail e o spam e, condicionalmente, solicitar a verificação de titularidade pelo canal aprovado. A fonte KB-001 está no campo estruturado, sem aparecer no texto ao cliente. Não foi observada nova ressalva nesse rascunho. A [inspeção registrada](../reports/groq-v1.2.1-retomada-1-response-inspection.json) não substitui avaliação independente por atendentes.
+
+A evidência anterior de **79 testes locais aprovados**, incluindo nove regressões editoriais, permanece válida para os arquivos congelados e inalterados. A suíte não foi repetida nesta solicitação; a conferência do manifesto verificou os mesmos hashes de código, prompts, testes, dados e modelo.
+
+Os resultados históricos continuam separados: matriz 1.1.2 com 20/20 aprovações pelas regras daquela execução e seleção 1.2.0 com 6/6. Não se usam essas respostas para preencher as pendências da versão 1.2.1. A comparação de custo de matrizes completas continua indisponível enquanto houver casos pendentes.
+
+## Consumo acumulado
+
+| Escopo | Antes desta solicitação | Acréscimo | Atual |
+|---|---:|---:|---:|
+| Todas as tentativas da versão 1.2.1 | 3.520 | 9.379 | **12.899** |
+| Ciclo de correções e retomadas | 290.680 | 9.379 | **300.059** |
+| Histórico, incluindo matriz original e teste isolado | 370.547 | 9.379 | **379.926** |
+
+Na versão 1.2.1, os resultados concluídos consumiram **7.574 tokens**, todos em C01. As tentativas interrompidas consumiram **5.325 tokens informados**: 3.520 anteriores e 1.805 novos. A soma é 12.899, com 11.837 tokens de entrada e 1.062 de saída. Foram 12 tentativas HTTP na versão: sete respostas 200 e cinco 429.
+
+O ciclo completo tem **270.215 tokens de entrada e 29.844 de saída**, com 209 tentativas do cliente: 172 respostas HTTP 200, 19 HTTP 429 e 18 tentativas históricas sem resposta HTTP. O histórico completo acrescenta ainda os 73.625 tokens da matriz original e os 6.242 do teste isolado. Não se estimou consumo ausente nem custo monetário.
+
+A [comparação consolidada](../reports/groq-comparison-v1.2.1-2026-10-17-retomada-2.md) e seus [dados estruturados](../reports/groq-comparison-v1.2.1-2026-10-17-retomada-2.json) incluem os quatro checkpoints. Os totais dos relatórios anteriores permanecem intactos e identificados pelas respectivas datas.
+
+## Próxima retomada preparada
+
+Pendentes: **C02, C04, C05, C08, C09, C10, C11, C12, C13, C14, C15, C18, C19 e C20**. C01 e os cinco controles locais devem continuar preservados.
+
+O novo prazo mínimo, com um segundo de margem, é **17/10/2026 às 04:02:43 em America/Sao_Paulo** (`2026-10-17T07:02:42.426Z`). O prazo não garante cota suficiente, como demonstrou a segunda tentativa. A próxima retomada está preparada, sem agendamento ou processo em espera.
+
+Conferência sem chamadas:
+
+```powershell
+node scripts/resume-groq-v1.2.1-retomada-3.mjs --dry-run
+```
+
+Quando houver cota, executar uma vez:
+
+```powershell
+node scripts/resume-groq-v1.2.1-retomada-3.mjs
+```
+
+O comando valida os checkpoints, a seleção e o manifesto, impede o início antes do prazo e usa um prefixo ainda não iniciado. Uma segunda execução do mesmo prefixo é recusada para evitar repetir resultados concluídos. O [plano de retomada](../reports/groq-v1.2.1-resume-plan-retomada-3.json) e a [conferência sem rede](../reports/groq-v1.2.1-retomada-3-dry-run.json) registram os 14 pendentes. Os planos das retomadas 1 e 2 permanecem como histórico e não devem ser executados novamente.
+
+## Preservação e reprodução
+
+- [Preservação anterior à retomada](../reports/groq-v1.2.1-retomada-1-preservation.json): hashes dos 365 arquivos anteriores e 12 snapshots da documentação.
+- [Checkpoint da retomada 1](../reports/groq-matrix-v1.2.1-2026-10-17-retomada-1-checkpoint.json) e [checkpoint da retomada 2](../reports/groq-matrix-v1.2.1-2026-10-17-retomada-2-checkpoint.json).
+- [Manifesto do código congelado](../reports/groq-v1.2.1-report-manifest.json).
+- [Auditoria final desta solicitação](../reports/groq-v1.2.1-retomadas-1-2-final-audit.json).
+- [Relatório da tentativa inicial 1.2.1](CORRECOES_EDITORIAIS_GROQ.md), com as correções e regressões de C10 e C19.
+
+Para conferir a comparação sem rede, escolha um prefixo inexistente:
+
+```powershell
+node scripts/compare-groq-selected.mjs --baseline reports/groq-progress-v1.1.2-retomada-10.json --manifest reports/groq-v1.2.1-report-manifest.json --preservation reports/groq-v1.2.1-preservation.json --checkpoint reports/groq-matrix-v1.2.1-2026-10-17-checkpoint.json --checkpoint reports/groq-matrix-v1.2.1-2026-10-17-locais-checkpoint.json --checkpoint reports/groq-matrix-v1.2.1-2026-10-17-retomada-1-checkpoint.json --checkpoint reports/groq-matrix-v1.2.1-2026-10-17-retomada-2-checkpoint.json --output reports/groq-comparison-v1.2.1-retomadas-conferencia
+```
+
+A matriz permanece incompleta. A conclusão dos 14 casos e a confirmação online dos ajustes de C10 e C19 dependem de cota disponível. Resultados sintéticos e regras compartilhadas com o pipeline não demonstram consistência entre repetições, generalização ou prontidão para produção.

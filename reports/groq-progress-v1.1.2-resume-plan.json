@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-10-16T16:16:05.786Z",
+  "status": "aguardando_cota_sem_agendamento",
+  "pipeline_version": "1.1.2",
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "1.1.1",
+  "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "manifest": "reports/groq-v1.1.2-run-manifest.json",
+  "completed_case_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C14",
+    "C16",
+    "C17"
+  ],
+  "pending_case_ids": [
+    "C13",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "source_checkpoints": [
+    "reports/groq-matrix-v1.1.2-2026-10-16-checkpoint.json",
+    "reports/groq-remainder-v1.1.2-2026-10-16-checkpoint.json"
+  ],
+  "dry_run_command": "node scripts/evaluate-groq-remainder.mjs --cases C13,C15,C18,C19,C20 --manifest reports/groq-v1.1.2-run-manifest.json --dry-run",
+  "resume_command": "node --env-file=.env.local scripts/evaluate-groq-remainder.mjs --cases C13,C15,C18,C19,C20 --manifest reports/groq-v1.1.2-run-manifest.json --output reports/groq-pendentes-v1.1.2-proxima-rodada",
+  "consolidate_command": "node scripts/consolidate-groq-progress.mjs --additional-checkpoint reports/groq-pendentes-v1.1.2-proxima-rodada-checkpoint.json --output reports/groq-progress-v1.1.2-apos-retomada",
+  "instructions": [
+    "Executar manualmente somente quando houver cota e decisão de retomar.",
+    "Usar prefixo de saída novo; preservar todos os checkpoints.",
+    "Reiniciar cada caso pendente desde a triagem; não reutilizar etapas isoladas de uma tentativa interrompida.",
+    "Não repetir casos concluídos para selecionar uma resposta melhor.",
+    "Se a retomada for parcial, consolidar seu checkpoint e usar a NOVA lista de pendências.",
+    "Em consolidações posteriores, informar todos os checkpoints adicionais; os quatro originais já são incluídos.",
+    "Interromper a comparação se o manifesto não corresponder; versões diferentes exigem relatórios separados.",
+    "Retry-After indica espera mínima observada, não garantia de cota futura."
+  ],
+  "runner_sha256": "04f404a5b8677225aa8897ad0afbaf0b114fb3edfba85a7b85348f29c0784f41",
+  "original_remainder_runner_snapshot": "reports/groq-remainder-v1.1.2-2026-10-16-runner.mjs.snapshot",
+  "original_remainder_runner_sha256": "db1d590cc80c4f75542494206ad70909e6c0f533d02639b4ea838ee686f7aa89"
+}

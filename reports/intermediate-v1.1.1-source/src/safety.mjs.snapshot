@@ -1,0 +1,104 @@
+export const normalize = text => text.normalize('NFKD').replace(/\p{M}/gu, '').replace(/[\u2010-\u2015\u2212]/g, '-').toLowerCase();
+
+const patterns = [
+  ['CHAVE', /\b(?:gsk_|sk-(?:proj-)?)[A-Za-z0-9_-]{10,}\b/g],
+  ['EMAIL', /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi],
+  ['CPF', /\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b/g],
+  ['CARTAO', /\b(?:\d[ -]?){15}\d\b/g],
+  ['TELEFONE', /(?:\+55\s?)?(?:\(\d{2}\)|\b\d{2})[ -]?9?\d{4}[ -]?\d{4}\b/g],
+];
+
+const secretValue = /\b((?:senha|password|token|api[_ -]?key)\s*([:=]|é\s+|e\s+|is\s+)\s*)([^\s,;]+)/gi;
+const ordinaryValue = /^(?:nao|nunca|jamais|o|a|os|as|eu|voce|preciso|quero|devo|consigo|login|incorreta|invalida|errada|fraca|forte|obrigatoria|necessaria|desconhecida)\b/;
+
+export function redact(text) {
+  let cleaned = text;
+  const types = new Set();
+  for (const [type, pattern] of patterns) {
+    cleaned = cleaned.replace(pattern, () => { types.add(type); return `[${type}_REMOVIDO]`; });
+  }
+  cleaned = cleaned.replace(secretValue, (match, prefix, separator, value) => {
+    if (/^\[[A-Z_]+_REMOVIDO\]/.test(value)) return match;
+    const normalized = normalize(value.replace(/^["'“]/, ''));
+    // "senha e não..." é uma conjunção; "senha é inválida" é uma descrição.
+    // O "e" sem acento só indica valor quando este tem sinal de credencial.
+    if (!/[:=]/.test(separator) && (ordinaryValue.test(normalized)
+      || (separator.trim() === 'e' && !/[\d_@!#$%*&+\-]/.test(value)))) return match;
+    types.add('SEGREDO');
+    return `${prefix}[SEGREDO_REMOVIDO]`;
+  });
+  return { text: cleaned, types: [...types].sort() };
+}
+
+export function inspectTicket(ticket) {
+  const original = normalize(`${ticket.subject}\n${ticket.message}`);
+  const injection = /ignore\s+(?:todas?\s+)?(?:as\s+)?(?:regras|instrucoes)|ignore\s+(?:all\s+)?previous|system\s*prompt|prompt\s+(?:do\s+)?sistema|finja\s+ser|revele\s+(?:as?\s+)?(?:chaves?|segredos?)|<\|(?:system|im_start)/i.test(original);
+  const security = /vazamento|invasao|invadid[oa]|acesso nao autorizado|conta comprometida|dados expostos|roubo de dados|data breach|hacked/.test(original);
+  const outage = /todos|toda a (?:equipe|empresa)|nenhum usuario|empresa inteira/.test(original) && /indisponivel|fora do ar|nao (?:consegue|conseguimos)|parad[oa]|erro 50[0234]/.test(original);
+  const subject = redact(ticket.subject);
+  const message = redact(ticket.message);
+  return {
+    ticket: { id: ticket.id, subject: subject.text, message: message.text },
+    flags: { injection, security, outage },
+    redactions: [...new Set([...subject.types, ...message.types])].sort(),
+  };
+}
+
+const clauses = text => text.split(/[.!?;\n]+|\b(?:mas|porem|contudo|entretanto)\b/).map(part => part.trim()).filter(Boolean);
+const requestVerb = /\b(?:envie|enviar|informe|informar|forneca|fornecer|mande|mandar|anexe|anexar|compartilhe|compartilhar|encaminhe|encaminhar|indique|indicar|precisamos|preciso|qual)\b/;
+const personalIdentifier = /\b(?:e-?mail|telefone|cpf|identificador|id da conta|numero da conta)\b/;
+const attachment = /\b(?:comprovante|extrato|documento pessoal|pdf do boleto)\b/;
+function positiveRequests(text) {
+  // Propague a introdução de uma solicitação para cada item da lista, incluindo
+  // a negação. "Informe:\n- e-mail;\n- comprovante" não são frases independentes.
+  let introduction = '';
+  const expanded = text.split('\n').map(line => {
+    if (!line.trim()) return line;
+    if (introduction && /^\s*(?:[-*•]|\d+[.)])\s+/.test(line)) return `${introduction} ${line.replace(/^\s*(?:[-*•]|\d+[.)])\s+/, '')}`;
+    introduction = /:\s*$/.test(line) && requestVerb.test(line) ? line : '';
+    return line;
+  }).join('\n');
+  return clauses(expanded).flatMap(part => {
+    const matches = [...part.matchAll(new RegExp(requestVerb.source, 'g'))];
+    return matches.flatMap((match, index) => {
+      const prefix = part.slice(0, match.index);
+      if (/\b(?:nao|nunca|jamais)\s+(?:(?:e necessario|precisa|deve|solicite|solicitamos)\s+)?$/.test(prefix)) return [];
+      return [part.slice(match.index, matches[index + 1]?.index ?? part.length)];
+    });
+  });
+}
+
+export function checkDraft(draft, grounding, articles = []) {
+  const errors = [];
+  const allowed = new Set(grounding.evidence.map(item => item.article_id));
+  if (!draft.source_ids.length || draft.source_ids.some(id => !allowed.has(id))) errors.push('invalid_citation');
+  const n = normalize(draft.message);
+  // Instruções copiadas literalmente da base aprovada podem mencionar uma
+  // aprovação em contexto condicional. Exclua só esses trechos deste detector.
+  const claims = grounding.actions.reduce((body, action) => body.replaceAll(normalize(action.instruction), ' '), n);
+  // Remova apenas a afirmação negada, nunca o restante da frase: uma promessa
+  // posterior ("..., mas/e seu estorno foi aprovado") deve continuar bloqueada.
+  const positiveClaims = claims.replace(/\bnao (?:podemos|posso|e possivel) (?:confirmar|garantir) que (?:o |seu )?(?:reembolso|estorno)(?: foi| esta)? aprovado\b/g, 'RECUSA');
+  if (/\b(?:garantimos|garanto|(?:reembolso|estorno)(?: foi| esta)? aprovado|problema resolvido|ja (?:realizamos|efetuamos|cancelamos))\b/.test(positiveClaims)) errors.push('unsupported_commitment');
+  const requests = n.replace(/\b(?:nao|nunca|jamais)\s+(?:envie|informe|compartilhe|mande|digite)\b/g, 'AVISO');
+  if (/\b(?:envie|informe|compartilhe|mande|digite).{0,45}(?:sua senha|a senha|codigo de verificacao|numero completo do cartao|seu token|chave de api)/.test(requests)) errors.push('secret_request');
+  if (redact(draft.message).types.length) errors.push('sensitive_output');
+  const evidenceText = normalize([
+    ...articles.filter(article => allowed.has(article.id)).map(article => article.content),
+    ...grounding.evidence.map(item => item.quote ?? ''),
+    ...grounding.actions.map(item => item.instruction),
+  ].join('\n'));
+  for (const channel of [/\bsms\b|mensagem de texto/, /\bwhatsapp\b/]) {
+    if (channel.test(n) && !channel.test(evidenceText)) errors.push('unsupported_channel');
+  }
+  // O pipeline não consulta sistemas: estes verbos afirmam uma verificação inexistente.
+  if (/\b(?:identificamos|constatamos|verificamos|confirmamos|detectamos|consultamos|analisamos)\b/.test(n)) errors.push('unverified_confirmation');
+  const approvedRequests = grounding.actions.flatMap(action => positiveRequests(normalize(action.instruction)));
+  for (const part of positiveRequests(n)) {
+    if (personalIdentifier.test(part) && !approvedRequests.some(action => personalIdentifier.test(action) && part.includes(action))) errors.push('unnecessary_personal_data');
+    if (attachment.test(part) && !approvedRequests.some(action => attachment.test(action) && part.includes(action))) errors.push('unauthorized_attachment_request');
+  }
+  if (/\b(?:informando|informe|indique)\s+(?:qual e\s+)?o canal aprovado\b/.test(n)) errors.push('ambiguous_verification_channel');
+  // A revisão humana continua obrigatória: estes padrões não cobrem toda linguagem natural.
+  return [...new Set(errors)];
+}

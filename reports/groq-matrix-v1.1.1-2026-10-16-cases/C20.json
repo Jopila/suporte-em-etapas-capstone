@@ -1,0 +1,192 @@
+{
+  "id": "C20",
+  "run": 1,
+  "expected": {
+    "category": "cancelamento",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-005"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": true,
+  "result": {
+    "ticket_id": "C20",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.1.1",
+    "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "sucesso_cliente",
+    "triage": {
+      "summary": "Cliente deseja encerrar a assinatura e solicita confirmação do cancelamento.",
+      "category": "cancelamento",
+      "priority": "P3",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente quer encerrar a assinatura",
+        "Cliente pede confirmação do cancelamento"
+      ],
+      "missing_information": [
+        "Identificador da conta ou número do cliente"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-005"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-005",
+          "quote": "A solicitação precisa ser confirmada pela equipe responsável."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-005",
+          "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+        },
+        {
+          "article_id": "KB-005",
+          "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá,\n\nVocê relatou que deseja encerrar sua assinatura e pediu confirmação do cancelamento. Conforme a política de cancelamento (KB-005), o titular pode solicitar o encerramento da assinatura seguindo estes passos:\n\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento**.\n2. Submeta a solicitação.\n3. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n\nA confirmação da equipe é necessária para que o cancelamento seja efetivado, e os detalhes sobre efeitos financeiros, data de encerramento e eventual devolução dependem da análise do contrato, que não está disponível nesta base.\n\nCaso precise de mais orientações sobre como acessar a seção de cancelamento, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-005"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 846
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 742
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1527
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 537
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 6122,
+      "completion_tokens": 681,
+      "responses_without_usage": 0,
+      "duration_ms": 3653
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente deseja encerrar a assinatura e solicita confirmação do cancelamento.",
+        "category": "cancelamento",
+        "priority": "P3",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente quer encerrar a assinatura",
+          "Cliente pede confirmação do cancelamento"
+        ],
+        "missing_information": [
+          "Identificador da conta ou número do cliente"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-005",
+            "quote": "A solicitação precisa ser confirmada pela equipe responsável."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-005",
+            "instruction": "O titular pode abrir Conta > Assinatura > Solicitar cancelamento."
+          },
+          {
+            "article_id": "KB-005",
+            "instruction": "Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá,\n\nVocê relatou que deseja encerrar sua assinatura e pediu confirmação do cancelamento. Conforme a política de cancelamento (KB-005), o titular pode solicitar o encerramento da assinatura seguindo estes passos:\n\n1. Acesse a área **Conta > Assinatura > Solicitar cancelamento**.\n2. Submeta a solicitação.\n3. Aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n\nA confirmação da equipe é necessária para que o cancelamento seja efetivado, e os detalhes sobre efeitos financeiros, data de encerramento e eventual devolução dependem da análise do contrato, que não está disponível nesta base.\n\nCaso precise de mais orientações sobre como acessar a seção de cancelamento, estou à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-005"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

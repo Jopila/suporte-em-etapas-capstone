@@ -1,0 +1,344 @@
+{
+  "generated_at": "2026-10-17T04:58:55.726Z",
+  "scope": "Ciclo de correções, regressões e retomadas; inclui todas as tentativas preservadas.",
+  "segments": [
+    {
+      "label": "1.1.0 parcial",
+      "checkpoint": "reports/groq-matrix-v1.1.0-2026-10-16-checkpoint.json",
+      "current": false,
+      "started_at": "2026-10-16T15:34:25.977Z",
+      "checkpoint_sha256": "00747dfa743e0f58c10493fe756554ae086a4fbbdaa1643f1060e1d9f582ad21",
+      "recorded_cases": 7,
+      "passed_cases": 6,
+      "operational_error_cases": [],
+      "usage": {
+        "requests": 18,
+        "prompt_tokens": 27992,
+        "completion_tokens": 3290,
+        "responses_without_usage": 0,
+        "total_tokens": 31282
+      },
+      "http_status_counts": {
+        "200": 18
+      }
+    },
+    {
+      "label": "1.1.1 completa",
+      "checkpoint": "reports/groq-matrix-v1.1.1-2026-10-16-checkpoint.json",
+      "current": false,
+      "started_at": "2026-10-16T15:40:57.360Z",
+      "checkpoint_sha256": "34f5dec28f0a52fbfc054d6925b1dfbf7e1207ee77a25f3b1e461a462a4cea6e",
+      "recorded_cases": 20,
+      "passed_cases": 19,
+      "operational_error_cases": [],
+      "usage": {
+        "requests": 51,
+        "prompt_tokens": 78794,
+        "completion_tokens": 8886,
+        "responses_without_usage": 0,
+        "total_tokens": 87680
+      },
+      "http_status_counts": {
+        "200": 51
+      }
+    },
+    {
+      "label": "1.1.2 tentativa integral",
+      "checkpoint": "reports/groq-matrix-v1.1.2-2026-10-16-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T15:54:34.295Z",
+      "checkpoint_sha256": "f1b5f915c8ca9f798d3cbe95405e6a82cce833c4a0776e0d6848752e3f0098f4",
+      "recorded_cases": 13,
+      "passed_cases": 12,
+      "operational_error_cases": [
+        "C13"
+      ],
+      "usage": {
+        "requests": 31,
+        "prompt_tokens": 46387,
+        "completion_tokens": 4984,
+        "responses_without_usage": 0,
+        "total_tokens": 51371
+      },
+      "http_status_counts": {
+        "200": 30,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada de C13",
+      "checkpoint": "reports/groq-remainder-v1.1.2-2026-10-16-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T16:07:02.998Z",
+      "checkpoint_sha256": "0b17bb64e4772f60619593209985d9cc319aa883ea084cd9456814e95b79f5d2",
+      "recorded_cases": 5,
+      "passed_cases": 3,
+      "operational_error_cases": [
+        "C13",
+        "C15"
+      ],
+      "usage": {
+        "requests": 4,
+        "prompt_tokens": 3113,
+        "completion_tokens": 276,
+        "responses_without_usage": 0,
+        "total_tokens": 3389
+      },
+      "http_status_counts": {
+        "200": 2,
+        "429": 2
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 1",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-proxima-rodada-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T16:33:01.103Z",
+      "checkpoint_sha256": "45e941cee7c85ca2a4c939937d00ecd1f7d0f805f83a8e829ac3bded19ae5f80",
+      "recorded_cases": 1,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C13"
+      ],
+      "usage": {
+        "requests": 4,
+        "prompt_tokens": 4400,
+        "completion_tokens": 498,
+        "responses_without_usage": 0,
+        "total_tokens": 4898
+      },
+      "http_status_counts": {
+        "200": 3,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 2",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-2-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T16:50:09.013Z",
+      "checkpoint_sha256": "8cdaaaa7cc3f0a4fdb1d9f11eea1841f5f7d5119ba01a9ae8e81b094f841c363",
+      "recorded_cases": 1,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C13"
+      ],
+      "usage": {
+        "requests": 2,
+        "prompt_tokens": 1559,
+        "completion_tokens": 136,
+        "responses_without_usage": 0,
+        "total_tokens": 1695
+      },
+      "http_status_counts": {
+        "200": 1,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 3",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-3-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T18:13:23.232Z",
+      "checkpoint_sha256": "4bee3b458c3d68c24e71ecafde94a8f242bf29ebb0c00c44e11fd6a85c0d0784",
+      "recorded_cases": 2,
+      "passed_cases": 1,
+      "operational_error_cases": [
+        "C15"
+      ],
+      "usage": {
+        "requests": 8,
+        "prompt_tokens": 10568,
+        "completion_tokens": 1317,
+        "responses_without_usage": 0,
+        "total_tokens": 11885
+      },
+      "http_status_counts": {
+        "200": 7,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 4",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-4-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T18:23:32.344Z",
+      "checkpoint_sha256": "e61f27a00d32fbfe03b97f1e036ff37c04d1683776237aa412590713a1d50708",
+      "recorded_cases": 2,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C15",
+        "C18"
+      ],
+      "usage": {
+        "requests": 3,
+        "prompt_tokens": 1567,
+        "completion_tokens": 144,
+        "responses_without_usage": 0,
+        "total_tokens": 1711
+      },
+      "http_status_counts": {
+        "200": 1,
+        "429": 2
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 5",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-5-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T19:18:54.732Z",
+      "checkpoint_sha256": "b650a45f3d3cfa710ae6098031dfecb6528558176e590f00f40c19b4d871b07e",
+      "recorded_cases": 1,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C15"
+      ],
+      "usage": {
+        "requests": 5,
+        "prompt_tokens": 6153,
+        "completion_tokens": 961,
+        "responses_without_usage": 0,
+        "total_tokens": 7114
+      },
+      "http_status_counts": {
+        "200": 4,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 6",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-6-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T19:26:31.086Z",
+      "checkpoint_sha256": "5402b1c9a2b15b815ee487806494f850d4a7e42f2473ab21a250a9bc20818a65",
+      "recorded_cases": 1,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C15"
+      ],
+      "usage": {
+        "requests": 2,
+        "prompt_tokens": 1562,
+        "completion_tokens": 166,
+        "responses_without_usage": 0,
+        "total_tokens": 1728
+      },
+      "http_status_counts": {
+        "200": 1,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 7",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-7-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T19:59:17.328Z",
+      "checkpoint_sha256": "bd7641ce5ede0008ac03f3096ebc4b5200e831a7ab45b5a857f5b1acaffb7add",
+      "recorded_cases": 1,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C15"
+      ],
+      "usage": {
+        "requests": 3,
+        "prompt_tokens": 2996,
+        "completion_tokens": 389,
+        "responses_without_usage": 0,
+        "total_tokens": 3385
+      },
+      "http_status_counts": {
+        "200": 2,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 8",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-8-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T20:02:08.144Z",
+      "checkpoint_sha256": "ea4363c3cd6f4c8d76e0f38b8e62625faf1a79fe22b96062d6ee29107dcdcc6f",
+      "recorded_cases": 2,
+      "passed_cases": 0,
+      "operational_error_cases": [
+        "C15",
+        "C18"
+      ],
+      "usage": {
+        "requests": 3,
+        "prompt_tokens": 1567,
+        "completion_tokens": 128,
+        "responses_without_usage": 0,
+        "total_tokens": 1695
+      },
+      "http_status_counts": {
+        "200": 1,
+        "429": 2
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 9",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-9-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-16T21:30:16.957Z",
+      "checkpoint_sha256": "37c1a4dbda066f795786183bd8ac95643f3bee35e1a8eb03c71ba06d30e0cb84",
+      "recorded_cases": 2,
+      "passed_cases": 1,
+      "operational_error_cases": [
+        "C18"
+      ],
+      "usage": {
+        "requests": 8,
+        "prompt_tokens": 10785,
+        "completion_tokens": 1280,
+        "responses_without_usage": 0,
+        "total_tokens": 12065
+      },
+      "http_status_counts": {
+        "200": 7,
+        "429": 1
+      }
+    },
+    {
+      "label": "1.1.2 retomada adicional 10",
+      "checkpoint": "reports/groq-pendentes-v1.1.2-retomada-10-checkpoint.json",
+      "current": true,
+      "started_at": "2026-10-17T04:55:56.696Z",
+      "checkpoint_sha256": "d1b84d1fbc73d2453d983666b29f0d3d227e28c03637bdf187fe7ea6b42345f0",
+      "recorded_cases": 3,
+      "passed_cases": 3,
+      "operational_error_cases": [],
+      "usage": {
+        "requests": 12,
+        "prompt_tokens": 18444,
+        "completion_tokens": 2012,
+        "responses_without_usage": 0,
+        "total_tokens": 20456
+      },
+      "http_status_counts": {
+        "200": 12
+      }
+    }
+  ],
+  "total_this_request": {
+    "requests": 154,
+    "prompt_tokens": 215887,
+    "completion_tokens": 24467,
+    "responses_without_usage": 0,
+    "total_tokens": 240354
+  },
+  "http_status_counts": {
+    "200": 140,
+    "429": 14
+  },
+  "excluded": [
+    {
+      "label": "Matriz original anterior",
+      "tokens": 73625
+    },
+    {
+      "label": "Smoke test anterior",
+      "tokens": 6242
+    }
+  ],
+  "caveat": "Tokens informados em usage. Respostas HTTP 429 não forneceram usage; não se presume custo monetário nem consumo nulo de tentativas rejeitadas."
+}

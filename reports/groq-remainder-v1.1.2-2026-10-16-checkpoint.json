@@ -1,0 +1,494 @@
+{
+  "started_at": "2026-10-16T16:07:02.998Z",
+  "completed_cases": 5,
+  "cases": [
+    {
+      "id": "C13",
+      "run": 1,
+      "expected": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-004"
+        ]
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C13",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_retry_later"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "suporte_tecnico",
+        "triage": {
+          "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+          "category": "duvida",
+          "priority": "P4",
+          "confidence": 0.96,
+          "facts": [
+            "Cliente deseja exportar CSV",
+            "Cliente indica que o sistema está funcionando normalmente"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [
+          "KB-004"
+        ],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 989
+          },
+          {
+            "stage": "fundamentacao",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_retry_later",
+            "duration_ms": 44
+          }
+        ],
+        "metrics": {
+          "requests": 2,
+          "stage_calls": 2,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1559,
+          "completion_tokens": 126,
+          "responses_without_usage": 0,
+          "duration_ms": 1034
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente solicita orientação para exportar dados em formato CSV, informando que o sistema está funcionando normalmente.",
+            "category": "duvida",
+            "priority": "P4",
+            "confidence": 0.96,
+            "facts": [
+              "Cliente deseja exportar CSV",
+              "Cliente indica que o sistema está funcionando normalmente"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        },
+        {
+          "stage": "fundamentacao",
+          "error_code": "groq_retry_later"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C14",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "low_confidence"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Cliente pergunta se vai chover no fim de semana.",
+          "category": "outros",
+          "priority": "P3",
+          "confidence": 0.2,
+          "facts": [
+            "Cliente pergunta sobre previsão do tempo"
+          ],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": true,
+            "duration_ms": 811
+          }
+        ],
+        "metrics": {
+          "requests": 1,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 1554,
+          "completion_tokens": 150,
+          "responses_without_usage": 0,
+          "duration_ms": 811
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "output": {
+            "summary": "Cliente pergunta se vai chover no fim de semana.",
+            "category": "outros",
+            "priority": "P3",
+            "confidence": 0.2,
+            "facts": [
+              "Cliente pergunta sobre previsão do tempo"
+            ],
+            "missing_information": [],
+            "security_risk": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "run": 1,
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "checks": {
+        "category": false,
+        "priority": false,
+        "routing": false,
+        "citations": false,
+        "contracts": false,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": false,
+      "result": {
+        "ticket_id": "C15",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "groq_retry_later"
+        ],
+        "operational_error": true,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": null,
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": false,
+          "outage": false
+        },
+        "trace": [
+          {
+            "stage": "triagem",
+            "attempt": 1,
+            "valid": false,
+            "code": "groq_retry_later",
+            "duration_ms": 66
+          }
+        ],
+        "metrics": {
+          "requests": 1,
+          "stage_calls": 1,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 66
+        }
+      },
+      "stage_outputs": [
+        {
+          "stage": "triagem",
+          "error_code": "groq_retry_later"
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "run": 1,
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C16",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_injection"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "triagem",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "outros",
+          "priority": "P3",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": false
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": true,
+          "security": false,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    },
+    {
+      "id": "C17",
+      "run": 1,
+      "expected": {
+        "category": "seguranca",
+        "priority": "P1",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "checks": {
+        "category": true,
+        "priority": true,
+        "routing": true,
+        "citations": true,
+        "contracts": true,
+        "evidence": true,
+        "privacy": true,
+        "human_gate": true,
+        "content": true
+      },
+      "content_issues": [],
+      "passed": true,
+      "result": {
+        "ticket_id": "C17",
+        "pipeline_version": "1.1.2",
+        "provider": "groq",
+        "model": "openai/gpt-oss-120b",
+        "simulation": false,
+        "prompt_version": "1.1.1",
+        "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+        "knowledge_version": "1.0.0",
+        "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+        "status": "encaminhamento_humano",
+        "reasons": [
+          "input_security"
+        ],
+        "operational_error": false,
+        "requires_human_approval": true,
+        "auto_sent": false,
+        "team": "seguranca",
+        "triage": {
+          "summary": "Sinal de risco identificado na entrada; encaminhamento humano necessário.",
+          "category": "seguranca",
+          "priority": "P1",
+          "confidence": 0,
+          "facts": [],
+          "missing_information": [],
+          "security_risk": true
+        },
+        "knowledge_ids": [],
+        "grounding": null,
+        "technical_review": null,
+        "response": "Olá! Seu relato indica uma situação que precisa de avaliação humana prioritária. Procure o canal oficial de suporte da sua empresa. Não compartilhe senhas, códigos de autenticação ou dados sensíveis nesta conversa.",
+        "source_ids": [],
+        "redacted_types": [],
+        "flags": {
+          "injection": false,
+          "security": true,
+          "outage": false
+        },
+        "trace": [],
+        "metrics": {
+          "requests": 0,
+          "stage_calls": 0,
+          "contract_retries": 0,
+          "revisions": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "responses_without_usage": 0,
+          "duration_ms": 0
+        }
+      },
+      "stage_outputs": []
+    }
+  ],
+  "http_attempts": [
+    {
+      "case_id": "C13",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792166823991,
+      "token_limit": 8000,
+      "tokens_remaining": 6145,
+      "token_reset_ms": 13912,
+      "requests_remaining": 873
+    },
+    {
+      "case_id": "C13",
+      "stage": "fundamentacao",
+      "status": 429,
+      "retry_after_ms": 96000,
+      "observed_at_ms": 1792166824039,
+      "token_limit": 8000,
+      "tokens_remaining": 7715,
+      "token_reset_ms": 2137,
+      "requests_remaining": 873
+    },
+    {
+      "case_id": "C14",
+      "stage": "triagem",
+      "status": 200,
+      "retry_after_ms": null,
+      "observed_at_ms": 1792166920858,
+      "token_limit": 8000,
+      "tokens_remaining": 6320,
+      "token_reset_ms": 12600,
+      "requests_remaining": 873
+    },
+    {
+      "case_id": "C15",
+      "stage": "triagem",
+      "status": 429,
+      "retry_after_ms": 324000,
+      "observed_at_ms": 1792166934035,
+      "token_limit": 8000,
+      "tokens_remaining": 8000,
+      "token_reset_ms": 1,
+      "requests_remaining": 873
+    }
+  ]
+}

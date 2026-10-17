@@ -1,0 +1,70 @@
+# Teste real do pipeline com Groq
+
+> Registro histórico preservado. Para a conclusão acadêmica, matriz independente 20B e consumo total atualizado, consulte [ENTREGA_FINAL.md](ENTREGA_FINAL.md). Os valores abaixo correspondem à data e ao escopo deste registro.
+
+**Data:** 16/10/2026  
+**Resultado:** concluído com sucesso em um chamado sintético.  
+**Configuração:** chave carregada de `.env.local`, sem exposição nos logs ou neste relatório.  
+**Atualização posterior:** a [matriz completa de 20 casos](AVALIACAO_GROQ_20_CASOS.md) foi executada e documentada separadamente, com 17/20 aprovações automáticas. Este arquivo preserva o teste isolado inicial.
+
+## Escopo
+
+Foi executado o chamado de `examples/chamado.json`, sobre cobrança duplicada na fatura. O teste usou a API real do Groq e a base fictícia do capstone. Nenhuma mensagem foi enviada a clientes. Naquele momento, a matriz inteira ainda não havia sido executada; seu resultado posterior está no relatório indicado acima.
+
+```powershell
+node --env-file=.env.local src/cli.mjs run --provider groq --input examples/chamado.json --output reports/groq-live-resultado.json
+```
+
+## Resultado observado
+
+| Item | Resultado |
+|---|---|
+| Provedor | Groq, sem simulação |
+| Modelo | `openai/gpt-oss-120b`, hospedado no Groq |
+| Categoria | `cobranca` |
+| Prioridade | `P3` |
+| Equipe sugerida | `financeiro` |
+| Fonte | `KB-002` |
+| Status | `rascunho_validado` |
+| Revisão pelo modelo | Fundamentação, segurança e completude aprovadas |
+| Aprovação humana | Continua obrigatória |
+| Mensagem enviada | Não |
+| Erro operacional | Não |
+
+## Etapas e consumo
+
+| Etapa | Tentativas de contrato | Duração |
+|---|---:|---:|
+| Triagem | 1 | 1.003 ms |
+| Fundamentação | 1 | 812 ms |
+| Resposta | 1 | 1.333 ms |
+| Revisão | 1 | 2.063 ms |
+
+- Duração total do pipeline: **5.212 ms**, aproximadamente **5,2 segundos**.
+- Chamadas: **4**, sem repetição de transporte ou de contrato na execução bem-sucedida.
+- Correções do rascunho: **0**.
+- Tokens de entrada informados: **5.493**.
+- Tokens de saída informados: **749**.
+- Total informado: **6.242 tokens**.
+
+Não foi calculado custo monetário. O consumo informado pelo provedor não substitui o extrato da conta.
+
+## Conteúdo produzido
+
+O rascunho orientou o cliente a localizar a competência da fatura em **Financeiro > Faturas**, descrever a divergência para a equipe financeira e aguardar a análise. Solicitou número e período da fatura e recomendou não incluir dados de cartão ou informações sensíveis. A resposta não confirmou um reembolso nem fixou prazo de resolução.
+
+O texto integral, as evidências e o trace estão em [groq-live-resultado.json](../reports/groq-live-resultado.json).
+
+## Verificações posteriores
+
+Sem novas chamadas ao Groq, a saída salva foi validada contra os contratos das quatro etapas. A citação literal e as ações foram conferidas na base, os IDs de fonte foram verificados e os controles locais da resposta passaram. Os hashes dos prompts e da base coincidem com os arquivos usados no projeto. Também foi verificado que a chave configurada não aparece no JSON do resultado.
+
+Evidência: [groq-live-verificacao.json](../reports/groq-live-verificacao.json).
+
+## Conectividade e limite da conclusão
+
+A primeira tentativa no ambiente com rede restrita falhou na resolução do endereço do Groq (`ENOTFOUND`), antes de receber uma resposta da API. O pipeline registrou `groq_network_error` e fez o encaminhamento conservador previsto. Esse registro foi preservado em [groq-live-smoke.json](../reports/groq-live-smoke.json).
+
+Após permitir o acesso de rede para o comando autorizado, o teste concluiu normalmente. A chave não precisou ser alterada.
+
+Este teste confirma que a chave funciona e que o pipeline completo executou esse caso pelo Groq. Uma execução não mede acurácia geral, consistência entre repetições, resistência a ataques ou prontidão para produção. A avaliação local de 60/60 permanece identificada como simulação. A matriz real posterior encontrou divergências e problemas de conteúdo, detalhados em seu próprio relatório; a validação com uma amostra autorizada e revisão por atendentes continua pendente.

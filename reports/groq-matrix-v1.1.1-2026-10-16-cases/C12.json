@@ -1,0 +1,202 @@
+{
+  "id": "C12",
+  "run": 1,
+  "expected": {
+    "category": "erro_tecnico",
+    "priority": "P2",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-003"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": true,
+  "result": {
+    "ticket_id": "C12",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.1.1",
+    "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "suporte_tecnico",
+    "triage": {
+      "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuação do trabalho e afirma ser o único afetado.",
+      "category": "erro_tecnico",
+      "priority": "P2",
+      "confidence": 0.94,
+      "facts": [
+        "Cliente relata erro 500 ao abrir o painel",
+        "Cliente afirma ser o único com o problema"
+      ],
+      "missing_information": [
+        "Horário aproximado do erro",
+        "Mensagem completa ou captura de tela do erro"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-003"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-003",
+          "quote": "Para uma falha técnica individual, registrar funcionalidade afetada, horário aproximado e mensagem de erro"
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-003",
+          "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+        },
+        {
+          "article_id": "KB-003",
+          "instruction": "Após preservar qualquer trabalho não salvo, tente recarregar a página uma vez."
+        },
+        {
+          "article_id": "KB-003",
+          "instruction": "Se o erro persistir, solicite a análise da equipe técnica."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá, você relatou um erro 500 ao abrir o painel, o que está impedindo a continuação do seu trabalho.\n\nPara avançarmos, por favor informe a funcionalidade que estava tentando acessar (por exemplo, \"painel de controle\", \"relatórios\", etc.) e o horário aproximado em que o erro ocorreu.\n\nCom essas informações, siga os passos abaixo:\n1. Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro (erro 500), sem incluir dados pessoais.\n2. Preserve qualquer trabalho não salvo e tente recarregar a página uma única vez.\n3. Caso o erro persista, solicite a análise da equipe técnica.\n\nAguardamos sua resposta para que possamos registrar o caso e encaminhá‑lo à equipe responsável.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-003"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1151
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 793
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1658
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 36342
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 6335,
+      "completion_tokens": 728,
+      "responses_without_usage": 0,
+      "duration_ms": 39944
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata erro 500 ao abrir o painel, impedindo a continuação do trabalho e afirma ser o único afetado.",
+        "category": "erro_tecnico",
+        "priority": "P2",
+        "confidence": 0.94,
+        "facts": [
+          "Cliente relata erro 500 ao abrir o painel",
+          "Cliente afirma ser o único com o problema"
+        ],
+        "missing_information": [
+          "Horário aproximado do erro",
+          "Mensagem completa ou captura de tela do erro"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-003",
+            "quote": "Para uma falha técnica individual, registrar funcionalidade afetada, horário aproximado e mensagem de erro"
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-003",
+            "instruction": "Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro, sem dados pessoais."
+          },
+          {
+            "article_id": "KB-003",
+            "instruction": "Após preservar qualquer trabalho não salvo, tente recarregar a página uma vez."
+          },
+          {
+            "article_id": "KB-003",
+            "instruction": "Se o erro persistir, solicite a análise da equipe técnica."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá, você relatou um erro 500 ao abrir o painel, o que está impedindo a continuação do seu trabalho.\n\nPara avançarmos, por favor informe a funcionalidade que estava tentando acessar (por exemplo, \"painel de controle\", \"relatórios\", etc.) e o horário aproximado em que o erro ocorreu.\n\nCom essas informações, siga os passos abaixo:\n1. Informe a funcionalidade afetada, o horário aproximado e a mensagem de erro (erro 500), sem incluir dados pessoais.\n2. Preserve qualquer trabalho não salvo e tente recarregar a página uma única vez.\n3. Caso o erro persista, solicite a análise da equipe técnica.\n\nAguardamos sua resposta para que possamos registrar o caso e encaminhá‑lo à equipe responsável.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-003"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "id": "C10",
+  "run": 1,
+  "expected": {
+    "category": "cobranca",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-002"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": true,
+    "citations": true,
+    "contracts": true,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true
+  },
+  "passed": true,
+  "result": {
+    "ticket_id": "C10",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.0.0",
+    "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "rascunho_validado",
+    "reasons": [],
+    "operational_error": false,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "financeiro",
+    "triage": {
+      "summary": "Cliente relata cobrança duplicada de boleto e solicita análise da situação.",
+      "category": "cobranca",
+      "priority": "P3",
+      "confidence": 0.95,
+      "facts": [
+        "Cliente relata cobrança duplicada de boleto"
+      ],
+      "missing_information": [
+        "Número do boleto duplicado",
+        "Período da cobrança",
+        "Identificação do cliente (ID ou CNPJ)",
+        "Comprovantes de pagamento"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-002"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-002",
+          "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-002",
+          "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+        },
+        {
+          "article_id": "KB-002",
+          "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+        },
+        {
+          "article_id": "KB-002",
+          "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": {
+      "approved": true,
+      "grounded": true,
+      "safe": true,
+      "complete": true,
+      "issues": []
+    },
+    "response": "Olá, agradecemos o contato e entendemos a sua preocupação com a cobrança duplicada do boleto. Para avançarmos com a análise, siga os passos abaixo:\n\n1. Acesse a área Financeiro > Faturas em sua conta Nexo Gestão e localize a competência referente ao boleto em questão.\n2. Descreva detalhadamente a divergência observada, indicando que houve cobrança duplicada, sem incluir dados sensíveis como informações de cartão.\n3. Aguarde a análise da equipe financeira, que avaliará a situação antes de qualquer decisão sobre reembolso ou estorno.\n\nPara que possamos identificar corretamente a cobrança, poderia nos informar:\n- O número do boleto que foi cobrado duas vezes;\n- Um comprovante de pagamento (por exemplo, o extrato bancário ou o PDF do boleto pago).\n\nCom essas informações, daremos continuidade ao processo de verificação.\n\nEstamos à disposição para quaisquer dúvidas adicionais.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+    "source_ids": [
+      "KB-002"
+    ],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1043
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1092
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 1047
+      },
+      {
+        "stage": "revisao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 484
+      }
+    ],
+    "metrics": {
+      "requests": 4,
+      "stage_calls": 4,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 5433,
+      "completion_tokens": 758,
+      "responses_without_usage": 0,
+      "duration_ms": 3666
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata cobrança duplicada de boleto e solicita análise da situação.",
+        "category": "cobranca",
+        "priority": "P3",
+        "confidence": 0.95,
+        "facts": [
+          "Cliente relata cobrança duplicada de boleto"
+        ],
+        "missing_information": [
+          "Número do boleto duplicado",
+          "Período da cobrança",
+          "Identificação do cliente (ID ou CNPJ)",
+          "Comprovantes de pagamento"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-002",
+            "quote": "Em caso de divergência ou duplicidade de cobrança, o cliente pode consultar a área Financeiro > Faturas."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-002",
+            "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+          },
+          {
+            "article_id": "KB-002",
+            "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+          },
+          {
+            "article_id": "KB-002",
+            "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "output": {
+        "message": "Olá, agradecemos o contato e entendemos a sua preocupação com a cobrança duplicada do boleto. Para avançarmos com a análise, siga os passos abaixo:\n\n1. Acesse a área Financeiro > Faturas em sua conta Nexo Gestão e localize a competência referente ao boleto em questão.\n2. Descreva detalhadamente a divergência observada, indicando que houve cobrança duplicada, sem incluir dados sensíveis como informações de cartão.\n3. Aguarde a análise da equipe financeira, que avaliará a situação antes de qualquer decisão sobre reembolso ou estorno.\n\nPara que possamos identificar corretamente a cobrança, poderia nos informar:\n- O número do boleto que foi cobrado duas vezes;\n- Um comprovante de pagamento (por exemplo, o extrato bancário ou o PDF do boleto pago).\n\nCom essas informações, daremos continuidade ao processo de verificação.\n\nEstamos à disposição para quaisquer dúvidas adicionais.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+        "source_ids": [
+          "KB-002"
+        ]
+      }
+    },
+    {
+      "stage": "revisao",
+      "output": {
+        "approved": true,
+        "grounded": true,
+        "safe": true,
+        "complete": true,
+        "issues": []
+      }
+    }
+  ]
+}

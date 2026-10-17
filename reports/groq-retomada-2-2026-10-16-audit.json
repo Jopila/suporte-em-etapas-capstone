@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-10-16T16:53:46.467Z",
+  "network_calls_in_audit": 0,
+  "pipeline_version": "1.1.2",
+  "manifest_files_verified": 22,
+  "prior_completed_artifacts_unchanged": 15,
+  "complete": false,
+  "pending_case_ids": [
+    "C13",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "latest_resume": {
+    "selected_case_ids": [
+      "C13",
+      "C15",
+      "C18",
+      "C19",
+      "C20"
+    ],
+    "attempted_case_ids": [
+      "C13"
+    ],
+    "requests": 2,
+    "prompt_tokens": 1559,
+    "completion_tokens": 136,
+    "total_tokens": 1695,
+    "http_status_counts": {
+      "200": 1,
+      "429": 1
+    },
+    "blocked_stage": "fundamentacao",
+    "started_at": "2026-10-16T16:50:09.013Z",
+    "previous_minimum_wait_until": "2026-10-16T16:49:46.467Z",
+    "started_after_retry_after": true,
+    "wait_margin_ms": 22546,
+    "retry_after_ms": 426000,
+    "earliest_retry_indicated_at": "2026-10-16T16:57:15.787Z"
+  },
+  "correction_cycle_usage": {
+    "requests": 110,
+    "prompt_tokens": 162245,
+    "completion_tokens": 18070,
+    "responses_without_usage": 0,
+    "total_tokens": 180315
+  },
+  "correction_cycle_http_status_counts": {
+    "200": 105,
+    "429": 5
+  },
+  "current_version_tokens": 61353,
+  "total_documented_historical_tokens": 260182,
+  "next_resume_prefix_unused": true,
+  "all_additional_checkpoints_in_next_plan": true,
+  "local_document_links_checked": 59,
+  "broken_links": 0,
+  "artifacts_scanned_for_exact_key": 174,
+  "exact_key_leaks": 0,
+  "status": "Retomada preparada, conforme preferência anterior para novos bloqueios; sem agendamento."
+}

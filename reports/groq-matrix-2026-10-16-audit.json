@@ -1,0 +1,289 @@
+{
+  "cases": 20,
+  "unique_case_ids": 20,
+  "scores_recomputed": true,
+  "totals_reconciled": true,
+  "prompts_and_knowledge_match_current_files": true,
+  "prompt_hash": "72f833d1a2720fa87b5ae033b2383ab3f7491eefda64da88b1375f4dae059357",
+  "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+  "dataset_hash": "11ea11e11abd38f99a6d478755e6fc26372c7c1a6d5b58b60b0d5574d925b729",
+  "api_key_absent_from_artifacts": true,
+  "artifacts_scanned": 24,
+  "passes": 17,
+  "failures": [
+    {
+      "id": "C09",
+      "failed_checks": [
+        "category",
+        "priority"
+      ],
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "actual": {
+        "category": "duvida",
+        "priority": "P4",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "reasons": [
+        "no_knowledge"
+      ]
+    },
+    {
+      "id": "C14",
+      "failed_checks": [
+        "priority"
+      ],
+      "expected": {
+        "category": "outros",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "actual": {
+        "category": "outros",
+        "priority": "P4",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "reasons": [
+        "no_knowledge"
+      ]
+    },
+    {
+      "id": "C15",
+      "failed_checks": [
+        "routing",
+        "citations"
+      ],
+      "expected": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "rascunho_validado",
+        "sources": [
+          "KB-002"
+        ]
+      },
+      "actual": {
+        "category": "cobranca",
+        "priority": "P3",
+        "status": "encaminhamento_humano",
+        "sources": []
+      },
+      "reasons": [
+        "unsupported_topic"
+      ]
+    }
+  ],
+  "draft_count": 11,
+  "human_routing_count": 9,
+  "usage": {
+    "requests": 49,
+    "prompt_tokens": 65127,
+    "completion_tokens": 8498,
+    "responses_without_usage": 0,
+    "total_tokens": 73625
+  },
+  "latency_ms_all_cases": {
+    "p50": 3244,
+    "p95": 6993
+  },
+  "latency_ms_api_cases": {
+    "p50": 3496,
+    "p95": 10281
+  },
+  "pipeline_duration_ms_sum": 59568,
+  "contract_retries": 0,
+  "revisions": 0,
+  "redaction_counterexample": {
+    "input": "Cliente esqueceu a senha e não consegue entrar.",
+    "output": "Cliente esqueceu a [SEGREDO_REMOVIDO] consegue entrar."
+  },
+  "last_case_response": "Olá,\n\nIdentificamos sua solicitação para encerrar a assinatura. Para iniciar o processo, siga os passos abaixo:\n\n1. Acesse o menu **Conta > Assinatura > Solicitar cancelamento** e registre a sua solicitação.\n2. Após a solicitação, aguarde a confirmação da equipe responsável antes de considerar o plano encerrado.\n3. Consulte a equipe responsável sobre os efeitos financeiros, a data de encerramento e eventuais devoluções, que dependem da análise do contrato.\n\nPara que possamos direcionar sua solicitação corretamente, poderia nos informar o identificador da sua conta ou o e‑mail cadastrado?\n\nCaso tenha mais alguma dúvida, estamos à disposição.\n\nAtenciosamente,\nEquipe Nexo Gestão",
+  "token_table": [
+    {
+      "id": "C01",
+      "passed": true,
+      "requests": 4,
+      "input": 5319,
+      "output": 715,
+      "total": 6034,
+      "duration_ms": 3496
+    },
+    {
+      "id": "C02",
+      "passed": true,
+      "requests": 4,
+      "input": 5408,
+      "output": 790,
+      "total": 6198,
+      "duration_ms": 3186
+    },
+    {
+      "id": "C03",
+      "passed": true,
+      "requests": 0,
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "duration_ms": 0
+    },
+    {
+      "id": "C04",
+      "passed": true,
+      "requests": 4,
+      "input": 5354,
+      "output": 739,
+      "total": 6093,
+      "duration_ms": 3244
+    },
+    {
+      "id": "C05",
+      "passed": true,
+      "requests": 4,
+      "input": 5112,
+      "output": 562,
+      "total": 5674,
+      "duration_ms": 3592
+    },
+    {
+      "id": "C06",
+      "passed": true,
+      "requests": 0,
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "duration_ms": 0
+    },
+    {
+      "id": "C07",
+      "passed": true,
+      "requests": 0,
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "duration_ms": 0
+    },
+    {
+      "id": "C08",
+      "passed": true,
+      "requests": 1,
+      "input": 1311,
+      "output": 171,
+      "total": 1482,
+      "duration_ms": 725
+    },
+    {
+      "id": "C09",
+      "passed": false,
+      "requests": 1,
+      "input": 1321,
+      "output": 170,
+      "total": 1491,
+      "duration_ms": 771
+    },
+    {
+      "id": "C10",
+      "passed": true,
+      "requests": 4,
+      "input": 5433,
+      "output": 758,
+      "total": 6191,
+      "duration_ms": 3666
+    },
+    {
+      "id": "C11",
+      "passed": true,
+      "requests": 4,
+      "input": 5386,
+      "output": 701,
+      "total": 6087,
+      "duration_ms": 4661
+    },
+    {
+      "id": "C12",
+      "passed": true,
+      "requests": 4,
+      "input": 5432,
+      "output": 783,
+      "total": 6215,
+      "duration_ms": 6993
+    },
+    {
+      "id": "C13",
+      "passed": true,
+      "requests": 4,
+      "input": 5164,
+      "output": 584,
+      "total": 5748,
+      "duration_ms": 10281
+    },
+    {
+      "id": "C14",
+      "passed": false,
+      "requests": 1,
+      "input": 1313,
+      "output": 148,
+      "total": 1461,
+      "duration_ms": 772
+    },
+    {
+      "id": "C15",
+      "passed": false,
+      "requests": 2,
+      "input": 2608,
+      "output": 273,
+      "total": 2881,
+      "duration_ms": 3455
+    },
+    {
+      "id": "C16",
+      "passed": true,
+      "requests": 0,
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "duration_ms": 0
+    },
+    {
+      "id": "C17",
+      "passed": true,
+      "requests": 0,
+      "input": 0,
+      "output": 0,
+      "total": 0,
+      "duration_ms": 0
+    },
+    {
+      "id": "C18",
+      "passed": true,
+      "requests": 4,
+      "input": 5337,
+      "output": 684,
+      "total": 6021,
+      "duration_ms": 4940
+    },
+    {
+      "id": "C19",
+      "passed": true,
+      "requests": 4,
+      "input": 5332,
+      "output": 720,
+      "total": 6052,
+      "duration_ms": 6392
+    },
+    {
+      "id": "C20",
+      "passed": true,
+      "requests": 4,
+      "input": 5297,
+      "output": 700,
+      "total": 5997,
+      "duration_ms": 3394
+    }
+  ]
+}

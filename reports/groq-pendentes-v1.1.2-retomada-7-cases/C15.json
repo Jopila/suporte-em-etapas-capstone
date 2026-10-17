@@ -1,0 +1,179 @@
+{
+  "id": "C15",
+  "run": 1,
+  "expected": {
+    "category": "cobranca",
+    "priority": "P3",
+    "status": "rascunho_validado",
+    "sources": [
+      "KB-002"
+    ]
+  },
+  "checks": {
+    "category": true,
+    "priority": true,
+    "routing": false,
+    "citations": false,
+    "contracts": false,
+    "evidence": true,
+    "privacy": true,
+    "human_gate": true,
+    "content": true
+  },
+  "content_issues": [],
+  "passed": false,
+  "result": {
+    "ticket_id": "C15",
+    "pipeline_version": "1.1.2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "simulation": false,
+    "prompt_version": "1.1.1",
+    "prompt_hash": "7736d4494732de4ffcac4c1e949afdf98f9e26d712e5be4b27f0c2a7369d6548",
+    "knowledge_version": "1.0.0",
+    "knowledge_hash": "fd0bd68977a134e9290145e1b4f79f49c278d790ada6bd111ca1dbb6ecc6d9b7",
+    "status": "encaminhamento_humano",
+    "reasons": [
+      "groq_retry_later"
+    ],
+    "operational_error": true,
+    "requires_human_approval": true,
+    "auto_sent": false,
+    "team": "financeiro",
+    "triage": {
+      "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+      "category": "cobranca",
+      "priority": "P3",
+      "confidence": 0.96,
+      "facts": [
+        "Cliente indica cobrança errada",
+        "Cliente solicita reembolso"
+      ],
+      "missing_information": [
+        "Número da fatura ou referência da cobrança",
+        "Data da cobrança",
+        "Método de pagamento utilizado"
+      ],
+      "security_risk": false
+    },
+    "knowledge_ids": [
+      "KB-002"
+    ],
+    "grounding": {
+      "supported": true,
+      "evidence": [
+        {
+          "article_id": "KB-002",
+          "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+        }
+      ],
+      "actions": [
+        {
+          "article_id": "KB-002",
+          "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+        },
+        {
+          "article_id": "KB-002",
+          "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+        },
+        {
+          "article_id": "KB-002",
+          "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+        }
+      ],
+      "missing_information": []
+    },
+    "technical_review": null,
+    "response": "Olá! Precisamos da análise de um atendente para orientar este caso com segurança. Informe a funcionalidade afetada e uma descrição do ocorrido, sem compartilhar senhas, códigos de autenticação ou dados pessoais.",
+    "source_ids": [],
+    "redacted_types": [],
+    "flags": {
+      "injection": false,
+      "security": false,
+      "outage": false
+    },
+    "trace": [
+      {
+        "stage": "triagem",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 825
+      },
+      {
+        "stage": "fundamentacao",
+        "attempt": 1,
+        "valid": true,
+        "duration_ms": 846
+      },
+      {
+        "stage": "resposta",
+        "attempt": 1,
+        "valid": false,
+        "code": "groq_retry_later",
+        "duration_ms": 34
+      }
+    ],
+    "metrics": {
+      "requests": 3,
+      "stage_calls": 3,
+      "contract_retries": 0,
+      "revisions": 0,
+      "prompt_tokens": 2996,
+      "completion_tokens": 389,
+      "responses_without_usage": 0,
+      "duration_ms": 1705
+    }
+  },
+  "stage_outputs": [
+    {
+      "stage": "triagem",
+      "output": {
+        "summary": "Cliente relata cobrança errada e solicita garantia de que o reembolso será aprovado para amanhã.",
+        "category": "cobranca",
+        "priority": "P3",
+        "confidence": 0.96,
+        "facts": [
+          "Cliente indica cobrança errada",
+          "Cliente solicita reembolso"
+        ],
+        "missing_information": [
+          "Número da fatura ou referência da cobrança",
+          "Data da cobrança",
+          "Método de pagamento utilizado"
+        ],
+        "security_risk": false
+      }
+    },
+    {
+      "stage": "fundamentacao",
+      "output": {
+        "supported": true,
+        "evidence": [
+          {
+            "article_id": "KB-002",
+            "quote": "Não há aprovação automática de reembolso, estorno ou desconto."
+          }
+        ],
+        "actions": [
+          {
+            "article_id": "KB-002",
+            "instruction": "Consulte a área Financeiro > Faturas e identifique a competência afetada."
+          },
+          {
+            "article_id": "KB-002",
+            "instruction": "Descreva a divergência para análise da equipe financeira, sem incluir dados de cartão ou outros dados sensíveis."
+          },
+          {
+            "article_id": "KB-002",
+            "instruction": "Aguarde a análise financeira antes de considerar qualquer reembolso ou estorno aprovado."
+          }
+        ],
+        "missing_information": []
+      }
+    },
+    {
+      "stage": "resposta",
+      "error_code": "groq_retry_later"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-10-17T05:44:22.582Z",
+  "status": "prepared_not_scheduled",
+  "pipeline_version": "1.2.1",
+  "manifest": "reports/groq-v1.2.1-report-manifest.json",
+  "comparison": "reports/groq-comparison-v1.2.1-2026-10-17.json",
+  "not_before_utc": "2026-10-17T05:54:45.913Z",
+  "not_before_local": "17/10/2026 às 02:54:46 (America/Sao_Paulo)",
+  "last_retry_after_ms": 740000,
+  "deadline_is_minimum_not_quota_guarantee": true,
+  "completed_case_ids": [
+    "C03",
+    "C06",
+    "C07",
+    "C16",
+    "C17"
+  ],
+  "pending_case_ids": [
+    "C01",
+    "C02",
+    "C04",
+    "C05",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "previous_current_request_tokens": 3520,
+  "correction_cycle_tokens": 290680,
+  "historical_tokens": 370547,
+  "preserved_checkpoints": {
+    "reports/groq-matrix-v1.2.1-2026-10-17-checkpoint.json": "fd8269289ecd90e58782d2578d81d3efcf4bfa3ecb438a0412fb525f5e059938",
+    "reports/groq-matrix-v1.2.1-2026-10-17-locais-checkpoint.json": "105489eb803aac9790c017f03b279b16dadf1a037315e67d203765c51a9a21bd"
+  },
+  "output_prefix": "reports/groq-matrix-v1.2.1-2026-10-17-retomada-1",
+  "command": "node scripts/resume-groq-v1.2.1.mjs",
+  "dry_run_command": "node scripts/resume-groq-v1.2.1.mjs --dry-run",
+  "note": "Executar uma vez após disponibilidade de cota. Preservar tentativas interrompidas; não repetir casos já concluídos. Se a retomada for interrompida, consolidar o checkpoint antes de preparar outra seleção."
+}
